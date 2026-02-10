@@ -1,0 +1,575 @@
+{% style %}
+  .recurpay-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: {% if template.name == 'product' %} static {% else %} fixed {% endif %};
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: box-shadow 0.3s ease;
+  }
+  .recurpay-header.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: relative;
+  }
+  .header-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .header-logo img {
+    height: 42px !important;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .header-logo span {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(17, 17, 17); 
+  }
+  .header-nav {
+    position: relative;
+    z-index: 1;
+  }
+  .header-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  .header-nav li {
+    position: relative;
+  }
+  .header-nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+  }
+  .header-nav .dropdown {
+    position: absolute;
+    top: 100%;
+    padding: 8px;
+    left: -50%;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    display: none !important;
+    min-width: 180px;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .header-nav .dropdown li {
+    padding: 6px 20px;
+  }
+  .header-nav .dropdown li:hover {
+    background: #F3F4F6;
+    border-radius: 5px;
+  }
+  .header-nav .dropdown li a {
+    display: block;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .header-nav .dropdown li a.support-button {
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1.15;
+    transition: background-color 0.2s;
+    text-align: center;
+    margin: 8px 0;
+  }
+  .header-nav .dropdown li a.support-button:hover {
+    background-color: rgb(4,120,87);
+  }
+  .header-nav .dropdown li:hover {
+    background: #F3F4F6;
+  }
+  .header-nav .dropdown li:has(.support-button) {
+    background: transparent;
+  }
+  .header-nav .dropdown li:has(.support-button):hover {
+    background: transparent;
+  }
+  .header-nav li:hover .dropdown {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    min-width: 280px;
+    pointer-events: auto;
+  }
+  .header-buttons {
+    display: flex;
+    gap: 12px;
+  }
+  .btn {
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn.primary {
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1.15;
+    transition: background-color 0.2s;
+  }
+  .btn.primary:hover {
+    background-color: rgb(4,120,87);
+  }
+  .btn.secondary {
+    background-color: rgb(255, 255, 255);
+    color: rgb(5, 150, 105);
+    border: 2px solid rgb(5, 150, 105);
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.15;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .btn.secondary:hover {
+    background-color: rgb(236,253,245);
+    color: rgb(5,150,105);
+  }
+  
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+  }
+  .hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #111;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 10000;
+  }
+  .mobile-menu.active {
+    max-height: 1000px;
+  }
+  .mobile-menu ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 20px;
+  }
+  .mobile-menu li {
+    border-bottom: 1px solid #eee;
+  }
+  .mobile-menu li:last-child {
+    border-bottom: none;
+  }
+  .mobile-menu .header-nav-title {
+    display: block;
+    padding: 15px 0;
+  }
+  .mobile-menu .dropdown {
+    position: static;
+    display: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-left: 20px;
+  }
+  .mobile-menu .dropdown.active {
+    display: block;
+  }
+  .mobile-menu .dropdown li {
+    padding: 10px 0;
+  }
+  .mobile-menu .dropdown li a.support-button {
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1.15;
+    transition: background-color 0.2s;
+    text-align: center;
+    margin: 8px 0;
+    display: block;
+  }
+  .mobile-menu .dropdown li a.support-button:hover {
+    background-color: rgb(4,120,87);
+  }
+  .mobile-menu .dropdown li:has(.support-button) {
+    border-bottom: none;
+  }
+  .mobile-menu .header-buttons {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+  }
+  .mobile-menu .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown span {
+    display: block;
+  }
+  
+  .dropdown span:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(17,24,39);
+  }
+
+  .dropdown span:last-child {
+    color: rgb(107,114,128);
+    font-size: 13px;
+  }
+
+  .header-nav-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: rgb(55, 65, 81);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 0px;
+  }
+
+  .header-nav-title svg {
+    transition: transform 0.2s;
+  }
+
+  .header-nav li:hover .header-nav-title svg {
+    transform: rotate(180deg);
+  }
+  .support-button {
+    background-color: transparent;
+    color: #111;
+    border: none;
+    padding: 0;
+    font-size: 15px;
+    font-family: 'assistant', sans-serif;
+    cursor: pointer;
+  }
+
+  
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none;
+    }
+    .header-buttons {
+      display: none;
+    }
+    .hamburger-menu {
+      display: flex;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+{% endstyle %}
+<header class="recurpay-header" id="recurpay-header">
+  <div class="page-width header-inner">
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="header-logo">
+      {% if section.settings.logo %}
+        {{ section.settings.logo |  image_url: height: 60 |  image_tag }}
+      {% endif %}
+      {% if section.settings.brand_text != blank %}
+        <span>{{ section.settings.brand_text }}</span>
+      {% endif %}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav">
+      <ul>
+        {% for link in linklists[section.settings.main_menu].links %}
+          <li>
+            {% if link.title and link.title contains 'Support' %}
+              <button class="support-button" data-intercom-support>
+                {{ link.title }}
+              </button>
+            {% else %}
+            <a class="header-nav-title" target="_blank" href="{{ link.url }}">
+              {{ link.title }}
+                {% if link.links.size > 0 %}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true" data-instantiation-file="src/components/pages/DemoHome.tsx" data-instantiation-line="279" data-instantiation-span="4" data-instantiation-index="0"><path d="m6 9 6 6 6-6"></path></svg>{% endif %}
+              </a>
+            {% endif %}
+
+            {% if link.links.size > 0 %}
+              <ul class="dropdown">
+                {% for child in link.links %}
+                  <li>
+                    {% if link.title == 'Migration' %}
+                      {% assign paras = child.title | split: '|' %}
+                      <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}><span>{{ paras[0] }}</span><span>{{ paras[1] }}</span></a>
+                      {%  else  %}
+                      <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}>{{ child.title }}</a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- Desktop Buttons -->
+    <div class="header-buttons">
+      {% if section.settings.button_primary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
+          {{ section.settings.button_primary_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_secondary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
+          {{ section.settings.button_secondary_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <nav>
+      <ul>
+        {% for link in linklists[section.settings.main_menu].links %}
+          <li>
+            {% if link.title and link.title contains 'Support' %}
+              <button class="support-button" data-intercom-support>
+                {{ link.title }}
+              </button>
+            {% else %}
+              <a class="header-nav-title" target="_blank" href="{{ link.url }}" {% if link.links.size > 0 %}data-toggle-dropdown{% endif %}>
+                {{ link.title }}
+                {% if link.links.size > 0 %}▾{% endif %}
+              </a>
+            {% endif %}
+
+            {% if link.links.size > 0 %}
+              <ul class="dropdown">
+                {% for child in link.links %}
+                  <li>
+                      <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- Mobile Buttons -->
+    <div class="header-buttons">
+      {% if section.settings.button_primary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
+          {{ section.settings.button_primary_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_secondary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
+          {{ section.settings.button_secondary_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    const header = document.querySelector('#recurpay-header');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Hamburger menu toggle
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    }
+    
+    // Mobile dropdown toggle
+    const mobileDropdownToggles = document.querySelectorAll('[data-toggle-dropdown]');
+    mobileDropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const dropdown = this.nextElementSibling;
+          if (dropdown && dropdown.classList.contains('dropdown')) {
+            dropdown.classList.toggle('active');
+          }
+        }
+      });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900) {
+        if (!header.contains(e.target) && mobileMenu.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+        }
+      }
+    });
+    
+    // Handle Intercom support links
+    const supportLinks = document.querySelectorAll('[data-intercom-support]');
+    supportLinks.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Check if Intercom is available and open chat
+        if (window.Intercom) {
+          window.Intercom('show');
+        } else if (typeof Intercom !== 'undefined') {
+          Intercom('show');
+        } else {
+          // Fallback: try to trigger Intercom if it loads later
+          if (window.Intercom) {
+            window.Intercom('show');
+          } else {
+            console.warn('Intercom is not loaded');
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+
+{% schema %}
+  {
+    "name": "Header navigation",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "brand_text",
+        "label": "Brand Text",
+        "default": "Recurpay"
+      },
+      {
+        "type": "link_list",
+        "id": "main_menu",
+        "label": "Navigation Menu"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      }, {
+        "type": "text",
+        "id": "button_primary_text",
+        "label": "Primary Button Text",
+        "default": "Install Now"
+      }, {
+        "type": "url",
+        "id": "button_primary_link",
+        "label": "Primary Button URL"
+      }, {
+        "type": "text",
+        "id": "button_secondary_text",
+        "label": "Secondary Button Text",
+        "default": "Book a Demo"
+      }, {
+        "type": "url",
+        "id": "button_secondary_link",
+        "label": "Secondary Button URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Header navigation"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,487 @@
+{% style %}
+    .modal__wrapper {
+        position: fixed;
+        inset: 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20000;
+        padding: 40px;
+        display: none;
+    }
+    .modal__wrapper.open {
+        display: flex;
+    }
+    .modal__container {
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 500px;
+        overflow: hidden;
+        transition: max-width 0.3s;
+    }
+    .modal__container.preview-mode {
+        max-width: 1000px;
+    }
+    .heading__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px;
+        border-bottom: 1px solid rgb(229, 231, 235);
+    }
+    .heading__content h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0px;
+    }
+    .heading__content p {
+        font-size: 13px;
+        color: rgb(107, 114, 128);
+        margin: 0px;
+    }
+
+    .heading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .modal_close {
+        padding: 5px 10px;
+        background-color: rgb(243, 244, 246);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .input__container {
+        padding: 32px 24px;
+    }
+    .input__wrapper {
+        margin-bottom: 24px;
+    }
+    .store_label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(55, 65, 81);
+        margin-bottom: 8px;
+    }
+    .store_input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid rgb(229, 231, 235);
+        border-radius: 10px;
+        font-size: 15px;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .store_input::placeholder {
+        color: #d2d4d7;
+    }
+    .url_generate {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        background-color: rgb(5, 150, 105);
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .url_generate.active {
+        cursor: pointer;
+    }
+    .sub_text {
+        font-size: 13px;
+        color: rgb(107, 114, 128);
+        text-align: center;
+        margin-top: 16px;
+    }
+    .input__container:has(input:invalid) button{
+        opacity:0.6;
+        cursor: not-allowed;
+    }
+    .input__container:has(input:valid) button{
+        opacity:1;
+        cursor: pointer;
+    }
+    
+    /* Preview Styles */
+    .preview__container {
+        display: none;
+        padding: 12px;
+    }
+    .preview__container.active {
+        display: block;
+        height: 80vh;
+        overflow-y: auto;
+    }
+    .preview__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+    .preview__image {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #8B4513;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .preview__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .preview__image-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+    }
+    .preview__info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    .preview__title {
+        font-size: 28px;
+        font-weight: 700;
+        color: rgb(31, 41, 55);
+        margin: 0;
+    }
+    .preview__description {
+        font-size: 15px;
+        color: rgb(107, 114, 128);
+        line-height: 1.6;
+        margin: 0;
+    }
+    .preview__widget {
+        border: 1px solid rgb(5, 150, 105);
+        border-radius: 8px;
+        padding: 20px;
+        position: relative;
+    }
+    .preview__widget-label {
+        position: absolute;
+        top: -10px;
+        left: 12px;
+        background-color: rgb(255, 255, 255);
+        padding: 0 8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: rgb(5, 150, 105);
+    }
+    .preview__widget-option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    .preview__widget-radio {
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgb(5, 150, 105);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .preview__widget-radio-inner {
+        width: 12px;
+        height: 12px;
+        background-color: rgb(5, 150, 105);
+        border-radius: 50%;
+    }
+    .preview__widget-option-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(31, 41, 55);
+    }
+    .preview__widget-pricing {
+        margin-left: auto;
+        text-align: right;
+    }
+    .preview__widget-price-original {
+        font-size: 14px;
+        color: rgb(156, 163, 175);
+        text-decoration: line-through;
+    }
+    .preview__widget-price-discounted {
+        font-size: 18px;
+        font-weight: 700;
+        color: rgb(31, 41, 55);
+    }
+    .preview__widget-subscription {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid rgb(229, 231, 235);
+        border-radius: 8px;
+        font-size: 15px;
+        color: rgb(31, 41, 55);
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+    .preview__widget-button {
+        width: 100%;
+        padding: 16px;
+        background-color: rgb(5, 150, 105);
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-bottom: 12px;
+    }
+    .preview__widget-offer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        color: rgb(107, 114, 128);
+    }
+    .preview__widget-offer-left {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .preview__widget-checkmark {
+        width: 16px;
+        height: 16px;
+        color: rgb(5, 150, 105);
+    }
+    .preview__back-button {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 10px;
+        background-color: rgb(243, 244, 246);
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(55, 65, 81);
+        cursor: pointer;
+    }
+    .modal__container.preview-mode .preview__back-button {
+        display: flex;
+    }
+    .preview__back-button:hover {
+        background-color: rgb(229, 231, 235);
+    }
+    .preview__iframe-wrapper {
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgb(229, 231, 235);
+        border-radius: 12px;
+        overflow: hidden;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: rgb(255, 255, 255);
+    }
+    .preview__iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    @media (max-width: 768px) {
+        .preview__content {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        .modal__container.preview-mode {
+            max-width: 100%;
+        }
+        .preview__iframe-wrapper {
+            height: 400px;
+        }
+        .preview__iframe {
+            height: 400px;
+        }
+    }
+
+{% endstyle %}
+
+<div class="modal__wrapper">
+    <div class="modal__container">
+        <div class="heading__container">
+            <div class="heading">
+                <button class="preview__back-button" id="preview-back-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>    
+                </div>
+                <div class="heading__content">
+                    <h3>Priview on Your Website</h3>
+                </div>
+            <button class="modal_close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <div class="input__container">
+            <div class="input__wrapper">
+                <label class="store_label" for="store-url">Your Store URL</label>
+                <input pattern="(https?://)?([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,}" class="store_input" type="text" placeholder="https://your-store.myshopify.com" id="store-url" />
+            </div>
+            <button class="url_generate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg> Generate Preview
+            </button>
+            <p class="sub_text">We'll show you how the Recurpay widget looks on your product pages</p>
+        </div>
+        
+        <div class="preview__container">
+            <div class="preview__iframe-wrapper">
+                <iframe id="preview-iframe" class="preview__iframe" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script class="js-event-listener">
+            const modal_close = document.querySelector(".modal_close");
+            const modal = document.querySelector(".modal__wrapper");
+            const input = document.querySelector(".store_input");
+            const url_generate_btn = document.querySelector(".url_generate");
+            
+            // Watch for modal open/close to manage body overflow
+            const modalObserver = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        if (modal.classList.contains('open')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = 'visible';
+                        }
+                    }
+                });
+            });
+            
+            if (modal) {
+                modalObserver.observe(modal, {
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+                
+                // Set initial state
+                if (modal.classList.contains('open')) {
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            
+            const resetModal = () => {
+                const modalContainer = document.querySelector(".modal__container");
+                const inputContainer = document.querySelector(".input__container");
+                const previewContainer = document.querySelector(".preview__container");
+                
+                inputContainer.style.display = "block";
+                previewContainer.classList.remove("active");
+                modalContainer.classList.remove("preview-mode");
+            };
+            
+            modal_close.addEventListener("click",()=>{
+                modal.classList.remove("open");
+                document.body.style.overflow = 'visible';
+                resetModal();
+            })
+            
+            const previewBackBtn = document.getElementById("preview-back-btn");
+            if (previewBackBtn) {
+                previewBackBtn.addEventListener("click", () => {
+                    resetModal();
+                });
+            }
+            
+            url_generate_btn.addEventListener("click", async ()=>{
+                const storeUrl = input.value.trim();
+                
+                if (!storeUrl) {
+                    console.error("Please enter a store URL");
+                    return;
+                }
+                
+                // Normalize the URL - ensure it has a protocol
+                let normalizedUrl = storeUrl;
+                if (!storeUrl.startsWith("http://") && !storeUrl.startsWith("https://")) {
+                    normalizedUrl = "https://" + storeUrl;
+                }
+                
+                // Remove trailing slash if present
+                normalizedUrl = normalizedUrl.replace(/\/$/, "");
+                
+                // Get elements
+                const modalContainer = document.querySelector(".modal__container");
+                const inputContainer = document.querySelector(".input__container");
+                const previewContainer = document.querySelector(".preview__container");
+                const previewIframe = document.getElementById("preview-iframe");
+                
+                // Get script URL from preview button data attribute
+                const previewButton = document.querySelector(".preview_store__wrapper");
+                const scriptUrl = previewButton ? previewButton.getAttribute("data-script-url") : null;
+                
+                try {
+                    // Fetch products.json to get product handle
+                    const productsUrl = normalizedUrl + "/products.json?limit=1";
+                    const response = await fetch(productsUrl);
+                    const data = await response.json();
+                    
+                    if (data && data.products && data.products.length > 0) {
+                        const product = data.products[0];
+                        const productHandle = product.handle;
+                        
+                        // Build product page URL
+                        const productPageUrl = `${normalizedUrl}/products/${productHandle}`;
+                        
+                        // URL encode the product page URL
+                        const encodedUrl = encodeURIComponent(productPageUrl);
+                        
+                        // Create proxy URL
+                        let proxyUrl = `https://proxy.marmeto.org/proxy/v1/proxy?url=${encodedUrl}`;
+                        
+                        // Append scriptUrl if provided
+                        if (scriptUrl && scriptUrl.trim() !== "") {
+                            proxyUrl += `&scriptUrl=${encodeURIComponent(scriptUrl)}`;
+                        }
+                        
+                        // Set iframe src
+                        if (previewIframe) {
+                            previewIframe.src = proxyUrl;
+                        }
+                        
+                        // Switch to preview mode
+                        inputContainer.style.display = "none";
+                        previewContainer.classList.add("active");
+                        modalContainer.classList.add("preview-mode");
+                    } else {
+                        console.error("No products found");
+                        alert("No products found in the store. Please check the store URL.");
+                    }
+                } catch (error) {
+                    console.error("Error fetching products:", error);
+                    alert("Error loading store. Please check the store URL and try again.");
+                }
+            })
+</script>

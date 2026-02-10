@@ -1,0 +1,2941 @@
+{% style %}
+  .header__container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .merchant_tab_switcher_wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(229, 231, 235);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  .image_with_logo__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .image_with_logo__wrapper img {
+    border-radius: 8px;
+    background-color: rgb(5, 150, 105);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+  .redirect_buttons__wrapper{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .company_name {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    margin-block: 5px;
+  }
+
+  .image_with_logo__wrapper span {
+    background-color: rgb(236, 253, 245);
+    color: rgb(5, 150, 105);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .content__wrapper {
+    display: flex;
+    gap: 8px;
+  }
+  .button_tab,
+  .button_demo,
+  .redirect {
+    padding: 6px 14px;
+    background-color: transparent;
+    color: rgb(107, 114, 128);
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+
+  .redirect, .button_demo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .active_tab,
+  .button_demo {
+    background-color: rgb(5, 150, 105);
+    color: white;
+  }
+
+  .header_content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sidebar__container {
+    position: fixed;
+    top: 58px;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(229, 231, 235);
+    z-index: 90;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .sidebar__container.collapsed {
+    right: -320px;
+  }
+  .sidebar-restore-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background-color: rgb(5, 150, 105);
+    border: none;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 89;
+    box-shadow: rgba(0, 0, 0, 0.1) -2px 0 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sidebar-restore-button:hover {
+    background-color: rgb(4, 120, 87);
+    width: 44px;
+  }
+  .sidebar-restore-button svg {
+    color: white;
+    width: 20px;
+    height: 20px;
+  }
+  .header__container.sidebar-collapsed .sidebar-restore-button {
+    display: flex;
+  }
+  .sidebar__header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgb(243, 244, 246);
+  }
+  .header_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .header_title span {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgb(5, 150, 105);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .header_title button {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+  }
+  .header_title button svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .header__container.sidebar-collapsed .header_title button svg {
+    transform: rotate(180deg);
+  }
+  .header_content__container h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(17, 24, 39);
+    margin: 0 0 2px;
+    line-height: 1.3;
+  }
+  .header_content__container p {
+    font-size: 13px;
+    color: rgb(107, 114, 128);
+    margin: 0;
+    line-height: 1.4;
+  }
+  .header_content a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(5, 150, 105);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .sidebar__content {
+    flex: 1 1 0;
+    overflow-y: auto;
+    padding: 12px 16px;
+  }
+  .sidebar__content-container {
+    background-color: transparent;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sidebar__content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: transparent;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: 0.15s;
+    border: 1px dashed rgba(148,163,184,0.4);
+  }
+  .sidebar__content-wrapper:hover {
+    background: linear-gradient(135deg, rgba(15,157,88,0.06), rgba(15,157,88,0));
+    border: 1px solid rgba(148,163,184,0.4);
+  }
+  .sidebar__content-wrapper.hidden {
+    display: none;
+  }
+  .image_container {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+
+  .content_container {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .content_container h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(17, 24, 39);
+    margin: 0 0 4px;
+  }
+  .content_container p {
+    font-size: 13px;
+    color: rgb(107, 114, 128);
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+  .content_tag_with_link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .tag_container {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .tag_container span {
+    font-size: 11px;
+    color: #94A3B8;
+    background-color: #F1F5F7;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+  .content_tag_with_link a {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(5, 150, 105);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .sidebar__footer {
+    padding: 16px 20px 20px;
+    border-top: 1px solid rgb(243, 244, 246);
+  }
+  .sidebar__footer button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 12px;
+    transform: translateY(0px);
+  }
+  .sidebar__footer button:hover {
+    background-color: rgb(4, 120, 87);
+    transform: translateY(-1px);
+  }
+  .sidebar__footer p {
+    font-size: 12px;
+    color: #0F9D58;
+    text-align: center;
+    margin: 0;
+  }
+  .sidebar__footer p a {
+    color: #0F9D58;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  .footer__container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 320px;
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid rgb(229, 231, 235);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 101;
+    transition: right 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 -4px 12px;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+  .header__container.sidebar-collapsed .footer__container {
+    right: 0;
+  }
+  .footer_paginate_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: auto;
+    justify-content: flex-start;
+  }
+  .paginate_container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .paginate_dot {
+    width: 8px;
+    display: block !important;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgb(229, 231, 235);
+    transition: 0.3s;
+  }
+  .paginate_dot.active {
+    width: 24px;
+    background-color: rgb(5, 150, 105);
+  }
+  .container_of_next_preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: auto;
+    justify-content: flex-end;
+  }
+  .show_guide {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background-color: rgb(243, 244, 246);
+    color: rgb(55, 65, 81);
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .show__guide__container {
+    position: relative;
+  }
+  .previous {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: rgb(249, 250, 251);
+    color: rgb(156, 163, 175);
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: not-allowed;
+    opacity: 0.6;
+    flex: 0 0 auto;
+  }
+  .previous:not(.disabled) {
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 65, 81);
+    cursor: pointer;
+    opacity: 1;
+  }
+  .previous:not(.disabled):hover {
+    background-color: rgb(249, 250, 251);
+  }
+  .next {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: rgba(5, 150, 105, 0.3) 0 2px 8px;
+    flex: 0 0 auto;
+  }
+  .next.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .tab__content__container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    overflow: hidden;
+    padding-right: 320px;
+    transition: padding-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .header__container.sidebar-collapsed .tab__content__container {
+    padding-right: 0;
+  }
+
+  .main_content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .main_content__container {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding-bottom: 96px;
+    /* leave room for fixed footer */
+  }
+  /* header styling */
+  .tagline-heading-section {
+    padding: 40px 20px;
+    background: #ffffff;
+  }
+
+  .tagline-heading-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .tagline-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(236, 253, 245);
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .tagline-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .tagline-icon ~ span {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(5, 150, 105);
+  }
+
+  .main-heading {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px;
+    color: rgb(17, 24, 39);
+  }
+
+  .main-description {
+    font-size: 16px;
+    color: rgb(107, 114, 128);
+    margin: 0;
+  }
+  .button_trial {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 12px;
+    transform: translateY(0px);
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .main-heading {
+      font-size: 32px;
+    }
+
+    .main-description {
+      font-size: 16px;
+    }
+  }
+
+  /* show guide styling */
+  .demo-guide-section {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    bottom: 150%;
+    transform: translateX(-50%);
+    width: 460px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 20px 60px;
+    z-index: 10000;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  .demo-guide-section.is-visible {
+    display: block;
+  }
+
+  .demo-guide-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: rgb(249, 250, 251);
+    border-bottom: 1px solid rgb(229, 231, 235);
+  }
+
+  .demo-guide-close {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .demo-guide-profile {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .demo-avatar-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(5, 150, 105);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .demo-guide-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .demo-guide-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(17, 24, 39);
+  }
+
+  .demo-guide-subtitle {
+    font-size: 11px;
+    color: rgb(107, 114, 128);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .demo-guide-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .demo-guide-description {
+    font-size: 14px;
+    color: rgb(75, 85, 99);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .demo-guide-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: rgb(249, 250, 251);
+    border-top: 1px solid rgb(229, 231, 235);
+  }
+
+  .demo-guide-actions,
+  .demo-guide-steps {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .demo-guide-actions .demo-guide-back {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    background-color: transparent;
+    color: rgb(55, 65, 81);
+    border: 1px solid rgb(209, 213, 219);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .demo-guide-actions .demo-guide-finish {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 18px;
+    background-color: rgb(5, 150, 105);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .dots {
+    display: block !important;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgb(209, 213, 219);
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .dots.active {
+    width: 18px;
+    background-color: rgb(5, 150, 105);
+  }
+
+  .guide_pagination_dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .demo-guide-body {
+    padding: 18px 20px;
+  }
+
+  /* completion state (final tour page) */
+  .header__container.completion-active .sidebar__container, .header__container.completion-active .tagline-heading-section  {
+    display: none;
+  }
+
+  .header__container.completion-active .tab__content__container {
+    padding-right: 0;
+  }
+
+  .header__container.completion-active .footer__container {
+    right: 0;
+  }
+
+  .content_container_wrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  .driver-popover{
+    max-width: 350px;
+    
+  }
+
+{% endstyle %}
+
+{% assign merchant_tabs = "widget,cart_upsell,portal" | split: "," %}
+{% if section.settings.enable_support_resources %}
+  {% assign support_tab = "support_resources" | split: "," %}
+  {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
+{% endif %}
+<div class="header__container">
+  <div class="merchant_tab_switcher_wrapper">
+    <div class="image_with_logo__wrapper">
+      {{ section.settings.company_logo | image_url: width: 32, height: 32 | image_tag }}
+      <h2 class="company_name">{{ section.settings.company_name }}</h2>
+      <span>{{ section.settings.tag_text }}
+      </span>
+    </div>
+    <div class="content__wrapper">
+      {% for tab in merchant_tabs %}
+        {% case tab %}
+          {% when 'widget' %}
+            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="widget">{{ section.settings.button_one }}</button>
+          {% when 'cart_upsell' %}
+            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+          {% when 'portal' %}
+            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+          {% when 'support_resources' %}
+            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    <div class="redirect_buttons__wrapper">
+      <a class=" redirect" href="{{ section.settings.redirect_link }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>{{ section.settings.redirect_text }}</a>
+      <a target="_blank" class="button_demo" href="{{ section.settings.demo_url }}">
+        {% if section.settings.demo_html != blank %}
+          {{ section.settings.demo_html }}
+          {{ section.settings.demo }}
+        {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>{{ section.settings.demo }}
+        {% endif %}
+      </a>
+    </div>
+  </div>
+  <div class="tab__content__container">
+    <div class="main_content">
+      <section class="tagline-heading-section" id="tagline-heading-section">
+        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
+
+          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
+          <div id="tagline-pill-container">
+            {% if section.settings.tag_text_widget != blank %}
+              <div class="tagline-pill" id="tagline-pill">
+                {% if section.settings.tag_icon_widget != blank %}
+                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
+                {% endif %}
+                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
+              </div>
+            {% endif %}
+          </div>
+
+          {% if section.settings.heading_widget != blank %}
+            <h2 class="main-heading" id="main-heading">
+              {{ section.settings.heading_widget }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.description_widget != blank %}
+            <p class="main-description" id="main-description">
+              {{ section.settings.description_widget }}
+            </p>
+          {% endif %}
+
+        </div>
+      </section>
+      <script>
+        (function() {
+          // Map of per-tab content from section.settings
+          const tabContentSettings = {
+            widget: {
+              tagText: {{ section.settings.tag_text_widget | json }},
+              tagIcon: {{ section.settings.tag_icon_widget | json }},
+              heading: {{ section.settings.heading_widget | json }},
+              description: {{ section.settings.description_widget | json }}
+            },
+            cart_upsell: {
+              tagText: {{ section.settings.tag_text_cart_upsell | json }},
+              tagIcon: {{ section.settings.tag_icon_cart_upsell | json }},
+              heading: {{ section.settings.heading_cart_upsell | json }},
+              description: {{ section.settings.description_cart_upsell | json }}
+            },
+            portal: {
+              tagText: {{ section.settings.tag_text_portal | json }},
+              tagIcon: {{ section.settings.tag_icon_portal | json }},
+              heading: {{ section.settings.heading_portal | json }},
+              description: {{ section.settings.description_portal | json }}
+            },
+            support_resources: {
+              tagText: {{ section.settings.tag_text_support_resources | json }},
+              tagIcon: {{ section.settings.tag_icon_support_resources | json }},
+              heading: {{ section.settings.heading_support_resources | json }},
+              description: {{ section.settings.description_support_resources | json }}
+            }
+          };
+        
+          // Watch for tab changes and update the tagline/heading/description accordingly
+          function updateTaglineHeader(tabType) {
+            const content = tabContentSettings[tabType];
+            if (!content) return;
+            // Tagline Pill
+            const pillContainer = document.getElementById('tagline-pill-container');
+            if (pillContainer) {
+              if (content.tagText) {
+                pillContainer.innerHTML =
+                  `<div class="tagline-pill" id="tagline-pill">${
+                    content.tagIcon ? `<span class="tagline-icon" id="tagline-icon">${content.tagIcon}</span>` : ''
+                  }<span id="tagline-text">${content.tagText}</span></div>`;
+              } else {
+                pillContainer.innerHTML = '';
+              }
+            }
+        
+            // Heading
+            const heading = document.getElementById('main-heading');
+            if (heading) {
+              if (content.heading) {
+                heading.textContent = content.heading;
+                heading.style.display = '';
+              } else {
+                heading.textContent = '';
+                heading.style.display = 'none';
+              }
+            }
+        
+            // Description
+            const description = document.getElementById('main-description');
+            if (description) {
+              if (content.description) {
+                description.textContent = content.description;
+                description.style.display = '';
+              } else {
+                description.textContent = '';
+                description.style.display = 'none';
+              }
+            }
+          }
+        
+          // Set up listener for tab switches
+          document.addEventListener('DOMContentLoaded', function() {
+            // Find all .button_tab's
+            const tabButtons = document.querySelectorAll('.button_tab');
+            tabButtons.forEach(btn => {
+              btn.addEventListener('click', function() {
+                const tabType = btn.getAttribute('data-tab-type');
+                updateTaglineHeader(tabType);
+              });
+            });
+        
+            // Get initial active tab
+            const initialActive = document.querySelector('.button_tab.active_tab');
+            const initialType = initialActive ? initialActive.getAttribute('data-tab-type') : 'widget';
+            updateTaglineHeader(initialType);
+          });
+        
+          // If your section does AJAX tab switching too, ensure updateTaglineHeader(tabType) is called in the JS tab switch logic there.
+          window.updateMerchantTabHeaderSection = updateTaglineHeader;
+        })();
+      </script>
+      <div class="main_content__container" data-dynamic-content="merchant-tab"></div>
+      <div class="footer__container">
+        <div class="footer_paginate_wrapper">
+          <div class="paginate_container">
+            {% for tab in merchant_tabs %}
+              <div class="paginate_dot{% if forloop.first %} active{% endif %}" data-tab-index="{{ forloop.index0 }}"></div>
+            {% endfor %}
+          </div>
+          <span data-step-indicator>Step 1/{{ merchant_tabs.size }}:</span>
+          <span data-step-name>Widget</span>
+        </div>
+        <div class="container_of_next_preview">
+          <div class="show__guide__container">
+            <button class="show_guide">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+              Show Guide
+            </button>
+            <div class="demo-guide-section">
+              <div class="demo-guide-card">
+
+                <!-- Header -->
+                <div class="demo-guide-header">
+                  <div class="demo-guide-profile">
+                    {% if section.settings.avatar != blank %}
+                      <div class="demo-avatar-container">
+                        {{ section.settings.avatar }}
+                      </div>
+                    {% endif %}
+
+                    <div>
+                      <div class="demo-guide-name">
+                        {{ section.settings.name }}
+                      </div>
+                      <div class="demo-guide-subtitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                        {{ section.settings.subtitle }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="demo-guide-close"
+                    aria-label="Close">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#000000"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                  </button>
+                </div>
+
+                <!-- Body -->
+                <div class="demo-guide-body">
+                  <h3 class="demo-guide-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#329669"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+                    <span data-demo-guide-title>{{ section.settings.title_widget_guide }}</span>
+                  </h3>
+
+                  <p class="demo-guide-description" data-demo-guide-description>
+                    {{ section.settings.description_widget_guide }}
+                  </p>
+                </div>
+
+                <!-- Footer -->
+                <div class="demo-guide-footer">
+                  <div class="demo-guide-steps">
+                    <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                    <div class="guide_pagination_dots">
+                      {% for tab in merchant_tabs %}
+                        <div class="dots"></div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                  <div class="demo-guide-actions">
+                    <button type="button" class="demo-guide-back">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                      {{ section.settings.back_text }}
+                    </button>
+
+                    <button type="button" class="demo-guide-finish">
+                      {{ section.settings.finish_text }}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <button class="previous disabled">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>Previous</button>
+          <button class="next">Next<svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar__container">
+      <div class="sidebar__header">
+        <div class="header_title">
+          <span>{{ section.settings.sidebar_header_title }}</span>
+          <button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+        <div class="header_content">
+          <div class="header_content__container">
+            <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
+            <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
+          </div>
+          <a target="_blank" href="{{ section.settings.doc_url }}" data-sidebar-doc-url>View docs</a>
+        </div>
+      </div>
+      <div class="sidebar__content">
+        <div class="sidebar__content-container">
+          {% for block in section.blocks %}
+            <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
+              <div class="content_container">
+              <div class="content_container_wrapper">
+                <div class="image_container">
+                  {{ block.settings.feature_image }}
+                </div>
+                <div class="content_text_wrapper">
+                  <h4>{{ block.settings.content_header }}</h4>
+                  <p>{{ block.settings.content_description }}</p>
+                </div>
+              </div>
+                <div class="content_tag_with_link">
+                  <div class="tag_container">
+                    {% if block.settings.tag_text_one != blank %}
+                      <span>{{ block.settings.tag_text_one }}</span>
+                    {% endif %}
+                    {% if block.settings.tag_text_two != blank %}
+                      <span>{{ block.settings.tag_text_two }}</span>
+                    {% endif %}
+                  </div>
+                  {% if block.settings.example_url != blank %}
+                    <a href="{{ block.settings.example_url }}">
+                      {{ block.settings.example_text }}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="sidebar__footer">
+        <a href="https://apps.shopify.com/recurpay-subscriptions" target="_blank" class="button_trial">Start 30 day trial</a>
+        <p>Or
+          <a href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav" target="_blank" class="button_call">talk to an expert and book a quick call</a>
+        </p>
+      </div>
+    </div>
+    <button class="sidebar-restore-button" aria-label="Restore sidebar">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-left-icon lucide-chevron-left">
+        <path d="m15 18-6-6 6-6" />
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+  // Initialize Driver.js
+  const driver = window.driver.js.driver;
+  const driverObj = driver();
+  function executeScripts(container) {
+   const scripts = container.querySelectorAll('script');
+   scripts.forEach(oldScript => {
+  const newScript = document.createElement('script');
+  // Copy attributes
+  [...oldScript.attributes].forEach(attr => {
+   newScript.setAttribute(attr.name, attr.value);
+  });
+  newScript.text = oldScript.textContent;
+  oldScript.replaceWith(newScript);
+   });
+  }
+  
+  (function() {
+    const tabButtons = document.querySelectorAll('.button_tab');
+    const blockWrappers = document.querySelectorAll('.sidebar__content-wrapper');
+    const mainContentContainer = document.querySelector('.main_content__container');
+    
+    function filterBlocks(activeTabType) {
+      blockWrappers.forEach(block => {
+        const blockTabType = block.getAttribute('data-block-tab-type');
+        if (blockTabType === activeTabType) {
+          block.classList.remove('hidden');
+        } else {
+          block.classList.add('hidden');
+        }
+      });
+    }
+  
+    // Mixpanel event names from settings
+    const mixpanelEvents = {
+      tabWidget: {{ section.settings.event_tab_widget | default: "Tab Clicked - Widget" | json }},
+      tabCartUpsell: {{ section.settings.event_tab_cart_upsell | default: "Tab Clicked - Cart Upsell" | json }},
+      tabPortal: {{ section.settings.event_tab_portal | default: "Tab Clicked - Portal" | json }},
+      tabSupportResources: {{ section.settings.event_tab_support_resources | default: "Tab Clicked - Support & Resources" | json }},
+      previousButton: {{ section.settings.event_previous_button | default: "Previous Button Clicked" | json }},
+      nextButton: {{ section.settings.event_next_button | default: "Next Button Clicked" | json }},
+      showGuide: {{ section.settings.event_show_guide | default: "Show Guide Clicked" | json }},
+      guideBack: {{ section.settings.event_guide_back | default: "Guide Back Button Clicked" | json }},
+      guideFinish: {{ section.settings.event_guide_finish | default: "Guide Finish Button Clicked" | json }},
+      sidebarToggle: {{ section.settings.event_sidebar_toggle | default: "Sidebar Toggle Clicked" | json }},
+      sidebarRestore: {{ section.settings.event_sidebar_restore | default: "Sidebar Restore Clicked" | json }},
+      completionPage: {{ section.settings.event_completion_page | default: "Completion Page Reached" | json }}
+    };
+
+    // Helper function to track Mixpanel events
+    function trackMixpanelEvent(eventName, properties = {}) {
+      if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+        mixpanel.track(eventName, {
+          ...properties,
+          section: 'merchant_tab_switcher'
+        });
+      }
+      // Also log for debugging
+      // console.log('Mixpanel Event:', eventName, properties);
+    }
+
+    const tabConfig = {
+      widget: {
+        sidebarTitle: {{ section.settings.subtext_title | json }},
+        sidebarDescription: {{ section.settings.subtext_description | json }},
+        docUrl: {{ section.settings.doc_url | json }},
+        contentUrl: {{ section.settings.widget_content_url | json }},
+        stepName: {{ section.settings.widget_step_name | default: "Widget" | json }},
+        guideTitle: {{ section.settings.title_widget_guide | json }},
+        guideDescription: {{ section.settings.description_widget_guide | json }},
+        guideStepsText: {{ section.settings.steps_text | json }}
+      },
+      cart_upsell: {
+        sidebarTitle: {{ section.settings.cart_upsell_subtext_title | json }},
+        sidebarDescription: {{ section.settings.cart_upsell_subtext_description | json }},
+        docUrl: {{ section.settings.cart_upsell_doc_url | json }},
+        contentUrl: {{ section.settings.cart_upsell_content_url | json }},
+        stepName: {{ section.settings.cart_upsell_step_name | default: "Cart Upsell" | json }},
+        guideTitle: {{ section.settings.title_cart_upsell_guide | json }},
+        guideDescription: {{ section.settings.description_cart_upsell_guide | json }},
+        guideStepsText: {{ section.settings.steps_text_cart_upsell | json }}
+      },
+      portal: {
+        sidebarTitle: {{ section.settings.portal_subtext_title | json }},
+        sidebarDescription: {{ section.settings.portal_subtext_description | json }},
+        docUrl: {{ section.settings.portal_doc_url | json }},
+        stepName: {{ section.settings.portal_step_name | default: "Portal" | json }},
+        guideTitle: {{ section.settings.title_portal_guide | json }},
+        guideDescription: {{ section.settings.description_portal_guide | json }},
+        guideStepsText: {{ section.settings.steps_text_portal | json }}
+      },
+      support_resources: {
+        sidebarTitle: {{ section.settings.support_resources_subtext_title | json }},
+        sidebarDescription: {{ section.settings.support_resources_subtext_description | json }},
+        docUrl: {{ section.settings.support_resources_doc_url | json }},
+        contentUrl: {{ section.settings.support_resources_content_url | json }},
+        stepName: {{ section.settings.support_resources_step_name | default: "Support & Resources" | json }},
+        guideTitle: {{ section.settings.title_support_resources_guide | json }},
+        guideDescription: {{ section.settings.description_support_resources_guide | json }},
+        guideStepsText: {{ section.settings.steps_text_support_resources | json }}
+      },
+      completion: {
+        contentUrl: {{ section.settings.completion_content_url | json }},
+        guideTitle: {{ section.settings.title_completion_guide | json }},
+        guideDescription: {{ section.settings.description_completion_guide | json }},
+        guideStepsText: {{ section.settings.steps_text_completion | json }}
+      }
+    };
+    const completionStepName = {{ section.settings.completion_step_name | default: "Tour completion" | json }};
+    const tabOrder = {{ merchant_tabs | json }};
+    let currentTabIndex = 0;
+    let isOnCompletion = false;
+    
+    // Content cache for prefetched tab content
+    const contentCache = {};
+    
+    // Portal authentication data
+      {% assign customer_id = 5959212957931 %}
+      {% assign secret_key = "mGm3J210eDPvaUPL0TSpNWXk5z4YkQTe" %}
+      {% assign customer_hash = customer_id |  hmac_sha256: secret_key %}
+      const portalAuthData = {
+        customerId: {{ customer_id | json }},
+        customerHash: {{ customer_hash | json }},
+        subscriberId: {{ customer_id | json }}
+      };
+      // console.log("portalAuthData", portalAuthData);
+  
+    // Get sidebar elements
+    const sidebarTitle = document.querySelector('[data-sidebar-title]');
+    const sidebarDescription = document.querySelector('[data-sidebar-description]');
+    const sidebarDocUrl = document.querySelector('[data-sidebar-doc-url]');
+    const stepIndicator = document.querySelector('[data-step-indicator]');
+    const stepName = document.querySelector('[data-step-name]');
+    const previousButton = document.querySelector('.previous');
+    const nextButton = document.querySelector('.next');
+    const paginateDots = document.querySelectorAll('.paginate_dot');
+    const headerContainer = document.querySelector('.header__container');
+    const sidebarContainer = document.querySelector('.sidebar__container');
+    const sidebarToggleButton = document.querySelector('.header_title button');
+
+    // Demo guide elements
+    const showGuideButton = document.querySelector('.show_guide');
+    const demoGuideSection = document.querySelector('.demo-guide-section');
+    const demoGuideCloseButton = demoGuideSection ? demoGuideSection.querySelector('.demo-guide-close') : null;
+    const demoGuideBackButton = document.querySelector('.demo-guide-back');
+    const demoGuideFinishButton = document.querySelector('.demo-guide-finish');
+    const demoGuideTitleEl = document.querySelector('[data-demo-guide-title]');
+    const demoGuideDescriptionEl = document.querySelector('[data-demo-guide-description]');
+    const demoGuideStepsTextEl = document.querySelector('[data-guide-steps-text]');
+    const demoGuideDots = document.querySelectorAll('.demo-guide-section .dots');
+    
+    // Store original finish button text (extract text content, excluding SVG)
+    let originalFinishButtonText = '';
+    if (demoGuideFinishButton) {
+      // Get the first text node (which contains the finish_text setting)
+      const textNode = Array.from(demoGuideFinishButton.childNodes)
+        .find(node => node.nodeType === Node.TEXT_NODE);
+      if (textNode) {
+        originalFinishButtonText = textNode.textContent.trim();
+      } else {
+        // Fallback: get all text content
+        originalFinishButtonText = demoGuideFinishButton.textContent.trim();
+      }
+    }
+    
+    // Store original Next button text (extract text content, excluding SVG)
+    let originalNextButtonText = 'Next';
+    if (nextButton) {
+      // Get the first text node (which contains "Next")
+      const textNode = Array.from(nextButton.childNodes)
+        .find(node => node.nodeType === Node.TEXT_NODE);
+      if (textNode) {
+        originalNextButtonText = textNode.textContent.trim();
+      }
+    }
+  
+    // Function to update sidebar header based on active tab
+    function updateSidebarHeader(tabType) {
+      const config = tabConfig[tabType];
+      if (!config) return;
+  
+      if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
+      if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
+      if (sidebarDocUrl) sidebarDocUrl.href = config.docUrl || '#';
+    }
+  
+    // Function to update footer step indicator
+    function updateStepIndicator(tabIndex, isCompletionStep = false) {
+      const totalSteps = tabOrder.length + 1; // tabs + completion page
+      const currentStep = isCompletionStep ? totalSteps : (tabIndex + 1);
+      const tabType = isCompletionStep ? null : tabOrder[tabIndex];
+      const config = tabType ? tabConfig[tabType] : null;
+      
+      if (stepIndicator) {
+        stepIndicator.textContent = `Step ${currentStep}/${totalSteps}:`;
+      }
+      if (stepName) {
+        if (isCompletionStep) {
+          stepName.textContent = completionStepName;
+        } else if (config) {
+          stepName.textContent = config.stepName;
+        }
+      }
+  
+      // Update pagination dots (only highlight for real tabs)
+      paginateDots.forEach((dot, index) => {
+        if (!isCompletionStep && index === tabIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+  
+      // Update Previous/Next button states
+      const isFirstStep = !isCompletionStep && tabIndex === 0;
+      const isLastStep = isCompletionStep;
+
+      if (previousButton) {
+        if (isFirstStep) {
+          previousButton.classList.add('disabled');
+        } else {
+          previousButton.classList.remove('disabled');
+        }
+      }
+  
+      if (nextButton) {
+        if (isLastStep) {
+          // On completion page, change text to "Finish tour" and don't disable
+          nextButton.classList.remove('disabled');
+          const svgElement = nextButton.querySelector('svg');
+          // Remove all text nodes
+          Array.from(nextButton.childNodes).forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              node.remove();
+            }
+          });
+          // Insert "Finish tour" text before SVG (or as only content if no SVG)
+          if (svgElement) {
+            nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
+          } else {
+            nextButton.textContent = 'Finish tour';
+          }
+        } else {
+          // Restore original "Next" text when not on completion
+          nextButton.classList.remove('disabled');
+          const svgElement = nextButton.querySelector('svg');
+          // Remove all text nodes
+          Array.from(nextButton.childNodes).forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+              node.remove();
+            }
+          });
+          // Insert original text before SVG (or as only content if no SVG)
+          if (svgElement) {
+            nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
+          } else {
+            nextButton.textContent = originalNextButtonText;
+          }
+        }
+      }
+
+      // Hide guide back button on first tab, show from second tab onwards
+      if (demoGuideBackButton) {
+        demoGuideBackButton.style.display = isFirstStep ? 'none' : '';
+      }
+    }
+
+    function updateDemoGuide(tabType, tabIndex) {
+      const config = tabConfig[tabType];
+      if (!config) return;
+
+      if (demoGuideTitleEl) demoGuideTitleEl.textContent = config.guideTitle || '';
+      if (demoGuideDescriptionEl) demoGuideDescriptionEl.textContent = config.guideDescription || '';
+      
+      // For completion page, use the configured steps text or calculate based on total steps
+      if (tabType === 'completion') {
+        const totalSteps = tabOrder.length + 1;
+        if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${totalSteps} / ${totalSteps}`;
+      } else {
+        if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${tabIndex + 1} / ${tabOrder.length}`;
+      }
+
+      if (demoGuideDots && demoGuideDots.length) {
+        // For completion, don't highlight any dot (or could highlight last one)
+        if (tabType === 'completion') {
+          demoGuideDots.forEach((dot, idx) => {
+            if (idx === tabOrder.length - 1) dot.classList.add('active');
+            else dot.classList.remove('active');
+          });
+        } else {
+          demoGuideDots.forEach((dot, idx) => {
+            if (idx === tabIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+          });
+        }
+      }
+    }
+
+    // Function to ensure cart has items for cart_upsell tab
+    async function ensureCartHasItems() {
+      try {
+        // Check current cart
+        const cartResponse = await fetch(`{{ routes.cart_url }}.json`);
+        if (!cartResponse.ok) {
+          console.log('Failed to fetch cart');
+          return;
+        }
+        const cartData = await cartResponse.json();
+        
+        // If cart has items, no need to add anything
+        if (cartData.items && cartData.items.length > 0) {
+          return;
+        }
+        
+        // Cart is empty, fetch first product
+        const productsResponse = await fetch("https://recurpay-subscriptions.myshopify.com/products.json?limit=1");
+        if (!productsResponse.ok) {
+          console.error('Failed to fetch products');
+          return;
+        }
+        const productsData = await productsResponse.json();
+        
+        if (!productsData.products || productsData.products.length === 0) {
+          console.log('No products available');
+          return;
+        }
+        
+        const firstProduct = productsData.products[0];
+        if (!firstProduct.variants || firstProduct.variants.length === 0) {
+          console.log('Product has no variants');
+          return;
+        }
+        
+        // Get first variant
+        const firstVariant = firstProduct.variants[0];
+        
+        // Add to cart using add.js API
+        const addResponse = await fetch(`{{ routes.cart_add_url }}.js`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: firstVariant.id,
+            quantity: 1
+          })
+        });
+        
+        if (!addResponse.ok) {
+          console.log('Failed to add product to cart');
+          return;
+        }
+        
+        console.log('Product added to cart successfully');
+      } catch (error) {
+        console.log('Error ensuring cart has items:', error);
+      }
+    }
+
+    // Function to load content for a specific tab
+    function loadTabContent(tabType) {
+      if (!mainContentContainer) return;
+
+      const config = tabConfig[tabType];
+      
+      // Check if content is already cached
+      if (contentCache[tabType]) {
+        // Use cached content - instant rendering
+        mainContentContainer.innerHTML = '';
+        const cachedContent = contentCache[tabType].cloneNode(true);
+        mainContentContainer.appendChild(cachedContent);
+        
+        // Execute scripts after content is appended
+        executeScripts(mainContentContainer);
+        
+        // Initialize recurpay when widget tab content is loaded using setInterval
+        if (tabType === 'widget') {
+          let attempts = 0;
+          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
+          const initInterval = setInterval(() => {
+            attempts++;
+            if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
+              recurpay.init(window.recurpayScript);
+              clearInterval(initInterval);
+            } else if (attempts >= maxAttempts) {
+              clearInterval(initInterval);
+              console.warn('recurpay.init() not available after maximum attempts');
+            }
+          }, 100);
+        }
+        
+        // Initialize recurpayCartV2 when cart upsell tab content is loaded using setInterval
+        if (tabType === 'cart_upsell') {
+          let attempts = 0;
+          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
+          const initInterval = setInterval(() => {
+            attempts++;
+            if (typeof recurpayCartV2 !== 'undefined' && typeof recurpayCartV2.initScript === 'function' && window.recurpayScript) {
+              recurpayCartV2.initScript(window.recurpayScript);
+              console.log('recurpayCartV2.initScript() ran');
+              clearInterval(initInterval);
+            } else if (attempts >= maxAttempts) {
+              clearInterval(initInterval);
+              console.warn('recurpayCartV2.initScript() not available after maximum attempts');
+            }
+          }, 100);
+        }
+        return;
+      }
+      
+      // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
+      if (tabType === 'portal') {
+        mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
+        
+        if (portalAuthData === null) {
+          mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Please log in to access the portal.</div>';
+          return;
+        }
+        
+        // Hardcoded Recurpay API configuration
+        const recurpaySubdomain = 'recurpay-subscriptions'; // Update with your Recurpay subdomain
+        const apiVersion = '2024-07';
+        const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
+        
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            customer_hash: portalAuthData.customerHash
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.data.redirection_url) {
+            const portalHTML = `
+              <div style="position: relative; width: 100%; height: 100%; min-height: 500px;">
+                <iframe
+                  src="${data.data.redirection_url}"
+                  style="border: 0; width: 100%; height: 100%;position: relative; z-index: 101;"
+                ></iframe>
+              </div>
+            `;
+            // Cache the portal content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = portalHTML;
+            contentCache[tabType] = tempDiv.firstElementChild;
+            
+            mainContentContainer.innerHTML = portalHTML;
+          } else {
+            throw new Error('No redirection URL in response');
+          }
+        })
+        .catch((error) => {
+          console.log("Error loading portal:", error);
+          mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Unable to load portal. Please try again later.</div>';
+        });
+        
+        return;
+      }
+
+      // Default behavior: fetch and inject HTML for non-portal tabs
+      if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
+        mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content URL not configured for this tab.</div>';
+        return;
+      }
+
+      mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading...</div>';
+
+      fetch(config.contentUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(htmlString => {
+          const parser = new DOMParser();
+          const parsed = parser.parseFromString(htmlString, 'text/html');
+          
+          // Create a container to hold the cached content
+          const cacheContainer = document.createElement('div');
+          
+          // Try to find sections by common IDs or class names
+          // Look for Shopify section IDs first
+          const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+          
+          // If no sections found, try to find main content area
+          if (sections.length === 0) {
+            const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
+            if (mainContent) {
+              // Clone and append all child nodes to cache container
+              Array.from(mainContent.children).forEach(child => {
+                cacheContainer.appendChild(child.cloneNode(true));
+              });
+            }
+          } else {
+            sections.forEach(section => {
+              cacheContainer.appendChild(section.cloneNode(true));
+            });
+          }
+          
+          // Cache the content
+          contentCache[tabType] = cacheContainer;
+          
+          // Clear loading message and render
+          mainContentContainer.innerHTML = '';
+          mainContentContainer.appendChild(cacheContainer.cloneNode(true));
+
+          // Execute scripts after content is appended
+          executeScripts(mainContentContainer);
+          
+          // Initialize recurpay when widget tab content is loaded using setInterval
+          if (tabType === 'widget') {
+            let attempts = 0;
+            const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
+            const initInterval = setInterval(() => {
+              attempts++;
+              if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
+                recurpay.init(window.recurpayScript);
+                clearInterval(initInterval);
+              } else if (attempts >= maxAttempts) {
+                clearInterval(initInterval);
+                console.warn('recurpay.init() not available after maximum attempts');
+              }
+            }, 100);
+          }
+          
+          // Initialize recurpayCartV2 when cart upsell tab content is loaded using setInterval
+          if (tabType === 'cart_upsell') {
+            let attempts = 0;
+            const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
+            const initInterval = setInterval(() => {
+              attempts++;
+              if (typeof recurpayCartV2 !== 'undefined' && typeof recurpayCartV2.initScript === 'function' && window.recurpayScript) {
+                recurpayCartV2.initScript(window.recurpayScript);
+                clearInterval(initInterval);
+              } else if (attempts >= maxAttempts) {
+                clearInterval(initInterval);
+                console.warn('recurpayCartV2.initScript() not available after maximum attempts');
+              }
+            }, 100);
+          }
+        })
+        .catch((error) => {
+          console.log("Error loading content:", error);
+          mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content could not be loaded. Please check the content URL configuration.</div>';
+        });
+    }
+  
+    // Function to switch to a specific tab
+    function switchToTab(tabIndex) {
+      if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
+
+      isOnCompletion = false;
+      if (headerContainer) {
+        headerContainer.classList.remove('completion-active');
+      }
+
+      currentTabIndex = tabIndex;
+      const tabType = tabOrder[tabIndex];
+  
+      // Update active tab button
+      tabButtons.forEach((btn, index) => {
+        if (index === tabIndex) {
+          btn.classList.add('active_tab');
+        } else {
+          btn.classList.remove('active_tab');
+        }
+      });
+  
+      // Filter sidebar blocks
+      filterBlocks(tabType);
+  
+      // Update sidebar header
+      updateSidebarHeader(tabType);
+  
+      // Update footer indicators
+      updateStepIndicator(tabIndex, false);
+  
+      // Update tagline header (so Next/Previous also updates it)
+      if (window.updateMerchantTabHeaderSection) {
+        window.updateMerchantTabHeaderSection(tabType);
+      }
+
+      // Update demo guide content + dots
+      updateDemoGuide(tabType, tabIndex);
+      
+      // Restore original finish button text when not on completion page
+      if (demoGuideFinishButton && originalFinishButtonText) {
+        const svgElement = demoGuideFinishButton.querySelector('svg');
+        // Remove all text nodes
+        Array.from(demoGuideFinishButton.childNodes).forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.remove();
+          }
+        });
+        // Insert original text before SVG (or as only content if no SVG)
+        if (svgElement) {
+          demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
+        } else {
+          demoGuideFinishButton.textContent = originalFinishButtonText;
+        }
+      }
+
+      // For cart_upsell tab, ensure cart has items before loading content
+      if (tabType === 'cart_upsell') {
+        ensureCartHasItems().then(() => {
+          loadTabContent(tabType);
+        });
+      } else {
+        // Load content
+        loadTabContent(tabType);
+      }
+    }
+
+    // Function to show the final completion tour page (after last tab)
+    function showCompletionStep() {
+      isOnCompletion = true;
+      
+      // Track completion page reached
+      trackMixpanelEvent(mixpanelEvents.completionPage, {
+        total_tabs: tabOrder.length,
+        completion_step_name: completionStepName
+      });
+      
+      if (headerContainer) {
+        headerContainer.classList.add('completion-active');
+      }
+      // Keep last tab button active, but move progress to final step
+      updateStepIndicator(tabOrder.length, true);
+      // Update demo guide for completion page
+      updateDemoGuide('completion', tabOrder.length);
+      // Update finish button text to "Finish" on completion page
+      if (demoGuideFinishButton) {
+        const svgElement = demoGuideFinishButton.querySelector('svg');
+        // Remove all text nodes
+        Array.from(demoGuideFinishButton.childNodes).forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.remove();
+          }
+        });
+        // Insert "Finish" text before SVG (or as only content if no SVG)
+        if (svgElement) {
+          demoGuideFinishButton.insertBefore(document.createTextNode('Finish'), svgElement);
+        } else {
+          demoGuideFinishButton.textContent = 'Finish';
+        }
+      }
+      loadTabContent('completion');
+    }
+  
+    // Enhanced tab click handler
+    function handleTabClick(event) {
+      const clickedButton = event.currentTarget;
+      const tabType = clickedButton.getAttribute('data-tab-type');
+      const tabIndex = tabOrder.indexOf(tabType);
+      
+      if (tabIndex !== -1) {
+        // Track tab click event
+        let eventName = '';
+        switch(tabType) {
+          case 'widget':
+            eventName = mixpanelEvents.tabWidget;
+            break;
+          case 'cart_upsell':
+            eventName = mixpanelEvents.tabCartUpsell;
+            break;
+          case 'portal':
+            eventName = mixpanelEvents.tabPortal;
+            break;
+          case 'support_resources':
+            eventName = mixpanelEvents.tabSupportResources;
+            break;
+        }
+        if (eventName) {
+          trackMixpanelEvent(eventName, {
+            tab_type: tabType,
+            tab_index: tabIndex,
+            tab_name: tabConfig[tabType]?.stepName || tabType
+          });
+        }
+        switchToTab(tabIndex);
+
+        // If Driver.js guide is active and we're not on completion, re-run it on the new tab
+        if (!isOnCompletion && document.querySelector('.driver-popover')) {
+          setTimeout(runDriverShowGuide, 500);
+        }
+      }
+    }
+  
+    // Previous button handler
+    if (previousButton) {
+      previousButton.addEventListener('click', () => {
+        trackMixpanelEvent(mixpanelEvents.previousButton, {
+          current_tab_index: currentTabIndex,
+          is_on_completion: isOnCompletion
+        });
+        
+        if (isOnCompletion) {
+          // Go back from completion page to last real tab
+          isOnCompletion = false;
+          if (headerContainer) {
+            headerContainer.classList.remove('completion-active');
+          }
+          switchToTab(tabOrder.length - 1);
+          return;
+        }
+        if (currentTabIndex > 0) {
+          switchToTab(currentTabIndex - 1);
+        }
+        // If Driver.js guide is active, re-run it on the new tab
+        if (!isOnCompletion && document.querySelector('.driver-popover')) {
+          setTimeout(runDriverShowGuide, 500);
+        }
+      });
+    }
+  
+    // Next button handler
+    if (nextButton) {
+      nextButton.addEventListener('click', () => {
+        if (nextButton.classList.contains('disabled')) return;
+        
+        // If on completion page, redirect to homepage
+        if (isOnCompletion) {
+          trackMixpanelEvent(mixpanelEvents.nextButton, {
+            current_tab_index: currentTabIndex,
+            total_tabs: tabOrder.length,
+            action: 'finish_tour'
+          });
+          window.location.href = '/';
+          return;
+        }
+
+        trackMixpanelEvent(mixpanelEvents.nextButton, {
+          current_tab_index: currentTabIndex,
+          total_tabs: tabOrder.length
+        });
+
+        if (currentTabIndex < tabOrder.length - 1) {
+          switchToTab(currentTabIndex + 1);
+        } else {
+          // From last tab, move to completion tour page
+          showCompletionStep();
+        }
+        // If Driver.js guide is active and we're not on completion, re-run it on the new tab
+        if (!isOnCompletion && document.querySelector('.driver-popover')) {
+          setTimeout(runDriverShowGuide, 500);
+        }
+      });
+    }
+
+   // Demo guide back button handler
+   if (demoGuideBackButton) {
+     demoGuideBackButton.addEventListener('click', (e) => {
+       e.preventDefault();
+       
+       trackMixpanelEvent(mixpanelEvents.guideBack, {
+         current_tab_index: currentTabIndex,
+         is_on_completion: isOnCompletion
+       });
+       
+       if (isOnCompletion) {
+         // Go back from completion page to last real tab
+         isOnCompletion = false;
+         if (headerContainer) {
+           headerContainer.classList.remove('completion-active');
+         }
+         switchToTab(tabOrder.length - 1);
+         return;
+       }
+       if (currentTabIndex > 0) {
+         switchToTab(currentTabIndex - 1);
+       }
+     });
+   }
+
+   // Demo guide finish button handler
+   if (demoGuideFinishButton) {
+     demoGuideFinishButton.addEventListener('click', (e) => {
+       e.preventDefault();
+       
+       trackMixpanelEvent(mixpanelEvents.guideFinish, {
+         current_tab_index: currentTabIndex,
+         is_on_completion: isOnCompletion,
+         total_tabs: tabOrder.length
+       });
+       
+       if (isOnCompletion) {
+         // On completion page, redirect to homepage
+         window.location.href = '/';
+         return;
+       }
+       if (currentTabIndex < tabOrder.length - 1) {
+         switchToTab(currentTabIndex + 1);
+       } else {
+         // From last tab, move to completion tour page
+         showCompletionStep();
+       }
+     });
+   }
+  
+    // Update tab click handlers
+    tabButtons.forEach(button => {
+      button.addEventListener('click', handleTabClick);
+    });
+
+    // Guide visibility toggle (still used by the inline demo guide close button)
+    function setGuideVisible(visible) {
+      if (!demoGuideSection) return;
+      if (visible) demoGuideSection.classList.add('is-visible');
+      else demoGuideSection.classList.remove('is-visible');
+    }
+
+    // Helper to run Driver.js guide highlighting for the current tab
+    function runDriverShowGuide() {
+      // Determine current tab type (use 'completion' when on completion page)
+      const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
+
+      // Map tab type to the element selector to highlight
+      function getHighlightSelector(tabType) {
+        switch (tabType) {
+          case 'widget':
+            return '.recurpay-pdp-widget';
+          case 'cart_upsell':
+            return 'cart-items .upgrade-subscription-cart';
+          case 'portal':
+            return '.main_content__container';
+          case 'support_resources':
+            return '.partner-support-section';
+          case 'completion':
+            return '.completion-cta__buttons';
+          default:
+            return null;
+        }
+      }
+
+      const selector = getHighlightSelector(currentTabType);
+      if (!selector) return;
+
+      // Try to highlight the appropriate element only when it exists, and retry a few times if not found yet
+      function highlightCurrentTabElement(retries) {
+        // For cart_upsell, use querySelectorAll and get the 2nd element (index 1)
+        
+        const targetEl = document.querySelector(selector);
+
+        if (targetEl) {
+          console.log('Target element found:', targetEl);
+          // Ensure Driver.js is available before initializing
+          if (!window.driver || !window.driver.js || typeof window.driver.js.driver !== 'function') {
+            console.warn('Driver.js is not available');
+            return;
+          }
+
+          // Log the highlighted element
+          console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
+
+          // Center the element in the viewport
+          if(currentTabType == 'widget'){
+            const widgetElement = document.querySelector(selector);
+            widgetElement.closest('section').scrollIntoView({block: 'center', behavior: 'smooth'});
+            console.log("widget element", widgetElement); 
+            console.log("scrolled")
+          }else {
+            targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          }
+
+          // Start Driver.js highlight with empty popover so we can replace its content
+          driverObj.highlight({
+            element: targetEl,
+            popover: {
+              title: '',
+              description: '',
+              showButtons: false,
+              side: 'right',
+              align: 'start'
+            },
+          });
+          if(currentTabType !== 'portal'){
+            refreshDriver();
+          }
+          // Replace Driver.js default popover content with cloned .demo-guide-section card
+          setTimeout(() => {
+            const popoverEl = document.querySelector('.driver-popover');
+            const demoCard = document.querySelector('.demo-guide-section .demo-guide-card');
+            if (popoverEl && demoCard) {
+              // Clear existing content and inject the demo guide card clone
+              popoverEl.innerHTML = '';
+              popoverEl.appendChild(demoCard.cloneNode(true));
+
+              // Wire popover buttons to global navigation
+              const closeBtn = popoverEl.querySelector('.demo-guide-close');
+              if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                  if (typeof driverObj.destroy === 'function') {
+                    driverObj.destroy();
+                  }
+                });
+              }
+
+              const backBtn = popoverEl.querySelector('.demo-guide-back');
+              if (backBtn) {
+                backBtn.addEventListener('click', () => {
+                  if (typeof driverObj.destroy === 'function') {
+                    driverObj.destroy();
+                  }
+
+                  // From completion page, go back to the last real tab (portal or support_resources)
+                  if (isOnCompletion) {
+                    const lastRealTabIndex = tabOrder.length - 1;
+                    if (lastRealTabIndex >= 0) {
+                      switchToTab(lastRealTabIndex);
+                      // Re-open Driver.js on that tab after content loads
+                      setTimeout(runDriverShowGuide, 500);
+                    }
+                  } else if (currentTabIndex > 0) {
+                    // On normal tabs, go to previous tab
+                    switchToTab(currentTabIndex - 1);
+                    // Re-open Driver.js on the previous tab after content loads
+                    setTimeout(runDriverShowGuide, 500);
+                  }
+                });
+              }
+
+              const finishBtn = popoverEl.querySelector('.demo-guide-finish');
+              if (finishBtn) {
+                finishBtn.addEventListener('click', () => {
+                  if (typeof driverObj.destroy === 'function') {
+                    driverObj.destroy();
+                  }
+                  const isLastRealTab = currentTabIndex >= tabOrder.length - 1;
+                  if (isLastRealTab) {
+                    console.log("finish button text", finishBtn.textContent);
+                    showCompletionStep();
+                    if(finishBtn.textContent.toLowerCase().includes('next')) {
+
+                      updateDemoGuide('completion', tabOrder.length);
+
+                      // Hide the inline guide, just in case
+                      setGuideVisible(false);
+
+                      // Run Driver.js-based guide
+                      runDriverShowGuide();
+                    }
+                    // Go to completion page, no further Driver.js tour
+                  } else {
+                    switchToTab(currentTabIndex + 1);
+                    // Re-open Driver.js on the next tab after content loads
+                    setTimeout(runDriverShowGuide, 500);
+                  }
+                });
+              }
+            }
+          }, 50);
+        } else if (retries > 0) {
+          setTimeout(() => highlightCurrentTabElement(retries - 1), 300);
+        }
+      }
+
+      // Try up to 10 times to find and highlight the element for the current tab
+      highlightCurrentTabElement(10);
+    }
+
+    // Integrate Driver.js on click of "Show Guide" instead of toggling the inline guide
+    if (showGuideButton) {
+      showGuideButton.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        trackMixpanelEvent(mixpanelEvents.showGuide, {
+          current_tab_index: currentTabIndex,
+          is_on_completion: isOnCompletion,
+          action: 'open'
+        });
+        
+        // Ensure content matches the current tab so the cloned card has correct text
+        if (isOnCompletion) {
+          updateDemoGuide('completion', tabOrder.length);
+        } else {
+          const tabType = tabOrder[currentTabIndex] || 'widget';
+          updateDemoGuide(tabType, currentTabIndex);
+        }
+
+        // Hide the inline guide, just in case
+        setGuideVisible(false);
+
+        // Run Driver.js-based guide
+        runDriverShowGuide();
+      });
+    }
+
+    if (demoGuideCloseButton) {
+      demoGuideCloseButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        setGuideVisible(false);
+      });
+    }
+
+    // Function to toggle sidebar collapse state
+    function toggleSidebarCollapse(eventSource = 'toggle') {
+      if (!sidebarContainer || !headerContainer) return;
+      const isCollapsed = sidebarContainer.classList.contains('collapsed');
+      
+      // Track sidebar toggle event
+      const eventName = eventSource === 'restore' ? mixpanelEvents.sidebarRestore : mixpanelEvents.sidebarToggle;
+      trackMixpanelEvent(eventName, {
+        action: isCollapsed ? 'expand' : 'collapse',
+        source: eventSource
+      });
+      
+      if (isCollapsed) {
+        sidebarContainer.classList.remove('collapsed');
+        headerContainer.classList.remove('sidebar-collapsed');
+      } else {
+        sidebarContainer.classList.add('collapsed');
+        headerContainer.classList.add('sidebar-collapsed');
+      }
+    }
+
+    // Sidebar collapse toggle button
+    if (sidebarToggleButton) {
+      sidebarToggleButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleSidebarCollapse('toggle');
+      });
+    }
+
+    // Sidebar restore button (appears when collapsed)
+    const sidebarRestoreButton = document.querySelector('.sidebar-restore-button');
+    if (sidebarRestoreButton) {
+      sidebarRestoreButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleSidebarCollapse('restore');
+      });
+    }
+    function refreshDriver() { 
+      let maxAttempts = 5;
+      const refreshInterval = setInterval(()=>{
+      if(maxAttempts > 0) {
+        driverObj.refresh();
+        console.log("driverObj refreshed");
+        maxAttempts--;
+      }else {
+        clearInterval(refreshInterval);
+      }
+    },500)
+  }
+    // Prefetch all tab content in parallel for instant tab switching
+    function prefetchAllTabs() {
+      const prefetchPromises = [];
+      
+      // Prefetch all regular tabs
+      tabOrder.forEach(tabType => {
+        const config = tabConfig[tabType];
+        if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
+          return; // Skip tabs without content URLs
+        }
+        
+        // Skip if already cached
+        if (contentCache[tabType]) {
+          return;
+        }
+        
+        const prefetchPromise = fetch(config.contentUrl)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then(htmlString => {
+            const parser = new DOMParser();
+            const parsed = parser.parseFromString(htmlString, 'text/html');
+            
+            // Create a container to hold the cached content
+            const cacheContainer = document.createElement('div');
+            
+            // Try to find sections by common IDs or class names
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            
+            if (sections.length === 0) {
+              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
+              if (mainContent) {
+                Array.from(mainContent.children).forEach(child => {
+                  cacheContainer.appendChild(child.cloneNode(true));
+                });
+              }
+            } else {
+              sections.forEach(section => {
+                cacheContainer.appendChild(section.cloneNode(true));
+              });
+            }
+            
+            // Cache the content
+            contentCache[tabType] = cacheContainer;
+            console.log(`Prefetched content for tab: ${tabType}`);
+          })
+          .catch((error) => {
+            console.log(`Error prefetching content for ${tabType}:`, error);
+          });
+        
+        prefetchPromises.push(prefetchPromise);
+      });
+      
+      // Prefetch portal content
+      if (portalAuthData && !contentCache['portal']) {
+        const recurpaySubdomain = 'recurpay-subscriptions';
+        const apiVersion = '2024-07';
+        const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
+        
+        const portalPromise = fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            customer_hash: portalAuthData.customerHash
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data && data.data.redirection_url) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = `
+              <div style="position: relative; width: 100%; height: 100%; min-height: 500px;">
+                <iframe
+                  src="${data.data.redirection_url}"
+                  style="border: 0; width: 100%; height: 100%;position: relative; z-index: 101;"
+                ></iframe>
+              </div>
+            `;
+            contentCache['portal'] = tempDiv.firstElementChild;
+            console.log('Prefetched content for tab: portal');
+          }
+        })
+        .catch((error) => {
+          console.log('Error prefetching portal content:', error);
+        });
+        
+        prefetchPromises.push(portalPromise);
+      }
+      
+      // Prefetch completion content
+      const completionConfig = tabConfig['completion'];
+      if (completionConfig && completionConfig.contentUrl && completionConfig.contentUrl.trim() !== '' && !contentCache['completion']) {
+        const completionPromise = fetch(completionConfig.contentUrl)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then(htmlString => {
+            const parser = new DOMParser();
+            const parsed = parser.parseFromString(htmlString, 'text/html');
+            
+            const cacheContainer = document.createElement('div');
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            
+            if (sections.length === 0) {
+              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
+              if (mainContent) {
+                Array.from(mainContent.children).forEach(child => {
+                  cacheContainer.appendChild(child.cloneNode(true));
+                });
+              }
+            } else {
+              sections.forEach(section => {
+                cacheContainer.appendChild(section.cloneNode(true));
+              });
+            }
+            
+            contentCache['completion'] = cacheContainer;
+            console.log('Prefetched content for tab: completion');
+          })
+          .catch((error) => {
+            console.log('Error prefetching completion content:', error);
+          });
+        
+        prefetchPromises.push(completionPromise);
+      }
+      
+      // Wait for all prefetches to complete
+      Promise.allSettled(prefetchPromises).then(() => {
+        console.log('All tab content prefetched and cached');
+      });
+    }
+  
+    // Initialize: set up the first tab
+    const activeButton = document.querySelector('.button_tab.active_tab');
+    if (activeButton) {
+      const activeTabType = activeButton.getAttribute('data-tab-type');
+      const initialTabIndex = tabOrder.indexOf(activeTabType);
+      if (initialTabIndex !== -1) {
+        switchToTab(initialTabIndex);
+      }
+    } else {
+      // Default to first tab if none is active
+      switchToTab(0);
+    }
+    
+    // Loader functions for Driver.js tour
+    function showDriverLoader() {
+      if (document.getElementById('driver-tour-loader')) return;
+      const loader = document.createElement('div');
+      loader.id = 'driver-tour-loader';
+      loader.innerHTML = `
+        <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 99999; background: rgba(255, 255, 255, 0.95); padding: 20px 30px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px;">
+          <div style="width: 24px; height: 24px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+          <span style="font-size: 14px; font-weight: 500; color: rgb(17, 24, 39);">Preparing guided tour...</span>
+        </div>
+        <style>
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+        </style>
+      `;
+      document.body.appendChild(loader);
+    }
+
+    function hideDriverLoader() {
+      const loader = document.getElementById('driver-tour-loader');
+      if (loader) loader.remove();
+    }
+
+    // Start the Driver.js tour automatically when page loads
+    // Use setInterval to check if content is loaded, show loader while waiting
+    (function startDriverTourWhenReady() {
+      // Determine current tab type
+      const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
+      
+      // Map tab type to the element selector to highlight
+      function getHighlightSelector(tabType) {
+        switch (tabType) {
+          case 'widget':
+            return '.recurpay-pdp-widget';
+          case 'cart_upsell':
+            return 'cart-items .upgrade-subscription-cart';
+          case 'portal':
+            return '.main_content__container';
+          case 'support_resources':
+            return '.partner-support-section';
+          case 'completion':
+            return '.completion-cta__buttons';
+          default:
+            return null;
+        }
+      }
+
+      const selector = getHighlightSelector(currentTabType);
+      if (!selector) return;
+
+      // Show loader immediately
+      showDriverLoader();
+
+      let attempts = 0;
+      const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
+      
+      const checkInterval = setInterval(() => {
+        attempts++;
+        
+        // Check if target element exists
+        const targetEl = document.querySelector(selector);
+        console.log("targetEl", targetEl);
+
+        if (targetEl) {
+          // Element found! Hide loader and start tour
+          clearInterval(checkInterval);
+          hideDriverLoader();
+          
+          // Ensure content matches the current tab so the cloned card has correct text
+          if (isOnCompletion) {
+            updateDemoGuide('completion', tabOrder.length);
+          } else {
+            const tabType = tabOrder[currentTabIndex] || 'widget';
+            updateDemoGuide(tabType, currentTabIndex);
+          }
+          
+          // Hide the inline guide, just in case
+          setGuideVisible(false);
+          
+          // Run Driver.js-based guide
+          runDriverShowGuide();
+        } else if (attempts >= maxAttempts) {
+          // Timeout reached, hide loader and give up
+          clearInterval(checkInterval);
+          hideDriverLoader();
+          console.warn('Target element not found after maximum attempts:', selector);
+        }
+      }, 100);
+    })();
+    
+    // Prefetch all tab content in the background for instant switching
+    // Start prefetching after a short delay to not interfere with initial load
+    setTimeout(() => {
+      prefetchAllTabs();
+    }, 1000);
+  })();
+  document.addEventListener('DOMContentLoaded', () => {
+    refreshDriver();
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Merchant tab switcher",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "company_logo",
+        "label": "Company logo"
+      },
+      {
+        "type": "text",
+        "id": "company_name",
+        "label": "Company name"
+      },
+      {
+        "type": "text",
+        "id": "tag_text",
+        "label": "Tag Text"
+      },
+      {
+        "type": "text",
+        "id": "button_one",
+        "label": "Button text",
+        "default": "Widget"
+      }, {
+        "type": "text",
+        "id": "button_two",
+        "label": "Button text",
+        "default": "Cart Upsell"
+      }, {
+        "type": "text",
+        "id": "button_three",
+        "label": "Button text",
+        "default": "Portal"
+      }, {
+        "type": "checkbox",
+        "id": "enable_support_resources",
+        "label": "Enable Support & Resources tab",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "button_four",
+        "label": "Support & Resources button text",
+        "default": "Support & Resources"
+      }, {
+        "type": "url",
+        "id": "redirect_link",
+        "label": "Redirect Link"
+      }, {
+        "type": "text",
+        "id": "redirect_text",
+        "label": "Redirect text",
+        "default": "Exit"
+      }, {
+        "type": "text",
+        "id": "demo",
+        "label": "button text",
+        "default": "Book Demo"
+      }, {
+        "type": "url",
+        "id": "demo_url",
+        "label": "Demo button URL"
+      }, {
+        "type": "html",
+        "id": "demo_html",
+        "label": "Demo button HTML",
+        "info": "Custom HTML content for the demo button. If left empty, default icon and text will be used."
+      }, {
+        "type": "text",
+        "id": "sidebar_header_title",
+        "label": "Sidebar header title",
+        "default": "KEY BENEFITS"
+      }, {
+        "type": "text",
+        "id": "subtext_title",
+        "label": "Subtext title for widget",
+        "default": "Subscribe & Save Widgets"
+      }, {
+        "type": "text",
+        "id": "subtext_description",
+        "label": "Subtext description for widget",
+        "default": "Everything you get when you enable this widget"
+      }, {
+        "type": "url",
+        "id": "doc_url",
+        "label": "Docs URL for widget"
+      }, {
+        "type": "url",
+        "id": "widget_content_url",
+        "label": "Widget content page URL",
+        "info": "URL to the page containing widget tab content"
+      },       {
+        "type": "text",
+        "id": "widget_step_name",
+        "label": "Widget step name",
+        "default": "Widget"
+      }, {
+        "type": "text",
+        "id": "tag_text_widget",
+        "label": "Top Tag Text",
+        "default": "Customer Portal"
+      }, {
+        "type": "html",
+        "id": "tag_icon_widget",
+        "label": "Tag Icon (Emoji or Text)"
+      }, {
+        "type": "text",
+        "id": "heading_widget",
+        "label": "Main Heading",
+        "default": "Self-Service Subscription Management"
+      }, {
+        "type": "textarea",
+        "id": "description_widget",
+        "label": "Description",
+        "default": "Let customers manage their own subscriptions and reduce support tickets by 60%"
+      }, {
+        "type": "text",
+        "id": "avatar",
+        "label": "Avatar image",
+        "info": "Insert Emoji"
+      }, {
+        "type": "text",
+        "id": "name",
+        "label": "Guide name",
+        "default": "Alex"
+      }, {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Your Demo Guide"
+      }, {
+        "type": "text",
+        "id": "title_widget_guide",
+        "label": "Title for widget tab",
+        "default": "Ready to Get Started? 🚀"
+      }, {
+        "type": "textarea",
+        "id": "description_widget_guide",
+        "label": "Description for widget tab",
+        "default": "You've seen the Recurrpy experience! Start your 14-day free trial or book a personalized demo with our team."
+      }, {
+        "type": "text",
+        "id": "steps_text",
+        "label": "Steps text",
+        "default": "1 / 4"
+      }, {
+        "type": "text",
+        "id": "back_text",
+        "label": "Back button text",
+        "default": "Back"
+      }, {
+        "type": "text",
+        "id": "finish_text",
+        "label": "Finish button text",
+        "default": "Finish"
+      }, {
+        "type": "header",
+        "content": "Cart Upsell Tab Settings"
+      }, {
+        "type": "text",
+        "id": "cart_upsell_subtext_title",
+        "label": "Subtext title for cart upsell",
+        "default": "Cart Upsell Widgets"
+      }, {
+        "type": "text",
+        "id": "cart_upsell_subtext_description",
+        "label": "Subtext description for cart upsell",
+        "default": "Everything you get when you enable cart upsell"
+      }, {
+        "type": "url",
+        "id": "cart_upsell_doc_url",
+        "label": "Docs URL for cart upsell"
+      }, {
+        "type": "url",
+        "id": "cart_upsell_content_url",
+        "label": "Cart upsell content page URL",
+        "info": "URL to the page containing cart upsell tab content"
+      },       {
+        "type": "text",
+        "id": "cart_upsell_step_name",
+        "label": "Cart upsell step name",
+        "default": "Cart Upsell"
+      }, {
+        "type": "text",
+        "id": "tag_text_cart_upsell",
+        "label": "Top Tag Text",
+        "default": "Customer Portal"
+      }, {
+        "type": "html",
+        "id": "tag_icon_cart_upsell",
+        "label": "Tag Icon (Emoji or Text)"
+      }, {
+        "type": "text",
+        "id": "heading_cart_upsell",
+        "label": "Main Heading",
+        "default": "Self-Service Subscription Management"
+      }, {
+        "type": "textarea",
+        "id": "description_cart_upsell",
+        "label": "Description",
+        "default": "Let customers manage their own subscriptions and reduce support tickets by 60%"
+      }, {
+        "type": "text",
+        "id": "title_cart_upsell_guide",
+        "label": "Title for widget tab",
+        "default": "Ready to Get Started? 🚀"
+      }, {
+        "type": "textarea",
+        "id": "description_cart_upsell_guide",
+        "label": "Description for widget tab",
+        "default": "You've seen the Recurrpy experience! Start your 14-day free trial or book a personalized demo with our team."
+      }, {
+        "type": "text",
+        "id": "steps_text_cart_upsell",
+        "label": "Steps text",
+        "default": "2 / 4"
+      }, {
+        "type": "header",
+        "content": "Portal Tab Settings"
+      }, {
+        "type": "text",
+        "id": "portal_subtext_title",
+        "label": "Subtext title for portal",
+        "default": "Customer Portal"
+      }, {
+        "type": "text",
+        "id": "portal_subtext_description",
+        "label": "Subtext description for portal",
+        "default": "Everything you get when you enable customer portal"
+      }, {
+        "type": "url",
+        "id": "portal_doc_url",
+        "label": "Docs URL for portal"
+      },       {
+        "type": "text",
+        "id": "portal_step_name",
+        "label": "Portal step name",
+        "default": "Portal"
+      }, {
+        "type": "text",
+        "id": "tag_text_portal",
+        "label": "Top Tag Text",
+        "default": "Customer Portal"
+      }, {
+        "type": "html",
+        "id": "tag_icon_portal",
+        "label": "Tag Icon (Emoji or Text)"
+      }, {
+        "type": "text",
+        "id": "heading_portal",
+        "label": "Main Heading",
+        "default": "Self-Service Subscription Management"
+      }, {
+        "type": "textarea",
+        "id": "description_portal",
+        "label": "Description",
+        "default": "Let customers manage their own subscriptions and reduce support tickets by 60%"
+      }, {
+        "type": "text",
+        "id": "title_portal_guide",
+        "label": "Title for widget tab",
+        "default": "Ready to Get Started? 🚀"
+      }, {
+        "type": "textarea",
+        "id": "description_portal_guide",
+        "label": "Description for widget tab",
+        "default": "You've seen the Recurrpy experience! Start your 14-day free trial or book a personalized demo with our team."
+      }, {
+        "type": "text",
+        "id": "steps_text_portal",
+        "label": "Steps text",
+        "default": "3 / 4"
+      }, {
+        "type": "header",
+        "content": "Support & Resources Tab Settings"
+      }, {
+        "type": "text",
+        "id": "support_resources_subtext_title",
+        "label": "Subtext title for support & resources",
+        "default": "Support & Resources"
+      }, {
+        "type": "text",
+        "id": "support_resources_subtext_description",
+        "label": "Subtext description for support & resources",
+        "default": "Everything you need to launch and get help when you need it"
+      }, {
+        "type": "url",
+        "id": "support_resources_doc_url",
+        "label": "Docs URL for support & resources"
+      }, {
+        "type": "url",
+        "id": "support_resources_content_url",
+        "label": "Support & resources content page URL",
+        "info": "URL to the page containing support & resources tab content"
+      },       {
+        "type": "text",
+        "id": "support_resources_step_name",
+        "label": "Support & resources step name",
+        "default": "Support & Resources"
+      }, {
+        "type": "text",
+        "id": "tag_text_support_resources",
+        "label": "Top Tag Text",
+        "default": "Support"
+      }, {
+        "type": "html",
+        "id": "tag_icon_support_resources",
+        "label": "Tag Icon (Emoji or Text)"
+      }, {
+        "type": "text",
+        "id": "heading_support_resources",
+        "label": "Main Heading",
+        "default": "Support & implementation resources"
+      }, {
+        "type": "textarea",
+        "id": "description_support_resources",
+        "label": "Description",
+        "default": "Docs, guides, and best practices to help you go live faster."
+      }, {
+        "type": "text",
+        "id": "title_support_resources_guide",
+        "label": "Title for support & resources tab",
+        "default": "Need help? We’ve got you."
+      }, {
+        "type": "textarea",
+        "id": "description_support_resources_guide",
+        "label": "Description for support & resources tab",
+        "default": "Browse docs or talk to our team for fast implementation support."
+      }, {
+        "type": "text",
+        "id": "steps_text_support_resources",
+        "label": "Steps text",
+        "default": "4 / 4"
+      }, {
+        "type": "url",
+        "id": "completion_content_url",
+        "label": "Completion content page URL",
+        "info": "URL to the page containing final tour completion content"
+      },       {
+        "type": "text",
+        "id": "completion_step_name",
+        "label": "Completion step name",
+        "default": "Tour completion"
+      }, {
+        "type": "header",
+        "content": "Completion Tour Page Guide Settings"
+      }, {
+        "type": "text",
+        "id": "title_completion_guide",
+        "label": "Title for completion tour page",
+        "default": "Ready to Get Started? 🚀"
+      }, {
+        "type": "textarea",
+        "id": "description_completion_guide",
+        "label": "Description for completion tour page",
+        "default": "You've completed the tour! Start your 14-day free trial or book a personalized demo with our team."
+      },       {
+        "type": "text",
+        "id": "steps_text_completion",
+        "label": "Steps text for completion",
+        "default": "Complete"
+      }, {
+        "type": "header",
+        "content": "Mixpanel Event Settings"
+      }, {
+        "type": "text",
+        "id": "event_tab_widget",
+        "label": "Event Name - Widget Tab Clicked",
+        "default": "Tab Clicked - Widget",
+        "info": "Event name that will appear in Mixpanel dashboard when Widget tab is clicked"
+      }, {
+        "type": "text",
+        "id": "event_tab_cart_upsell",
+        "label": "Event Name - Cart Upsell Tab Clicked",
+        "default": "Tab Clicked - Cart Upsell",
+        "info": "Event name that will appear in Mixpanel dashboard when Cart Upsell tab is clicked"
+      }, {
+        "type": "text",
+        "id": "event_tab_portal",
+        "label": "Event Name - Portal Tab Clicked",
+        "default": "Tab Clicked - Portal",
+        "info": "Event name that will appear in Mixpanel dashboard when Portal tab is clicked"
+      }, {
+        "type": "text",
+        "id": "event_tab_support_resources",
+        "label": "Event Name - Support & Resources Tab Clicked",
+        "default": "Tab Clicked - Support & Resources",
+        "info": "Event name that will appear in Mixpanel dashboard when Support & Resources tab is clicked"
+      }, {
+        "type": "text",
+        "id": "event_previous_button",
+        "label": "Event Name - Previous Button Clicked",
+        "default": "Previous Button Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when Previous button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_next_button",
+        "label": "Event Name - Next Button Clicked",
+        "default": "Next Button Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when Next button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_show_guide",
+        "label": "Event Name - Show Guide Clicked",
+        "default": "Show Guide Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when Show Guide button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_guide_back",
+        "label": "Event Name - Guide Back Button Clicked",
+        "default": "Guide Back Button Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when Guide Back button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_guide_finish",
+        "label": "Event Name - Guide Finish Button Clicked",
+        "default": "Guide Finish Button Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when Guide Finish button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_sidebar_toggle",
+        "label": "Event Name - Sidebar Toggle Clicked",
+        "default": "Sidebar Toggle Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when sidebar toggle button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_sidebar_restore",
+        "label": "Event Name - Sidebar Restore Clicked",
+        "default": "Sidebar Restore Clicked",
+        "info": "Event name that will appear in Mixpanel dashboard when sidebar restore button is clicked"
+      }, {
+        "type": "text",
+        "id": "event_completion_page",
+        "label": "Event Name - Completion Page Reached",
+        "default": "Completion Page Reached",
+        "info": "Event name that will appear in Mixpanel dashboard when user reaches the completion page"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "feature",
+        "settings": [
+          {
+            "type": "select",
+            "id": "tab_type",
+            "label": "Tab type",
+            "options": [
+              {
+                "value": "widget",
+                "label": "Widget"
+              }, {
+                "value": "cart_upsell",
+                "label": "Cart Upsell"
+              }, {
+                "value": "portal",
+                "label": "Portal"
+              }, {
+                "value": "support_resources",
+                "label": "Support & Resources"
+              }
+            ],
+            "default": "widget"
+          },
+          {
+            "type": "html",
+            "id": "feature_image",
+            "label": "Feature image",
+            "info": "Insert Emoji"
+          },
+          {
+            "type": "text",
+            "id": "content_header",
+            "label": "Content header",
+            "default": "On-brand, plug & play"
+          },
+          {
+            "type": "text",
+            "id": "content_description",
+            "label": "Content description",
+            "default": "Drop in widgets that adapt to your theme and storefront styling."
+          }, {
+            "type": "text",
+            "id": "tag_text_one",
+            "label": "Tag text",
+            "default": "No code"
+          }, {
+            "type": "text",
+            "id": "tag_text_two",
+            "label": "Tag text",
+            "default": "No code"
+          }, {
+            "type": "url",
+            "id": "example_url",
+            "label": "Url"
+          }, {
+            "type": "text",
+            "id": "example_text",
+            "label": "Live example text",
+            "default": "See live example"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Merchant tab switcher"
+      }
+    ]
+  }
+{% endschema %}

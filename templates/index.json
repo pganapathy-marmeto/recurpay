@@ -1,0 +1,536 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "recurpay_header_Uew4xK": {
+      "type": "recurpay-header",
+      "name": "Header navigation",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
+        "brand_text": "",
+        "main_menu": "header-new-menu",
+        "button_primary_text": "Install Now",
+        "button_primary_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage",
+        "button_secondary_text": "Book a Demo",
+        "button_secondary_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+      }
+    },
+    "product_experience_UtRKFq": {
+      "type": "product-experience",
+      "blocks": {
+        "cta_card_YmTidb": {
+          "type": "cta_card",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "title": "Experience as a Merchant",
+            "subtitle": "See widgets, checkouts & dashboards",
+            "link": "shopify://pages/merchant-widget",
+            "event_name": "Demo store - merchant tour - step 1 viewed",
+            "primary": true
+          }
+        },
+        "cta_card_qTam8m": {
+          "type": "cta_card",
+          "settings": {
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "title": "Explore as a Partner",
+            "subtitle": "Multi-store, sandbox & APIs",
+            "link": "shopify://pages/partner-widget",
+            "event_name": "Demo store - partner tour - step 1 viewed",
+            "primary": false
+          }
+        },
+        "stat_XjLVwf": {
+          "type": "stat",
+          "settings": {
+            "value": "6500+",
+            "label": "Active merchants"
+          }
+        },
+        "stat_CiMaye": {
+          "type": "stat",
+          "settings": {
+            "value": "450+",
+            "label": "5 star reviews"
+          }
+        },
+        "stat_JjKaJ7": {
+          "type": "stat",
+          "settings": {
+            "value": "98+",
+            "label": "countries"
+          }
+        },
+        "stat_HGhz8W": {
+          "type": "stat",
+          "settings": {
+            "value": "24/7",
+            "label": "Support Available"
+          }
+        }
+      },
+      "block_order": [
+        "cta_card_YmTidb",
+        "cta_card_qTam8m",
+        "stat_XjLVwf",
+        "stat_CiMaye",
+        "stat_JjKaJ7",
+        "stat_HGhz8W"
+      ],
+      "name": "Product experience",
+      "settings": {
+        "badge_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewbox=\"0 0 24 24\" fill=\"#059669\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-play-icon lucide-play\"><path d=\"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z\"></path></svg>",
+        "badge_text": "Interactive Demo Experience",
+        "heading_main": "See Recurpay",
+        "heading_highlight": "in Action",
+        "description": "Experience the power of subscription commerce. Try our interactive demo as a merchant or explore partner integrations."
+      }
+    },
+    "tab_switcher_AfcQPW": {
+      "type": "tab-switcher",
+      "blocks": {
+        "tab_title_8TFHL8": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Product Page WIdgets",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-bag-icon lucide-shopping-bag\"><path d=\"M16 10a4 4 0 0 1-8 0\"></path><path d=\"M3.103 6.034h17.794\"></path><path d=\"M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z\"></path></svg>",
+            "content_image": "🛒",
+            "content_tag": "FEATURED",
+            "content_heading": "Subscribe & Save Widgets",
+            "content_sub_heading": "Convert one-time buyers into subscribers with beautiful, customizable widgets that match your brand.",
+            "content_pointer_one": "Frequency selectors",
+            "content_pointer_two": "Discount badges",
+            "content_pointer_three": "One-click subscribe",
+            "content_pointer_four": "Mobile optimized",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+product+page+widget",
+            "button_text": "Get started",
+            "event_name": "Product Page WIdgets Tab Clicked",
+            "event_name_cta": "Product Page WIdgets Button Clicked"
+          }
+        },
+        "tab_title_8dF69B": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Cart Upsell",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
+            "content_image": "🛍️",
+            "content_tag": "FEATURED",
+            "content_heading": "Cart Upsell Module",
+            "content_sub_heading": "Increase subscription conversions at checkout with smart upsell prompts.",
+            "content_pointer_one": "Inline editing",
+            "content_pointer_two": "",
+            "content_pointer_three": "Custom offers",
+            "content_pointer_four": "Analytics tracking",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+cart+upsell",
+            "button_text": "Get started",
+            "event_name": "Cart Upsell Tab Clicked",
+            "event_name_cta": "Cart Upsell Button Clicked"
+          }
+        },
+        "tab_title_zkibKC": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Build Your Own Box",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-package-icon lucide-package\"><path d=\"M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z\"></path><path d=\"M12 22V12\"></path><polyline points=\"3.29 7 12 12 20.71 7\"></polyline><path d=\"m7.5 4.27 9 5.15\"></path></svg>",
+            "content_image": "📦",
+            "content_tag": "FEATURED",
+            "content_heading": "Build Your Own Box",
+            "content_sub_heading": "Let customers create personalized subscription boxes with drag-and-drop simplicity.",
+            "content_pointer_one": "Flexible pricing",
+            "content_pointer_two": "Min/max items",
+            "content_pointer_three": "Product bundles",
+            "content_pointer_four": "Preview checkout",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+bulid+your+own+box",
+            "button_text": "Get started",
+            "event_name": "Build Your Own Box Tab Clicked",
+            "event_name_cta": "Build Your Own Box Button Clicked"
+          }
+        },
+        "tab_title_4K3ypK": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "AI Widget Builder",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-sparkles-icon lucide-sparkles\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"></path><path d=\"M20 2v4\"></path><path d=\"M22 4h-4\"></path><circle cx=\"4\" cy=\"20\" r=\"2\"></circle></svg>",
+            "content_image": "✨",
+            "content_tag": "FEATURED",
+            "content_heading": "AI Widget Builder",
+            "content_sub_heading": "Create stunning subscription widgets in minutes with our AI-powered design tool that matches your brand perfectly.",
+            "content_pointer_one": "AI brand matching",
+            "content_pointer_two": "Instant generation",
+            "content_pointer_three": "Real-time preview",
+            "content_pointer_four": "One-click deploy",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+ai+widget",
+            "button_text": "Get started",
+            "event_name": "AI Widget Builder Tab Clicked",
+            "event_name_cta": "AI Widget Builder Button Clicked"
+          }
+        },
+        "tab_title_MeyYCf": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Merchant Dashboard",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-layout-panel-left-icon lucide-layout-panel-left\"><rect width=\"7\" height=\"18\" x=\"3\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"></rect><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"></rect></svg>",
+            "content_image_upload": "shopify://shop_images/Screenshot_2026-02-02_153732.png",
+            "content_image": "📰",
+            "content_tag": "FEATURED",
+            "content_heading": "Merchant Dashboard",
+            "content_sub_heading": "Manage your subscription business from a powerful, intuitive dashboard with all the tools you need.",
+            "content_pointer_one": "Plan management",
+            "content_pointer_two": "Store settings",
+            "content_pointer_three": "Analytics & AI insights",
+            "content_pointer_four": "Integration hub",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+merchant+dashboard",
+            "button_text": "Get started",
+            "event_name": "Merchant Dashboard Tab Clicked",
+            "event_name_cta": "Merchant Dashboard Button Clicked"
+          }
+        },
+        "tab_title_XX6CHT": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Analytics Demo",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chart-line-icon lucide-chart-line\"><path d=\"M3 3v16a2 2 0 0 0 2 2h16\"></path><path d=\"m19 9-5 5-4-4-3 3\"></path></svg>",
+            "content_image": "📊",
+            "content_tag": "FEATURED",
+            "content_heading": "Revenue Dashboard",
+            "content_sub_heading": "Track MRR, churn, and subscriber growth with real-time analytics.",
+            "content_pointer_one": "Live metrics",
+            "content_pointer_two": "Trend charts",
+            "content_pointer_three": "Cohort analysis",
+            "content_pointer_four": "Export reports",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+analytics+demo",
+            "button_text": "Get started",
+            "event_name": "Analytics Demo Tab Clicked",
+            "event_name_cta": "Analytics Demo Button Clicked"
+          }
+        },
+        "tab_title_PEwTLa": {
+          "type": "Tab_title",
+          "settings": {
+            "tab_title": "Gift Subscriptions",
+            "tab_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-gift-icon lucide-gift\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"></rect><path d=\"M12 8v13\"></path><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\"></path><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5\"></path></svg>",
+            "content_image": "🎁",
+            "content_tag": "FEATURED",
+            "content_heading": "Gift Subscriptions",
+            "content_sub_heading": "Enable customers to purchase subscriptions as gifts with custom messaging.",
+            "content_pointer_one": "Gift cards",
+            "content_pointer_two": "Scheduled delivery",
+            "content_pointer_three": "Custom messages",
+            "content_pointer_four": "Recipient management",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+gift+subscription",
+            "button_text": "Get started",
+            "event_name": "Gift Subscriptions Tab Clicked",
+            "event_name_cta": "Gift Subscriptions Button Clicked"
+          }
+        }
+      },
+      "block_order": [
+        "tab_title_8TFHL8",
+        "tab_title_8dF69B",
+        "tab_title_zkibKC",
+        "tab_title_4K3ypK",
+        "tab_title_MeyYCf",
+        "tab_title_XX6CHT",
+        "tab_title_PEwTLa"
+      ],
+      "name": "Tab switched",
+      "settings": {
+        "header": "Preview Core Features",
+        "sub-heading": "Explore what Recurpay can do for your subscription business",
+        "event_tab_clicked": "Tab Clicked",
+        "event_cta_button_clicked": "CTA Button Clicked"
+      }
+    },
+    "header_with_cards_y6EtJz": {
+      "type": "header-with-cards",
+      "blocks": {
+        "feature_card_ixRxyB": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-wallet-icon lucide-wallet\"><path d=\"M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1\"></path><path d=\"M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4\"></path></svg>",
+            "card_title": "Pay as you go (Ongoing)",
+            "card_description": "Provide flexible options for subscription payment frequencies, such as weekly, monthly, bi-monthly, and any custom frequency!",
+            "card_button": "Try Demo",
+            "modal_icon": "💳",
+            "modal_title": "Pay as you go (Ongoing)",
+            "modal_subtitle": "Flexible subscription payment frequencies",
+            "modal_image": "shopify://shop_images/photo-1554224155-6726b3ff858f.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Perfect for customers who want control over their subscription schedule. Let them choose weekly, monthly, bi-monthly, or custom delivery intervals.",
+            "benefit_1": "Increase customer satisfaction with flexible options",
+            "benefit_2": "Reduce churn by adapting to customer needs",
+            "benefit_3": "Support any billing cycle your business requires",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Pay as you go (Ongoing) Card Clicked"
+          }
+        },
+        "feature_card_HJUnTP": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-gift-icon lucide-gift\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"></rect><path d=\"M12 8v13\"></path><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\"></path><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5\"></path></svg>",
+            "card_title": "Prepaid (Gift Subscription)",
+            "card_description": "Allow customers to prepay for a set number of deliveries and receive their orders right at their doorstep according to their chosen frequency.",
+            "card_button": "Try Demo",
+            "modal_icon": "🎁",
+            "modal_title": "Prepaid (Gift Subscription)",
+            "modal_subtitle": "Let customers prepay for multiple deliveries",
+            "modal_image": "shopify://shop_images/photo-1549465220-1a8b9238cd48.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Ideal for gift-giving occasions. Customers can prepay for 3, 6, or 12 months of deliveries as a thoughtful present for loved ones.",
+            "benefit_1": "Boost upfront revenue with prepaid plans",
+            "benefit_2": "Perfect for holiday and birthday gifting",
+            "benefit_3": "Reduce payment processing fees",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Prepaid (Gift Subscription) Card Clicked"
+          }
+        },
+        "feature_card_aUdkTp": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-credit-card-icon lucide-credit-card\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"></rect><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"></line></svg>",
+            "card_title": "Auto Debits",
+            "card_description": "You won't have to worry about multiple checkouts or invoices. We automatically debit payments (auto-recurring) and generate orders on your platform.",
+            "card_button": "Try Demo",
+            "modal_icon": "🔄",
+            "modal_title": "Auto Debits",
+            "modal_subtitle": "Automatic recurring payments",
+            "modal_image": "shopify://shop_images/photo-1563013544-824ae1b704d3.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Set it and forget it! Customers are automatically charged on their billing date, and orders are created seamlessly without any manual intervention.",
+            "benefit_1": "Eliminate manual payment collection",
+            "benefit_2": "Improve cash flow predictability",
+            "benefit_3": "Reduce failed payment rates",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Auto Debits Card Clicked"
+          }
+        },
+        "feature_card_7EVBmc": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
+            "card_title": "Mixed Cart",
+            "card_description": "Streamline your shopping experience by purchasing subscription and one-time products together in just one checkout with Shopify native checkout.",
+            "card_button": "Try Demo",
+            "modal_icon": "🛒",
+            "modal_title": "Mixed Cart",
+            "modal_subtitle": "One-time and subscription items together",
+            "modal_image": "shopify://shop_images/photo-1556742049-0cfed4f6a45d.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Customers can add both subscription products and one-time purchases in a single checkout, streamlining the shopping experience.",
+            "benefit_1": "Increase average order value",
+            "benefit_2": "Improve checkout conversion rates",
+            "benefit_3": "Native Shopify checkout integration",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Mixed Cart Card Clicked"
+          }
+        },
+        "feature_card_JcDc8m": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chart-pie-icon lucide-chart-pie\"><path d=\"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z\"></path><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path></svg>",
+            "card_title": "Analytics & Insights",
+            "card_description": "With data-driven technology, tracking everything from sales growth to customer retention becomes effortlessly manageable.",
+            "card_button": "Try Demo",
+            "modal_icon": "📊",
+            "modal_title": "Analytics & Insights",
+            "modal_subtitle": "Data-driven subscription intelligence",
+            "modal_image": "shopify://shop_images/photo-1551288049-bebda4e38f71.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Track your subscription business health with real-time metrics. Monitor MRR, churn rates, customer lifetime value, and growth trends all in one place.",
+            "benefit_1": "Make data-driven business decisions",
+            "benefit_2": "Identify and reduce churn early",
+            "benefit_3": "Track revenue growth over time",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Analytics & Insights Card Clicked"
+          }
+        },
+        "feature_card_dzrgWz": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap-icon lucide-zap\"><path d=\"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z\"></path></svg>",
+            "card_title": "Offer Trials",
+            "card_description": "Give your customers the chance to sample (Try and Subscribe) their favourite products before subscribing, ensuring satisfaction from the start.",
+            "card_button": "Try Demo",
+            "modal_icon": "⚡",
+            "modal_title": "Offer Trials",
+            "modal_subtitle": "Try before you subscribe",
+            "modal_image": "shopify://shop_images/photo-1460925895917-afdab827c52f.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Let customers experience your products risk-free before committing. Offer free or discounted trial periods to build trust and increase conversions.",
+            "benefit_1": "Lower barrier to subscription signup",
+            "benefit_2": "Build customer confidence",
+            "benefit_3": "Increase long-term retention rates",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Offer Trials Card Clicked"
+          }
+        },
+        "feature_card_67HeAg": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-box-icon lucide-box\"><path d=\"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z\"></path><path d=\"m3.3 7 8.7 5 8.7-5\"></path><path d=\"M12 22V12\"></path></svg>",
+            "card_title": "Physical or Digital Products",
+            "card_description": "You can offer subscription to both physical and digital products right from your shopify store, providing more options for your needs.",
+            "card_button": "Try Demo",
+            "modal_icon": "📦",
+            "modal_title": "Physical or Digital Products",
+            "modal_subtitle": "Support for all product types",
+            "modal_image": "shopify://shop_images/photo-1566576912321-d58ddd7a6088.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Whether you sell physical goods like coffee or digital products like courses, Recurpay handles subscriptions for any product type seamlessly.",
+            "benefit_1": "One platform for all products",
+            "benefit_2": "Flexible delivery options",
+            "benefit_3": "Digital and physical fulfillment support",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Physical or Digital Products  Card Clicked"
+          }
+        },
+        "feature_card_LLGJnQ": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-user-icon lucide-circle-user\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662\"></path></svg>",
+            "card_title": "Intuitive Customer Portal",
+            "card_description": "Empower customers to easily skip, reschedule, change products, or cancel subscriptions directly from their personalised customer portal.",
+            "card_button": "Try Demo",
+            "modal_icon": "👤",
+            "modal_title": "Intuitive Customer Portal",
+            "modal_subtitle": "Self-service subscription management",
+            "modal_image": "shopify://shop_images/photo-1531403009284-440f080d1e12.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Empower customers to manage their own subscriptions. They can skip deliveries, swap products, update payment info, or pause anytime.",
+            "benefit_1": "Reduce support tickets by 70%",
+            "benefit_2": "Improve customer satisfaction",
+            "benefit_3": "Give customers full control",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Intuitive Customer Portal Card Clicked"
+          }
+        },
+        "feature_card_UiDLgh": {
+          "type": "feature_card",
+          "settings": {
+            "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bot-icon lucide-bot\"><path d=\"M12 8V4H8\"></path><rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\"></rect><path d=\"M2 14h2\"></path><path d=\"M20 14h2\"></path><path d=\"M15 13v2\"></path><path d=\"M9 13v2\"></path></svg>",
+            "card_title": "Recurpay Bots",
+            "card_description": "Tailor your experience with tiered discounts, product swaps, free trials, custom shipping rates, and complimentary free gifts.",
+            "card_button": "Try Demo",
+            "modal_icon": "🤖",
+            "modal_title": "Recurpay Bots",
+            "modal_subtitle": "AI-powered automation",
+            "modal_image": "shopify://shop_images/photo-1485827404703-89b55fcc595e.jpg",
+            "helps_title": "HOW IT HELPS",
+            "helps_description": "Automate your subscription business with smart bots. Set up tiered discounts, product swaps, retention offers, and more without writing code.",
+            "benefit_1": "Automate retention campaigns",
+            "benefit_2": "Set up loyalty rewards easily",
+            "benefit_3": "Reduce manual work significantly",
+            "modal_button_text": "Try This Feature",
+            "modal_button_link": "https://apps.shopify.com/recurpay-subscriptions",
+            "event_name_card": "Recurpay Bots Card Clicked"
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_ixRxyB",
+        "feature_card_HJUnTP",
+        "feature_card_aUdkTp",
+        "feature_card_7EVBmc",
+        "feature_card_JcDc8m",
+        "feature_card_dzrgWz",
+        "feature_card_67HeAg",
+        "feature_card_LLGJnQ",
+        "feature_card_UiDLgh"
+      ],
+      "name": "Header with cards",
+      "settings": {
+        "heading": "Discover all you need in one spot to grow your subscription business with ease on Shopify!"
+      }
+    },
+    "testimonial_YQTwwD": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_z8prUh": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "content": "<p>We have over 300 accounts that needed to be transferred over from our previous subscription app.</p><p>We like that they solely focus on subscriptions and are able to give the attention needed.</p><p>We are looking forward to working with RecurPay, and continuing to help each other grow!</p>",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "name": "Mighty Missouri Coffee Co",
+            "location": "United States"
+          }
+        },
+        "testimonial_GikKj7": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "content": "<p>Recurpay, you guys are amazing !!!</p><p>The app is perfect and the integration was so seamless and when I had a personal question you guys where fast and so helpful and provided a service that was absolutely the best!!!!</p><p>Really pleased with this function in the website and with this app. I can 1000% recommend it!!</p>",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "name": "LOIVE Pitiusas",
+            "location": "Spain"
+          }
+        },
+        "testimonial_9pe7Wz": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "content": "<p>Absolutely fantastic. We contacted the team about migrating from another subscription service who'd significantly increased their fees.</p><p>The process was really simple and the team were really helpful. They reply practically immediately most of the time and they're so helpful.</p><p>Couldn't be happier, very impressed.</p>",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "name": "The Dressage Coach",
+            "location": "United Kingdom"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_z8prUh",
+        "testimonial_GikKj7",
+        "testimonial_9pe7Wz"
+      ],
+      "name": "Customer Testimonials",
+      "settings": {
+        "heading": "❤️ Our Loved Ones ❤️",
+        "subheading": "Here are some heartwarming testimonials straight from our delighted customers :P",
+        "bottom_link_text": "See customer reviews",
+        "bottom_link_url": "https://apps.shopify.com/recurpay-subscriptions/reviews?ratings%5B%5D=5&sort_by=relevance"
+      }
+    },
+    "recurpay_footer_dNWfFR": {
+      "type": "recurpay-footer",
+      "name": "Recurpay footer",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
+        "description": "The all-in-one subscription commerce platform for Shopify. Grow your recurring revenue with powerful tools built for modern merchants.",
+        "menu_list": "footer-new-menu",
+        "twitter": "https://x.com/Recurpaysub",
+        "linkedin": "https://in.linkedin.com/company/recurpay",
+        "instagram": "https://www.instagram.com/recurpay_subscriptions/",
+        "youtube": "https://www.youtube.com/@recurpaysubscriptions/featured",
+        "email": "help@recurpay.com",
+        "phone": "",
+        "address": "Bengaluru, India",
+        "privacy": "https://www.recurpay.com/privacy-policy",
+        "terms": "https://www.recurpay.com/terms-of-service",
+        "cookies": "https://www.recurpay.com/cookie-policy",
+        "copyright": "© 2024 Recurpay. All rights reserved."
+      }
+    }
+  },
+  "order": [
+    "recurpay_header_Uew4xK",
+    "product_experience_UtRKFq",
+    "tab_switcher_AfcQPW",
+    "header_with_cards_y6EtJz",
+    "testimonial_YQTwwD",
+    "recurpay_footer_dNWfFR"
+  ]
+}

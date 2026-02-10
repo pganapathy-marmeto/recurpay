@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "recurpay_header_BWMFdH": {
+      "type": "recurpay-header",
+      "name": "Header navigation",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_Logo.png",
+        "brand_text": "Recurpay",
+        "main_menu": "header-new-menu",
+        "button_primary_text": "Install Now",
+        "button_primary_link": "",
+        "button_secondary_text": "Book a Demo",
+        "button_secondary_link": ""
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_of_collection_HNahr3": {
+      "type": "product-of-collection",
+      "name": "Products of Collection",
+      "settings": {
+        "collection": "{{ collection }}",
+        "products_to_show": 4,
+        "title": "Types Of Subscription Offerings",
+        "subtitle": "Premium artisan coffee delivered to your door.",
+        "heading_size": 32,
+        "heading_size_mobile": 24,
+        "heading_weight": "600",
+        "heading_color": "#374151",
+        "heading_spacing": 16,
+        "subtitle_size": 16,
+        "subtitle_size_mobile": 14,
+        "subtitle_color": "#6b7280",
+        "subtitle_spacing": 48,
+        "heading_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "grid_gap": 20,
+        "grid_gap_mobile": 16,
+        "show_best_seller_badge": true,
+        "badge_text": "Best Seller",
+        "badge_background_color": "#8b4513",
+        "badge_text_color": "#ffffff",
+        "badge_padding": 6,
+        "badge_border_radius": 20,
+        "badge_font_size": 12,
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "color_scheme": "",
+        "background_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 100
+      }
+    },
+    "service_guarantees_dDXTfF": {
+      "type": "service-guarantees",
+      "blocks": {
+        "guarantee_pUWQYf": {
+          "type": "guarantee",
+          "settings": {
+            "icon_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\"><path d=\"M1 3h15v13H1z\"></path><path d=\"M16 8h4l3 3v5h-7V8z\"></path><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle></svg>",
+            "text": "Free Shipping"
+          }
+        },
+        "guarantee_R83tiq": {
+          "type": "guarantee",
+          "settings": {
+            "icon_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#8b6914\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-refresh-ccw-icon lucide-refresh-ccw\"><path d=\"M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\"></path><path d=\"M3 3v5h5\"></path><path d=\"M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16\"></path><path d=\"M16 16h5v5\"></path></svg>",
+            "text": "Easy Returns"
+          }
+        },
+        "guarantee_4zJGDQ": {
+          "type": "guarantee",
+          "settings": {
+            "icon_html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>",
+            "text": "Secure Checkout"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee_pUWQYf",
+        "guarantee_R83tiq",
+        "guarantee_4zJGDQ"
+      ],
+      "name": "Service Guarantees",
+      "settings": {}
+    }
+  },
+  "order": [
+    "recurpay_header_BWMFdH",
+    "banner",
+    "product-grid",
+    "product_of_collection_HNahr3",
+    "service_guarantees_dDXTfF"
+  ]
+}

@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "disabled": true,
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    },
+    "cart_upsell_3wpnjx": {
+      "type": "cart-upsell",
+      "blocks": {
+        "stat_Rtga7C": {
+          "type": "stat",
+          "settings": {
+            "value": "+25%",
+            "label": "Subscription conversion rate"
+          }
+        },
+        "stat_bmY3wi": {
+          "type": "stat",
+          "settings": {
+            "value": "2x",
+            "label": "Higher customer LTV"
+          }
+        },
+        "stat_EUThpQ": {
+          "type": "stat",
+          "settings": {
+            "value": "40%",
+            "label": "Of cart visitors convert"
+          }
+        }
+      },
+      "block_order": [
+        "stat_Rtga7C",
+        "stat_bmY3wi",
+        "stat_EUThpQ"
+      ],
+      "name": "Stats Highlight",
+      "settings": {
+        "heading": "Why Cart Upsell Works"
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer",
+    "cart_upsell_3wpnjx"
+  ]
+}

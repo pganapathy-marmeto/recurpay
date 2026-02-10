@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "featured_product_jcp3Xg": {
+      "type": "featured-product",
+      "blocks": {
+        "text_tKBX4D": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_dKWUNH": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_QCxfWK": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_V477jY": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_FLazUg": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_XQjnUt": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_JXLAcD": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "preview_JPXtk9": {
+          "type": "preview",
+          "settings": {
+            "preview": "Preview Widget on Your Website",
+            "script_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_tKBX4D",
+        "title_dKWUNH",
+        "price_QCxfWK",
+        "variant_picker_V477jY",
+        "quantity_selector_FLazUg",
+        "buy_buttons_XQjnUt",
+        "share_JXLAcD",
+        "preview_JPXtk9"
+      ],
+      "name": "t:sections.featured-product.presets.name",
+      "settings": {
+        "product": "coffee-blend",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_product_jcp3Xg"
+  ]
+}

@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "merchant_tab_switcher_GUnQCc": {
+      "type": "merchant-tab-switcher",
+      "blocks": {
+        "feature_7JX3Vm": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "widget",
+            "feature_image": "🛠️",
+            "content_header": "DIY Widget Editor",
+            "content_description": "Do it yourself—fully customize your subscription widget with our visual editor. No coding required.",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_YMMFpQ": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "widget",
+            "feature_image": "🌍",
+            "content_header": "Multi-Currency & Translations",
+            "content_description": "Support 135+ currencies with automatic conversion and translate widgets into any language for your global customers.",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_3Utf4w": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "widget",
+            "feature_image": "📈",
+            "content_header": "Optimized for Conversions",
+            "content_description": "Widget layouts tested and optimized to maximize subscription signups and reduce abandonment.",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_EqJ3Gw": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "widget",
+            "feature_image": "🎨",
+            "content_header": "On-Brand Styling",
+            "content_description": "Match your store perfectly—customize colors, fonts, spacing, and every visual detail to fit your brand.",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_dbmFAK": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "cart_upsell",
+            "feature_image": "🛒",
+            "content_header": "Smart Upsell Prompts",
+            "content_description": "Automatically suggest subscription upgrades at checkout",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_96QdCG": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "cart_upsell",
+            "feature_image": "💵",
+            "content_header": "Instant Savings Display",
+            "content_description": "Show customers how much they save by subscribing",
+            "tag_text_one": "Tested layouts",
+            "tag_text_two": "No code",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_Gpgr6H": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "cart_upsell",
+            "feature_image": "⚡",
+            "content_header": "One-Click Convert",
+            "content_description": "Let customers switch to subscription with a single click",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_9mPtwC": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "cart_upsell",
+            "feature_image": "🔌",
+            "content_header": "3rd Party Cart Compatible",
+            "content_description": "Fully compatible with Slide Cart, Cart Drawer, Rebuy, and all popular third-party cart apps.",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_NKMFnY": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "portal",
+            "feature_image": "🎛️",
+            "content_header": "Self-Service Management",
+            "content_description": "Customers manage subscriptions without contacting support",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_TKnpiM": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "portal",
+            "feature_image": "📅",
+            "content_header": "Flexible Scheduling",
+            "content_description": "Let customers skip, pause, or reschedule deliveries",
+            "tag_text_one": "No code",
+            "tag_text_two": "< 10 min",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_LxdL9L": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "portal",
+            "feature_image": "💳",
+            "content_header": "Payment Updates",
+            "content_description": "Easy payment method changes to reduce churn",
+            "tag_text_one": "Rewards",
+            "tag_text_two": "",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_4VKfr9": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "portal",
+            "feature_image": "📦",
+            "content_header": "Order History",
+            "content_description": "Complete visibility into past and upcoming orders",
+            "tag_text_one": "Tested layouts",
+            "tag_text_two": "No code",
+            "example_url": "",
+            "example_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_7JX3Vm",
+        "feature_YMMFpQ",
+        "feature_3Utf4w",
+        "feature_EqJ3Gw",
+        "feature_dbmFAK",
+        "feature_96QdCG",
+        "feature_Gpgr6H",
+        "feature_9mPtwC",
+        "feature_NKMFnY",
+        "feature_TKnpiM",
+        "feature_LxdL9L",
+        "feature_4VKfr9"
+      ],
+      "name": "Merchant tab switcher",
+      "settings": {
+        "company_logo": "shopify://shop_images/Recurpay_Logo.png",
+        "company_name": "Recurpay",
+        "tag_text": "Guided Demo",
+        "button_one": "Widget",
+        "button_two": "Cart Upsell",
+        "button_three": "Portal",
+        "enable_support_resources": false,
+        "button_four": "Support & Resources",
+        "redirect_link": "/",
+        "redirect_text": "Exit",
+        "demo": "Book Demo",
+        "demo_url": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
+        "demo_html": "",
+        "sidebar_header_title": "KEY BENEFITS",
+        "subtext_title": "Subscribe & Save Widgets",
+        "subtext_description": "Everything you get when you enable this widget",
+        "doc_url": "https://help.recurpay.com/en/articles/12649398-how-to-customize-your-recurpay-widget-s-design-and-translations",
+        "widget_content_url": "shopify://pages/widget-tab-content",
+        "widget_step_name": "Widget",
+        "tag_text_widget": "Subscribe & Save Widget",
+        "tag_icon_widget": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
+        "heading_widget": "Turn Browsers into Subscribers",
+        "description_widget": "Beautiful subscription widgets that match your brand and boost recurring revenue.",
+        "avatar": "👋",
+        "name": "Sinchain",
+        "subtitle": "Your Demo Guide",
+        "title_widget_guide": "Welcome to Recurpay! 👋",
+        "description_widget_guide": "Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.",
+        "steps_text": "1 / 4",
+        "back_text": "Back",
+        "finish_text": "Next",
+        "cart_upsell_subtext_title": "Cart Upsell",
+        "cart_upsell_subtext_description": "Everything you get when you enable cart upsell",
+        "cart_upsell_doc_url": "https://help.recurpay.com/en/articles/12401035-boost-your-revenue-with-recurpay-cart-upsell",
+        "cart_upsell_content_url": "https://recurpay-subscriptions.myshopify.com/cart",
+        "cart_upsell_step_name": "Cart Upsell",
+        "tag_text_cart_upsell": "Cart Upsell",
+        "tag_icon_cart_upsell": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
+        "heading_cart_upsell": "Convert One-Time Buyers to Subscribers",
+        "description_cart_upsell": "Nudge customers to switch to subscription right in their cart",
+        "title_cart_upsell_guide": "Cart Upsell 🛒",
+        "description_cart_upsell_guide": "Convert one-time buyers in their cart! When customers add products without subscribing, nudge them to switch to a subscription and save. This increases subscription conversion by up to 25%",
+        "steps_text_cart_upsell": "2 / 4",
+        "portal_subtext_title": "Customer Portal",
+        "portal_subtext_description": "Everything you get when you enable customer portal",
+        "portal_doc_url": "https://help.recurpay.com/en/articles/13285944-how-to-set-up-the-customer-portal-for-self-management",
+        "portal_step_name": "Portal",
+        "tag_text_portal": "Customer Portal",
+        "tag_icon_portal": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
+        "heading_portal": "Self-Service Subscription Management",
+        "description_portal": "Let customers manage their own subscriptions and reduce support tickets by 60%",
+        "title_portal_guide": "Customer Portal 🎛️",
+        "description_portal_guide": "Your customers get a self-service portal to manage subscriptions. They can change frequency, skip orders, update payment info, and discover new products - reducing your support tickets by 60%!",
+        "steps_text_portal": "3 / 4",
+        "support_resources_subtext_title": "Support & Resources",
+        "support_resources_subtext_description": "Everything you need to launch and get help when you need it",
+        "support_resources_doc_url": "",
+        "support_resources_content_url": "",
+        "support_resources_step_name": "Support & Resources",
+        "tag_text_support_resources": "Support",
+        "tag_icon_support_resources": "",
+        "heading_support_resources": "Support & implementation resources",
+        "description_support_resources": "Docs, guides, and best practices to help you go live faster.",
+        "title_support_resources_guide": "Need help? We’ve got you.",
+        "description_support_resources_guide": "Browse docs or talk to our team for fast implementation support.",
+        "steps_text_support_resources": "4 / 4",
+        "completion_content_url": "shopify://pages/merchant-tour-completion",
+        "completion_step_name": "Tour completion",
+        "title_completion_guide": "Ready to Get Started? 🚀",
+        "description_completion_guide": "You've completed the tour! Start your 30-day free trial or book a personalized demo with our team.",
+        "steps_text_completion": "Complete",
+        "event_tab_widget": "Tab Clicked - Widget",
+        "event_tab_cart_upsell": "Tab Clicked - Cart Upsell",
+        "event_tab_portal": "Tab Clicked - Portal",
+        "event_tab_support_resources": "Tab Clicked - Support & Resources",
+        "event_previous_button": "Previous Button Clicked",
+        "event_next_button": "Next Button Clicked",
+        "event_show_guide": "Show Guide Clicked",
+        "event_guide_back": "Guide Back Button Clicked",
+        "event_guide_finish": "Guide Finish Button Clicked",
+        "event_sidebar_toggle": "Sidebar Toggle Clicked",
+        "event_sidebar_restore": "Sidebar Restore Clicked",
+        "event_completion_page": "Completion Page Reached"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "merchant_tab_switcher_GUnQCc"
+  ]
+}

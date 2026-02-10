@@ -1,0 +1,510 @@
+{% style %}
+  .content_header,
+  .content_sub-heading {
+    text-align: center;
+  }
+
+  .content_header {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  .content_sub-heading {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+
+  .content {
+    flex: 1 1 0%;
+  }
+
+  .tab_switcher__title_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 1080px;
+  }
+  .tab_switcher-title {
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+    border: 1px solid grey;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .tab_switcher__wrapper {
+    padding-bottom: 48px;
+    max-width: 1200px;
+  }
+
+  .tab_switcher-title.active {
+    background: rgb(5, 150, 105);
+    color: white;
+  }
+
+    /* .tab_switcher-title img {
+        width: 20px;
+        height: 20px;
+    } */
+
+  .tab_switcher-title .tab_title {
+    font-size: 14px;
+  }
+
+  .content_container {
+    display: none;
+    align-items: center;
+  }
+
+  .content_container.active {
+    display: flex;
+    gap: 48px;
+  }
+
+  .tab_switcher__content_container {
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    border-radius: 20px;
+    margin-top: 32px;
+    padding: 40px;
+    width: 100%;
+  }
+
+  .tag_container {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 10px;
+    background: #ebfcf4;
+    border-radius: 15px;
+    column-gap: 5px;
+    color: #059668;
+  }
+
+  .tag_container .content_tag {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .content .content_sub_heading,
+  .content .content_pointer_container {
+    font-size: 16px;
+  }
+
+  .content .content_sub_heading {
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .content .content_heading {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 16px;
+    white-space: nowrap;
+  }
+  .content .content_pointer_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 5px;
+    margin-block: 24px;
+  }
+
+  .content_pointer_container .pointer_image_with_text {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    color: black;
+    font-size: 14px;
+  }
+
+  .pointer_image_with_text .pointer_image_wrapper {
+    background: rgb(236, 253, 245);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content .cta_button {
+    padding: 14px 24px;
+    background: #059669;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    column-gap: 12px;
+    font-size: 15px;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+  .tab_switcher__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image_container {
+    background: rgb(249, 250, 251);
+    padding: 20px;
+    border-radius: 16px;
+    flex: 1 1 0%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .image_container span {
+    font-size: 100px;
+  }
+
+  .image_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+{% endstyle %}
+
+<div class="tab_switcher__wrapper page-width">
+  <div class="tab_switcher__heading_container">
+    {% if section.settings.header != blank %}
+      <h2 class="content_header">{{ section.settings.header }}</h2>
+    {% endif %}
+    {% if section.settings.sub-heading != blank %}
+      <p class="content_sub-heading">{{ section.settings.sub-heading }}</p>
+    {% endif %}
+  </div>
+  <div class="tab_switcher__container">
+    <div class="tab_switcher__title_container">
+      {% for block in section.blocks %}
+        {% if block.settings.tab_title != blank %}
+          <div class="tab_switcher-title {% if forloop.index == 1 %}active{%endif%}" data-index="{{ forloop.index }}" data-event-name="{{ block.settings.event_name | default: section.settings.event_tab_clicked | default: 'Tab Clicked' }}">{{ block.settings.tab_image }}<span class="tab_title">{{ block.settings.tab_title }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="tab_switcher__content_container">
+      {% for block in section.blocks %}
+        {% if block.settings.tab_title != blank %}
+          <div class="content_container {% if forloop.index == 1 %}active{%endif%}" data-content-index="{{ forloop.index }}">
+            <div class="image_container">
+              {% if block.settings.content_image_upload != blank %}
+                {{ block.settings.content_image_upload | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.content_heading }}
+              {% else %}
+                <span>{{ block.settings.content_image }}</span>
+              {% endif %}
+            </div>
+            <div class="content">
+              <div class="tag_container">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#059669"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle
+                    cx="4"
+                    cy="20"
+                    r="2" /></svg>
+                <span class="content_tag">{{ block.settings.content_tag }}</span>
+              </div>
+              {% if block.settings.content_heading %}
+                <div class="content_heading">
+                  {{ block.settings.content_heading }}</div>
+              {% endif %}
+              {% if block.settings.content_sub_heading %}
+                <div class="content_sub_heading">{{ block.settings.content_sub_heading }}</div>
+              {% endif %}
+              <div class="content_pointer_container">
+                {% if block.settings.content_pointer_one != blank %}
+                  <div class="pointer_image_with_text">
+                    <div class="pointer_image_wrapper">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                    </div>
+                    {{ block.settings.content_pointer_one }}</div>
+                {% endif %}
+                {% if block.settings.content_pointer_two != blank %}
+                  <div class="pointer_image_with_text">
+                    <div class="pointer_image_wrapper">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                    </div>
+                    {{ block.settings.content_pointer_two }}</div>
+                {% endif %}
+                {% if block.settings.content_pointer_three != blank %}
+                  <div class="pointer_image_with_text">
+                    <div class="pointer_image_wrapper">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                    </div>
+                    {{ block.settings.content_pointer_three }}</div>
+                {% endif %}
+                {% if block.settings.content_pointer_four != blank %}
+                  <div class="pointer_image_with_text">
+                    <div class="pointer_image_wrapper">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#059669"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                    </div>
+                    {{ block.settings.content_pointer_four }}</div>
+                {% endif %}
+              </div>
+              {% if block.settings.button_link != blank %}
+                <a class="cta_button" href="{{ block.settings.button_link }}" data-event-name="{{ block.settings.event_name_cta | default: section.settings.event_cta_button_clicked | default: 'CTA Button Clicked' }}">{{ block.settings.button_text }}<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+    (function() {
+      // Helper function to track Mixpanel events
+      function trackMixpanelEvent(eventName, properties = {}) {
+        if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+          mixpanel.track(eventName, {
+            ...properties,
+            section: 'tab_switcher'
+          });
+        }
+        // Also log for debugging
+        console.log('Mixpanel Event:', eventName, properties);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabTitles = document.querySelectorAll('.tab_switcher-title');
+        const tabsContent = document.querySelectorAll('.content_container');
+        const ctaButtons = document.querySelectorAll('.cta_button');
+    
+        // Track tab clicks
+        tabTitles.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove 'active' from all tab titles and all content containers
+                tabTitles.forEach(t => t.classList.remove('active'));
+                tabsContent.forEach(c => c.classList.remove('active'));
+                
+                // Add 'active' to clicked tab
+                this.classList.add('active');
+                
+                // Get corresponding content container
+                const dataIndex = this.getAttribute('data-index');
+                const contentToShow = document.querySelector(`.content_container[data-content-index="${dataIndex}"]`);
+                if (contentToShow) {
+                    contentToShow.classList.add('active');
+                }
+
+                // Track tab click event - get event name from data attribute
+                const eventName = this.getAttribute('data-event-name') || 'Tab Clicked';
+                const tabTitle = this.querySelector('.tab_title')?.textContent || '';
+                trackMixpanelEvent(eventName, {
+                  tab_index: dataIndex,
+                  tab_title: tabTitle
+                });
+            });
+        });
+
+        // Track CTA button clicks
+        ctaButtons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            // Get event name from data attribute
+            const eventName = this.getAttribute('data-event-name') || 'CTA Button Clicked';
+            const buttonText = this.textContent.trim();
+            const buttonLink = this.getAttribute('href');
+            const contentContainer = this.closest('.content_container');
+            const tabIndex = contentContainer ? contentContainer.getAttribute('data-content-index') : null;
+            const tabTitle = contentContainer ? contentContainer.querySelector('.content_heading')?.textContent?.trim() : null;
+
+            trackMixpanelEvent(eventName, {
+              button_text: buttonText,
+              button_link: buttonLink,
+              tab_index: tabIndex,
+              tab_title: tabTitle
+            });
+          });
+        });
+      });
+    })();
+</script>
+
+
+{% schema %}
+  {
+    "name": "Tab switched",
+    "settings": [
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Header title"
+      },       {
+        "type": "text",
+        "id": "sub-heading",
+        "label": "Sub heading"
+      }, {
+        "type": "header",
+        "content": "Mixpanel Event Settings (Default Fallbacks)"
+      }, {
+        "type": "text",
+        "id": "event_tab_clicked",
+        "label": "Default Event Name - Tab Clicked",
+        "default": "Tab Clicked",
+        "info": "Default event name used if not specified in individual tab blocks. Event names can be customized per tab in block settings."
+      }, {
+        "type": "text",
+        "id": "event_cta_button_clicked",
+        "label": "Default Event Name - CTA Button Clicked",
+        "default": "CTA Button Clicked",
+        "info": "Default event name used if not specified in individual tab blocks. Event names can be customized per tab in block settings."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "Tab_title",
+        "name": "Tab_title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab_title",
+            "label": "Tab title"
+          },
+          {
+            "type": "html",
+            "id": "tab_image",
+            "label": "Tab Image",
+            "info": "Insert SVG code"
+
+          },
+          {
+            "type": "image_picker",
+            "id": "content_image_upload",
+            "label": "Content Image",
+            "info": "Optional: Upload an image. If provided, this will be shown instead of the emoji below."
+          },
+          {
+            "type": "text",
+            "id": "content_image",
+            "label": "Content Emoji",
+            "info": "Fallback emoji/text shown if no image is uploaded above"
+          },
+          {
+            "type": "text",
+            "id": "content_tag",
+            "label": "Content tag title"
+          }, {
+            "type": "text",
+            "id": "content_heading",
+            "label": "Content heading"
+          }, {
+            "type": "text",
+            "id": "content_sub_heading",
+            "label": "Content heading"
+          }, {
+            "type": "text",
+            "id": "content_pointer_one",
+            "label": "Content pointer"
+          }, {
+            "type": "text",
+            "id": "content_pointer_two",
+            "label": "Content pointer"
+          }, {
+            "type": "text",
+            "id": "content_pointer_three",
+            "label": "Content pointer"
+          }, {
+            "type": "text",
+            "id": "content_pointer_four",
+            "label": "Content pointer"
+          }, {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button link"
+          },           {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text"
+          }, {
+            "type": "text",
+            "id": "event_name",
+            "label": "Mixpanel Event Name - Tab Clicked",
+            "info": "Event name that will appear in Mixpanel dashboard when this tab is clicked",
+            "default": "Tab Clicked"
+          }, {
+            "type": "text",
+            "id": "event_name_cta",
+            "label": "Mixpanel Event Name - CTA Button Clicked",
+            "info": "Event name that will appear in Mixpanel dashboard when the CTA button in this tab is clicked",
+            "default": "CTA Button Clicked"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tab switched"
+      }
+    ]
+  }
+{% endschema %}

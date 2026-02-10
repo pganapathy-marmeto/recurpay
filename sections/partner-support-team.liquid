@@ -1,0 +1,608 @@
+{% style %}
+  .partner-support-section {
+    padding: 20px;
+    background: #ffffff;
+  }
+
+  .partner-support-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Left Panel - Service Overview */
+  .service-overview {
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid rgb(229, 231, 235);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 4px 20px;
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .service-header-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background-color: rgb(236, 253, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-title-wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .service-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(17, 24, 39);
+    margin: 0;
+  }
+
+  .priority-badge {
+    background: #0ea56f;
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .service-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+  .service-cards {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 16px 16px 0;
+    border-radius: 12px;
+    flex-direction: column;
+  }
+
+  .service-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    background: rgb(249, 250, 251);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .service-card:hover {
+    border-color: #0ea56f;
+    box-shadow: 0 4px 12px rgba(14, 165, 111, 0.1);
+  }
+
+  .service-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: rgb(236, 253, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .service-card-content {
+    flex: 1;
+  }
+
+  .service-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0b1c2d;
+    margin: 0 0 4px;
+  }
+
+  .service-card-description {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Right Panel - Live Chat */
+  .live-chat-container {
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid rgb(229, 231, 235);
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 4px 20px;
+  }
+
+  .chat-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgb(236, 253, 245);
+    color: rgb(5, 150, 105);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 20px;
+  }
+
+  .chat-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #0ea56f;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .chat-header {
+    background: #0ea56f;
+    color: #ffffff;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chat-header-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-header-content {
+    flex: 1;
+  }
+
+  .chat-header-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: #ffffff;
+  }
+
+  .chat-header-subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    background: #ffffff;
+  }
+
+  .chat-header-subtitle-dot{
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgb(74, 222, 128);
+    display: inline-block !important;
+  }
+
+  .chat-message {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  .chat-message-bubble {
+    background: rgb(243, 244, 246);
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 80%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .chat-message-text {
+    font-size: 14px;
+    color: rgb(55, 65, 81);
+    line-height: 1.6;
+    margin: 0 0 8px;
+  }
+
+  .chat-message-time {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+  }
+
+  .chat-input-area {
+    padding: 20px 24px;
+    background: #ffffff;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    gap: 12px;
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #9ca3af;
+    background: #f9fafb;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .chat-send-button {
+    background: rgb(5, 150, 105);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.7;
+    font-family: inherit;
+  }
+
+  .service-title-wrapper-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chat-header-wrapper {
+    flex: 1 1 0%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 8px 32px;
+    border: 1px solid rgb(229, 231, 235);
+  }
+
+  .chat-messages:empty {
+    background: #ffffff;
+  }
+
+  @media (max-width: 1024px) {
+    .partner-support-wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .live-chat-container {
+      position: relative;
+      top: 0;
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .partner-support-section {
+      padding: 40px 16px;
+    }
+
+    .service-title {
+      font-size: 24px;
+    }
+
+    .service-card {
+      padding: 20px;
+    }
+
+    .live-chat-container {
+      height: 450px;
+    }
+
+    .chat-header {
+      padding: 16px 20px;
+    }
+
+    .chat-messages {
+      padding: 20px;
+    }
+  }
+{% endstyle %}
+
+<section class="partner-support-section">
+  <div class="partner-support-wrapper">
+
+    <!-- Left Panel: Service Overview -->
+    <div class="service-overview">
+      <div>
+        <div class="service-header">
+          <div class="service-header-icon">
+            {% if section.settings.header_icon != blank %}
+              {{ section.settings.header_icon }}
+            {% else %}
+              🎧
+            {% endif %}
+          </div>
+          <div class="service-title-wrapper">
+            <div class="service-title-wrapper-content">
+              <h2 class="service-title">
+                {{ section.settings.title | default: "Partner Success Team" }}
+              </h2>
+              {% if section.settings.show_priority_badge %}
+                <span class="priority-badge">
+                  {{ section.settings.priority_badge_text | default: "PRIORITY" }}
+                </span>
+              {% endif %}
+            </div>
+            {% if section.settings.subtitle != blank %}
+              <div class="service-subtitle-wrapper">
+                <p class="service-subtitle">
+                  {{ section.settings.subtitle }}
+                </p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="service-cards">
+        {% for block in section.blocks %}
+          {% if block.type == 'service_card' %}
+            <div class="service-card" {{ block.shopify_attributes }}>
+              <div class="service-card-icon">
+                {% if block.settings.icon != blank %}
+                  {{ block.settings.icon }}
+                {% else %}
+                  ⏰
+                {% endif %}
+              </div>
+              <div class="service-card-content">
+                {% if block.settings.title != blank %}
+                  <h3 class="service-card-title">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                  <p class="service-card-description">
+                    {{ block.settings.description }}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Right Panel: Live Chat -->
+    <div class="live-chat-container">
+      {% if section.settings.show_chat_status %}
+        <div class="chat-status">
+          <span class="chat-status-dot"></span>
+          {{ section.settings.chat_status_text | default: "Live Chat Available" }}
+        </div>
+      {% endif %}
+      <div class="chat-header-wrapper">
+        <div class="chat-header">
+          <div class="chat-header-icon">
+            {% if section.settings.chat_header_icon != blank %}
+              {{ section.settings.chat_header_icon }}
+            {% else %}
+              🎧
+            {% endif %}
+          </div>
+          <div class="chat-header-content">
+            <h3 class="chat-header-title">
+              {{ section.settings.chat_title | default: "Partner Support" }}
+            </h3>
+            <p class="chat-header-subtitle">
+              <span class="chat-header-subtitle-dot"></span>
+              {{ section.settings.chat_subtitle | default: "Online now" }}
+            </p>
+          </div>
+        </div>
+
+        {% if section.settings.show_welcome_message %}
+          <div class="chat-messages">
+            <div class="chat-message">
+              <div class="chat-message-bubble">
+                <p class="chat-message-text">
+                  {{ section.settings.welcome_message | default: "Hi! 👋 I'm Sarah from the Partner Success team. How can I help you today?" }}
+                </p>
+                <p class="chat-message-time">
+                  {{ section.settings.welcome_message_time | default: "Just now" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="chat-messages">
+            <!-- Empty chat area -->
+          </div>
+        {% endif %}
+
+        <!-- Display Only Chat Input -->
+        <div class="chat-input-area">
+          <input
+            type="text"
+            class="chat-input"
+            placeholder="{{ section.settings.input_placeholder | default: 'Type your message...' }}"
+            disabled
+            readonly>
+          <button class="chat-send-button" disabled>
+            {{ section.settings.send_button_text | default: "Send" }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Partner Support Team",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Service Overview"
+      },
+      {
+        "type": "html",
+        "id": "header_icon",
+        "label": "Header Icon (Emoji)"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Partner Success Team"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_priority_badge",
+        "label": "Show Priority Badge",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "priority_badge_text",
+        "label": "Priority Badge Text",
+        "default": "PRIORITY"
+      }, {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "Real people, fast answers"
+      }, {
+        "type": "header",
+        "content": "Live Chat"
+      }, {
+        "type": "checkbox",
+        "id": "show_chat_status",
+        "label": "Show Chat Status",
+        "default": true
+      }, {
+        "type": "text",
+        "id": "chat_status_text",
+        "label": "Chat Status Text",
+        "default": "Live Chat Available"
+      }, {
+        "type": "html",
+        "id": "chat_header_icon",
+        "label": "Chat Header Icon (SVG)"
+      }, {
+        "type": "text",
+        "id": "chat_title",
+        "label": "Chat Title",
+        "default": "Partner Support"
+      }, {
+        "type": "text",
+        "id": "chat_subtitle",
+        "label": "Chat Subtitle",
+        "default": "• Online now"
+      }, {
+        "type": "checkbox",
+        "id": "show_welcome_message",
+        "label": "Show Welcome Message",
+        "default": true
+      }, {
+        "type": "textarea",
+        "id": "welcome_message",
+        "label": "Welcome Message",
+        "default": "Hi! 👋 I'm Sarah from the Partner Success team. How can I help you today?"
+      }, {
+        "type": "text",
+        "id": "welcome_message_time",
+        "label": "Welcome Message Time",
+        "default": "Just now"
+      }, {
+        "type": "text",
+        "id": "input_placeholder",
+        "label": "Input Placeholder Text",
+        "default": "Type your message..."
+      }, {
+        "type": "text",
+        "id": "send_button_text",
+        "label": "Send Button Text",
+        "default": "Send"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "service_card",
+        "name": "Service Card",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "html",
+            "id": "icon",
+            "label": "Icon (Emoji)"
+          }, {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "24/7 Availability"
+          }, {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Round-the-clock support across all time zones"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Partner Support Team",
+        "blocks": [
+          {
+            "type": "service_card",
+            "settings": {
+              "icon": "⏰",
+              "title": "24/7 Availability",
+              "description": "Round-the-clock support across all time zones"
+            }
+          }, {
+            "type": "service_card",
+            "settings": {
+              "icon": "💬",
+              "title": "Live Chat",
+              "description": "Instant connection to solution engineers"
+            }
+          }, {
+            "type": "service_card",
+            "settings": {
+              "icon": "📞",
+              "title": "Priority Callbacks",
+              "description": "Scheduled calls within 30 minutes"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

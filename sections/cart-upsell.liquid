@@ -1,0 +1,121 @@
+
+{% style %}
+    .stats-section {
+      padding: 24px;
+      background-color: rgb(255, 255, 255);
+      padding-top: 0;
+    }
+    
+    .stats-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 30px 20px;
+    }
+    
+    .stats-heading {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0b1c2d;
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #18a46f;
+      margin-bottom: 6px;
+    }
+    
+    .stat-label {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+    {% endstyle %}
+
+<section class="stats-section">
+  <div class="stats-wrapper">
+
+    {% if section.settings.heading != blank %}
+      <h3 class="stats-heading">
+        {{ section.settings.heading }}
+      </h3>
+    {% endif %}
+
+    <div class="stats-grid">
+      {% for block in section.blocks %}
+        <div class="stat-item" {{ block.shopify_attributes }}>
+          <div class="stat-value">
+            {{ block.settings.value }}
+          </div>
+          <div class="stat-label">
+            {{ block.settings.label }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stats Highlight",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Cart Upsell Works"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Stat Value",
+          "default": "+25%"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Stat Label",
+          "default": "Subscription conversion rate"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats Highlight",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}

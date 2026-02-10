@@ -1,0 +1,121 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "2009680c-f321-443b-b8f1-c940bfcf5739": {
+      "type": "image-banner",
+      "blocks": {
+        "template--16947034783979__2009680c-f321-443b-b8f1-c940bfcf5739-heading-1": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Subscriptions Insights",
+            "heading_size": "h2"
+          }
+        },
+        "template--16947034783979__2009680c-f321-443b-b8f1-c940bfcf5739-text-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Dive into the World of Subscriptions",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--16947034783979__2009680c-f321-443b-b8f1-c940bfcf5739-heading-1",
+        "template--16947034783979__2009680c-f321-443b-b8f1-c940bfcf5739-text-1"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/AddRemove_Products_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "f96dd024-d5f8-43d2-b2b2-89817e5098c2": {
+      "type": "multirow",
+      "blocks": {
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-1": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/2_2e4c656f-f105-422a-9815-e7b9bbe2a4ee.png",
+            "caption": "",
+            "heading": "<strong>Edit, Swap, Reschedule </strong>",
+            "text": "<p>Easy Changes, Your Way: Adjusting your subscription is a breeze. Simply log in to your Customer Account, click on 'Manage subscription,' and pick the extras you fancy for the next delivery—or decide when. Whether you want to renew, take a break, or bid farewell, it's all just as simple</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-2": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/It_has_been_such_a_pleasure_working_with_Olivia._She_was_so_helpful_andI_m_so_happy_to_have_her._2.png",
+            "caption": "Caption",
+            "heading": "<strong>Simplify Subscription Planning</strong>",
+            "text": "<p>Effortlessly craft both prepaid and regular subscription plans with our user-friendly platform. Whether you prefer upfront payments or regular billing, our system makes it easy for you to tailor subscription offerings to meet your unique business needs</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-3": {
+          "type": "row",
+          "settings": {
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-1",
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-2",
+        "template--16947034783979__f96dd024-d5f8-43d2-b2b2-89817e5098c2-row-3"
+      ],
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "2009680c-f321-443b-b8f1-c940bfcf5739",
+    "f96dd024-d5f8-43d2-b2b2-89817e5098c2"
+  ]
+}

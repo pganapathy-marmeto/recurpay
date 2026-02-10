@@ -1,0 +1,370 @@
+{% style %}
+  .recurpay-demo {
+    padding: 90px 0 48px;
+    text-align: center;
+  }
+  .demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eafaf3;
+    color: #159f6b;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .demo-badge span {
+    font-size: 14px;
+  }
+  .demo-heading {
+    font-size: 56px;
+    margin: 24px 0 20px;
+    font-weight: 600;
+  }
+  .demo-heading span {
+    color: #159f6b;
+  }
+  .demo-description {
+    max-width: 640px;
+    margin: 0 auto 40px;
+    color: #666;
+    font-size: 20px;
+  }
+  .demo-cta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto 65px;
+  }
+  .cta-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid #e5e5e5;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .cta-card.primary {
+    background: #159f6b;
+    color: #fff;
+    box-shadow: 0 15px 40px rgba(21, 159, 107, 0.25);
+  }
+  .cta-card h3 {
+    margin: 0;
+  }
+  .cta-card p {
+    margin: 0;
+    font-size: 14px;
+    opacity: .85;
+  }
+  .cta-card .arrow {
+    margin-left: auto;
+    font-size: 22px;
+  }
+  .demo-stats {
+    display: flex;
+    justify-content: flex-start;
+    gap: 48px;
+    background: #fff;
+    padding: 25px 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    width: fit-content;
+    margin: 0 auto 60px;
+  }
+  .stat strong {
+    display: block;
+    font-size: 28px;
+    color: #159f6b;
+  }
+
+  .stat span {
+    font-size: 14px;
+    color: #6a737f;
+  }
+  .cta-card .icon__wrapper {
+    padding: 10px;
+    border-radius: 10px;
+    background: #f4e8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cta-card.primary .icon__wrapper {
+    background: #43ab88;
+  }
+
+  .cta-card .icon__wrapper~div {
+    text-align: left;
+  }
+
+  .cta-card.primary h3 {
+    color: white;
+  }
+
+  .cta-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .cta-card p {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .cta-card .arrow {
+    display: inline-flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #f4e8ff;
+  }
+
+  .cta-card.primary .arrow {
+    background: #43ab88;
+  }
+
+  .cta-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #8b5ef3;
+  }
+  .cta-card.primary:hover {
+    border: 1px solid #1e9e6b;
+  }
+
+  .cta-card:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .demo-stats__seperator {
+    display: block !important;
+    border: 1px solid #e5e7eb;
+    padding-block: 10px;
+  }
+
+  @media(max-width: 768px) {
+    .demo-cta-grid {
+      grid-template-columns: 1fr;
+    }
+    .demo-heading {
+      font-size: 36px;
+    }
+    .demo-stats {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+{% endstyle %}
+
+<section class="recurpay-demo">
+  <div class="page-width">
+
+    {% if section.settings.badge_text != blank %}
+      <div class="demo-badge">
+        {% if section.settings.badge_icon %}
+          {{ section.settings.badge_icon }}
+        {% endif %}
+        <span>{{ section.settings.badge_text }}</span>
+      </div>
+    {% endif %}
+
+    <h2 class="demo-heading">
+      {{ section.settings.heading_main }} <br>
+      <span>{{ section.settings.heading_highlight }}</span>
+    </h2>
+
+    <p class="demo-description">
+      {{ section.settings.description }}
+    </p>
+
+    <div class="demo-cta-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'cta_card' %}
+          <a
+            href="{{ block.settings.link }}"
+            class="cta-card {% if block.settings.primary %}primary{% endif %}"
+            data-event-name="{{ block.settings.event_name | default: 'CTA Card Clicked' }}"
+            data-card-title="{{ block.settings.title }}"
+            data-card-type="{% if block.settings.primary %}primary{% else %}secondary{% endif %}">
+            {% if block.settings.icon %}
+              <div class="icon__wrapper">
+                {{ block.settings.icon }}
+              </div>
+            {% endif %}
+            <div>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.subtitle }}</p>
+            </div>
+            <span class="arrow">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="{%if block.settings.primary%}white {%else%}#8b5ef3{%endif%}"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            </span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="demo-stats">
+      {% for block in section.blocks %}
+        {% if block.type == 'stat' %}
+          <div class="stat">
+            <strong>{{ block.settings.value }}</strong>
+            <span>{{ block.settings.label }}</span>
+          </div>
+        {% endif %}
+        {% if block.type == 'stat' and forloop.last == false %}
+          <div class="demo-stats__seperator"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% comment %} <script>
+          (function() {
+            // Track CTA card clicks with Mixpanel
+            document.addEventListener('DOMContentLoaded', function() {
+              introJs().tour(.demo-heading).start();
+              const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
+              
+              ctaCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                  const eventName = this.getAttribute('data-event-name');
+                  const cardTitle = this.getAttribute('data-card-title');
+                  const cardType = this.getAttribute('data-card-type');
+                  const cardLink = this.getAttribute('href');
+                  
+                  // Track event with Mixpanel if available
+                  if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+                    mixpanel.track(eventName, {
+                      card_title: cardTitle,
+                      card_type: cardType,
+                      card_link: cardLink,
+                      section: 'product_experience'
+                    });
+                  }
+                  
+                  // Also log for debugging
+                  console.log('Mixpanel Event:', eventName, {
+                    card_title: cardTitle,
+                    card_type: cardType,
+                    card_link: cardLink
+                  });
+                });
+              });
+            });
+          })();
+</script> {% endcomment %}
+
+{% schema %}
+  {
+    "name": "Product experience",
+    "settings": [
+      {
+        "type": "html",
+        "id": "badge_icon",
+        "label": "Top Badge Icon"
+      },
+      {
+        "type": "text",
+        "id": "badge_text",
+        "label": "Top Badge Text",
+        "default": "Interactive Demo Experience"
+      },
+      {
+        "type": "text",
+        "id": "heading_main",
+        "label": "Main Heading",
+        "default": "See Recurpay"
+      },
+      {
+        "type": "text",
+        "id": "heading_highlight",
+        "label": "Highlighted Heading Text",
+        "default": "in Action"
+      }, {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description Text",
+        "default": "Experience the power of subscription commerce. Try our interactive demo as a merchant or explore partner integrations."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "cta_card",
+        "name": "CTA Card",
+        "settings": [
+          {
+            "type": "html",
+            "id": "icon",
+            "label": "Card Icon"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Card Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Card Subtitle"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Card Link"
+          }, {
+            "type": "text",
+            "id": "event_name",
+            "label": "Mixpanel Event Name",
+            "info": "Event name that will appear in Mixpanel dashboard",
+            "default": "CTA Card Clicked"
+          }, {
+            "type": "checkbox",
+            "id": "primary",
+            "label": "Primary (Green Card)",
+            "default": false
+          }
+        ]
+      }, {
+        "type": "stat",
+        "name": "Stat",
+        "settings": [
+          {
+            "type": "text",
+            "id": "value",
+            "label": "Stat Value"
+          }, {
+            "type": "text",
+            "id": "label",
+            "label": "Stat Label"
+          }
+        ]
+      }
+    ],
+    "max_blocks": 6,
+    "presets": [
+      {
+        "name": "Product experience"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "tour_completion_FtmeWG": {
+      "type": "tour-completion",
+      "name": "Completion CTA",
+      "settings": {
+        "icon": "🎉",
+        "heading": "You've Completed the Tour!",
+        "description": "Ready to transform your store with powerful subscription features?",
+        "primary_button_text": "Start 30-Day free trial",
+        "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=partner",
+        "secondary_button_text": "Book a Demo",
+        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+      }
+    },
+    "features_grid_QmQfCf": {
+      "type": "features-grid",
+      "blocks": {
+        "feature_6hTpTB": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎓",
+            "title": "Partner Trianing",
+            "description": "Access exclusive training resources and certifications"
+          }
+        },
+        "feature_LWp7iN": {
+          "type": "feature",
+          "settings": {
+            "icon": "🛠️",
+            "title": "Priority Support",
+            "description": "Get dedicated partner support and direct access to our team"
+          }
+        },
+        "feature_ybQqdy": {
+          "type": "feature",
+          "settings": {
+            "icon": "📢",
+            "title": "Co-Marketing",
+            "description": "Feature in our partner directory and marketing campaigns"
+          }
+        },
+        "feature_P7jjEa": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔧",
+            "title": "API Access",
+            "description": "Full API access with extended rate limits for partners"
+          }
+        }
+      },
+      "block_order": [
+        "feature_6hTpTB",
+        "feature_LWp7iN",
+        "feature_ybQqdy",
+        "feature_P7jjEa"
+      ],
+      "name": "Features Grid",
+      "settings": {
+        "heading": "Partner Program Benefits",
+        "columns": "2"
+      }
+    },
+    "cart_upsell_gRpAxg": {
+      "type": "cart-upsell",
+      "blocks": {
+        "stat_jGUUWJ": {
+          "type": "stat",
+          "settings": {
+            "value": "500+",
+            "label": "Partner Agencies"
+          }
+        },
+        "stat_rnNY9F": {
+          "type": "stat",
+          "settings": {
+            "value": "$2M+",
+            "label": "Partner Earnings"
+          }
+        },
+        "stat_EPDqfY": {
+          "type": "stat",
+          "settings": {
+            "value": "45+",
+            "label": "Countries"
+          }
+        },
+        "stat_4Vt3be": {
+          "type": "stat",
+          "settings": {
+            "value": "98%",
+            "label": "Partner Satisfaction"
+          }
+        }
+      },
+      "block_order": [
+        "stat_jGUUWJ",
+        "stat_rnNY9F",
+        "stat_EPDqfY",
+        "stat_4Vt3be"
+      ],
+      "name": "Stats Highlight",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "testimonial_card_PKPMUB": {
+      "type": "testimonial-card",
+      "name": "Testimonial Card",
+      "settings": {
+        "stars": 5,
+        "testimonial_text": "\"Partnering with Recurpay has been transformative for our agency. The commission structure is generous, and the product practically sells itself. Our clients love the seamless subscription experience.\"",
+        "author_initials": "DK",
+        "author_name": "David Kim",
+        "author_role": "CEO, Ecom Growth Agency",
+        "back_link_text": "Back to Home",
+        "back_link_url": "/"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tour_completion_FtmeWG",
+    "features_grid_QmQfCf",
+    "cart_upsell_gRpAxg",
+    "testimonial_card_PKPMUB"
+  ]
+}

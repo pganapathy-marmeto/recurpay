@@ -1,0 +1,2902 @@
+
+       
+      
+    <div
+      parentTag="Col" id="gKPuVCJPYh" data-id="gKPuVCJPYh"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--pos:relative;--pt:48px;--pl:20px;--pb:20px;--pr:20px;--pt-mobile:0px;--pl-mobile:0px;--pb-mobile:0px;--pr-mobile:0px;--cg:30px;--pc:start;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:1360px;--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gKPuVCJPYh gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gD0ObZY7wX gp-relative gp-flex gp-flex-col"
+    >
+      
+    {%- assign gpBkProduct = product -%}
+    
+        {%- liquid
+          if request.page_type == 'product'
+            if 'static' == 'static'
+              if '7450573078763' == 'latest'
+                paginate collections.all.products by 100000
+                  assign product = collections.all.products | sort: 'created_at' | reverse | first
+                endpaginate
+              else
+                assign product = all_products['dog-dry-food']
+                assign productId = '7450573078763' | times: 1
+                if product == empty or product == null
+                  paginate collections.all.products by 100000
+                    for item in collections.all.products
+                      if item.id == productId
+                        assign product = item
+                      endif
+                    endfor
+                  endpaginate
+                endif
+              endif
+            endif
+          else
+            if '7450573078763' == 'latest'
+              paginate collections.all.products by 100000
+                assign product = collections.all.products | sort: 'created_at'| reverse | first
+              endpaginate
+            else
+              assign product = all_products['dog-dry-food']
+              assign productId = '7450573078763' | times: 1
+              if product == empty or product == null
+                paginate collections.all.products by 100000
+                  for item in collections.all.products
+                    if item.id == productId
+                      assign product = item
+                    endif
+                  endfor
+                endpaginate
+              endif
+            endif
+          endif
+        -%}
+      
+
+    {%-if product != empty and product != null -%}
+      {%- assign initVariantId = 44427216552171 -%}
+      {%- assign product_form_id = 'product-form-' | append: "g5tpbh_bFh" -%}
+      {%- assign variant = product.variants | where: 'id', initVariantId | first -%}
+      {%- assign productSelectedVariant = product.variants | where: 'id', initVariantId | first -%}
+      {%-if productSelectedVariant == empty or productSelectedVariant == null -%}
+        {%- assign productSelectedVariant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      {%-if variant == empty or variant == null -%}
+        {%- assign variant = product.selected_or_first_available_variant -%}
+      {%- endif -%}
+      <gp-product data-uid="g5tpbh_bFh" data-id="g5tpbh_bFh"   gp-context='{"productId": {{ product.id }}, "preSelectedOptionIds": [1429400355051], "isSyncProduct": "true", "variantSelected": {{ variant | json | escape }}, "inventoryQuantity": {{ variant.inventory_quantity }}, "quantity": 1, "formId": "{{ product_form_id }}" }'
+        gp-data='{"variantSelected": {{ variant | json | escape }}, "quantity": 1, "productUrl":{{ product.url | json | escape }}, "productHandle":{{ product.handle | json | escape }}, "collectionUrl": {{ collection.url | json | escape }}, "collectionHandle": {{ collection.handle | json | escape }}}'>
+        <product-form class="product-form">
+          {%- form 'product', product, id: product_form_id, class: 'form contents', data-type: 'add-to-cart-form', autocomplete: 'off'  -%}
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="hidden" name="quantity" value="{{ quantity }}" />
+            <button type="submit" onclick="return false;" style="display:none;"></button>
+            
+       
+      
+    <div
+      id="g5tpbh_bFh" data-id="g5tpbh_bFh-row"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--mb:0px;--pl:0px;--pr:0px;--mb-mobile:0px;--pl-mobile:0px;--pr-mobile:0px;--cg:30px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%"
+        class="g5tpbh_bFh gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gokx47p-jW gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign featured_image = product.featured_image %}
+  {%- if variant != null and variant.featured_image != null -%}
+  {% assign featured_image = variant.featured_image %}
+  {%- endif -%}
+    <gp-product-images-v2
+      gp-data='
+    {
+      "id":"gFYeH1KQxV",
+      "pageContext": {"pageType":"GP_STATIC","sectionName":"","isPreviewing":false,"isOptimizePlan":false,"isTranslateWithLocale":false,"isLazyLoadSection":true,"isLazyLoadImage":true,"hasCollectionHandle":true,"numberOfProductOfProductList":0,"pageBackground":"","fontType":"google","primaryLocale":"","enableLazyLoadImage":true},
+      "setting":{"arrowIcon":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowIconColor":"#000000","arrowNavBorder":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"},"arrowNavRadius":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"},"borderActive":{"border":"none","borderType":"none","borderWidth":"1px","color":"#000000","isCustom":true,"width":"1px 1px 1px 1px"},"clickOpenLightBox":{"desktop":false},"dragToScroll":true,"ftArrowIcon":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817616300409192\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z\" /></svg>","ftArrowIconColor":"#FFFFFF","ftArrowNavBorder":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"},"ftArrowNavColor":"rgba(109, 109, 109, 0.2)","ftArrowNavRadius":{"bblr":"999999px","bbrr":"999999px","btlr":"999999px","btrr":"999999px","radiusType":"custom"},"ftClickOpenLightBox":{"desktop":"none"},"ftDotActiveColor":{"desktop":"line-3"},"ftDotColor":{"desktop":"bg-1"},"ftDotGapToCarousel":{"desktop":16},"ftDotSize":{"desktop":12},"ftDotStyle":{"desktop":"none"},"ftDragToScroll":true,"ftLoop":{"desktop":false},"ftNavigationPosition":{"desktop":"none","mobile":"inside"},"ftPauseOnHover":true,"ftSpeed":1,"galleryHoverEffect":"none","galleryZoom":150,"galleryZoomType":"default","hoverEffect":"none","loop":{"desktop":true},"navigationPosition":{"desktop":"none"},"otherImage":0,"pauseOnHover":true,"preDisplay":"1st-images","preload":true,"qualityPercent":{"desktop":100},"qualityType":{"desktop":"finest"},"speed":1,"type":{"desktop":"slider"},"typeDisplay":"all-images","zoom":150,"zoomType":"default"},
+      "styles":{"align":{"desktop":"center"},"corner":{"bblr":"8px","bbrr":"8px","btlr":"8px","btrr":"8px","radiusType":"custom"},"ftCorner":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"custom"},"ftLayout":{"desktop":"contain"},"ftShape":{"desktop":{"gap":"","height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":""},"mobile":{"customShapeValue":"","gap":"","height":"","shape":"original","shapeLinked":true,"width":""}},"itemSpacing":{"desktop":"16px","mobile":"var(--g-s-s)"},"layout":{"desktop":"cover"},"position":{"desktop":"bottom-center","mobile":"only-feature"},"ratioLayout":{"desktop":[2,10]},"ratioLayoutRight":{"desktop":[10,2]},"shape":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeFor1Col":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeFor2Col":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"50%"}},"shapeForBottom":{"desktop":{"gap":"","height":"92px","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"92px"},"mobile":{"customShapeValue":"","gap":"","height":"","shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"0%"}},"shapeForFtOnly":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"100%"}},"shapeForInside":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"}},"shapeForInsideBottom":{"desktop":{"shape":"square","shapeLinked":true,"shapeValue":"1/1","width":"20%"}},"spacing":{"desktop":"16px","mobile":"var(--g-s-s)"}}, "productUrl":{{product.url | json | escape}}, "product":{{product | json | escape}}, "collectionUrl": {{ collection.url | json | escape }}, "collection": {{ collection | json | escape}}
+    }
+  '
+      section-id="{{section.id}}"
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--pos:sticky;--pos-mobile:relative;--pos-tablet:sticky;--mb-mobile:20px;--top:48px;--top-mobile:0px;--top-tablet:48px"
+      data-id="gFYeH1KQxV"
+      class="gFYeH1KQxV gp-overflow-hidden"
+    >
+      <div
+        class="{%- if product.media.size > 1 -%} gp-grid gp-w-full !gp-m-0 gp-relative {%- else -%} gp-w-full !gp-m-0 gp-relative {%- endif -%}"
+        {%- if product.media.size > 1 -%}
+        style="--gtc:minmax(0, 12fr);--gtc-tablet:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--gg:16px;--gg-mobile:var(--g-s-s)"
+        {%- else -%}
+        style="--gtc:minmax(0, 12fr);--gg:16px;--gg-mobile:var(--g-s-s)"
+        {%- endif -%}
+      >
+        
+    {% capture featureImageOnlyOne %}
+      
+        {% assign featureMedia = variant.featured_media %}
+        {% unless featureMedia %}
+        {% assign featureMedia = product.featured_media %}
+        {% endunless %}
+        {% if product.media.size > 1 %}
+          
+          {% assign featureMedia = product.media.first %}
+        
+        {% endif %}
+        {% assign largestRatio = 0 %}
+        {% assign height = featureMedia.height | times: 1.0 %}
+        {% assign width = featureMedia.width | times: 1.0 %}
+        {% assign ratio = height | divided_by: width %}
+        {% if ratio > largestRatio %}
+          {% assign largestRatio = ratio %}
+        {% endif %}
+        {% assign productImageWidth = 0 %}
+        {% case featureMedia.media_type %}
+          {% when 'image' %}
+            {% assign productImageWidth = featureMedia.width %}
+          {% else %}
+            {% assign productImageWidth = featureMedia.preview_image.width %}
+        {% endcase %}
+        {% if featureMedia == null %}
+        {% assign productImageWidth = 1600 %}
+        {% endif %}
+        <div 
+          class='gp-feature-image-carousel gp-feature-image-only' 
+          style="--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex;--jc:center"
+        >
+          <div 
+            class="gp-relative"
+            style="--w:100%;--w-tablet:100%;--w-mobile:100%"
+          >
+            
+      
+    
+            <div 
+              type="gp-feature-image-only"
+              product-id="{{product.id}}"
+              product-media="{{product.media.size}}"
+              class="gp-image-item gp-ft-image-item gp-group gp-z-0 gp-flex !gp-max-w-full !gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-featured-image-wrapper"
+              style="--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--h:auto;--h-tablet:auto;--h-mobile:auto;width:{{productImageWidth}}px"
+            >
+              <div 
+                class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image' %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+                style="--pb: calc((1/1)*100%);--pb-tablet: calc((1/1)*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+              >
+                
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      isNotLazyload="true"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}}"
+      src="{{src | image_url}}" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}"
+      fetchpriority="high"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      srcset="{{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w"
+      sizes="(max-width: 768px) 50vw, 100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:contain"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      isNotLazyload="true"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none"
+      src width="2237" height="1678" alt="No Image"
+      fetchpriority="high"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      srcset=""
+      sizes="(max-width: 768px) 50vw, 100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:2237/1678;--objf:contain"
+    />
+  
+    {% endcase %}
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    {% endcapture %}
+    {% if product.media.size > 1 %}
+      
+      
+    <gp-carousel data-id="gp-carousel-gFYeH1KQxV" type="gp-feature-image-carousel" product-id="{{product.id}}" product-media="{{product.media.size}}" id="gp-root-carousel-ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}}" class="
+          gp-px-0 tablet:gp-px-0 mobile:gp-px-0
+          gp-flex-1 gp-w-full gp-feature-image-carousel
+          gp-group/carousel gp-flex" gp-data='{"id":"ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":false},"slidesToShow":{"desktop":1},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"dotSize":{"desktop":12},"dotGapToCarousel":{"desktop":16},"dotColor":{"desktop":"bg-1"},"dotActiveColor":{"desktop":"line-3"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":true},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"arrowCustom":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817616300409192\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z\" /></svg>","arrowCustomColor":"#FFFFFF","arrowBackgroundColor":"rgba(109, 109, 109, 0.2)","arrowBorder":{"desktop":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"}},"roundedArrow":{"desktop":{"bblr":"999999px","bbrr":"999999px","btlr":"999999px","btrr":"999999px","radiusType":"custom"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"none","mobile":"inside"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"align":{"desktop":"center","tablet":"center","mobile":"center"}},"isHiddenArrowWhenDisabled":true}' style="--jc:center;--o:0;--o-tablet:0;--o-mobile:0;--d:flex;--d-mobile:flex;--d-tablet:flex">
+      <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
+      <div
+        
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-carousel-gFYeH1KQxV gp-featured-image-wrapper"
+        style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
+      >
+        <div
+          class="gp-h-full gp-relative gp-mx-auto gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row"
+          style="--h:100%;--h-tablet:100%;--h-mobile:100%;gap:16px"
+        >
+          
+    <button
+      type="button"
+      aria-label='Carousel Back Arrow'
+      class="gp-z-1 ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}} gp-carousel-action-back gem-slider-previous ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gFYeH1KQxV gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
+      style="--left:initial;--top:initial;--right:initial;--bottom:;--left-tablet:initial;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:16px;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:none;--d-tablet:none;--d-mobile:flex;background-color:rgba(109, 109, 109, 0.2);--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-180 tablet:gp-rotate-180 mobile:gp-rotate-180"
+  style="--c:#FFFFFF;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300409192">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z" /></svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+      
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+    }
+    .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+    }
+  </style>
+    </button>
+  
+          <div id="gp-carousel-ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          style="--cg-mobile:undefinedpx;--cg-tablet:undefinedpx;--cg:undefinedpx">
+          
+          {%- if product.media.size > 0 -%}
+            
+      
+    
+            {% assign largestRatio = 0 %}
+            {% for featureMedia in product.media %}
+              {% assign height = featureMedia.height | times: 1.0 %}
+              {% assign width = featureMedia.width | times: 1.0 %}
+              {% assign ratio = height | divided_by: width %}
+              {% if ratio > largestRatio %}
+                {% assign largestRatio = ratio %}
+              {% endif %}
+            {% endfor %}
+            {%- for featureMedia in product.media -%}
+              {%- if featureMedia.media_type == 'image' -%}
+                {%- for image in product.images -%}
+                  {% if image.src == featureMedia.src %}
+                    {% assign imageID = image.id %}
+                    {% break %}
+                  {% endif%}
+                {% endfor %}
+              {%- else -%}
+                {% assign imageID = '' %}
+              {%- endif -%}
+              
+    {% assign productImageWidth = 0 %}
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        {% assign productImageWidth = featureMedia.width %}
+      {% else %}
+        {% assign productImageWidth = featureMedia.preview_image.width %}
+    {% endcase %}
+    
+    <div
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      
+      id="{{section.id}}-{{imageID}}"
+      style="width:{{productImageWidth}}px;--minw:calc(100% / 4 - 33px);--minw-tablet:calc(100% / 4 - 33px);--minw-mobile:calc(100% / 4 - 33px);--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);outline-color:var(--g-c-brand, brand);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--h:auto;--h-tablet:auto;--h-mobile:auto;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}} gp-child-item-undefined gp-group gp-z-0 gp-flex !gp-min-w-full !gp-max-w-full gp-w-full gp-relative gp-items-start gp-justify-center gp-overflow-hidden gp-outline-1 -gp-outline-offset-1 gp-image-item gp-ft-image-item data-[outline=active]:gp-outline undefined"
+      data-index=""
+    >
+      <div
+        class="gp-w-full gp-h-full",
+        
+      >
+      
+      <div 
+        class="gp-w-full  {% if featureMedia == null or featureMedia.media_type == 'image'  %} {{ 'gp-h-0' }} {% else %} {{ 'gp-h-full !gp-pb-0' }} {% endif %} gp-relative" 
+        style="--pb: calc((1/1)*100%);--pb-tablet: calc((1/1)*100%);--pb-mobile: calc(({%if largestRatio == 0%} 100 / 100 {%else%} {{largestRatio}} {%endif%})*100%); {% if featureMedia.media_type == 'video' or featureMedia.media_type == 'external_video' %} {{ 'display: flex; align-items: center; justify-content: center' }} {% endif %}"
+      >
+        
+    {% case featureMedia.media_type %}
+      {% when 'image' %}
+        
+      
+    {% assign src = featureMedia.src %}
+    
+    
+  <img
+      id="{%- if featureMedia != null -%}
+              {{featureMedia.id}}
+            {%- endif -%}"
+      
+      draggable="false"
+      isNotLazyload="true"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none gp-w-full gp-transition-opacity {{shouldHidden}}"
+      src="{{src | image_url}}" width="{{featureMedia.width}}" height="{{featureMedia.height}}" alt="{{featureMedia.alt}}"
+      fetchpriority="high"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      srcset="{{src | img_url: '480x480'}} 480w, {{src | img_url: '768x768'}} 768w,{{src | img_url: '1024x1024'}} 1024w,{{src | img_url: '1440x1440'}} 1440w"
+      sizes="(max-width: 768px) 50vw, 100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:{{featureMedia.width}}/{{featureMedia.height}};--objf:contain"
+    />
+  
+      
+      
+    
+      {% when 'external_video' %}
+        {% assign mediaSourceVideo = featureMedia | external_video_url %}
+        
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{featureMedia.alt}}"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:"
+    >
+    </iframe>
+  
+      {% when 'video' %}
+        {% assign mediaSourceVideo = featureMedia.sources.last.url %}
+        
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{featureMedia.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+      {% when 'model' %}
+        
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%"
+      
+      
+      
+      
+      src="{% if featureMedia.sources.first.url contains '.glb' %}{{ featureMedia.sources.first.url }}{% else %}{{featureMedia.sources.last.url}}{% endif %}"
+      alt="{{featureMedia.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{featureMedia.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+      {% else %}
+        
+    
+  <img
+      
+      
+      draggable="false"
+      isNotLazyload="true"
+      class="gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 featured-image-only gp-cursor-pointer !gp-rounded-none"
+      src width="2237" height="1678" alt="No Image"
+      fetchpriority="high"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      srcset=""
+      sizes="(max-width: 768px) 50vw, 100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:2237/1678;--objf:contain"
+    />
+  
+    {% endcase %}
+    
+      </div>
+      
+      </div>
+    </div>
+  
+            {% endfor %}
+          {%- else -%}
+            
+  <img
+      id="noImageError"
+      
+      draggable="false"
+      isNotLazyload="true"
+      class="gp-w-full featured-image-only !gp-rounded-none"
+      src="{{ 'https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif' }}" width="480" height="480" alt="no image"
+      fetchpriority="high"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      srcset=""
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:480/480;--objf:contain;height:100%"
+    />
+  
+          {%- endif -%}
+        
+          </div>
+          
+    <button
+      type="button"
+      aria-label='Carousel Next Arrow'
+      class="gp-z-1 ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}} gp-carousel-action-next gem-slider-next ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-carousel-gFYeH1KQxV gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-flex mobile:!gp-absolute mobile:gp-z-2"
+      style="--left:initial;--top:;--right:initial;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:initial;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:16px;--bottom-mobile:initial;--d:none;--d-tablet:none;--d-mobile:flex;background-color:rgba(109, 109, 109, 0.2);--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-0 tablet:gp-rotate-0 mobile:gp-rotate-0"
+  style="--c:#FFFFFF;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300409192">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M180.24,132.24l-80,80a6,6,0,0,1-8.48-8.48L167.51,128,91.76,52.24a6,6,0,0,1,8.48-8.48l80,80A6,6,0,0,1,180.24,132.24Z" /></svg>
+    </div>
+      <style>
+    .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+      
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+    }
+    .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+      .ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}.gp-carousel-arrow-gp-carousel-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 999999px;
+      border-bottom-right-radius: 999999px;
+      border-top-left-radius: 999999px;
+      border-top-right-radius: 999999px;
+      
+      }
+    }
+  </style>
+    </button>
+  
+        </div>
+        <div
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-ft-gp-carousel-gFYeH1KQxV-{{section.id}}-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    style="--bottom:16px;--bottom-tablet:16px;--bottom-mobile:16px;--d:none;--d-tablet:none;--d-mobile:none"
+ ></div>
+      </div>
+    </gp-carousel>
+    {% if product.media.size > 1 %} <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-carousel-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script> {% endif %}
+
+  
+    
+      
+    {% else %}
+      {{ featureImageOnlyOne }}
+    {% endif %}
+  
+        {%- if product.media.size > 1 -%}
+            <div
+              class="gallery-wrapper gp-product-images-gallery gp-flex gp-overflow-hidden gp-max-w-full gp-max-h-full data-[only-image=true]:gp-hidden"
+              style="--o:1;--o-tablet:1;--o-mobile:1;--jc:center;--pos:static;--pos-tablet:static;--pos-mobile:static;--w:100%;--w-tablet:100%;--w-mobile:100%;--bottom:auto;--bottom-tablet:auto;--bottom-mobile:auto;--top:auto;--top-tablet:auto;--top-mobile:auto;--left:auto;--left-tablet:auto;--left-mobile:auto;--right:auto;--right-tablet:auto;--right-mobile:auto"
+              data-only-image="{%- if product.media.size > 1 -%}false{%- else -%}true{%- endif -%}"
+            >
+              <style>
+    .gem-slider-item-gFYeH1KQxV-{{product.id}}.gp-gallery-image-item::after, .gem-slider-item-gp-gallery-gFYeH1KQxV-{{product.id}}.gp-gallery-image-item::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  border-color: #000000;
+  
+      
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      
+    }
+    .gem-slider-item-gFYeH1KQxV-{{product.id}}.gp-gallery-image-item[data-outline=active]:after, .gem-slider-item-gp-gallery-gFYeH1KQxV-{{product.id}}.gp-gallery-image-item[data-outline=active]:after {
+      pointer-events: none;
+    }
+  </style>
+              
+    
+    <gp-carousel data-id="gp-gallery-gFYeH1KQxV" type="grid-carousel" product-media="{{product.media.size}}" id="gp-root-carousel-gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}}" class="gp-flex-1 gp-w-full carousel-gallery gp-px-0 tablet:gp-px-0 mobile:gp-px-0  gp-group/carousel gp-flex" gp-data='{"id":"gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}}","setting":{"loop":{"desktop":true},"itemNumber":{"desktop":"auto","tablet":"auto","mobile":"auto"},"dot":{"desktop":false,"tablet":false,"mobile":false},"dotStyle":{"desktop":"none","tablet":"none","mobile":"none"},"controlOverContent":{"desktop":false,"tablet":false,"mobile":false},"enableDrag":{"desktop":true,"tablet":true,"mobile":true},"vertical":{"desktop":false,"mobile":false,"tablet":false},"arrowCustom":"<svg width=\"100%\" height=\"100%\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z\" fill=\"currentColor\"/>\n    </svg>","arrowCustomColor":"#000000","arrowBorder":{"desktop":{"border":"none","borderType":"none","borderWidth":"1px","isCustom":false,"width":"1px 1px 1px 1px"}},"roundedArrow":{"desktop":{"bblr":"0px","bbrr":"0px","btlr":"0px","btrr":"0px","radiusType":"none"}},"sneakPeakType":{"desktop":"center"},"arrowGapToEachSide":"16","navigationStyle":{"desktop":"none"},"arrowButtonSize":{"desktop":{"width":"24px","height":"24px"}}},"styles":{"sizeSetting":{"desktop":{"width":"100%","height":"auto"},"tablet":{"width":"100%","height":"auto"},"mobile":{"width":"100%","height":"auto"}},"spacing":{"desktop":16,"tablet":5,"mobile":5}},"isHiddenArrowWhenDisabled":true}' style="--d:flex;--d-mobile:none;--d-tablet:flex">
+      <div class="gp-hidden gp-aspect-square gp-w-[12px] gp-rounded-full gp-shadow-md"></div>
+      <div
+        
+        class="gp-relative gp-my-0 tablet:gp-px-0 gp-max-w-full mobile:gp-px-0 gp-carousel-wrapper mobile:gp-block tablet:gp-block gp-block gp-gallery-gFYeH1KQxV  gp-py-0 tablet:gp-py-0 mobile:gp-py-0"
+        style="--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto"
+      >
+        <div
+          class="gp-h-full gp-relative gp-mx-auto gp-flex gp-items-center gp-justify-between mobile:!gp-flex-row tablet:!gp-flex-row !gp-flex-row"
+          style="--h:100%;--h-tablet:100%;--h-mobile:100%;gap:16px"
+        >
+          
+    <button
+      type="button"
+      aria-label='Carousel Back Arrow'
+      class="gp-z-1 gp-gallery-gFYeH1KQxV-{{product.id}} gp-carousel-action-back gem-slider-previous gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gFYeH1KQxV gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:initial;--right:initial;--bottom:;--left-tablet:initial;--top-tablet:initial;--right-tablet:initial;--bottom-tablet:;--left-mobile:initial;--top-mobile:initial;--right-mobile:initial;--bottom-mobile:;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-180 tablet:gp-rotate-180 mobile:gp-rotate-180"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+      
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+    }
+    .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+    }
+  </style>
+    </button>
+  
+          <div id="gp-carousel-gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}}" class="gem-slider gp-h-full gp-overflow-hidden gp-select-none mobile:!gp-flex-nowrap tablet:!gp-flex-nowrap !gp-flex-nowrap mobile:!gp-min-h-full tablet:!gp-min-h-full !gp-min-h-full"
+          style="--cg-mobile:5px;--cg-tablet:5px;--cg:16px">
+          
+    {%- if product.media.size > 1 -%}
+      {%- for media in product.media -%}
+      {% if media.media_type == 'image' %}
+        {%- for image in product.images -%}
+          {% if image.src == media.src %}
+            {% assign imageID = image.id %}
+            {% break %}
+          {% endif%}
+        {% endfor %}
+      {% else %}
+        {% assign imageID = '' %}
+      {% endif %}
+        {%- if media.id == product.featured_media.id -%}
+          
+    {% if media.media_type == 'video' %}
+      {% assign mediaSourceUrl = media.sources.last.url %}
+    {% endif %}
+    {% if media.media_type == 'external_video' %}
+      {% assign mediaSourceUrl = media | external_video_url %}
+    {% endif %}
+      {% if media.media_type == 'image' %}
+      {% assign mediaSourceUrl = media.src %}
+    {% endif %}
+    
+    <div
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      data-outline="deactive"
+      id="{{imageID}}"
+      style="--minw:92px;--minw-tablet:92px;--minw-mobile:100%;--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);maxWidth:100%;--w:92px;--w-tablet:92px;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gFYeH1KQxV-{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer  data-[outline=deactive]:after:!gp-border-transparent"
+      data-index=""
+    >
+      <div
+        class="gp-w-full gp-h-full",
+        
+      >
+      
+      <div class="gp-w-full gp-relative"
+        style="--pb: calc((1/1)*100%);--pb-tablet: calc((1/1)*100%);--pb-mobile: calc((1/1)*100%);;"
+      >
+      
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 gp-cursor-pointer"
+      data-src="{{media.preview_image | image_url}}" data-srcset="{{media.preview_image | img_url: '480x480'}} 480w, {{media.preview_image | img_url: '768x768'}} 768w,{{media.preview_image | img_url: '1024x1024'}} 1024w,{{media.preview_image | img_url: '1440x1440'}} 1440w" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLXt7bWVkaWEud2lkdGh9fS17e21lZGlhLmhlaWdodH19Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSJ7e21lZGlhLndpZHRofX0iIGhlaWdodD0ie3ttZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIGZpbGw9InVybCgjZy17e21lZGlhLndpZHRofX0te3ttZWRpYS5oZWlnaHR9fSkiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLXt7bWVkaWEud2lkdGh9fSIgdG89Int7bWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{media.width}}" height="{{media.height}}" alt="{{media.alt}}" base-src="{{media.preview_image | image_url}}"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover;width:100%;height:100%;cursor:pointer"
+    />
+  
+
+    {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+    <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0" >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+        <path d="M17.6869 12.2646L17.6868 12.2646L6.78379 18.4464C6.78378 18.4464 6.78376 18.4464 6.78374 18.4464C6.52931 18.5903 6.1665 18.4179 6.1665 18.0416V5.95844C6.1665 5.58218 6.52917 5.40981 6.7836 5.55354C6.78366 5.55357 6.78373 5.55361 6.78379 5.55365L17.6868 11.7354L17.6869 11.7354C17.8819 11.846 17.8819 12.154 17.6869 12.2646Z" stroke="#F9F9F9" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+    {% endif %}
+
+    {% if media.media_type == 'model' %}
+    <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7441 4.57034C11.9017 4.47655 12.098 4.47655 12.2555 4.57034L18.5889 8.33957C18.7404 8.42971 18.8332 8.59296 18.8332 8.76923V15.2308C18.8332 15.407 18.7404 15.5703 18.5889 15.6604L12.2555 19.4297C12.098 19.5234 11.9017 19.5234 11.7441 19.4297L5.41079 15.6604C5.25932 15.5703 5.1665 15.407 5.1665 15.2308V8.76923C5.1665 8.59296 5.25932 8.42971 5.41079 8.33957L11.7441 4.57034ZM6.1665 9.64865V14.9465L11.4998 18.1206V12.8227L6.1665 9.64865ZM12.4998 12.8227V18.1206L17.8332 14.9465V9.64865L12.4998 12.8227ZM17.3555 8.76923L11.9998 11.9566L6.64417 8.76923L11.9998 5.58185L17.3555 8.76923Z" fill="#F9F9F9"/>
+      </svg>
+    </div>
+    {% endif %}
+
+    <div class="gp-absolute gp-inset-0 gp-flex gp-cursor-pointer gp-items-center gp-justify-center gp-bg-black/50 gp-opacity-0 gp-transition-opacity gp-duration-100 group-hover:gp-opacity-100"
+    style="--d: none;--d-mobile: none;--d-tablet: none;"
+    >
+      <svg
+        height="100%"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        class="gp-h-6 gp-w-6"
+        viewBox="0 0 512 512"
+        color="#fff"
+      >
+        <path
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M62.2467 345.253C43.7072 326.714 29.1474 305.116 18.9714 281.057C8.42839 256.13 3.08301 229.671 3.08301 202.418C3.08301 175.165 8.43012 148.707 18.974 123.78C29.15 99.7213 43.7098 78.123 62.2485 59.5834C80.788 41.0439 102.386 26.4841 126.445 16.3081C151.372 5.76422 177.831 0.417969 205.084 0.417969C232.337 0.417969 258.794 5.76421 283.722 16.3064C307.78 26.4823 329.379 41.0422 347.918 59.5817C366.458 78.1212 381.017 99.7196 391.194 123.778C401.737 148.706 407.083 175.163 407.083 202.417C407.083 229.671 401.737 256.129 391.194 281.056C388.406 287.648 385.277 294.048 381.839 300.257L493.397 411.815C514.091 432.511 514.091 466.187 493.395 486.883L484.272 496.006C474.245 506.032 460.915 511.553 446.738 511.553C432.559 511.553 419.228 506.032 409.202 496.006L296.022 382.824C291.996 384.854 287.898 386.762 283.721 388.528C258.794 399.073 232.336 404.419 205.082 404.419C177.828 404.419 151.371 399.071 126.443 388.528C102.385 378.352 80.7863 363.793 62.2467 345.253ZM301.699 336.166C313.928 327.317 324.896 316.835 334.282 305.034C342.149 295.142 348.9 284.325 354.355 272.775C364.433 251.432 370.076 227.586 370.076 202.419C370.076 111.296 296.206 37.4253 205.083 37.4253C113.96 37.4253 40.0895 111.294 40.0895 202.418C40.0895 293.541 113.96 367.411 205.084 367.411C227.413 367.411 248.701 362.967 268.126 354.928C280.091 349.976 291.347 343.658 301.699 336.166ZM467.229 460.716C473.507 454.439 473.507 444.26 467.229 437.982L360.595 331.348C356.601 336.153 352.378 340.794 347.919 345.253C341.671 351.502 335.068 357.286 328.147 362.615L435.371 469.839C438.511 472.977 442.624 474.547 446.739 474.547C450.853 474.547 454.967 472.978 458.106 469.839L467.229 460.716ZM223.582 183.91H281.071C291.292 183.91 299.574 192.194 299.575 202.414C299.575 206.778 298.062 210.786 295.533 213.951C292.143 218.195 286.926 220.916 281.072 220.916H228.303H223.583V225.63V278.406C223.583 287.081 217.613 294.358 209.559 296.361C208.124 296.717 206.625 296.909 205.08 296.909C194.861 296.909 186.577 288.625 186.577 278.406V220.917H129.087C118.868 220.917 110.584 212.633 110.584 202.414C110.584 192.195 118.868 183.911 129.087 183.911H186.576V126.421C186.576 116.202 194.86 107.918 205.079 107.918C215.298 107.918 223.582 116.202 223.582 126.421V183.91Z"
+        />
+      </svg>
+    </div>
+    </div>
+    
+      </div>
+    </div>
+  
+        {% else %}
+          
+    {% if media.media_type == 'video' %}
+      {% assign mediaSourceUrl = media.sources.last.url %}
+    {% endif %}
+    {% if media.media_type == 'external_video' %}
+      {% assign mediaSourceUrl = media | external_video_url %}
+    {% endif %}
+      {% if media.media_type == 'image' %}
+      {% assign mediaSourceUrl = media.src %}
+    {% endif %}
+    
+    <div
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      data-outline="deactive"
+      id="{{imageID}}"
+      style="--minw:92px;--minw-tablet:92px;--minw-mobile:100%;--maxw:calc(100% / 4 - 33px);--maxw-tablet:calc(100% / 4 - 33px);--maxw-mobile:calc(100% / 4 - 33px);maxWidth:100%;--w:92px;--w-tablet:92px;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--bblr:8px;--bbrr:8px;--btlr:8px;--btrr:8px;--ml:0px;--ml-tablet:0px;--ml-mobile:0px"
+      class="gem-slider-item gp-w-full gem-slider-item-gp-gallery-gFYeH1KQxV-{{product.id}} gp-child-item-undefined gp-group gp-flex gp-w-full gp-relative gp-items-center gp-justify-center gp-overflow-hidden gp-image-item gp-gallery-image-item gp-cursor-pointer undefined data-[outline=deactive]:after:!gp-border-transparent"
+      data-index=""
+    >
+      <div
+        class="gp-w-full gp-h-full",
+        
+      >
+      
+      <div class="gp-w-full gp-relative"
+        style="--pb: calc((1/1)*100%);--pb-tablet: calc((1/1)*100%);--pb-mobile: calc((1/1)*100%);;"
+      >
+      
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp-w-full gp-h-full gp-absolute gp-top-0 gp-left-0 gp-cursor-pointer"
+      data-src="{{media.preview_image | image_url}}" data-srcset="{{media.preview_image | img_url: '480x480'}} 480w, {{media.preview_image | img_url: '768x768'}} 768w,{{media.preview_image | img_url: '1024x1024'}} 1024w,{{media.preview_image | img_url: '1440x1440'}} 1440w" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLXt7bWVkaWEud2lkdGh9fS17e21lZGlhLmhlaWdodH19Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSJ7e21lZGlhLndpZHRofX0iIGhlaWdodD0ie3ttZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIGZpbGw9InVybCgjZy17e21lZGlhLndpZHRofX0te3ttZWRpYS5oZWlnaHR9fSkiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLXt7bWVkaWEud2lkdGh9fSIgdG89Int7bWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{media.width}}" height="{{media.height}}" alt="{{media.alt}}" base-src="{{media.preview_image | image_url}}"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover;width:100%;height:100%;cursor:pointer"
+    />
+  
+
+    {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+    <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0" >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+        <path d="M17.6869 12.2646L17.6868 12.2646L6.78379 18.4464C6.78378 18.4464 6.78376 18.4464 6.78374 18.4464C6.52931 18.5903 6.1665 18.4179 6.1665 18.0416V5.95844C6.1665 5.58218 6.52917 5.40981 6.7836 5.55354C6.78366 5.55357 6.78373 5.55361 6.78379 5.55365L17.6868 11.7354L17.6869 11.7354C17.8819 11.846 17.8819 12.154 17.6869 12.2646Z" stroke="#F9F9F9" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+    {% endif %}
+
+    {% if media.media_type == 'model' %}
+    <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7441 4.57034C11.9017 4.47655 12.098 4.47655 12.2555 4.57034L18.5889 8.33957C18.7404 8.42971 18.8332 8.59296 18.8332 8.76923V15.2308C18.8332 15.407 18.7404 15.5703 18.5889 15.6604L12.2555 19.4297C12.098 19.5234 11.9017 19.5234 11.7441 19.4297L5.41079 15.6604C5.25932 15.5703 5.1665 15.407 5.1665 15.2308V8.76923C5.1665 8.59296 5.25932 8.42971 5.41079 8.33957L11.7441 4.57034ZM6.1665 9.64865V14.9465L11.4998 18.1206V12.8227L6.1665 9.64865ZM12.4998 12.8227V18.1206L17.8332 14.9465V9.64865L12.4998 12.8227ZM17.3555 8.76923L11.9998 11.9566L6.64417 8.76923L11.9998 5.58185L17.3555 8.76923Z" fill="#F9F9F9"/>
+      </svg>
+    </div>
+    {% endif %}
+
+    <div class="gp-absolute gp-inset-0 gp-flex gp-cursor-pointer gp-items-center gp-justify-center gp-bg-black/50 gp-opacity-0 gp-transition-opacity gp-duration-100 group-hover:gp-opacity-100"
+    style="--d: none;--d-mobile: none;--d-tablet: none;"
+    >
+      <svg
+        height="100%"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+        class="gp-h-6 gp-w-6"
+        viewBox="0 0 512 512"
+        color="#fff"
+      >
+        <path
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M62.2467 345.253C43.7072 326.714 29.1474 305.116 18.9714 281.057C8.42839 256.13 3.08301 229.671 3.08301 202.418C3.08301 175.165 8.43012 148.707 18.974 123.78C29.15 99.7213 43.7098 78.123 62.2485 59.5834C80.788 41.0439 102.386 26.4841 126.445 16.3081C151.372 5.76422 177.831 0.417969 205.084 0.417969C232.337 0.417969 258.794 5.76421 283.722 16.3064C307.78 26.4823 329.379 41.0422 347.918 59.5817C366.458 78.1212 381.017 99.7196 391.194 123.778C401.737 148.706 407.083 175.163 407.083 202.417C407.083 229.671 401.737 256.129 391.194 281.056C388.406 287.648 385.277 294.048 381.839 300.257L493.397 411.815C514.091 432.511 514.091 466.187 493.395 486.883L484.272 496.006C474.245 506.032 460.915 511.553 446.738 511.553C432.559 511.553 419.228 506.032 409.202 496.006L296.022 382.824C291.996 384.854 287.898 386.762 283.721 388.528C258.794 399.073 232.336 404.419 205.082 404.419C177.828 404.419 151.371 399.071 126.443 388.528C102.385 378.352 80.7863 363.793 62.2467 345.253ZM301.699 336.166C313.928 327.317 324.896 316.835 334.282 305.034C342.149 295.142 348.9 284.325 354.355 272.775C364.433 251.432 370.076 227.586 370.076 202.419C370.076 111.296 296.206 37.4253 205.083 37.4253C113.96 37.4253 40.0895 111.294 40.0895 202.418C40.0895 293.541 113.96 367.411 205.084 367.411C227.413 367.411 248.701 362.967 268.126 354.928C280.091 349.976 291.347 343.658 301.699 336.166ZM467.229 460.716C473.507 454.439 473.507 444.26 467.229 437.982L360.595 331.348C356.601 336.153 352.378 340.794 347.919 345.253C341.671 351.502 335.068 357.286 328.147 362.615L435.371 469.839C438.511 472.977 442.624 474.547 446.739 474.547C450.853 474.547 454.967 472.978 458.106 469.839L467.229 460.716ZM223.582 183.91H281.071C291.292 183.91 299.574 192.194 299.575 202.414C299.575 206.778 298.062 210.786 295.533 213.951C292.143 218.195 286.926 220.916 281.072 220.916H228.303H223.583V225.63V278.406C223.583 287.081 217.613 294.358 209.559 296.361C208.124 296.717 206.625 296.909 205.08 296.909C194.861 296.909 186.577 288.625 186.577 278.406V220.917H129.087C118.868 220.917 110.584 212.633 110.584 202.414C110.584 192.195 118.868 183.911 129.087 183.911H186.576V126.421C186.576 116.202 194.86 107.918 205.079 107.918C215.298 107.918 223.582 116.202 223.582 126.421V183.91Z"
+        />
+      </svg>
+    </div>
+    </div>
+    
+      </div>
+    </div>
+  
+        {%- endif -%}
+      {% endfor %}
+    {%- endif -%}
+    
+          </div>
+          
+    <button
+      type="button"
+      aria-label='Carousel Next Arrow'
+      class="gp-z-1 gp-gallery-gFYeH1KQxV-{{product.id}} gp-carousel-action-next gem-slider-next gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}} gp-carousel-arrow-gp-gallery-gFYeH1KQxV gp-items-center gp-justify-center gp-overflow-hidden gp-shrink-0  gp-cursor-pointer gp-text-gray-500 !gp-hidden tablet:!gp-hidden mobile:!gp-hidden"
+      style="--left:initial;--top:;--right:initial;--bottom:initial;--left-tablet:initial;--top-tablet:;--right-tablet:initial;--bottom-tablet:initial;--left-mobile:initial;--top-mobile:;--right-mobile:initial;--bottom-mobile:initial;--d:none;--d-tablet:none;--d-mobile:none;background-color:;--w:24px;--h:24px"
+      onClick={onClick}
+      
+    >
+      <div 
+  class="gp-flex gp-items-center gp-justify-center [&>svg]:gp-h-full [&>svg]:gp-w-full gp-rotate-0 tablet:gp-rotate-0 mobile:gp-rotate-0"
+  style="--c:#000000;--w:undefinedpx;--w-tablet:undefinedpx;--w-mobile:undefinedpx;--h:undefinedpx;--h-tablet:undefinedpx;--h-mobile:undefinedpx"
+  >
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM10.6828 8.13017C10.5266 7.95661 10.2734 7.95661 10.1172 8.13017C9.96095 8.30374 9.96095 8.58515 10.1172 8.75871L13.0343 12L10.1172 15.2413C9.96095 15.4149 9.96095 15.6963 10.1172 15.8698C10.2734 16.0434 10.5266 16.0434 10.6828 15.8698L13.8828 12.3143C14.0391 12.1407 14.0391 11.8593 13.8828 11.6857L10.6828 8.13017Z" fill="currentColor"/>
+    </svg>
+    </div>
+      <style>
+    .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+      
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+    }
+    .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+    }
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV {
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+      .gp-gallery-gFYeH1KQxV-{{product.id}}.gp-carousel-arrow-gp-gallery-gFYeH1KQxV::before {
+        border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+        
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+      }
+    }
+  </style>
+    </button>
+  
+        </div>
+        <div
+    class="gp-items-center gp-justify-center gp-gap-2 gp-text-center gp-carousel-dot-container gp-carousel-dot-container-gp-gallery-gFYeH1KQxV-{{product.id}}-{{section.id}} gp-static gp-flex-row gp-left-0 gp-right-0 tablet:gp-static tablet:gp-flex-row tablet:gp-left-0 tablet:gp-right-0 mobile:gp-static mobile:gp-flex-row mobile:gp-left-0 mobile:gp-right-0"
+    style="--bottom:0px;--bottom-tablet:0px;--bottom-mobile:0px;--d:none;--d-tablet:none;--d-mobile:none"
+ ></div>
+      </div>
+    </gp-carousel>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-carousel-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+
+  
+  
+            </div>
+            
+  <div type="grid-gallery"
+    class="grid-gallery gp-flex !gp-h-fit gp-w-full gp-flex-wrap scrollbar-track:gp-rounded-2xl scrollbar-thumb:gp-rounded-2xl scrollbar-thumb:gp-bg-gray-400"
+    style="--d:none;--d-mobile:none;--d-tablet:none;--cg:16px;--cg-mobile:var(--g-s-s);--rg:16px;--rg-mobile:var(--g-s-s);--jc:center;--pos:static;--pos-tablet:static;--pos-mobile:static;--w:100%;--w-tablet:100%;--w-mobile:100%;--bottom:auto;--bottom-tablet:auto;--bottom-mobile:auto;--top:auto;--top-tablet:auto;--top-mobile:auto;--left:auto;--left-tablet:auto;--left-mobile:auto;--right:auto;--right-tablet:auto;--right-mobile:auto"
+  >
+    {%- for media in product.media -%}
+      {% if media.media_type == 'image' %}
+        {%- for image in product.images -%}
+          {% if image.src == media.src %}
+            {% assign imageID = image.id %}
+            {% break %}
+          {% endif%}
+        {% endfor %}
+      {% else %}
+        {% assign imageID = '' %}
+      {% endif %}
+      {%- if media.id == product.featured_media.id -%}
+        
+    {% if media.media_type == 'video' %}
+      {% assign mediaSourceUrl = media.sources.last.url %}
+    {% endif %}
+    {% if media.media_type == 'external_video' %}
+      {% assign mediaSourceUrl = media | external_video_url %}
+      {% assign mediaSource = media | json %}
+    {% endif %}
+    {% if media.media_type == 'image' %}
+      {% assign mediaSourceUrl = media.src %}
+    {% endif %}
+    <div
+      aria-hidden
+      id="{{imageID}}"
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      data-outline="deactive"
+      class="gem-slider-item-gFYeH1KQxV-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      style="max-width: 100%;--w: 92px;--w-tablet: 92px;--w-mobile: calc(100% - var(--g-s-s) * 0 / 1);--h: auto;--h-tablet: auto;--h-mobile: auto;--bblr: 8px;--bbrr: 8px;--btlr: 8px;--btrr: 8px;"
+      >
+      <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
+        {% if media != null %}
+          
+      {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+        <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0" >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+            <path d="M17.6869 12.2646L17.6868 12.2646L6.78379 18.4464C6.78378 18.4464 6.78376 18.4464 6.78374 18.4464C6.52931 18.5903 6.1665 18.4179 6.1665 18.0416V5.95844C6.1665 5.58218 6.52917 5.40981 6.7836 5.55354C6.78366 5.55357 6.78373 5.55361 6.78379 5.55365L17.6868 11.7354L17.6869 11.7354C17.8819 11.846 17.8819 12.154 17.6869 12.2646Z" stroke="#F9F9F9" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+      {% endif %}
+
+      {% if media.media_type == 'model' %}
+      <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7441 4.57034C11.9017 4.47655 12.098 4.47655 12.2555 4.57034L18.5889 8.33957C18.7404 8.42971 18.8332 8.59296 18.8332 8.76923V15.2308C18.8332 15.407 18.7404 15.5703 18.5889 15.6604L12.2555 19.4297C12.098 19.5234 11.9017 19.5234 11.7441 19.4297L5.41079 15.6604C5.25932 15.5703 5.1665 15.407 5.1665 15.2308V8.76923C5.1665 8.59296 5.25932 8.42971 5.41079 8.33957L11.7441 4.57034ZM6.1665 9.64865V14.9465L11.4998 18.1206V12.8227L6.1665 9.64865ZM12.4998 12.8227V18.1206L17.8332 14.9465V9.64865L12.4998 12.8227ZM17.3555 8.76923L11.9998 11.9566L6.64417 8.76923L11.9998 5.58185L17.3555 8.76923Z" fill="#F9F9F9"/>
+        </svg>
+      </div>
+      {% endif %}
+
+      
+      
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src="{{media.preview_image | image_url}}" data-srcset="{{media.preview_image | img_url: '480x480'}} 480w, {{media.preview_image | img_url: '768x768'}} 768w,{{media.preview_image | img_url: '1024x1024'}} 1024w,{{media.preview_image | img_url: '1440x1440'}} 1440w" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLXt7bWVkaWEud2lkdGh9fS17e21lZGlhLmhlaWdodH19Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSJ7e21lZGlhLndpZHRofX0iIGhlaWdodD0ie3ttZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIGZpbGw9InVybCgjZy17e21lZGlhLndpZHRofX0te3ttZWRpYS5oZWlnaHR9fSkiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLXt7bWVkaWEud2lkdGh9fSIgdG89Int7bWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{media.width}}" height="{{media.height}}" alt="{{media.alt}}" base-src="{{media.preview_image | image_url}}"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+      
+      
+    
+
+      <div class="gp-absolute gp-inset-0 gp-flex gp-cursor-pointer gp-items-center gp-justify-center gp-bg-black/50 gp-opacity-0 gp-transition-opacity gp-duration-100 group-hover:gp-opacity-100"
+        style="--d: none;--d-mobile: none;--d-tablet: none;" >
+        <svg
+          height="100%"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          class="gp-h-6 gp-w-6"
+          viewBox="0 0 512 512"
+          color="#fff"
+        >
+          <path
+            fill="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M62.2467 345.253C43.7072 326.714 29.1474 305.116 18.9714 281.057C8.42839 256.13 3.08301 229.671 3.08301 202.418C3.08301 175.165 8.43012 148.707 18.974 123.78C29.15 99.7213 43.7098 78.123 62.2485 59.5834C80.788 41.0439 102.386 26.4841 126.445 16.3081C151.372 5.76422 177.831 0.417969 205.084 0.417969C232.337 0.417969 258.794 5.76421 283.722 16.3064C307.78 26.4823 329.379 41.0422 347.918 59.5817C366.458 78.1212 381.017 99.7196 391.194 123.778C401.737 148.706 407.083 175.163 407.083 202.417C407.083 229.671 401.737 256.129 391.194 281.056C388.406 287.648 385.277 294.048 381.839 300.257L493.397 411.815C514.091 432.511 514.091 466.187 493.395 486.883L484.272 496.006C474.245 506.032 460.915 511.553 446.738 511.553C432.559 511.553 419.228 506.032 409.202 496.006L296.022 382.824C291.996 384.854 287.898 386.762 283.721 388.528C258.794 399.073 232.336 404.419 205.082 404.419C177.828 404.419 151.371 399.071 126.443 388.528C102.385 378.352 80.7863 363.793 62.2467 345.253ZM301.699 336.166C313.928 327.317 324.896 316.835 334.282 305.034C342.149 295.142 348.9 284.325 354.355 272.775C364.433 251.432 370.076 227.586 370.076 202.419C370.076 111.296 296.206 37.4253 205.083 37.4253C113.96 37.4253 40.0895 111.294 40.0895 202.418C40.0895 293.541 113.96 367.411 205.084 367.411C227.413 367.411 248.701 362.967 268.126 354.928C280.091 349.976 291.347 343.658 301.699 336.166ZM467.229 460.716C473.507 454.439 473.507 444.26 467.229 437.982L360.595 331.348C356.601 336.153 352.378 340.794 347.919 345.253C341.671 351.502 335.068 357.286 328.147 362.615L435.371 469.839C438.511 472.977 442.624 474.547 446.739 474.547C450.853 474.547 454.967 472.978 458.106 469.839L467.229 460.716ZM223.582 183.91H281.071C291.292 183.91 299.574 192.194 299.575 202.414C299.575 206.778 298.062 210.786 295.533 213.951C292.143 218.195 286.926 220.916 281.072 220.916H228.303H223.583V225.63V278.406C223.583 287.081 217.613 294.358 209.559 296.361C208.124 296.717 206.625 296.909 205.08 296.909C194.861 296.909 186.577 288.625 186.577 278.406V220.917H129.087C118.868 220.917 110.584 212.633 110.584 202.414C110.584 192.195 118.868 183.911 129.087 183.911H186.576V126.421C186.576 116.202 194.86 107.918 205.079 107.918C215.298 107.918 223.582 116.202 223.582 126.421V183.91Z"
+          />
+        </svg>
+      </div>
+    
+        {% else media == null %}
+          
+    
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+        {% endif %}
+      </div>
+
+      {% assign isMedia= false %}
+      {% if media.media_type == 'external_video' or media.media_type == 'video' or media.media_type == 'model' %}
+        {% assign isMedia = true %}
+      {% endif %}
+      <div class="{% if isMedia %}
+      gp-flex gp-justify-center gp-items-center
+      {% endif %}"
+      style="
+        {% if isMedia %}
+          --aspect: 1/1;--aspect-tablet: 1/1;--aspect-mobile: 1/1;
+        {% endif %}
+        --d: none;--d-tablet: none;--d-mobile: none;"
+      >
+        {% case media.media_type %}
+          {% when 'external_video' %}
+            {% assign mediaSourceVideo = media | external_video_url %}
+            
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{media.alt}}"
+      
+    >
+    </iframe>
+  
+          {% when 'video' %}
+            {% assign mediaSourceVideo = media.sources.last.url %}
+            
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{media.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+          {% when 'model' %}
+            
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%" height="100%"
+      
+      
+      
+      
+      src="{% if media.sources.first.url contains '.glb' %} {{ media.sources.first.url }}{% else %}{{media.sources.last.url}}{% endif %}"
+      alt="{{media.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{media.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+        {% endcase %}
+      </div>
+    </div>
+      {% else %}
+        
+    {% if media.media_type == 'video' %}
+      {% assign mediaSourceUrl = media.sources.last.url %}
+    {% endif %}
+    {% if media.media_type == 'external_video' %}
+      {% assign mediaSourceUrl = media | external_video_url %}
+      {% assign mediaSource = media | json %}
+    {% endif %}
+    {% if media.media_type == 'image' %}
+      {% assign mediaSourceUrl = media.src %}
+    {% endif %}
+    <div
+      aria-hidden
+      id="{{imageID}}"
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      data-outline="deactive"
+      class="gem-slider-item-gFYeH1KQxV-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      style="max-width: 100%;--w: 92px;--w-tablet: 92px;--w-mobile: calc(100% - var(--g-s-s) * 0 / 1);--h: auto;--h-tablet: auto;--h-mobile: auto;--bblr: 8px;--bbrr: 8px;--btlr: 8px;--btrr: 8px;"
+      >
+      <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
+        {% if media != null %}
+          
+      {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+        <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0" >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+            <path d="M17.6869 12.2646L17.6868 12.2646L6.78379 18.4464C6.78378 18.4464 6.78376 18.4464 6.78374 18.4464C6.52931 18.5903 6.1665 18.4179 6.1665 18.0416V5.95844C6.1665 5.58218 6.52917 5.40981 6.7836 5.55354C6.78366 5.55357 6.78373 5.55361 6.78379 5.55365L17.6868 11.7354L17.6869 11.7354C17.8819 11.846 17.8819 12.154 17.6869 12.2646Z" stroke="#F9F9F9" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+      {% endif %}
+
+      {% if media.media_type == 'model' %}
+      <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7441 4.57034C11.9017 4.47655 12.098 4.47655 12.2555 4.57034L18.5889 8.33957C18.7404 8.42971 18.8332 8.59296 18.8332 8.76923V15.2308C18.8332 15.407 18.7404 15.5703 18.5889 15.6604L12.2555 19.4297C12.098 19.5234 11.9017 19.5234 11.7441 19.4297L5.41079 15.6604C5.25932 15.5703 5.1665 15.407 5.1665 15.2308V8.76923C5.1665 8.59296 5.25932 8.42971 5.41079 8.33957L11.7441 4.57034ZM6.1665 9.64865V14.9465L11.4998 18.1206V12.8227L6.1665 9.64865ZM12.4998 12.8227V18.1206L17.8332 14.9465V9.64865L12.4998 12.8227ZM17.3555 8.76923L11.9998 11.9566L6.64417 8.76923L11.9998 5.58185L17.3555 8.76923Z" fill="#F9F9F9"/>
+        </svg>
+      </div>
+      {% endif %}
+
+      
+      
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src="{{media.preview_image | image_url}}" data-srcset="{{media.preview_image | img_url: '480x480'}} 480w, {{media.preview_image | img_url: '768x768'}} 768w,{{media.preview_image | img_url: '1024x1024'}} 1024w,{{media.preview_image | img_url: '1440x1440'}} 1440w" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLXt7bWVkaWEud2lkdGh9fS17e21lZGlhLmhlaWdodH19Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSJ7e21lZGlhLndpZHRofX0iIGhlaWdodD0ie3ttZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIGZpbGw9InVybCgjZy17e21lZGlhLndpZHRofX0te3ttZWRpYS5oZWlnaHR9fSkiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLXt7bWVkaWEud2lkdGh9fSIgdG89Int7bWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{media.width}}" height="{{media.height}}" alt="{{media.alt}}" base-src="{{media.preview_image | image_url}}"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+      
+      
+    
+
+      <div class="gp-absolute gp-inset-0 gp-flex gp-cursor-pointer gp-items-center gp-justify-center gp-bg-black/50 gp-opacity-0 gp-transition-opacity gp-duration-100 group-hover:gp-opacity-100"
+        style="--d: none;--d-mobile: none;--d-tablet: none;" >
+        <svg
+          height="100%"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          class="gp-h-6 gp-w-6"
+          viewBox="0 0 512 512"
+          color="#fff"
+        >
+          <path
+            fill="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M62.2467 345.253C43.7072 326.714 29.1474 305.116 18.9714 281.057C8.42839 256.13 3.08301 229.671 3.08301 202.418C3.08301 175.165 8.43012 148.707 18.974 123.78C29.15 99.7213 43.7098 78.123 62.2485 59.5834C80.788 41.0439 102.386 26.4841 126.445 16.3081C151.372 5.76422 177.831 0.417969 205.084 0.417969C232.337 0.417969 258.794 5.76421 283.722 16.3064C307.78 26.4823 329.379 41.0422 347.918 59.5817C366.458 78.1212 381.017 99.7196 391.194 123.778C401.737 148.706 407.083 175.163 407.083 202.417C407.083 229.671 401.737 256.129 391.194 281.056C388.406 287.648 385.277 294.048 381.839 300.257L493.397 411.815C514.091 432.511 514.091 466.187 493.395 486.883L484.272 496.006C474.245 506.032 460.915 511.553 446.738 511.553C432.559 511.553 419.228 506.032 409.202 496.006L296.022 382.824C291.996 384.854 287.898 386.762 283.721 388.528C258.794 399.073 232.336 404.419 205.082 404.419C177.828 404.419 151.371 399.071 126.443 388.528C102.385 378.352 80.7863 363.793 62.2467 345.253ZM301.699 336.166C313.928 327.317 324.896 316.835 334.282 305.034C342.149 295.142 348.9 284.325 354.355 272.775C364.433 251.432 370.076 227.586 370.076 202.419C370.076 111.296 296.206 37.4253 205.083 37.4253C113.96 37.4253 40.0895 111.294 40.0895 202.418C40.0895 293.541 113.96 367.411 205.084 367.411C227.413 367.411 248.701 362.967 268.126 354.928C280.091 349.976 291.347 343.658 301.699 336.166ZM467.229 460.716C473.507 454.439 473.507 444.26 467.229 437.982L360.595 331.348C356.601 336.153 352.378 340.794 347.919 345.253C341.671 351.502 335.068 357.286 328.147 362.615L435.371 469.839C438.511 472.977 442.624 474.547 446.739 474.547C450.853 474.547 454.967 472.978 458.106 469.839L467.229 460.716ZM223.582 183.91H281.071C291.292 183.91 299.574 192.194 299.575 202.414C299.575 206.778 298.062 210.786 295.533 213.951C292.143 218.195 286.926 220.916 281.072 220.916H228.303H223.583V225.63V278.406C223.583 287.081 217.613 294.358 209.559 296.361C208.124 296.717 206.625 296.909 205.08 296.909C194.861 296.909 186.577 288.625 186.577 278.406V220.917H129.087C118.868 220.917 110.584 212.633 110.584 202.414C110.584 192.195 118.868 183.911 129.087 183.911H186.576V126.421C186.576 116.202 194.86 107.918 205.079 107.918C215.298 107.918 223.582 116.202 223.582 126.421V183.91Z"
+          />
+        </svg>
+      </div>
+    
+        {% else media == null %}
+          
+    
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+        {% endif %}
+      </div>
+
+      {% assign isMedia= false %}
+      {% if media.media_type == 'external_video' or media.media_type == 'video' or media.media_type == 'model' %}
+        {% assign isMedia = true %}
+      {% endif %}
+      <div class="{% if isMedia %}
+      gp-flex gp-justify-center gp-items-center
+      {% endif %}"
+      style="
+        {% if isMedia %}
+          --aspect: 1/1;--aspect-tablet: 1/1;--aspect-mobile: 1/1;
+        {% endif %}
+        --d: none;--d-tablet: none;--d-mobile: none;"
+      >
+        {% case media.media_type %}
+          {% when 'external_video' %}
+            {% assign mediaSourceVideo = media | external_video_url %}
+            
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{media.alt}}"
+      
+    >
+    </iframe>
+  
+          {% when 'video' %}
+            {% assign mediaSourceVideo = media.sources.last.url %}
+            
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{media.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+          {% when 'model' %}
+            
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%" height="100%"
+      
+      
+      
+      
+      src="{% if media.sources.first.url contains '.glb' %} {{ media.sources.first.url }}{% else %}{{media.sources.last.url}}{% endif %}"
+      alt="{{media.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{media.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+        {% endcase %}
+      </div>
+    </div>
+      {%- endif -%}
+    {% endfor %}
+    {%- if product.media.size > 0 -%}
+      
+      
+    
+    {%- endif -%}
+    {%- if product.media.size < 1 -%}
+      
+    {% if media.media_type == 'video' %}
+      {% assign mediaSourceUrl = media.sources.last.url %}
+    {% endif %}
+    {% if media.media_type == 'external_video' %}
+      {% assign mediaSourceUrl = media | external_video_url %}
+      {% assign mediaSource = media | json %}
+    {% endif %}
+    {% if media.media_type == 'image' %}
+      {% assign mediaSourceUrl = media.src %}
+    {% endif %}
+    <div
+      aria-hidden
+      id="{{imageID}}"
+      media-type="{{media.media_type}}"
+      media-poster="{{media.preview_image.src}}"
+      media-source-url="{{media.sources.first.url}}"
+      media-last-source-url="{{mediaSourceUrl}}"
+      external-id="{{media.external_id}}"
+      grid-index="{{forloop.index}}"
+      data-outline="deactive"
+      class="gem-slider-item-gFYeH1KQxV-{{product.id}} gp-group gp-relative gp-overflow-hidden gp-cursor-pointer gp-image-item gp-gallery-image-item data-[outline=deactive]:after:!gp-border-transparent"
+      style="max-width: 100%;--w: 92px;--w-tablet: 92px;--w-mobile: calc(100% - var(--g-s-s) * 0 / 1);--h: auto;--h-tablet: auto;--h-mobile: auto;--bblr: 8px;--bbrr: 8px;--btlr: 8px;--btrr: 8px;"
+      >
+      <div class="gp-h-full" style="{% if media == null or media.media_type == 'image' %} display: block !important; {% endif %} --d: block;--d-tablet: block;--d-mobile: block;">
+        {% if media != null %}
+          
+      {% if media.media_type == 'video' or media.media_type == 'external_video' %}
+        <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0" >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+            <path d="M17.6869 12.2646L17.6868 12.2646L6.78379 18.4464C6.78378 18.4464 6.78376 18.4464 6.78374 18.4464C6.52931 18.5903 6.1665 18.4179 6.1665 18.0416V5.95844C6.1665 5.58218 6.52917 5.40981 6.7836 5.55354C6.78366 5.55357 6.78373 5.55361 6.78379 5.55365L17.6868 11.7354L17.6869 11.7354C17.8819 11.846 17.8819 12.154 17.6869 12.2646Z" stroke="#F9F9F9" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+      {% endif %}
+
+      {% if media.media_type == 'model' %}
+      <div class="gp-absolute gp-pb-1 gp-pr-1 gp-right-0 gp-bottom-0">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect opacity="0.9" width="24" height="24" rx="3" fill="#212121"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7441 4.57034C11.9017 4.47655 12.098 4.47655 12.2555 4.57034L18.5889 8.33957C18.7404 8.42971 18.8332 8.59296 18.8332 8.76923V15.2308C18.8332 15.407 18.7404 15.5703 18.5889 15.6604L12.2555 19.4297C12.098 19.5234 11.9017 19.5234 11.7441 19.4297L5.41079 15.6604C5.25932 15.5703 5.1665 15.407 5.1665 15.2308V8.76923C5.1665 8.59296 5.25932 8.42971 5.41079 8.33957L11.7441 4.57034ZM6.1665 9.64865V14.9465L11.4998 18.1206V12.8227L6.1665 9.64865ZM12.4998 12.8227V18.1206L17.8332 14.9465V9.64865L12.4998 12.8227ZM17.3555 8.76923L11.9998 11.9566L6.64417 8.76923L11.9998 5.58185L17.3555 8.76923Z" fill="#F9F9F9"/>
+        </svg>
+      </div>
+      {% endif %}
+
+      
+      
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src="{{media.preview_image | image_url}}" data-srcset="{{media.preview_image | img_url: '480x480'}} 480w, {{media.preview_image | img_url: '768x768'}} 768w,{{media.preview_image | img_url: '1024x1024'}} 1024w,{{media.preview_image | img_url: '1440x1440'}} 1440w" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8ZGVmcz4KICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJnLXt7bWVkaWEud2lkdGh9fS17e21lZGlhLmhlaWdodH19Ij4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjIwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjUwJSIgLz4KICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2JhKDUxLCA1MSwgNTEsIDApIiBvZmZzZXQ9IjcwJSIgLz4KICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDwvZGVmcz4KICAgIDxyZWN0IHdpZHRoPSJ7e21lZGlhLndpZHRofX0iIGhlaWdodD0ie3ttZWRpYS5oZWlnaHR9fSIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0ie3ttZWRpYS53aWR0aH19IiBoZWlnaHQ9Int7bWVkaWEuaGVpZ2h0fX0iIGZpbGw9InVybCgjZy17e21lZGlhLndpZHRofX0te3ttZWRpYS5oZWlnaHR9fSkiIC8+CiAgICA8YW5pbWF0ZSB4bGluazpocmVmPSIjciIgYXR0cmlidXRlTmFtZT0ieCIgZnJvbT0iLXt7bWVkaWEud2lkdGh9fSIgdG89Int7bWVkaWEud2lkdGh9fSIgZHVyPSIxcyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiICAvPgogIDwvc3ZnPg==" width="{{media.width}}" height="{{media.height}}" alt="{{media.alt}}" base-src="{{media.preview_image | image_url}}"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+      
+      
+    
+
+      <div class="gp-absolute gp-inset-0 gp-flex gp-cursor-pointer gp-items-center gp-justify-center gp-bg-black/50 gp-opacity-0 gp-transition-opacity gp-duration-100 group-hover:gp-opacity-100"
+        style="--d: none;--d-mobile: none;--d-tablet: none;" >
+        <svg
+          height="100%"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          class="gp-h-6 gp-w-6"
+          viewBox="0 0 512 512"
+          color="#fff"
+        >
+          <path
+            fill="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M62.2467 345.253C43.7072 326.714 29.1474 305.116 18.9714 281.057C8.42839 256.13 3.08301 229.671 3.08301 202.418C3.08301 175.165 8.43012 148.707 18.974 123.78C29.15 99.7213 43.7098 78.123 62.2485 59.5834C80.788 41.0439 102.386 26.4841 126.445 16.3081C151.372 5.76422 177.831 0.417969 205.084 0.417969C232.337 0.417969 258.794 5.76421 283.722 16.3064C307.78 26.4823 329.379 41.0422 347.918 59.5817C366.458 78.1212 381.017 99.7196 391.194 123.778C401.737 148.706 407.083 175.163 407.083 202.417C407.083 229.671 401.737 256.129 391.194 281.056C388.406 287.648 385.277 294.048 381.839 300.257L493.397 411.815C514.091 432.511 514.091 466.187 493.395 486.883L484.272 496.006C474.245 506.032 460.915 511.553 446.738 511.553C432.559 511.553 419.228 506.032 409.202 496.006L296.022 382.824C291.996 384.854 287.898 386.762 283.721 388.528C258.794 399.073 232.336 404.419 205.082 404.419C177.828 404.419 151.371 399.071 126.443 388.528C102.385 378.352 80.7863 363.793 62.2467 345.253ZM301.699 336.166C313.928 327.317 324.896 316.835 334.282 305.034C342.149 295.142 348.9 284.325 354.355 272.775C364.433 251.432 370.076 227.586 370.076 202.419C370.076 111.296 296.206 37.4253 205.083 37.4253C113.96 37.4253 40.0895 111.294 40.0895 202.418C40.0895 293.541 113.96 367.411 205.084 367.411C227.413 367.411 248.701 362.967 268.126 354.928C280.091 349.976 291.347 343.658 301.699 336.166ZM467.229 460.716C473.507 454.439 473.507 444.26 467.229 437.982L360.595 331.348C356.601 336.153 352.378 340.794 347.919 345.253C341.671 351.502 335.068 357.286 328.147 362.615L435.371 469.839C438.511 472.977 442.624 474.547 446.739 474.547C450.853 474.547 454.967 472.978 458.106 469.839L467.229 460.716ZM223.582 183.91H281.071C291.292 183.91 299.574 192.194 299.575 202.414C299.575 206.778 298.062 210.786 295.533 213.951C292.143 218.195 286.926 220.916 281.072 220.916H228.303H223.583V225.63V278.406C223.583 287.081 217.613 294.358 209.559 296.361C208.124 296.717 206.625 296.909 205.08 296.909C194.861 296.909 186.577 288.625 186.577 278.406V220.917H129.087C118.868 220.917 110.584 212.633 110.584 202.414C110.584 192.195 118.868 183.911 129.087 183.911H186.576V126.421C186.576 116.202 194.86 107.918 205.079 107.918C215.298 107.918 223.582 116.202 223.582 126.421V183.91Z"
+          />
+        </svg>
+      </div>
+    
+        {% else media == null %}
+          
+    
+  <img
+      
+      
+      draggable="false"
+      class="!gp-rounded-none gp_lazyload"
+      data-src data-srcset="https://cdn.shopify.com/s/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_large.gif" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+CiAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZy0yMjM3LTE2NzgiPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iMjAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNTAlIiAvPgogICAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYmEoNTEsIDUxLCA1MSwgMCkiIG9mZnNldD0iNzAlIiAvPgogICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPHJlY3Qgd2lkdGg9IjIyMzciIGhlaWdodD0iMTY3OCIgZmlsbD0icmdiYSg1MSwgNTEsIDUxLCAwKSIgLz4KICAgIDxyZWN0IGlkPSJyIiB3aWR0aD0iMjIzNyIgaGVpZ2h0PSIxNjc4IiBmaWxsPSJ1cmwoI2ctMjIzNy0xNjc4KSIgLz4KICAgIDxhbmltYXRlIHhsaW5rOmhyZWY9IiNyIiBhdHRyaWJ1dGVOYW1lPSJ4IiBmcm9tPSItMjIzNyIgdG89IjIyMzciIGR1cj0iMXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAgLz4KICA8L3N2Zz4=" width="2237" height="1678" alt="No Image"
+      quality-type={"desktop":"finest"}
+      quality-percent={"desktop":100}
+      data-sizes="auto"
+      sizes="100vw"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1;--objf:cover"
+    />
+  
+        {% endif %}
+      </div>
+
+      {% assign isMedia= false %}
+      {% if media.media_type == 'external_video' or media.media_type == 'video' or media.media_type == 'model' %}
+        {% assign isMedia = true %}
+      {% endif %}
+      <div class="{% if isMedia %}
+      gp-flex gp-justify-center gp-items-center
+      {% endif %}"
+      style="
+        {% if isMedia %}
+          --aspect: 1/1;--aspect-tablet: 1/1;--aspect-mobile: 1/1;
+        {% endif %}
+        --d: none;--d-tablet: none;--d-mobile: none;"
+      >
+        {% case media.media_type %}
+          {% when 'external_video' %}
+            {% assign mediaSourceVideo = media | external_video_url %}
+            
+    <iframe
+      width="100%" height="100%"
+      class="feature-video gp-w-full gp-h-full gp-relative"
+      src="{{mediaSourceVideo}}"
+      controls="true"
+      allowfullscreen="true"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      frameborder="0"
+      autoplay="false"
+      alt="{{media.alt}}"
+      
+    >
+    </iframe>
+  
+          {% when 'video' %}
+            {% assign mediaSourceVideo = media.sources.last.url %}
+            
+  <gp-lite-html5-embed>
+    
+    <video
+      id="gp-video-undefined"
+      class=" gp-w-full lazy"
+      style="width:100%;max-height:100%"
+      controls
+      
+      
+      
+      title="{{media.alt}}"
+      preload="none"
+      data-src="{{mediaSourceVideo}}"
+      src=""
+      poster=""
+      playsinline
+    >
+    
+  </video>
+    <div
+      style="width:100%;max-height:100%"
+      class="gp-absolute gp-top-0 gp-left-0  gp-w-full gp-thumbnail-video gp-hidden"
+    >
+      <img
+        id="video-thumbnail"
+        src=""
+        class="gp-w-full gp-h-full gp-object-cover"
+        alt="Video Thumbnail"
+      ></img>
+      <button
+        type="button"
+        class="gp-absolute gp-left-1/2 gp-top-1/2 gp-flex gp-aspect-[56/32] gp-w-14 -gp-translate-x-1/2 -gp-translate-y-1/2 gp-items-center gp-justify-center gp-rounded gp-bg-black/80 gp-transition-colors hover:gp-bg-[#ef0800]"
+        aria-label="Play"
+      >
+        <svg class="gp-w-5 gp-text-white" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M5 5.274c0-1.707 1.826-2.792 3.325-1.977l12.362 6.726c1.566.853 1.566 3.101 0 3.953L8.325 20.702C6.826 21.518 5 20.432 5 18.726V5.274Z"
+          />
+        </svg>
+      </button>
+    </div>
+    </gp-lite-html5-embed>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-lite-html5-embed.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        if(lazyLoadInstance){lazyLoadInstance.update()}else{var lazyLoadInstance = new LazyLoad()}
+    </script>
+  
+          {% when 'model' %}
+            
+    <model-viewer
+      class="gp-w-full gp-h-full model-viewer gp-z-[90]"
+      width="100%" height="100%"
+      
+      
+      
+      
+      src="{% if media.sources.first.url contains '.glb' %} {{ media.sources.first.url }}{% else %}{{media.sources.last.url}}{% endif %}"
+      alt="{{media.preview_image.alt}}"
+      camera-controls="true"
+      poster="{{media.preview_image.src | product_img_url: '1024x1024'}}"
+      data-js-focus-visible=""
+      data-shopify-feature="1.12"
+      ar-status="not-presenting"
+      style="--aspect:1/1;--aspect-tablet:1/1;--aspect-mobile:1/1">
+    </model-viewer>
+  
+        {% endcase %}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+          {% endif %}
+      </div>
+    </gp-product-images-v2>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-images-v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gwAHBG7jN6 gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      parentTag="Col" id="gG2Z9qDGZ6" data-id="gG2Z9qDGZ6"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pl-mobile:20px;--pb-mobile:0px;--pr-mobile:20px;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gG2Z9qDGZ6 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="glV8f82zPT gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      parentTag="Col" id="ga6uIWyW3V" data-id="ga6uIWyW3V"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--bblr:12px;--bbrr:12px;--btlr:12px;--btrr:12px;--mb:var(--g-s-xl);--pt:24px;--pl:30px;--pb:24px;--pr:34px;--ml-mobile:auto;--mb-mobile:20px;--mr-mobile:auto;--pl-mobile:20px;--pr-mobile:20px;--mb-tablet:var(--g-s-xl);--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:#F6F6F6;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="ga6uIWyW3V gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gzYcR5bwhg gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--op-tablet:100%;--mb:8px;--mb-mobile:7px" class="gawFptFRdV ">
+      
+    {%- unless product -%}
+      <p>{{ "gempages.ProductTitle.product_not_found" | t }}</p>
+    {%- else -%}
+      
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gawFptFRdV">
+    <div
+      
+        class="gawFptFRdV "
+        
+      >
+      <div  >
+        <h1
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-product-title"
+          style="--w:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#002917;--fs:normal;--ff:var(--g-font-heading, heading);--weight:600;--ls:normal;--size:40px;--size-tablet:40px;--size-mobile:28px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;word-break:break-word;overflow:hidden"
+        >{{ product.title }}</h1>
+      </div>
+    </div>
+    </gp-text>
+    
+      
+    {%- endunless -%}
+  
+      </div>
+       
+      
+    <div
+      parentTag="Col" id="gSwPXCoKu7" data-id="gSwPXCoKu7"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--mb:16px;--mb-mobile:16px;--cg:12px;--pc:start;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gSwPXCoKu7 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gsx3mKDSaO gp-relative gp-flex gp-flex-col"
+    >
+      
+    
+    <div
+    data-id="gF0io9wyon"
+      
+      data-id="gF0io9wyon"
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll">
+
+    <div
+            class="gp-flex gp-flex-wrap"
+            style="--cg:2px;--jc:left">
+            <div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gJjM9cELH6 ">
+      
+    <div 
+      
+      class="gp-flex gp-w-full gp-flex-col gp-items-center"
+    >
+    
+  <div
+      
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] gqBjunAnRE"
+    >
+      <div 
+      data-id="gqBjunAnRE"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:14px;--w-tablet:14px;--w-mobile:14px;--h:14px;--h-tablet:14px;--h-mobile:14px;--minw:14px;--minw-tablet:14px;--minw-mobile:14px;--height-desktop:14px;--height-tablet:14px;--height-mobile:14px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522153214489920375" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<g clip-path="url(#clip0_706_9118)">
+<path d="M3.1603 13.5131C2.82255 13.6863 2.4393 13.3827 2.50755 12.9951L3.2338 8.85631L0.151173 5.91981C-0.136702 5.64506 0.0129233 5.14281 0.398798 5.08856L4.68455 4.47956L6.59555 0.693437C6.76792 0.352188 7.2343 0.352188 7.40667 0.693437L9.31767 4.47956L13.6034 5.08856C13.9893 5.14281 14.1389 5.64506 13.8502 5.91981L10.7684 8.85631L11.4947 12.9951C11.5629 13.3827 11.1797 13.6863 10.8419 13.5131L6.9998 11.5391L3.15942 13.5131H3.1603Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9118">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="g0rBKe2dMA ">
+      
+    <div 
+      
+      class="gp-flex gp-w-full gp-flex-col gp-items-center"
+    >
+    
+  <div
+      
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] g6Mbt_rdvj"
+    >
+      <div 
+      data-id="g6Mbt_rdvj"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:14px;--w-tablet:14px;--w-mobile:14px;--h:14px;--h-tablet:14px;--h-mobile:14px;--minw:14px;--minw-tablet:14px;--minw-mobile:14px;--height-desktop:14px;--height-tablet:14px;--height-mobile:14px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522153214489920375" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<g clip-path="url(#clip0_706_9118)">
+<path d="M3.1603 13.5131C2.82255 13.6863 2.4393 13.3827 2.50755 12.9951L3.2338 8.85631L0.151173 5.91981C-0.136702 5.64506 0.0129233 5.14281 0.398798 5.08856L4.68455 4.47956L6.59555 0.693437C6.76792 0.352188 7.2343 0.352188 7.40667 0.693437L9.31767 4.47956L13.6034 5.08856C13.9893 5.14281 14.1389 5.64506 13.8502 5.91981L10.7684 8.85631L11.4947 12.9951C11.5629 13.3827 11.1797 13.6863 10.8419 13.5131L6.9998 11.5391L3.15942 13.5131H3.1603Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9118">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="g7jVDaA36X ">
+      
+    <div 
+      
+      class="gp-flex gp-w-full gp-flex-col gp-items-center"
+    >
+    
+  <div
+      
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] gEYp_e_gOe"
+    >
+      <div 
+      data-id="gEYp_e_gOe"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:14px;--w-tablet:14px;--w-mobile:14px;--h:14px;--h-tablet:14px;--h-mobile:14px;--minw:14px;--minw-tablet:14px;--minw-mobile:14px;--height-desktop:14px;--height-tablet:14px;--height-mobile:14px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522153214489920375" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<g clip-path="url(#clip0_706_9118)">
+<path d="M3.1603 13.5131C2.82255 13.6863 2.4393 13.3827 2.50755 12.9951L3.2338 8.85631L0.151173 5.91981C-0.136702 5.64506 0.0129233 5.14281 0.398798 5.08856L4.68455 4.47956L6.59555 0.693437C6.76792 0.352188 7.2343 0.352188 7.40667 0.693437L9.31767 4.47956L13.6034 5.08856C13.9893 5.14281 14.1389 5.64506 13.8502 5.91981L10.7684 8.85631L11.4947 12.9951C11.5629 13.3827 11.1797 13.6863 10.8419 13.5131L6.9998 11.5391L3.15942 13.5131H3.1603Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9118">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gd1DRRIrJf ">
+      
+    <div 
+      
+      class="gp-flex gp-w-full gp-flex-col gp-items-center"
+    >
+    
+  <div
+      
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] g68PvSfSEK"
+    >
+      <div 
+      data-id="g68PvSfSEK"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:14px;--w-tablet:14px;--w-mobile:14px;--h:14px;--h-tablet:14px;--h-mobile:14px;--minw:14px;--minw-tablet:14px;--minw-mobile:14px;--height-desktop:14px;--height-tablet:14px;--height-mobile:14px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522153214489920375" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<g clip-path="url(#clip0_706_9118)">
+<path d="M3.1603 13.5131C2.82255 13.6863 2.4393 13.3827 2.50755 12.9951L3.2338 8.85631L0.151173 5.91981C-0.136702 5.64506 0.0129233 5.14281 0.398798 5.08856L4.68455 4.47956L6.59555 0.693437C6.76792 0.352188 7.2343 0.352188 7.40667 0.693437L9.31767 4.47956L13.6034 5.08856C13.9893 5.14281 14.1389 5.64506 13.8502 5.91981L10.7684 8.85631L11.4947 12.9951C11.5629 13.3827 11.1797 13.6863 10.8419 13.5131L6.9998 11.5391L3.15942 13.5131H3.1603Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9118">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div><div gp-el-wrapper style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="g-t4sJ_PqS ">
+      
+    <div 
+      
+      class="gp-flex gp-w-full gp-flex-col gp-items-center"
+    >
+    
+  <div
+      
+      style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] gfVy4bJxh-"
+    >
+      <div 
+      data-id="gfVy4bJxh-"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:14px;--w-tablet:14px;--w-mobile:14px;--h:14px;--h-tablet:14px;--h-mobile:14px;--minw:14px;--minw-tablet:14px;--minw-mobile:14px;--height-desktop:14px;--height-tablet:14px;--height-mobile:14px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522153214489920375" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+<g clip-path="url(#clip0_706_9118)">
+<path d="M3.1603 13.5131C2.82255 13.6863 2.4393 13.3827 2.50755 12.9951L3.2338 8.85631L0.151173 5.91981C-0.136702 5.64506 0.0129233 5.14281 0.398798 5.08856L4.68455 4.47956L6.59555 0.693437C6.76792 0.352188 7.2343 0.352188 7.40667 0.693437L9.31767 4.47956L13.6034 5.08856C13.9893 5.14281 14.1389 5.64506 13.8502 5.91981L10.7684 8.85631L11.4947 12.9951C11.5629 13.3827 11.1797 13.6863 10.8419 13.5131L6.9998 11.5391L3.15942 13.5131H3.1603Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9118">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div>
+  
+      </div>
+         </div>
+    </div>
+  
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gI2CRYPVeB gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="g0XzR1UdMx">
+    <div
+      parentTag="Col"
+        class="g0XzR1UdMx "
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:13px;--size-mobile:13px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.gg0XzR1UdMx_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-g0XzR1UdMx">
+        .g0XzR1UdMx {
+
+}
+.g0XzR1UdMx p {
+
+}
+      </style>
+    
+    </div>
+    </div>
+   
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gqnwecRigF">
+    <div
+      parentTag="Col"
+        class="gqnwecRigF "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:16px"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggqnwecRigF_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-gqnwecRigF">
+        .gqnwecRigF {
+
+}
+.gqnwecRigF p {
+
+}
+      </style>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gF5VgvCCNZ">
+    <div
+      parentTag="Col"
+        class="gF5VgvCCNZ "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:16px"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggF5VgvCCNZ_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-gF5VgvCCNZ">
+        .gF5VgvCCNZ {
+
+}
+.gF5VgvCCNZ p {
+
+}
+      </style>
+    
+       
+      
+    <div
+      parentTag="Col" id="g8q7FuCEGr" data-id="g8q7FuCEGr"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--mb:8px;--cg:8px;--pc:start;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="g8q7FuCEGr gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="g4pkZ-UhLr gp-relative gp-flex gp-flex-col"
+    >
+      
+  <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] gI1guZe_1_"
+    >
+      <div 
+      data-id="gI1guZe_1_"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:12px;--w-tablet:12px;--w-mobile:12px;--h:12px;--h-tablet:12px;--h-mobile:12px;--minw:12px;--minw-tablet:12px;--minw-mobile:12px;--height-desktop:12px;--height-tablet:12px;--height-mobile:12px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522174263638098807" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+<g clip-path="url(#clip0_706_9142)">
+<path d="M6.0002 0.5L7.25195 1.148L8.64545 1.3595L9.27695 2.6195L10.2797 3.6095L10.0502 5L10.2797 6.3905L9.27695 7.3805L8.64545 8.6405L7.25195 8.852L6.0002 9.5L4.74845 8.852L3.35495 8.6405L2.72345 7.3805L1.7207 6.3905L1.9502 5L1.7207 3.6095L2.72345 2.6195L3.35495 1.3595L4.74845 1.148L6.0002 0.5Z" fill="#66BE9B"/>
+<path d="M3.00024 9.34759V12.5021L6.00024 11.7521L9.00024 12.5021V9.34759L7.48674 9.57709L6.00024 10.3466L4.51374 9.57709L3.00024 9.34759Z" fill="#66BE9B"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9142">
+<rect width="12" height="12" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gFMYlRHO7Y gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gMC2WJz7WA">
+    <div
+      parentTag="Col"
+        class="gMC2WJz7WA "
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:13px;--size-mobile:13px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggMC2WJz7WA_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-gMC2WJz7WA">
+        .gMC2WJz7WA {
+
+}
+.gMC2WJz7WA p {
+
+}
+      </style>
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      parentTag="Col" id="gBPdyipubb" data-id="gBPdyipubb"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--mb:24px;--mb-mobile:16px;--cg:8px;--pc:start;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gBPdyipubb gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gGh7E61s89 gp-relative gp-flex gp-flex-col"
+    >
+      
+  <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+      class="gp-leading-[0] gJuQv6OvgV"
+    >
+      <div 
+      data-id="gJuQv6OvgV"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#000000"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:12px;--w-tablet:12px;--w-mobile:12px;--h:12px;--h-tablet:12px;--h-mobile:12px;--minw:12px;--minw-tablet:12px;--minw-mobile:12px;--height-desktop:12px;--height-tablet:12px;--height-mobile:12px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522174263638098807" xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+<g clip-path="url(#clip0_706_9142)">
+<path d="M6.0002 0.5L7.25195 1.148L8.64545 1.3595L9.27695 2.6195L10.2797 3.6095L10.0502 5L10.2797 6.3905L9.27695 7.3805L8.64545 8.6405L7.25195 8.852L6.0002 9.5L4.74845 8.852L3.35495 8.6405L2.72345 7.3805L1.7207 6.3905L1.9502 5L1.7207 3.6095L2.72345 2.6195L3.35495 1.3595L4.74845 1.148L6.0002 0.5Z" fill="#66BE9B"/>
+<path d="M3.00024 9.34759V12.5021L6.00024 11.7521L9.00024 12.5021V9.34759L7.48674 9.57709L6.00024 10.3466L4.51374 9.57709L3.00024 9.34759Z" fill="#66BE9B"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9142">
+<rect width="12" height="12" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="g2EZ10PCVH gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gX3-O_xk20">
+    <div
+      parentTag="Col"
+        class="gX3-O_xk20 "
+        style="--ta:left;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:13px;--size-tablet:13px;--size-mobile:13px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggX3-O_xk20_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-gX3-O_xk20">
+        .gX3-O_xk20 {
+
+}
+.gX3-O_xk20 p {
+
+}
+      </style>
+    
+    </div>
+    </div>
+   
+    <div gp-el-wrapper style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--mb:24px" class="g08v5kFHpf ">
+      
+    <div
+      
+      style="--ta:left"
+    >
+      <div class="recurpay-pdp-widget" data-product-id="{{product.id}}" data-product-available="{{product.available}}" data-default-variant="{{product.selected_or_first_available_variant.id}}" data-only-subscription="{{product.requires_selling_plan}}"></div>
+    </div>
+  
+      </div>
+       
+      
+    <div
+      parentTag="Col" id="gJ9ixe5KN0" data-id="gJ9ixe5KN0"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--cg:16px;--pc:start;--gtc:minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gJ9ixe5KN0 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gAJKTl5TIZ gp-relative gp-flex gp-flex-col"
+    >
+      <div gp-el-wrapper style="--bs:none;--bw:0px 0px 0px 0px;--bc:#B4B4B4;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb-mobile:16px" class="gN4WbqgL2U ">
+      
+    {%- liquid
+      assign current_variant = product.selected_or_first_available_variant
+      assign available = current_variant.available | default: false
+    -%}
+      <gp-product-quantity
+        data-id="gN4WbqgL2U"
+        data-disabled="{%- if available -%} false {%- else -%} true {%- endif -%}"
+        data-price="false"
+        class="quantityClass gp-relative gp-inline-flex gp-w-full gp-bg-transparent gp-transition-all gp-duration-150 data-[disabled=true]:gp-opacity-60 "
+        style="--h:48px;--h-mobile:42px;--jc:center"
+      >
+
+      
+          <button
+            title="Decrement"
+            aria-label="decrement"
+            {% if available == false %} disabled {% endif %}
+            class="!gp-border-r-0 gp-minus gp-flex gp-aspect-square gp-h-full gp-cursor-pointer gp-items-center gp-justify-center gp-outline-none disabled:gp-cursor-not-allowed"
+            style="--w:52px;--w-mobile:82px;--hvr-bg:#00000000;--bg:#00000000;--hvr-c:#002917;--c:#002917;--bs:solid;--hvr-bs:solid;--bw:1px 1px 1px 1px;--hvr-bw:1px 1px 1px 1px;--bc:#B4B4B4;--hvr-bc:#B4B4B4;--bblr:100px;--bbrr:auto;--btlr:100px;--btrr:auto"
+          >
+            <span class="gp-inline-flex gp-items-center gp-justify-center" style="--w:10px;--w-mobile:20px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="gp-h-full gp-w-full"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
+              </svg>
+            </span>
+          </button>
+      
+        <input
+          type="text"
+          name="product-quantity"
+          {% if available == false %} disabled {% endif %}
+          class="!gp-border-x-0 gp-px-4 gp-flex gp-shadow-none gp-appearance-none gp-items-center gp-border-y gp-text-center gp-outline-none gp-transition-all gp-duration-150 hover:gp-text-black disabled:gp-pointer-events-none gp-h-auto gp-rounded-none gp-shrink-[99999] gp-w-full gp-min-w-[45px]"
+          style="--maxw:56px;--maxw-tablet:50px;--maxw-mobile:100%;--fs:normal;--ff:var(--g-font-body, body);--weight:600;--ls:normal;--size:16px;--size-tablet:13px;--size-mobile:16px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#002917;--bg:#00000000;--hvr-c:#002917;--bs:solid;--hvr-bs:solid;--bw:1px 1px 1px 1px;--hvr-bw:1px 1px 1px 1px;--bc:#B4B4B4;--hvr-bc:#B4B4B4"
+          aria-label="Quantity"
+          inputmode="numeric"
+          min="{{ current_variant.quantity_rule.min }}"
+          step="{{ current_variant.quantity_rule.increment }}"
+          value="1"
+          autocomplete='off'
+        />
+
+        
+          <button
+            {% if available == false %} disabled {% endif %}
+            aria-label="increment"
+            title="Increment"
+            class="!gp-border-l-0 gp-plus gp-flex gp-aspect-square gp-h-full gp-cursor-pointer gp-items-center gp-justify-center gp-outline-none gp-transition-all gp-duration-150 disabled:gp-pointer-events-none"
+            style="--w:52px;--w-mobile:82px;--hvr-bg:#00000000;--bg:#00000000;--hvr-c:#002917;--c:#002917;--bs:solid;--hvr-bs:solid;--bw:1px 1px 1px 1px;--hvr-bw:1px 1px 1px 1px;--bc:#B4B4B4;--hvr-bc:#B4B4B4;--bblr:auto;--bbrr:100px;--btlr:auto;--btrr:100px"
+          >
+            <span class="gp-inline-flex gp-items-center gp-justify-center" style="--w:10px;--w-mobile:20px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="gp-h-full gp-w-full"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                />
+              </svg>
+            </span>
+          </button>
+        
+      </gp-product-quantity>
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-quantity.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+      </div>
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gCgLuDYfeP gp-relative gp-flex gp-flex-col"
+    >
+      
+   {%- liquid
+      assign inventory_quantity = variant.inventory_quantity | default: 0
+    -%}
+    <gp-product-button
+      class="gp-product-button"
+      gp-data-wrapper="true"
+      gp-label-out-of-stock="{{section.settings.gg9DDR-b-o-_outOfStockLabel}}"
+      gp-label-unavailable="{{section.settings.gg9DDR-b-o-_unavailableLabel}}"
+      gp-data='{"setting":{"actionEffect":"buy-now","errorMessage":"Cannot add product to cart","successMessage":"Add product to cart successfully","enableSuccessMessage":true,"enableErrorMessage":true,"label":"Add to cart","outOfStockLabel":"Out of stock","errorType":"built-in","customURL":{"link":"/cart","target":"_self"}},"styles":{"errorTypo":{"attrs":{"color":"error"},"custom":{"fontSize":{"desktop":"13px","mobile":"12px","tablet":"13px"},"fontStyle":"normal","fontWeight":"400","hasShadowText":false,"letterSpacing":"normal","lineHeight":{"desktop":"130%","mobile":"150%","tablet":"130%"},"textShadow":{"angle":37,"blur":"2px","color":"rgba(0, 0, 0, 0.6)","distance":"4px","type":"custom"}},"type":"paragraph-2"},"successTypo":{"attrs":{"color":"success"},"custom":{"fontSize":{"desktop":"13px","mobile":"12px","tablet":"13px"},"fontStyle":"normal","fontWeight":"400","hasShadowText":false,"letterSpacing":"normal","lineHeight":{"desktop":"130%","mobile":"150%","tablet":"130%"},"textShadow":{"angle":37,"blur":"2px","color":"rgba(0, 0, 0, 0.6)","distance":"4px","type":"custom"}},"type":"paragraph-2"}},"disabled":"{{variant.available}}","variantID":"{{variant.id}}","totalVariant":"{{product.variants.size}}"}' 
+       gp-href="{{ request.origin }}{{ routes.root_url | split: '/' | join: '/' }}/cart"
+       data-variant-selection-required-message="{{}}"
+    >
+        
+  <gp-button >
+  <div
+    style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+    class="{% unless variant.available %} !gp-hidden {% endunless %}"
+  >
+    <style>
+    .g9DDR-b-o-.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 200px;
+      border-bottom-right-radius: 200px;
+      border-top-left-radius: 200px;
+      border-top-right-radius: 200px;
+      
+    }
+
+    .g9DDR-b-o-:hover::before {
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+    }
+
+    .g9DDR-b-o-:hover .gp-button-icon {
+      color: undefined;
+    }
+
+     .g9DDR-b-o- .gp-button-icon {
+      color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o-:hover .gp-button-price {
+      color: undefined;
+    }
+
+    .g9DDR-b-o- .gp-button-price {
+      color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o- .gp-product-dot-price {
+       color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o-:hover .gp-product-dot-price {
+      color: undefined;
+    }
+  </style>
+    <button
+      type="submit" data-id="g9DDR-b-o-" aria-label="Add to cart"
+      name="add" gp-data-hidden="{% unless variant.available %}true{% endunless %}"
+      data-state="idle"
+      class="g9DDR-b-o- gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-text-g-text-3 gp-button-atc tcustomizer-submit-button"
+      style="--hvr-bg:#FF773E;--bg:#FF773E;--bblr:200px;--bbrr:200px;--btlr:200px;--btrr:200px;--shadow:none;--w:1200px;--w-tablet:405px;--w-mobile:405px;--h:Auto;--h-tablet:Auto;--h-mobile:42px;--pl:24px;--pr:24px;--pt:14px;--pb:14px;--pl-tablet:5px;--pr-tablet:5px;--pt-tablet:14px;--pb-tablet:14px;--pl-mobile:5px;--pr-mobile:5px;--pt-mobile:12px;--pb-mobile:12px;--c:var(--g-c-text-3, text-3);--size:16px;--size-tablet:16px;--size-mobile:14px;--fs:normal;--ff:var(--g-font-body, body);--weight:600;--ls:normal;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--tt:uppercase"
+    >
+        <svg
+          class="gp-invisible gp-absolute gp-h-5 gp-w-5 group-data-[state=loading]/button:gp-animate-spin group-data-[state=loading]/button:gp-visible"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="gp-opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="gp-opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+    <div
+    class="gp-inline-flex">
+    
+      <span
+        data-gp-text
+        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
+        "
+        style="--size:16px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-3, text-3)"
+      >
+        {{ section.settings.gg9DDR-b-o-_label }}
+      </span>
+      </div>
+    
+    </button>
+  </div>
+  </gp-button>
+
+        
+  <gp-button >
+  <div
+    style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--ta:left"
+    class="{% if variant.available %} !gp-hidden {% endif %}"
+  >
+    <style>
+    .g9DDR-b-o--sold-out.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+      border-bottom-left-radius: 200px;
+      border-bottom-right-radius: 200px;
+      border-top-left-radius: 200px;
+      border-top-right-radius: 200px;
+      
+    }
+
+    .g9DDR-b-o--sold-out:hover::before {
+      border-style: none;
+  border-width: 1px 1px 1px 1px;
+  
+  
+      
+    }
+
+    .g9DDR-b-o--sold-out:hover .gp-button-icon {
+      color: undefined;
+    }
+
+     .g9DDR-b-o--sold-out .gp-button-icon {
+      color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o--sold-out:hover .gp-button-price {
+      color: undefined;
+    }
+
+    .g9DDR-b-o--sold-out .gp-button-price {
+      color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o--sold-out .gp-product-dot-price {
+       color: var(--g-c-text-3, text-3);
+    }
+
+    .g9DDR-b-o--sold-out:hover .gp-product-dot-price {
+      color: undefined;
+    }
+  </style>
+    <button
+      type="button" data-id="g9DDR-b-o-" aria-label="{{section.settings.gg9DDR-b-o-_outOfStockLabel}}"
+      gp-data-hidden="{% if variant.available %}true{% endif %}"
+      data-state="idle"
+      class="g9DDR-b-o--sold-out gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-text-g-text-3 gp-button-sold-out btn-disabled gp-opacity-30 gp-cursor-default"
+      style="--hvr-bg:#FF773E;--bg:#FF773E;--bblr:200px;--bbrr:200px;--btlr:200px;--btrr:200px;--shadow:none;--w:1200px;--w-tablet:405px;--w-mobile:405px;--h:Auto;--h-tablet:Auto;--h-mobile:42px;--pl:24px;--pr:24px;--pt:14px;--pb:14px;--pl-tablet:5px;--pr-tablet:5px;--pt-tablet:14px;--pb-tablet:14px;--pl-mobile:5px;--pr-mobile:5px;--pt-mobile:12px;--pb-mobile:12px;--c:var(--g-c-text-3, text-3);--size:16px;--size-tablet:16px;--size-mobile:14px;--fs:normal;--ff:var(--g-font-body, body);--weight:600;--ls:normal;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--tt:uppercase"
+    >
+      
+    <div
+    class="gp-inline-flex">
+    
+      <span
+        data-gp-text
+        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
+        "
+        style="--size:16px;--size-tablet:16px;--size-mobile:14px;--c:var(--g-c-text-3, text-3)"
+      >
+        {{section.settings.gg9DDR-b-o-_outOfStockLabel}}
+      </span>
+      </div>
+    
+    </button>
+  </div>
+  </gp-button>
+
+    </gp-product-button>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product-button.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+       
+      
+    <div
+      parentTag="Col" id="giT2l-4fyu" data-id="giT2l-4fyu"
+        style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--op-mobile:100%;--op-tablet:100%;--bblr:12px;--bbrr:12px;--btlr:12px;--btrr:12px;--pt:24px;--pl:32px;--pb:24px;--pr:32px;--mb-mobile:20px;--pt-mobile:28px;--pl-mobile:20px;--pb-mobile:28px;--pr-mobile:20px;--mb-tablet:0px;--pt-tablet:24px;--pl-tablet:32px;--pb-tablet:24px;--pr-tablet:32px;--cg:8px;--pc:center;--pc-tablet:center;--gtc:minmax(0, auto) minmax(0, auto) minmax(0, auto);--gtc-tablet:minmax(0, auto) minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:#F6F6F6;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="giT2l-4fyu gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:center;--jc-tablet:center"
+      class="glMbf9DSPs gp-relative gp-flex gp-flex-col"
+    >
+      
+  <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:8px;--mb-mobile:7px;--ta:center"
+      class="gp-leading-[0] glPsEvUOxJ"
+    >
+      <div 
+      data-id="glPsEvUOxJ"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--pl:20px;--pr:20px;--pt:20px;--pb:20px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:18px;--pb-mobile:18px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--bg:#E6F8F4"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:30px;--w-tablet:30px;--w-mobile:24px;--h:30px;--h-tablet:30px;--h-mobile:24px;--minw:30px;--minw-tablet:30px;--minw-mobile:24px;--height-desktop:30px;--height-tablet:30px;--height-mobile:24px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522287514812154743" xmlns="http://www.w3.org/2000/svg" width="30" height="22" viewBox="0 0 30 22" fill="none">
+<path d="M29.0042 10.5927L26.7534 5.50024C26.6746 5.31964 26.545 5.16578 26.3805 5.05731C26.216 4.94885 26.0236 4.89043 25.8265 4.88914H20.3776L20.7035 1.94571C20.7196 1.80282 20.7052 1.65816 20.6613 1.52123C20.6174 1.38431 20.545 1.25823 20.4489 1.15129C20.3537 1.04578 20.2374 0.961369 20.1076 0.903484C19.9778 0.845599 19.8374 0.815521 19.6952 0.815186H5.67064C5.40052 0.815186 5.14146 0.922491 4.95046 1.11349C4.75945 1.3045 4.65215 1.56355 4.65215 1.83368C4.65215 2.1038 4.75945 2.36285 4.95046 2.55386C5.14146 2.74486 5.40052 2.85216 5.67064 2.85216H10.7631C11.0332 2.85216 11.2923 2.95947 11.4833 3.15047C11.6743 3.34148 11.7816 3.60053 11.7816 3.87065C11.7816 4.14077 11.6743 4.39983 11.4833 4.59084C11.2923 4.78184 11.0332 4.88914 10.7631 4.88914H3.63366C3.36354 4.88914 3.10448 4.99645 2.91348 5.18745C2.72247 5.37846 2.61517 5.63751 2.61517 5.90763C2.61517 6.17775 2.72247 6.43681 2.91348 6.62781C3.10448 6.81882 3.36354 6.92612 3.63366 6.92612H13.8186C14.0887 6.92612 14.3477 7.03343 14.5387 7.22443C14.7297 7.41544 14.837 7.67449 14.837 7.94461C14.837 8.21473 14.7297 8.47379 14.5387 8.66479C14.3477 8.8558 14.0887 8.9631 13.8186 8.9631H6.68913C6.41901 8.9631 6.15995 9.07041 5.96895 9.26141C5.77794 9.45242 5.67064 9.71147 5.67064 9.98159C5.67064 10.2517 5.77794 10.5108 5.96895 10.7018C6.15995 10.8928 6.41901 11.0001 6.68913 11.0001H10.7631C11.0332 11.0001 11.2923 11.1074 11.4833 11.2984C11.6743 11.4894 11.7816 11.7485 11.7816 12.0186C11.7816 12.2887 11.6743 12.5477 11.4833 12.7388C11.2923 12.9298 11.0332 13.0371 10.7631 13.0371H2.61517C2.34505 13.0371 2.08599 13.1444 1.89499 13.3354C1.70398 13.5264 1.59668 13.7854 1.59668 14.0556C1.59668 14.3257 1.70398 14.5847 1.89499 14.7757C2.08599 14.9667 2.34505 15.074 2.61517 15.074H4.65215C4.92227 15.074 5.18133 15.1813 5.37233 15.3723C5.56333 15.5634 5.67064 15.8224 5.67064 16.0925C5.67064 16.3626 5.56333 16.6217 5.37233 16.8127C5.18133 17.0037 4.92227 17.111 4.65215 17.111H3.63366C3.36354 17.111 3.10448 17.2183 2.91348 17.4093C2.72247 17.6003 2.61517 17.8594 2.61517 18.1295C2.61517 18.3996 2.72247 18.6587 2.91348 18.8497C3.10448 19.0407 3.36354 19.148 3.63366 19.148H6.53635C6.64633 19.5775 6.85565 19.9752 7.14745 20.3091C7.39472 20.5855 7.69772 20.8065 8.03651 20.9575C8.37531 21.1084 8.74223 21.186 9.11313 21.185C9.74078 21.167 10.3491 20.9642 10.8619 20.6018C11.3747 20.2394 11.769 19.7337 11.9955 19.148H19.7767C19.8867 19.5775 20.096 19.9752 20.3878 20.3091C20.6351 20.5855 20.9381 20.8065 21.2769 20.9575C21.6157 21.1084 21.9826 21.186 22.3535 21.185C22.9811 21.167 23.5895 20.9642 24.1023 20.6018C24.6151 20.2394 25.0094 19.7337 25.2358 19.148H27.2728C27.5246 19.1495 27.768 19.0577 27.9561 18.8903C28.1442 18.7229 28.2636 18.4918 28.2913 18.2415L29.0755 11.1121C29.1034 10.9357 29.0786 10.755 29.0042 10.5927ZM9.11313 19.148C9.02868 19.1516 8.94449 19.1361 8.86688 19.1026C8.78927 19.0691 8.72025 19.0185 8.665 18.9545C8.58505 18.8556 8.52656 18.7411 8.49324 18.6184C8.45992 18.4956 8.45252 18.3673 8.47148 18.2415C8.4975 17.9556 8.62096 17.6872 8.8212 17.4814C9.02144 17.2756 9.28631 17.1449 9.57145 17.111C9.65591 17.1074 9.7401 17.1229 9.81771 17.1564C9.89532 17.1899 9.96434 17.2406 10.0196 17.3045C10.0995 17.4034 10.158 17.5179 10.1913 17.6406C10.2247 17.7634 10.2321 17.8917 10.2131 18.0175C10.1871 18.3034 10.0636 18.5718 9.86338 18.7776C9.66314 18.9834 9.39828 19.1142 9.11313 19.148ZM22.3535 19.148C22.269 19.1516 22.1849 19.1361 22.1072 19.1026C22.0296 19.0691 21.9606 19.0185 21.9054 18.9545C21.8254 18.8556 21.7669 18.7411 21.7336 18.6184C21.7003 18.4956 21.6929 18.3673 21.7118 18.2415C21.7379 17.9556 21.8613 17.6872 22.0616 17.4814C22.2618 17.2756 22.5267 17.1449 22.8118 17.111C22.8963 17.1074 22.9805 17.1229 23.0581 17.1564C23.1357 17.1899 23.2047 17.2406 23.26 17.3045C23.3399 17.4034 23.3984 17.5179 23.4317 17.6406C23.465 17.7634 23.4724 17.8917 23.4535 18.0175C23.4275 18.3034 23.304 18.5718 23.1037 18.7776C22.9035 18.9834 22.6386 19.1142 22.3535 19.148ZM26.9367 12.0186H22.435C22.2929 12.0182 22.1524 11.9882 22.0226 11.9303C21.8928 11.8724 21.7765 11.788 21.6813 11.6825C21.5852 11.5755 21.5128 11.4494 21.4689 11.3125C21.425 11.1756 21.4106 11.0309 21.4267 10.888L21.7628 7.83258C21.7928 7.58416 21.9132 7.35548 22.1011 7.19018C22.2889 7.02487 22.531 6.9345 22.7813 6.93631H25.1543L27.0589 11.163L26.9367 12.0186Z" fill="#395448"/>
+<path d="M2.61608 10.9996C2.8862 10.9996 3.14526 10.8923 3.33626 10.7013C3.52727 10.5103 3.63457 10.2513 3.63457 9.98114C3.63457 9.71102 3.52727 9.45196 3.33626 9.26096C3.14526 9.06995 2.8862 8.96265 2.61608 8.96265H1.59759C1.32747 8.96265 1.06841 9.06995 0.87741 9.26096C0.686406 9.45196 0.579102 9.71102 0.579102 9.98114C0.579102 10.2513 0.686406 10.5103 0.87741 10.7013C1.06841 10.8923 1.32747 10.9996 1.59759 10.9996H2.61608Z" fill="#575757"/>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="giizwUMVag">
+    <div
+      parentTag="Col"
+        class="giizwUMVag "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggiizwUMVag_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-giizwUMVag">
+        .giizwUMVag {
+
+}
+.giizwUMVag p {
+
+}
+      </style>
+    
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:center;--jc-tablet:center"
+      class="gpza7zaORv gp-relative gp-flex gp-flex-col"
+    >
+      
+  <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:8px;--mb-mobile:7px;--ta:center"
+      class="gp-leading-[0] gxA1L7pwGR"
+    >
+      <div 
+      data-id="gxA1L7pwGR"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--pl:20px;--pr:20px;--pt:20px;--pb:20px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:18px;--pb-mobile:18px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--bg:#E6F8F4"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:30px;--w-tablet:30px;--w-mobile:24px;--h:30px;--h-tablet:30px;--h-mobile:24px;--minw:30px;--minw-tablet:30px;--minw-mobile:24px;--height-desktop:30px;--height-tablet:30px;--height-mobile:24px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522292509422912375" xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
+<path d="M14.8245 0.941428C14.4101 0.931115 13.9958 0.941427 13.5833 0.968615C10.9076 1.14393 8.382 2.0083 6.15638 3.68268V2.80893C6.1545 2.29424 5.73731 1.87705 5.22263 1.87518C4.70513 1.8733 4.28325 2.29143 4.28138 2.80893V5.71518C4.28138 6.55049 5.28825 6.96768 5.87981 6.37987C10.2101 2.05049 17.0642 1.60143 21.9214 5.32893C26.7786 9.05643 28.1173 15.7914 25.0573 21.0939C21.9954 26.3964 15.4967 28.5996 9.83981 26.2558C4.18294 23.9121 1.14825 17.7611 2.73356 11.8474C2.86856 11.3467 2.57044 10.8321 2.06888 10.6989C1.57013 10.563 1.05544 10.8574 0.918564 11.3561C-0.905811 18.1661 2.607 25.2939 9.11981 27.993C15.6326 30.6911 23.1533 28.1308 26.6783 22.0277C30.2033 15.9246 28.6583 8.13112 23.0651 3.84018C20.6183 1.96237 17.7233 1.00612 14.8245 0.941428ZM14.5029 5.4058C9.2145 5.4058 4.90294 9.7108 4.90294 14.9983C4.90294 20.2858 9.21544 24.5964 14.5029 24.5964C19.7904 24.5964 24.0936 20.2849 24.0936 14.9983C24.0936 9.71174 19.7904 5.4058 14.5029 5.4058ZM14.5029 9.10799C15.0204 9.10987 15.4386 9.53174 15.4367 10.0492V10.1936C16.3742 10.3211 17.1776 10.9024 17.6042 11.7114C17.8442 12.1699 17.667 12.7361 17.2076 12.9771C16.7511 13.2171 16.1839 13.0408 15.942 12.5833C15.7742 12.2636 15.4498 12.0433 15.0486 12.0433H14.1767C13.6011 12.0433 13.1661 12.4783 13.1661 13.0539C13.1661 13.6296 13.6011 14.0646 14.1767 14.0646H14.5029H14.5489H14.8273C16.4098 14.0646 17.7054 15.3686 17.7054 16.9502C17.7054 18.3236 16.7295 19.4824 15.4367 19.7664V19.953C15.4348 20.4677 15.0176 20.8849 14.5029 20.8867C13.9845 20.8896 13.5617 20.4714 13.5598 19.953V19.8067C12.6242 19.6774 11.8208 19.0999 11.3951 18.2927C11.1533 17.8352 11.3304 17.2661 11.7889 17.0252C12.2483 16.7833 12.8154 16.9614 13.0564 17.4208C13.2242 17.7405 13.5551 17.9589 13.9554 17.9589H14.8273C15.4039 17.9589 15.8304 17.5258 15.8304 16.9502C15.8304 16.3746 15.4039 15.9396 14.8273 15.9396H14.5029H14.1767C12.5942 15.9396 11.2911 14.6355 11.2911 13.0539C11.2911 11.6842 12.2698 10.5264 13.5598 10.2396V10.0492C13.5579 9.52799 13.9808 9.10518 14.5029 9.10799Z" fill="#395448"/>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gzTZmPIjnR">
+    <div
+      parentTag="Col"
+        class="gzTZmPIjnR "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggzTZmPIjnR_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-gzTZmPIjnR">
+        .gzTZmPIjnR {
+
+}
+.gzTZmPIjnR p {
+
+}
+      </style>
+    
+    </div><div
+      label="Block" tag="Col" type="component"
+      style="--jc:center;--jc-tablet:center"
+      class="gqL3RkAtE- gp-relative gp-flex gp-flex-col"
+    >
+      
+  <div
+      
+      style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--op-mobile:100%;--mb:8px;--mb-mobile:7px;--ta:center"
+      class="gp-leading-[0] goI3E9ltwV"
+    >
+      <div 
+      data-id="goI3E9ltwV"
+      class="icon-wrapper gp-inline-flex gp-overflow-hidden"
+      style="--pl:20px;--pr:20px;--pt:20px;--pb:20px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:18px;--pb-mobile:18px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--bg:#E6F8F4"
+      >
+      <div
+      
+    >
+      <span
+        style="--c:var(--g-c-line-3, line-3);--t:rotate(0deg);--w:30px;--w-tablet:30px;--w-mobile:24px;--h:30px;--h-tablet:30px;--h-mobile:24px;--minw:30px;--minw-tablet:30px;--minw-mobile:24px;--height-desktop:30px;--height-tablet:30px;--height-mobile:24px"
+        class="gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden [&>svg]:!gp-h-[var(--height-desktop)] [&>svg]:!gp-w-auto tablet:[&>svg]:!gp-h-[var(--height-tablet)] mobile:[&>svg]:!gp-h-[var(--height-mobile)] gp-text-g-line-3"
+      ><svg data-id="522292495732704119" xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
+<g clip-path="url(#clip0_706_9172)">
+<path d="M6.41785 10.2634L19.824 3.09514L15.1648 0.75L1.3418 7.70807L6.41785 10.2634Z" fill="#395448"/>
+<path d="M23.8964 5.14551L10.4902 12.3138L15.1658 14.6676L28.9888 7.70898L23.8964 5.14551Z" fill="#395448"/>
+<path d="M14.7843 15.332L10.0767 12.9625V18.1688L8.04102 16.1193H6.0053V10.913L0.916016 8.35156V22.2677L14.7843 29.2487V15.332Z" fill="#395448"/>
+<path d="M15.5469 15.332V29.2487L29.4152 22.2677V8.35156L15.5469 15.332Z" fill="#395448"/>
+</g>
+<defs>
+<clipPath id="clip0_706_9172">
+<rect width="30" height="30" fill="white" transform="translate(0.166016)"/>
+</clipPath>
+</defs>
+</svg></span>
+    </div>
+      </div>
+    </div>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="ghDi5cPyfH">
+    <div
+      parentTag="Col"
+        class="ghDi5cPyfH "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-body, body);--weight:400;--ls:normal;--size:16px;--size-tablet:16px;--size-mobile:12px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--c:#395448;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.gghDi5cPyfH_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+      <style id="custom-css-ghDi5cPyfH">
+        .ghDi5cPyfH {
+
+}
+.ghDi5cPyfH p {
+
+}
+      </style>
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+   
+    
+          {%- endform -%}
+        </product-form>
+      </gp-product>
+      {%- assign product = gpBkProduct -%}
+    {% else %}
+      <div class="gp-text-center">{{ "gempages.Product.product_not_found" | t }}</div>
+    {%- endif -%}
+     <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-product.v2.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      <style id="custom-css-g5tpbh_bFh">
+        .gYZwRos0EF .sealsubs-target-element{
+    display: none !important;
+}
+      </style>
+    
+    </div>
+    </div>
+   
+    

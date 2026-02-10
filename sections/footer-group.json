@@ -1,0 +1,68 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "recurpay_footer_KqqyhT": {
+      "type": "recurpay-footer",
+      "disabled": true,
+      "name": "Recurpay footer",
+      "settings": {
+        "description": "",
+        "menu_list": "footer-new-menu",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "email": "",
+        "phone": "",
+        "address": "",
+        "privacy": "",
+        "terms": "",
+        "cookies": "",
+        "copyright": "© 2024 Recurpay. All rights reserved."
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "96c1b3f2-2d2e-4b92-95cf-61c06372cd25": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "96c1b3f2-2d2e-4b92-95cf-61c06372cd25"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "accent-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "<strong>Recurpay Demo Store</strong> - A preview of our subscription app by <a href=\"https://apps.shopify.com/recurpay-subscriptions\" target=\"_blank\" title=\"https://apps.shopify.com/recurpay-subscriptions\">Recurpay Subscriptions</a> in action",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 4,
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "recurpay_footer_KqqyhT",
+    "footer"
+  ]
+}

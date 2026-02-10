@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "tour_completion_FtmeWG": {
+      "type": "tour-completion",
+      "name": "Completion CTA",
+      "settings": {
+        "icon": "🎉",
+        "heading": "You've Completed the Tour!",
+        "description": "Ready to transform your store with powerful subscription features?",
+        "primary_button_text": "Start 30-Day free trial",
+        "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
+        "secondary_button_text": "Book a Demo",
+        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+      }
+    },
+    "features_grid_QmQfCf": {
+      "type": "features-grid",
+      "blocks": {
+        "feature_6hTpTB": {
+          "type": "feature",
+          "settings": {
+            "icon": "🚀",
+            "title": "Quick Setup",
+            "description": "Get started in minutes with our easy installation wizard"
+          }
+        },
+        "feature_LWp7iN": {
+          "type": "feature",
+          "settings": {
+            "icon": "💳",
+            "title": "Flexible Billing",
+            "description": "Support for prepaid, pay-as-you-go, and hybrid models"
+          }
+        },
+        "feature_NEcTa9": {
+          "type": "feature",
+          "settings": {
+            "icon": "📊",
+            "title": "Smart Analytics",
+            "description": "Track MRR, churn, and customer lifetime value"
+          }
+        },
+        "feature_kghtUn": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎨",
+            "title": "Customizable Widgets",
+            "description": "Match your brand with fully customizable designs"
+          }
+        },
+        "feature_ybQqdy": {
+          "type": "feature",
+          "settings": {
+            "icon": "🎨",
+            "title": "AI-Powered Insights",
+            "description": "Get recommendations to optimize your subscriptions"
+          }
+        },
+        "feature_P7jjEa": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔄",
+            "title": "Easy Migration",
+            "description": "Seamlessly migrate from other subscription apps"
+          }
+        }
+      },
+      "block_order": [
+        "feature_6hTpTB",
+        "feature_LWp7iN",
+        "feature_NEcTa9",
+        "feature_kghtUn",
+        "feature_ybQqdy",
+        "feature_P7jjEa"
+      ],
+      "name": "Features Grid",
+      "settings": {
+        "heading": "What You Get with Recurpay",
+        "columns": "3"
+      }
+    },
+    "cart_upsell_gRpAxg": {
+      "type": "cart-upsell",
+      "blocks": {
+        "stat_jGUUWJ": {
+          "type": "stat",
+          "settings": {
+            "value": "6500+",
+            "label": "Active Merchants"
+          }
+        },
+        "stat_rnNY9F": {
+          "type": "stat",
+          "settings": {
+            "value": "450+",
+            "label": "5 Star reviews"
+          }
+        },
+        "stat_EPDqfY": {
+          "type": "stat",
+          "settings": {
+            "value": "98+",
+            "label": "Countries"
+          }
+        },
+        "stat_4Vt3be": {
+          "type": "stat",
+          "settings": {
+            "value": "24/7",
+            "label": "Support Available"
+          }
+        }
+      },
+      "block_order": [
+        "stat_jGUUWJ",
+        "stat_rnNY9F",
+        "stat_EPDqfY",
+        "stat_4Vt3be"
+      ],
+      "name": "Stats Highlight",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "testimonial_card_PKPMUB": {
+      "type": "testimonial-card",
+      "name": "Testimonial Card",
+      "settings": {
+        "stars": 5,
+        "testimonial_text": "\"Recurpay transformed our subscription business. We saw a 40% increase in subscriber retention within the first 3 months. The team is incredibly responsive and the platform just works!\"",
+        "author_initials": "JM",
+        "author_name": "Jessica Miller",
+        "author_role": "Founder, Bloom Beauty Box",
+        "back_link_text": "Back to Home",
+        "back_link_url": "/"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tour_completion_FtmeWG",
+    "features_grid_QmQfCf",
+    "cart_upsell_gRpAxg",
+    "testimonial_card_PKPMUB"
+  ]
+}

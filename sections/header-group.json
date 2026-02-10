@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "logo_position": "top-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "recurpay_header_bDLQBh": {
+      "type": "recurpay-header",
+      "disabled": true,
+      "name": "Header navigation",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_Logo.png",
+        "brand_text": "Recurpay",
+        "main_menu": "header-new-menu",
+        "button_primary_text": "Install Now",
+        "button_primary_link": "",
+        "button_secondary_text": "Book a Demo",
+        "button_secondary_link": ""
+      }
+    }
+  },
+  "order": [
+    "header",
+    "recurpay_header_bDLQBh"
+  ]
+}

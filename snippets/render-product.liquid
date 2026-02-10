@@ -1,0 +1,135 @@
+{% comment %}
+  Accepts:
+  - card_product: {Object} Product Liquid object (optional)
+  - badge_text: {String} Badge text to display (optional)
+  - badge_background_color: {String} Badge background color (optional)
+  - badge_text_color: {String} Badge text color (optional)
+  - badge_padding: {Number} Badge padding (optional)
+  - badge_border_radius: {Number} Badge border radius (optional)
+  - badge_font_size: {Number} Badge font size (optional)
+  - show_badge: {Boolean} Show badge if product has best-seller tag (optional)
+  - placeholder_image: {String} The placeholder image to use when no product exists (optional)
+
+  Usage:
+  {% render 'render-product', card_product: product, show_badge: true, badge_text: 'Best Seller' %}
+{% endcomment %}
+
+{% style %}
+  .render-product-card {
+    background: #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .render-product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  .render-product-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .render-product-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+  }
+  .render-product-card__badge-wrapper {
+    text-align: center;
+    margin: -30px auto 16px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+  .render-product-card__badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .render-product-card__info {
+    text-align: center;
+    margin-top: auto;
+  }
+  .render-product-card__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(17, 24, 39);
+    margin: 0px 0px 8px;
+    text-align: center;
+  }
+  .render-product-card__price {
+    font-size: 15px;
+    color: rgb(107, 114, 128);
+    text-align: center;
+  }
+{% endstyle %}
+
+{%- if card_product and card_product != empty -%}
+  <a href="{{ card_product.url }}" class="render-product-card">
+    <div class="render-product-card__image-wrapper">
+      {%- if card_product.featured_media -%}
+        {{
+          card_product.featured_media | image_url: width: 400 | image_tag: loading: 'lazy', width: 250, alt: card_product.featured_media.alt | escape |  replace: '<img ', '<img class: "render-product-card__image"'
+        }}
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'render-product-card__image' }}
+      {%- endif -%}
+    </div>
+
+    {%- if show_badge -%}
+      {%- if card_product.tags contains 'best-seller' or card_product.tags contains 'Best Seller' or card_product.tags contains 'bestseller' -%}
+        <div class="render-product-card__badge-wrapper">
+          <span
+            class="render-product-card__badge"
+            style="background-color: {{ badge_background_color | default: '#8B4513' }}; color: {{ badge_text_color | default: '#FFFFFF' }}; padding: {{ badge_padding | default: 6 }}px {{ badge_padding | default: 6 | times: 1.5 }}px; border-radius: {{ badge_border_radius | default: 20 }}px; font-size: {{ badge_font_size | default: 12 }}px;"
+          >
+            {{ badge_text | default: 'Best Seller' }}
+          </span>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="render-product-card__info">
+      <h3 class="render-product-card__title">{{ card_product.title | escape }}</h3>
+      <p class="render-product-card__price">
+        {%- if card_product.price_varies -%}
+          {{ 'products.product.price.from_price_html' | t: price: card_product.price_min | money }}
+        {%- else -%}
+          {{ card_product.price | money }}
+        {%- endif -%}
+      </p>
+    </div>
+  </a>
+{%- else -%}
+  <div class="render-product-card">
+    <div class="render-product-card__image-wrapper">
+      {%- if placeholder_image -%}
+        {{ placeholder_image | placeholder_svg_tag: 'render-product-card__image' }}
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'render-product-card__image' }}
+      {%- endif -%}
+    </div>
+    <div class="render-product-card__info">
+      <h3 class="render-product-card__title">{{ 'onboarding.product_title' | t }}</h3>
+      <p class="render-product-card__price">{{ 1999 | money }}</p>
+    </div>
+  </div>
+{%- endif -%}
