@@ -468,7 +468,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>We have over 300 accounts that needed to be transferred over from our previous subscription app.</p><p>We like that they solely focus on subscriptions and are able to give the attention needed.</p><p>We are looking forward to working with RecurPay, and continuing to help each other grow!</p>",
-            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "avatar": "shopify://shop_images/663ca6b789a1bd32d4f79f37_trademark-MightyMissouri-Logo-noedges_9c592d7f-9616-4b58-9c5a-d70fab70c1a7.png",
             "name": "Mighty Missouri Coffee Co",
             "location": "United States"
           }
@@ -478,7 +478,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>Recurpay, you guys are amazing !!!</p><p>The app is perfect and the integration was so seamless and when I had a personal question you guys where fast and so helpful and provided a service that was absolutely the best!!!!</p><p>Really pleased with this function in the website and with this app. I can 1000% recommend it!!</p>",
-            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "avatar": "shopify://shop_images/663cd41850fe177763e1d826_LOIVE_Logo_Wit_512x160_black.png",
             "name": "LOIVE Pitiusas",
             "location": "Spain"
           }
@@ -488,7 +488,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>Absolutely fantastic. We contacted the team about migrating from another subscription service who'd significantly increased their fees.</p><p>The process was really simple and the team were really helpful. They reply practically immediately most of the time and they're so helpful.</p><p>Couldn't be happier, very impressed.</p>",
-            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
+            "avatar": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
             "name": "The Dressage Coach",
             "location": "United Kingdom"
           }
@@ -501,6 +501,7 @@
       ],
       "name": "Customer Testimonials",
       "settings": {
+        "image": "shopify://shop_images/695e1dfcac7e2a62802eecf6_dog_no_bg_under_200kb.webp",
         "heading": "❤️ Our Loved Ones ❤️",
         "subheading": "Here are some heartwarming testimonials straight from our delighted customers :P",
         "bottom_link_text": "See customer reviews",
@@ -511,7 +512,7 @@
       "type": "recurpay-footer",
       "name": "Recurpay footer",
       "settings": {
-        "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
+        "logo": "shopify://shop_images/Recurpay-full-white_1.png",
         "description": "The all-in-one subscription commerce platform for Shopify. Grow your recurring revenue with powerful tools built for modern merchants.",
         "menu_list": "footer-new-menu",
         "twitter": "https://x.com/Recurpaysub",
