@@ -172,15 +172,17 @@
     font-size: 22px;
     font-weight: 700;
     color: rgb(17, 24, 39);
-    margin: 0 0 8px;
+    margin: 0px;
     text-align: center;
+    margin-bottom: 8px;
   }
 
   .modal .modal-subtitle {
     font-size: 14px;
     color: rgb(107, 114, 128);
-    margin: 0 0 16px;
+    margin: 0px;
     text-align: center;
+    margin-bottom: 16px;
   }
   .modal-image__wrapper {
     background: #ebfcf4;
@@ -209,12 +211,6 @@
     .features-grid {
       grid-template-columns: 1fr;
     }
-    .section-heading {
-      margin-bottom: 40px;
-    }
-    .subscription-features {
-      padding-bottom: 40px;
-    }
   }
 {% endstyle %}
 
@@ -224,10 +220,7 @@
 
     <div class="features-grid">
       {% for block in section.blocks %}
-        <div
-          class="feature-card"
-          data-modal="modal-{{ block.id }}"
-          data-event-name="{{ block.settings.event_name_card | default: 'Feature Card Clicked' }}">
+        <div class="feature-card" data-modal="modal-{{ block.id }}" data-event-name="{{ block.settings.event_name_card | default: 'Feature Card Clicked' }}">
           <div class="feature-card__header-icon_wrapper">
             {% if block.settings.card_icon %}
               {{ block.settings.card_icon }}
@@ -270,74 +263,18 @@
               <h4>Key Benefits</h4>
               <ul>
                 {% if block.settings.benefit_1 != blank %}
-                  <li>
-                    <span class="modal-benefit-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#059669"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
-                    </span>
-                    {{ block.settings.benefit_1 }}</li>
+                  <li><span class="modal-benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg></span> {{ block.settings.benefit_1 }}</li>
                 {% endif %}
                 {% if block.settings.benefit_2 != blank %}
-                  <li>
-                    <span class="modal-benefit-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#059669"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
-                    </span>
-                    {{ block.settings.benefit_2 }}</li>
+                  <li><span class="modal-benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg></span>{{ block.settings.benefit_2 }}</li>
                 {% endif %}
                 {% if block.settings.benefit_3 != blank %}
-                  <li>
-                    <span class="modal-benefit-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#059669"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
-                    </span>
-                    {{ block.settings.benefit_3 }}</li>
+                  <li><span class="modal-benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg></span> {{ block.settings.benefit_3 }}</li>
                 {% endif %}
               </ul>
             </div>
             <div class="modal-button__wrapper inline-spacing">
-              <a
-                target="_blank"
-                href="{{ block.settings.modal_button_link | default: '#' }}"
-                class="modal-button">{{ block.settings.modal_button_text | default: 'Try This Feature' }}<svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-              </a>
+              <a target="_blank" href="{{ block.settings.modal_button_link | default: '#' }}" class="modal-button">{{ block.settings.modal_button_text | default: 'Try This Feature' }}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
             </div>
           </div>
         </div>
@@ -359,7 +296,7 @@
       // Also log for debugging
       console.log('Mixpanel Event:', eventName, properties);
     }
-  
+
     document.addEventListener("DOMContentLoaded", () => {
       // Track feature card clicks (modal opens)
       document.querySelectorAll('.feature-card').forEach(card => {
@@ -373,7 +310,7 @@
             card_description: cardDescription,
             action: 'modal_opened'
           });
-  
+
           document.getElementById(card.dataset.modal).classList.add('active');
           document.body.classList.add('modal-open');
         });
@@ -391,7 +328,7 @@
               action: 'modal_closed',
               close_method: e.target.classList.contains('modal-close') ? 'close_button' : 'overlay'
             });
-  
+
             overlay.classList.remove('active');
             document.body.classList.remove('modal-open');
           }
@@ -475,7 +412,7 @@
             "type": "text",
             "id": "benefit_2",
             "label": "Key Benefit 2"
-          }, {
+          },           {
             "type": "text",
             "id": "benefit_3",
             "label": "Key Benefit 3"
@@ -491,7 +428,7 @@
             "type": "url",
             "id": "modal_button_link",
             "label": "Modal Button Link"
-          }, {
+          },           {
             "type": "header",
             "content": "Mixpanel Event Settings"
           }, {

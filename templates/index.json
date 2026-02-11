@@ -11,7 +11,6 @@
   "sections": {
     "recurpay_header_Uew4xK": {
       "type": "recurpay-header",
-      "disabled": true,
       "name": "Header navigation",
       "settings": {
         "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
@@ -466,7 +465,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>We have over 300 accounts that needed to be transferred over from our previous subscription app.</p><p>We like that they solely focus on subscriptions and are able to give the attention needed.</p><p>We are looking forward to working with RecurPay, and continuing to help each other grow!</p>",
-            "avatar": "shopify://shop_images/663ca6b789a1bd32d4f79f37_trademark-MightyMissouri-Logo-noedges_9c592d7f-9616-4b58-9c5a-d70fab70c1a7.png",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
             "name": "Mighty Missouri Coffee Co",
             "location": "United States"
           }
@@ -476,7 +475,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>Recurpay, you guys are amazing !!!</p><p>The app is perfect and the integration was so seamless and when I had a personal question you guys where fast and so helpful and provided a service that was absolutely the best!!!!</p><p>Really pleased with this function in the website and with this app. I can 1000% recommend it!!</p>",
-            "avatar": "shopify://shop_images/663cd41850fe177763e1d826_LOIVE_Logo_Wit_512x160_black.png",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
             "name": "LOIVE Pitiusas",
             "location": "Spain"
           }
@@ -486,7 +485,7 @@
           "settings": {
             "rating": 5,
             "content": "<p>Absolutely fantastic. We contacted the team about migrating from another subscription service who'd significantly increased their fees.</p><p>The process was really simple and the team were really helpful. They reply practically immediately most of the time and they're so helpful.</p><p>Couldn't be happier, very impressed.</p>",
-            "avatar": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
+            "avatar": "shopify://shop_images/gempages_575406951106609695-41ffc03b-6d28-4dbd-aa6e-26da0228745d.png",
             "name": "The Dressage Coach",
             "location": "United Kingdom"
           }
@@ -507,7 +506,6 @@
     },
     "recurpay_footer_dNWfFR": {
       "type": "recurpay-footer",
-      "disabled": true,
       "name": "Recurpay footer",
       "settings": {
         "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",

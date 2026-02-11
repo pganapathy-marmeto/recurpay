@@ -13,21 +13,20 @@
   "sections": {
     "recurpay_footer_KqqyhT": {
       "type": "recurpay-footer",
+      "disabled": true,
       "name": "Recurpay footer",
       "settings": {
-        "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
-        "description": "The all-in-one subscription commerce platform for Shopify. Grow your recurring revenue with powerful tools built for modern merchants.",
+        "description": "",
         "menu_list": "footer-new-menu",
-        "twitter": "https://x.com/Recurpaysub",
-        "linkedin": "https://in.linkedin.com/company/recurpay",
-        "instagram": "https://www.instagram.com/recurpay_subscriptions/",
-        "youtube": "https://www.youtube.com/@recurpaysubscriptions/featured",
-        "email": "help@recurpay.com",
+        "twitter": "",
+        "linkedin": "",
+        "instagram": "",
+        "email": "",
         "phone": "",
         "address": "",
-        "privacy": "https://www.recurpay.com/privacy-policy",
-        "terms": "https://www.recurpay.com/terms-of-service",
-        "cookies": "https://www.recurpay.com/cookie-policy",
+        "privacy": "",
+        "terms": "",
+        "cookies": "",
         "copyright": "© 2024 Recurpay. All rights reserved."
       }
     },

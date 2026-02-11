@@ -2,7 +2,7 @@
   .recurpay-header {
     background: #fff;
     border-bottom: 1px solid #eee;
-    position: fixed;
+    position: {% if template.name == 'product' %} static {% else %} fixed {% endif %};
     top: 0;
     left: 0;
     right: 0;
@@ -186,13 +186,13 @@
     transition: all 0.3s ease;
   }
   .hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(50%, -50%);
+    transform: rotate(45deg) translate(8px, 8px);
   }
   .hamburger-menu.active span:nth-child(2) {
     opacity: 0;
   }
   .hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(50%, 50%);
+    transform: rotate(-45deg) translate(7px, -7px);
   }
   
   /* Mobile Menu */
@@ -332,151 +332,125 @@
     .mobile-menu {
       display: block;
     }
-    .mobile-menu ul {
-      list-style: none;
-    }
-    .mobile-menu ul a {
-      text-decoration: none;
-      color: rgb(107, 114, 128);
-      display: flex !important;
-      justify-content: space-between;
-    }
-    .support-button{
-      padding: 15px 0;
-      color: rgb(107, 114, 128);
-    }
-    .header-nav-title.active svg {
-      transform: rotate(180deg);
-    }
-    .mobile_migration_list {
-      flex-direction: column;
-    }
   }
 {% endstyle %}
-{% if page.handle != 'merchant-widget' and page.handle != 'partner-widget' %}
-  <header class="recurpay-header" id="recurpay-header">
-    <div class="page-width header-inner">
+<header class="recurpay-header" id="recurpay-header">
+  <div class="page-width header-inner">
 
-      <!-- Logo -->
-      <a href="{{ routes.root_url }}" class="header-logo">
-        {% if section.settings.logo %}
-          {{ section.settings.logo |  image_url: height: 60 |  image_tag }}
-        {% endif %}
-        {% if section.settings.brand_text != blank %}
-          <span>{{ section.settings.brand_text }}</span>
-        {% endif %}
-      </a>
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="header-logo">
+      {% if section.settings.logo %}
+        {{ section.settings.logo |  image_url: height: 60 |  image_tag }}
+      {% endif %}
+      {% if section.settings.brand_text != blank %}
+        <span>{{ section.settings.brand_text }}</span>
+      {% endif %}
+    </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="header-nav">
-        <ul>
-          {% for link in linklists[section.settings.main_menu].links %}
-            <li>
-              {% if link.title and link.title contains 'Support' %}
-                <button class="support-button" data-intercom-support>
-                  {{ link.title }}
-                </button>
-              {% else %}
-              <a class="header-nav-title" target="_blank" href="{{ link.url }}">
+    <!-- Desktop Navigation -->
+    <nav class="header-nav">
+      <ul>
+        {% for link in linklists[section.settings.main_menu].links %}
+          <li>
+            {% if link.title and link.title contains 'Support' %}
+              <button class="support-button" data-intercom-support>
                 {{ link.title }}
-                  {% if link.links.size > 0 %}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true" data-instantiation-file="src/components/pages/DemoHome.tsx" data-instantiation-line="279" data-instantiation-span="4" data-instantiation-index="0"><path d="m6 9 6 6 6-6"></path></svg>{% endif %}
-                </a>
-              {% endif %}
+              </button>
+            {% else %}
+            <a class="header-nav-title" target="_blank" href="{{ link.url }}">
+              {{ link.title }}
+                {% if link.links.size > 0 %}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true" data-instantiation-file="src/components/pages/DemoHome.tsx" data-instantiation-line="279" data-instantiation-span="4" data-instantiation-index="0"><path d="m6 9 6 6 6-6"></path></svg>{% endif %}
+              </a>
+            {% endif %}
 
-              {% if link.links.size > 0 %}
-                <ul class="dropdown">
-                  {% for child in link.links %}
-                    <li>
-                      {% if link.title == 'Migration' %}
-                        {% assign paras = child.title | split: '|' %}
-                        <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}><span>{{ paras[0] }}</span><span>{{ paras[1] }}</span></a>
-                        {%  else  %}
-                        <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}>{{ child.title }}</a>
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+            {% if link.links.size > 0 %}
+              <ul class="dropdown">
+                {% for child in link.links %}
+                  <li>
+                    {% if link.title == 'Migration' %}
+                      {% assign paras = child.title | split: '|' %}
+                      <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}><span>{{ paras[0] }}</span><span>{{ paras[1] }}</span></a>
+                      {%  else  %}
+                      <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}>{{ child.title }}</a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
 
-      <!-- Desktop Buttons -->
-      <div class="header-buttons">
-        {% if section.settings.button_primary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
-            {{ section.settings.button_primary_text }}
-          </a>
-        {% endif %}
-        {% if section.settings.button_secondary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
-            {{ section.settings.button_secondary_text }}
-          </a>
-        {% endif %}
-      </div>
-
-      <!-- Hamburger Menu Button -->
-      <button class="hamburger-menu" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
+    <!-- Desktop Buttons -->
+    <div class="header-buttons">
+      {% if section.settings.button_primary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
+          {{ section.settings.button_primary_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_secondary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
+          {{ section.settings.button_secondary_text }}
+        </a>
+      {% endif %}
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-      <nav>
-        <ul>
-          {% for link in linklists[section.settings.main_menu].links %}
-            <li>
-              {% if link.title and link.title contains 'Support' %}
-                <button class="support-button" data-intercom-support>
-                  {{ link.title }}
-                </button>
-              {% else %}
-                <a class="header-nav-title" target="_blank" href="{{ link.url }}" {% if link.links.size > 0 %}data-toggle-dropdown{% endif %}>
-                  {{ link.title }}
-                  {% if link.links.size > 0 %}<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>{% endif %}
-                </a>
-              {% endif %}
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-menu" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-              {% if link.links.size > 0 %}
-                <ul class="dropdown">
-                  {% for child in link.links %}
-                    <li>
-                      {% if link.title == 'Migration' %}
-                        {% assign paras = child.title | split: '|' %}
-                          <a target="_blank" class="mobile_migration_list" href="{{ child.url }}"><span>{{ paras[0] }}</span><span>{{ paras[1] }}</span></a>
-                        {% else %}
-                          <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
+  </div>
 
-      <!-- Mobile Buttons -->
-      <div class="header-buttons">
-        {% if section.settings.button_primary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
-            {{ section.settings.button_primary_text }}
-          </a>
-        {% endif %}
-        {% if section.settings.button_secondary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
-            {{ section.settings.button_secondary_text }}
-          </a>
-        {% endif %}
-      </div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <nav>
+      <ul>
+        {% for link in linklists[section.settings.main_menu].links %}
+          <li>
+            {% if link.title and link.title contains 'Support' %}
+              <button class="support-button" data-intercom-support>
+                {{ link.title }}
+              </button>
+            {% else %}
+              <a class="header-nav-title" target="_blank" href="{{ link.url }}" {% if link.links.size > 0 %}data-toggle-dropdown{% endif %}>
+                {{ link.title }}
+                {% if link.links.size > 0 %}▾{% endif %}
+              </a>
+            {% endif %}
+
+            {% if link.links.size > 0 %}
+              <ul class="dropdown">
+                {% for child in link.links %}
+                  <li>
+                      <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <!-- Mobile Buttons -->
+    <div class="header-buttons">
+      {% if section.settings.button_primary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
+          {{ section.settings.button_primary_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_secondary_text != blank %}
+        <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
+          {{ section.settings.button_secondary_text }}
+        </a>
+      {% endif %}
     </div>
-  </header>
-{% endif %}
+  </div>
+</header>
 
 <script>
   (function() {
@@ -509,7 +483,6 @@
           e.preventDefault();
           const dropdown = this.nextElementSibling;
           if (dropdown && dropdown.classList.contains('dropdown')) {
-            this.classList.toggle('active');
             dropdown.classList.toggle('active');
           }
         }

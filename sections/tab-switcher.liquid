@@ -17,7 +17,7 @@
   }
 
   .content {
-    flex: 1 1 0;
+    flex: 1 1 0%;
   }
 
   .tab_switcher__title_container {
@@ -46,14 +46,10 @@
     color: white;
   }
 
-
-  /*
-
-   .tab_switcher-title img { 
-   width: 20px; 
-   height: 20px; 
-   } 
-*/
+    /* .tab_switcher-title img {
+        width: 20px;
+        height: 20px;
+    } */
 
   .tab_switcher-title .tab_title {
     font-size: 14px;
@@ -159,7 +155,7 @@
     background: rgb(249, 250, 251);
     padding: 20px;
     border-radius: 16px;
-    flex: 1 1 0;
+    flex: 1 1 0%;
     height: 280px;
     display: flex;
     justify-content: center;
@@ -177,11 +173,6 @@
     object-fit: contain;
     border-radius: 12px;
   }
-  @media(max-width: 768px) {
-    .tab_switcher__wrapper {
-      padding-bottom: 0;
-    }
-  }
 {% endstyle %}
 
 <div class="tab_switcher__wrapper page-width">
@@ -197,10 +188,7 @@
     <div class="tab_switcher__title_container">
       {% for block in section.blocks %}
         {% if block.settings.tab_title != blank %}
-          <div
-            class="tab_switcher-title {% if forloop.index == 1 %}active{%endif%}"
-            data-index="{{ forloop.index }}"
-            data-event-name="{{ block.settings.event_name | default: section.settings.event_tab_clicked | default: 'Tab Clicked' }}">{{ block.settings.tab_image }}<span class="tab_title">{{ block.settings.tab_title }}</span>
+          <div class="tab_switcher-title {% if forloop.index == 1 %}active{%endif%}" data-index="{{ forloop.index }}" data-event-name="{{ block.settings.event_name | default: section.settings.event_tab_clicked | default: 'Tab Clicked' }}">{{ block.settings.tab_image }}<span class="tab_title">{{ block.settings.tab_title }}</span>
           </div>
         {% endif %}
       {% endfor %}
@@ -312,10 +300,7 @@
                 {% endif %}
               </div>
               {% if block.settings.button_link != blank %}
-                <a
-                  class="cta_button"
-                  href="{{ block.settings.button_link }}"
-                  data-event-name="{{ block.settings.event_name_cta | default: section.settings.event_cta_button_clicked | default: 'CTA Button Clicked' }}">{{ block.settings.button_text }}<svg
+                <a class="cta_button" href="{{ block.settings.button_link }}" data-event-name="{{ block.settings.event_name_cta | default: section.settings.event_cta_button_clicked | default: 'CTA Button Clicked' }}">{{ block.settings.button_text }}<svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="16"
@@ -349,7 +334,7 @@
         // Also log for debugging
         console.log('Mixpanel Event:', eventName, properties);
       }
-  
+
       document.addEventListener("DOMContentLoaded", () => {
         const tabTitles = document.querySelectorAll('.tab_switcher-title');
         const tabsContent = document.querySelectorAll('.content_container');
@@ -371,7 +356,7 @@
                 if (contentToShow) {
                     contentToShow.classList.add('active');
                 }
-  
+
                 // Track tab click event - get event name from data attribute
                 const eventName = this.getAttribute('data-event-name') || 'Tab Clicked';
                 const tabTitle = this.querySelector('.tab_title')?.textContent || '';
@@ -381,7 +366,7 @@
                 });
             });
         });
-  
+
         // Track CTA button clicks
         ctaButtons.forEach(button => {
           button.addEventListener('click', function(e) {
@@ -392,7 +377,7 @@
             const contentContainer = this.closest('.content_container');
             const tabIndex = contentContainer ? contentContainer.getAttribute('data-content-index') : null;
             const tabTitle = contentContainer ? contentContainer.querySelector('.content_heading')?.textContent?.trim() : null;
-  
+
             trackMixpanelEvent(eventName, {
               button_text: buttonText,
               button_link: buttonLink,
@@ -414,17 +399,14 @@
         "type": "text",
         "id": "header",
         "label": "Header title"
-      },
-      {
+      },       {
         "type": "text",
         "id": "sub-heading",
         "label": "Sub heading"
-      },
-      {
+      }, {
         "type": "header",
         "content": "Mixpanel Event Settings (Default Fallbacks)"
-      },
-      {
+      }, {
         "type": "text",
         "id": "event_tab_clicked",
         "label": "Default Event Name - Tab Clicked",
@@ -466,7 +448,8 @@
             "id": "content_image",
             "label": "Content Emoji",
             "info": "Fallback emoji/text shown if no image is uploaded above"
-          }, {
+          },
+          {
             "type": "text",
             "id": "content_tag",
             "label": "Content tag title"
@@ -498,7 +481,7 @@
             "type": "url",
             "id": "button_link",
             "label": "Button link"
-          }, {
+          },           {
             "type": "text",
             "id": "button_text",
             "label": "Button Text"
