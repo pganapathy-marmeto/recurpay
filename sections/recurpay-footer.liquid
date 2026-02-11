@@ -123,7 +123,7 @@
       <div class="brand_name_with_logo">
         {% if section.settings.logo %}
           {% comment %} <img src="{{ section.settings.logo | img_url: '160x' }}" alt="Logo"> {% endcomment %}
-          {{ section.settings.logo | image_url: width: 60 | image_tag }}
+          {{ section.settings.logo | image_url: height: 42 | image_tag }}
         {% endif %}
 
       {% comment %} <h3>Recurpay</h3> {% endcomment %}

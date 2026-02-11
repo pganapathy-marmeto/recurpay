@@ -1,8 +1,9 @@
 {% style %}
   .subscription-features {
     padding-top: 40px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     padding-inline: 0;
+    background: #fafafa;
   }
   .section-heading {
     text-align: center;
@@ -10,7 +11,7 @@
     margin: 0 auto 48px;
     font-size: 32px;
     font-weight: 600;
-    color: rgb(55, 65, 81);
+    color: #111827;
   }
   .features-grid {
     display: grid;
@@ -78,12 +79,12 @@
     display: block;
     background: none;
     border: none;
-    font-size: 26px;
+    font-size: 30px;
     cursor: pointer;
     color: #9CA3AF;
   }
   .modal-button__wrapper {
-    padding: 12px 24px 16px;
+    padding: 12px 24px;
     position: sticky;
     bottom: 0;
     background: white;
@@ -91,8 +92,9 @@
   }
   .modal-image {
     width: 100%;
+    height: 240px;
+    object-fit: cover;
     border-radius: 12px;
-    margin: 20px 0;
   }
   .modal-help {
     background: #F6F7FB;
@@ -101,9 +103,11 @@
     margin: 0 32px 20px;
   }
   .modal-help h4 {
+    display: flex;
+    gap: 5px;
     font-size: 12px;
     font-weight: 600;
-    color: rgb(5, 150, 105);
+    color: #6B7280;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 8px;
@@ -120,6 +124,7 @@
     margin-inline: 32px;
     background: #F6F7FB;
     margin-bottom: 20px;
+    border-radius: 12px;
   }
   .modal::-webkit-scrollbar {
     display: none;
@@ -145,11 +150,10 @@
     color: rgb(55, 65, 81);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
   }
   .modal-button {
     display: flex;
-    margin-top: 24px;
     background: #159f6b;
     color: #fff;
     text-align: center;
@@ -160,6 +164,7 @@
     text-decoration: none;
     justify-content: center;
     align-items: center;
+    gap: 5px;
   }
 
   .feature-card__header-icon_wrapper {
@@ -240,6 +245,8 @@
     max-width: 1200px;
   }
   .modal_header_wrapper {
+    position: sticky;
+    top: 0;
     display: flex;
     padding: 20px 32px 16px;
     align-items: center;
@@ -313,7 +320,19 @@
             {% endif %}
 
             <div class="modal-help">
-              <h4>💡 {{ block.settings.helps_title }}</h4>
+              <h4>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0B9A63"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-lightbulb-icon lucide-lightbulb"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>
+                {{ block.settings.helps_title }}</h4>
               <p>{{ block.settings.helps_description }}</p>
             </div>
 
@@ -329,11 +348,14 @@
                         height="12"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#059669"
+                        stroke="#0B9A63"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                        class="lucide lucide-circle-check-icon lucide-circle-check"><circle
+                          cx="12"
+                          cy="12"
+                          r="10" /><path d="m9 12 2 2 4-4" /></svg>
                     </span>
                     {{ block.settings.benefit_1 }}</li>
                 {% endif %}
@@ -346,11 +368,14 @@
                         height="12"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#059669"
+                        stroke="#0B9A63"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                        class="lucide lucide-circle-check-icon lucide-circle-check"><circle
+                          cx="12"
+                          cy="12"
+                          r="10" /><path d="m9 12 2 2 4-4" /></svg>
                     </span>
                     {{ block.settings.benefit_2 }}</li>
                 {% endif %}
@@ -363,11 +388,14 @@
                         height="12"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#059669"
+                        stroke="#0B9A63"
                         stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5" /></svg>
+                        class="lucide lucide-circle-check-icon lucide-circle-check"><circle
+                          cx="12"
+                          cy="12"
+                          r="10" /><path d="m9 12 2 2 4-4" /></svg>
                     </span>
                     {{ block.settings.benefit_3 }}</li>
                 {% endif %}
