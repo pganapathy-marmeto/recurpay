@@ -70,7 +70,6 @@
     max-width: 520px;
     width: 90%;
     border-radius: 18px;
-    padding: 32px 0;
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
@@ -81,6 +80,14 @@
     border: none;
     font-size: 26px;
     cursor: pointer;
+    color: #9CA3AF;
+  }
+  .modal-button__wrapper {
+    padding: 12px 24px 16px;
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #00000014;
   }
   .modal-image {
     width: 100%;
@@ -88,11 +95,10 @@
     margin: 20px 0;
   }
   .modal-help {
-    background: #f4fbf8;
-    padding: 24px 32px 32px;
+    background: #F6F7FB;
+    padding: 16px 18px;
     border-radius: 12px;
-    margin-inline: 30px;
-    margin-block: 20px;
+    margin: 0 32px 20px;
   }
   .modal-help h4 {
     font-size: 12px;
@@ -108,6 +114,15 @@
     font-size: 14px;
     margin: 0;
     line-height: 1.6;
+  }
+  .modal-benefits {
+    padding: 16px 18px;
+    margin-inline: 32px;
+    background: #F6F7FB;
+    margin-bottom: 20px;
+  }
+  .modal::-webkit-scrollbar {
+    display: none;
   }
   .modal-benefits h4 {
     font-size: 12px;
@@ -171,37 +186,43 @@
     font-weight: 600;
   }
   .modal-icon__wrapper {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background-color: rgb(236, 253, 245);
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+  }
+  .icon_description_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 
   .modal h3 {
     font-size: 22px;
     font-weight: 700;
     color: rgb(17, 24, 39);
-    margin: 0 0 8px;
-    text-align: center;
+    margin-block: 0;
+    text-align: left;
+  }
+  .header__description__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .modal .modal-subtitle {
     font-size: 14px;
     color: rgb(107, 114, 128);
-    margin: 0 0 16px;
-    text-align: center;
+    margin-block: 0;
+    text-align: left;
   }
   .modal-image__wrapper {
-    background: #ebfcf4;
+    padding: 20px 32px;
   }
 
-  .inline-spacing {
-    padding: 0 30px;
-  }
   body.modal-open {
     overflow: hidden;
   }
@@ -223,6 +244,7 @@
     padding: 20px 32px 16px;
     align-items: center;
     justify-content: space-between;
+    background: #F6F7FB;
   }
   @media (max-width: 768px) {
     .features-grid {
@@ -271,14 +293,16 @@
         <div class="modal-overlay" id="modal-{{ block.id }}">
           <div class="modal">
             <div class="modal_header_wrapper">
-              {% if block.settings.modal_icon != blank %}
-                <div class="modal-icon__wrapper">
-                  {{ block.settings.modal_icon }}
+              <div class="icon_description_wrapper">
+                {% if block.settings.modal_icon != blank %}
+                  <div class="modal-icon__wrapper">
+                    {{ block.settings.modal_icon }}
+                  </div>
+                {% endif %}
+                <div class="header__description__wrapper">
+                  <h3>{{ block.settings.modal_title }}</h3>
+                  <p class="modal-subtitle inline-spacing">{{ block.settings.modal_subtitle }}</p>
                 </div>
-              {% endif %}
-              <div class="header__description__wrapper">
-                <h3>{{ block.settings.modal_title }}</h3>
-                <p class="modal-subtitle inline-spacing">{{ block.settings.modal_subtitle }}</p>
               </div>
               <button class="modal-close">&times;</button>
             </div>
