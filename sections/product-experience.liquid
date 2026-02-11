@@ -1,6 +1,6 @@
 {% style %}
   .recurpay-demo {
-    padding: 110px 0 48px;
+    padding: 145px 0 48px;
     text-align: center;
   }
   .demo-badge {
@@ -265,39 +265,39 @@
 </section>
 
 {% comment %} <script>
-                                                                                                                                  (function() {
-                                                                                                                                    // Track CTA card clicks with Mixpanel
-                                                                                                                                    document.addEventListener('DOMContentLoaded', function() {
-                                                                                                                                      introJs().tour(.demo-heading).start();
-                                                                                                                                      const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
-                                                                                                                                      
-                                                                                                                                      ctaCards.forEach(card => {
-                                                                                                                                        card.addEventListener('click', function(e) {
-                                                                                                                                          const eventName = this.getAttribute('data-event-name');
-                                                                                                                                          const cardTitle = this.getAttribute('data-card-title');
-                                                                                                                                          const cardType = this.getAttribute('data-card-type');
-                                                                                                                                          const cardLink = this.getAttribute('href');
-                                                                                                                                          
-                                                                                                                                          // Track event with Mixpanel if available
-                                                                                                                                          if (typeof mixpanel !== 'undefined' && mixpanel.track) {
-                                                                                                                                            mixpanel.track(eventName, {
+                                                                                                                                    (function() {
+                                                                                                                                      // Track CTA card clicks with Mixpanel
+                                                                                                                                      document.addEventListener('DOMContentLoaded', function() {
+                                                                                                                                        introJs().tour(.demo-heading).start();
+                                                                                                                                        const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
+                                                                                                                                        
+                                                                                                                                        ctaCards.forEach(card => {
+                                                                                                                                          card.addEventListener('click', function(e) {
+                                                                                                                                            const eventName = this.getAttribute('data-event-name');
+                                                                                                                                            const cardTitle = this.getAttribute('data-card-title');
+                                                                                                                                            const cardType = this.getAttribute('data-card-type');
+                                                                                                                                            const cardLink = this.getAttribute('href');
+                                                                                                                                            
+                                                                                                                                            // Track event with Mixpanel if available
+                                                                                                                                            if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+                                                                                                                                              mixpanel.track(eventName, {
+                                                                                                                                                card_title: cardTitle,
+                                                                                                                                                card_type: cardType,
+                                                                                                                                                card_link: cardLink,
+                                                                                                                                                section: 'product_experience'
+                                                                                                                                              });
+                                                                                                                                            }
+                                                                                                                                            
+                                                                                                                                            // Also log for debugging
+                                                                                                                                            console.log('Mixpanel Event:', eventName, {
                                                                                                                                               card_title: cardTitle,
                                                                                                                                               card_type: cardType,
-                                                                                                                                              card_link: cardLink,
-                                                                                                                                              section: 'product_experience'
+                                                                                                                                              card_link: cardLink
                                                                                                                                             });
-                                                                                                                                          }
-                                                                                                                                          
-                                                                                                                                          // Also log for debugging
-                                                                                                                                          console.log('Mixpanel Event:', eventName, {
-                                                                                                                                            card_title: cardTitle,
-                                                                                                                                            card_type: cardType,
-                                                                                                                                            card_link: cardLink
                                                                                                                                           });
                                                                                                                                         });
                                                                                                                                       });
-                                                                                                                                    });
-                                                                                                                                  })();
+                                                                                                                                    })();
 </script> {% endcomment %}
 
 {% schema %}
