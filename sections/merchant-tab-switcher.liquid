@@ -25,7 +25,6 @@
   }
   .image_with_logo__wrapper img {
     border-radius: 8px;
-    background-color: rgb(5, 150, 105);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -719,7 +718,7 @@
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
     <div class="image_with_logo__wrapper">
-      {{ section.settings.company_logo | image_url: width: 32, height: 32 | image_tag }}
+      {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
       <h2 class="company_name">{{ section.settings.company_name }}</h2>
       <span>{{ section.settings.tag_text }}
       </span>
@@ -1606,7 +1605,7 @@
           
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
-          const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+          const sections = parsed.querySelectorAll('#MainContent');
           
           // If no sections found, try to find main content area
           if (sections.length === 0) {
@@ -2198,7 +2197,8 @@
             const cacheContainer = document.createElement('div');
             
             // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            const sections = parsed.querySelectorAll('#MainContent');
+            console.log("main content", sections);
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2282,7 +2282,7 @@
             const parsed = parser.parseFromString(htmlString, 'text/html');
             
             const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            const sections = parsed.querySelectorAll('#MainContent');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;

@@ -32,16 +32,15 @@
     },
     "recurpay_header_bDLQBh": {
       "type": "recurpay-header",
-      "disabled": true,
       "name": "Header navigation",
       "settings": {
-        "logo": "shopify://shop_images/Recurpay_Logo.png",
-        "brand_text": "Recurpay",
+        "logo": "shopify://shop_images/Recurpay_logo_with_text_1.png",
+        "brand_text": "",
         "main_menu": "header-new-menu",
         "button_primary_text": "Install Now",
-        "button_primary_link": "",
+        "button_primary_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage",
         "button_secondary_text": "Book a Demo",
-        "button_secondary_link": ""
+        "button_secondary_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
       }
     }
   },

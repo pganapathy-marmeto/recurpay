@@ -1,41 +1,41 @@
 {% style %}
-.partner-resources-section {
-  padding: 20px;
-  background: #ffffff;
-}
+  .partner-resources-section {
+    padding: 20px;
+    background: #ffffff;
+  }
 
-.partner-resources-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .partner-resources-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.partner-resources-heading {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  margin-top: 0;
-  color: rgb(17, 24, 39);
-}
+  .partner-resources-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: rgb(17, 24, 39);
+  }
 
-.partner-resources-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
+  .partner-resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
 
-.partner-resource-card {
-  background-color: rgb(255, 255, 255);
+  .partner-resource-card {
+    background-color: rgb(255, 255, 255);
     border-radius: 14px;
     padding: 20px;
     border: 1px solid rgb(229, 231, 235);
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 2px 12px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0 2px 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
+  }
 
-.partner-resource-icon {
-  width: 44px;
+  .partner-resource-icon {
+    width: 44px;
     height: 44px;
     border-radius: 10px;
     background-color: rgb(236, 253, 245);
@@ -43,25 +43,25 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 14px;
-}
+  }
 
-.partner-resource-title {
-  font-size: 15px;
+  .partner-resource-title {
+    font-size: 15px;
     font-weight: 700;
     color: rgb(17, 24, 39);
-    margin: 0px 0px 6px 0;
-}
+    margin: 0 0 6px;
+  }
 
-.partner-resource-description {
-  font-size: 13px;
+  .partner-resource-description {
+    font-size: 13px;
     color: rgb(107, 114, 128);
-    margin: 0px 0px 14px;
+    margin: 0 0 14px;
     line-height: 1.5;
-    flex: 1 1 0%;
-}
+    flex: 1 1 0;
+  }
 
-.partner-resource-button {
-  display: flex;
+  .partner-resource-button {
+    display: flex;
     align-items: center;
     gap: 6px;
     padding: 8px 14px;
@@ -73,82 +73,82 @@
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-}
-
-.partner-resource-button:hover {
-  background: #0d8f5d;
-}
-
-@media (max-width: 1024px) {
-  .partner-resources-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 640px) {
-  .partner-resources-grid {
-    grid-template-columns: 1fr;
+  .partner-resource-button:hover {
+    background: #0d8f5d;
   }
-}
 
-.partner-support-banner {
-  margin-top: 24px;
-  background-color: rgb(236, 253, 245);
+  @media (max-width: 1024px) {
+    .partner-resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .partner-resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .partner-support-banner {
+    margin-top: 24px;
+    background-color: rgb(236, 253, 245);
     border-radius: 12px;
     padding: 20px 24px;
     border: 1px solid rgb(209, 250, 229);
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+  }
 
-.partner-support-banner-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex: 1;
-}
+  .partner-support-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
 
-.partner-support-icon-wrapper {
-  width: 56px;
-  height: 56px;
-  background: #e6f5ed;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+  .partner-support-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    background: #e6f5ed;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
 
-.partner-support-icon-wrapper svg {
-  width: 32px;
-  height: 32px;
-  stroke: #0ea56f;
-  fill: none;
-  stroke-width: 2;
-}
+  .partner-support-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+    stroke: #0ea56f;
+    fill: none;
+    stroke-width: 2;
+  }
 
-.partner-support-content {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+  .partner-support-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
 
-.partner-support-heading {
-  font-size: 16px;
-  font-weight: 700;
-  color: #0b1c2d;
-  margin: 0;
-}
+  .partner-support-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b1c2d;
+    margin: 0;
+  }
 
-.partner-support-subtext {
-  font-size: 14px;
-  color: #0ea56f;
-  margin: 0;
-}
+  .partner-support-subtext {
+    font-size: 14px;
+    color: #0ea56f;
+    margin: 0;
+  }
 
-.partner-support-button {
-  display: flex;
+  .partner-support-button {
+    display: flex;
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
@@ -160,28 +160,28 @@
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-}
-
-.partner-support-button:hover {
-  background: #0d8f5d;
-}
-
-@media (max-width: 768px) {
-  .partner-support-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 24px;
   }
 
-  .partner-support-banner-left {
-    width: 100%;
+  .partner-support-button:hover {
+    background: #0d8f5d;
   }
 
-  .partner-support-button {
-    width: 100%;
-    justify-content: center;
+  @media (max-width: 768px) {
+    .partner-support-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px 24px;
+    }
+
+    .partner-support-banner-left {
+      width: 100%;
+    }
+
+    .partner-support-button {
+      width: 100%;
+      justify-content: center;
+    }
   }
-}
 {% endstyle %}
 
 <section class="partner-resources-section">
@@ -196,7 +196,7 @@
     <div class="partner-resources-grid">
       {% for block in section.blocks %}
         <div class="partner-resource-card" {{ block.shopify_attributes }}>
-          
+
           {% if block.settings.custom_icon != blank %}
             <div class="partner-resource-icon">
               {{ block.settings.custom_icon }}
@@ -216,9 +216,22 @@
           {% endif %}
 
           {% if block.settings.button_text != blank %}
-            <a target="_blank" href="{{ block.settings.button_url }}" class="partner-resource-button">
+            <a
+              target="_blank"
+              href="{{ block.settings.button_url }}"
+              class="partner-resource-button">
               {{ block.settings.button_text }}
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </a>
           {% endif %}
 
@@ -230,7 +243,17 @@
       <div class="partner-support-banner">
         <div class="partner-support-banner-left">
           <div class="partner-support-icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#059669"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /></svg>
           </div>
           <div class="partner-support-content">
             {% if section.settings.support_heading != blank %}
@@ -246,8 +269,21 @@
           </div>
         </div>
         {% if section.settings.support_button_text != blank %}
-          <button type="button" class="partner-support-button" id="intercom-chat-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+          <button
+            type="button"
+            class="partner-support-button"
+            id="intercom-chat-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ffffff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
             {{ section.settings.support_button_text }}
           </button>
         {% endif %}
@@ -266,13 +302,13 @@
         
         // Check if Intercom is available
         if (typeof window.Intercom !== 'undefined') {
-          window.Intercom('show');
+          window.Intercom('showNewMessage');
         } else if (typeof Intercom !== 'undefined') {
-          Intercom('show');
+          Intercom('showNewMessage');
         } else {
           // Fallback: try to trigger Intercom if it's loaded but not yet available
           if (window.IntercomBoot) {
-            window.Intercom('show');
+            window.Intercom('showNewMessage');
           } else {
             console.warn('Intercom is not loaded. Please ensure Intercom is installed on your site.');
           }
@@ -283,124 +319,117 @@
 </script>
 
 {% schema %}
-{
-  "name": "Partner Resources",
-  "settings": [
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Section Heading",
-      "default": "Partner Resources"
-    },
-    {
-      "type": "header",
-      "content": "Support Banner"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_support_banner",
-      "label": "Show Support Banner",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "support_heading",
-      "label": "Support Banner Heading",
-      "default": "Partner Support Promise"
-    },
-    {
-      "type": "text",
-      "id": "support_subtext",
-      "label": "Support Banner Subtext",
-      "default": "Average response time: under 5 minutes • 98% satisfaction rate"
-    },
-    {
-      "type": "text",
-      "id": "support_button_text",
-      "label": "Support Button Text",
-      "default": "Start Chat"
-    },
-    {
-      "type": "url",
-      "id": "support_button_url",
-      "label": "Support Button URL"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "resource",
-      "name": "Resource Card",
-      "limit": 6,
-      "settings": [
-        {
-          "type": "html",
-          "id": "custom_icon",
-          "label": "SVG HTML"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "API Documentation"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Complete API reference with examples"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "View Docs"
-        },
-        {
-          "type": "url",
-          "id": "button_url",
-          "label": "Button URL"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Partner Resources",
-      "blocks": [
-        {
-          "type": "resource",
-          "settings": {
-            "title": "API Documentation",
-            "description": "Complete API reference with examples",
-            "button_text": "View Docs"
+  {
+    "name": "Partner Resources",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Section Heading",
+        "default": "Partner Resources"
+      },
+      {
+        "type": "header",
+        "content": "Support Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_support_banner",
+        "label": "Show Support Banner",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "support_heading",
+        "label": "Support Banner Heading",
+        "default": "Partner Support Promise"
+      }, {
+        "type": "text",
+        "id": "support_subtext",
+        "label": "Support Banner Subtext",
+        "default": "Average response time: under 5 minutes • 98% satisfaction rate"
+      }, {
+        "type": "text",
+        "id": "support_button_text",
+        "label": "Support Button Text",
+        "default": "Start Chat"
+      }, {
+        "type": "url",
+        "id": "support_button_url",
+        "label": "Support Button URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "resource",
+        "name": "Resource Card",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "html",
+            "id": "custom_icon",
+            "label": "SVG HTML"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "API Documentation"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Complete API reference with examples"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "View Docs"
+          }, {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
           }
-        },
-        {
-          "type": "resource",
-          "settings": {
-            "title": "Partner Certification",
-            "description": "Get certified and unlock premium features",
-            "button_text": "Start Certification"
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Partner Resources",
+        "blocks": [
+          {
+            "type": "resource",
+            "settings": {
+              "title": "API Documentation",
+              "description": "Complete API reference with examples",
+              "button_text": "View Docs"
+            }
+          }, {
+            "type": "resource",
+            "settings": {
+              "title": "Partner Certification",
+              "description": "Get certified and unlock premium features",
+              "button_text": "Start Certification"
+            }
+          }, {
+            "type": "resource",
+            "settings": {
+              "title": "Marketing Kit",
+              "description": "Logos, badges, and co-marketing materials",
+              "button_text": "Download Kit"
+            }
+          }, {
+            "type": "resource",
+            "settings": {
+              "title": "Partner Community",
+              "description": "Join the Slack community with 500+ partners",
+              "button_text": "Join Community"
+            }
           }
-        },
-        {
-          "type": "resource",
-          "settings": {
-            "title": "Marketing Kit",
-            "description": "Logos, badges, and co-marketing materials",
-            "button_text": "Download Kit"
-          }
-        },
-        {
-          "type": "resource",
-          "settings": {
-            "title": "Partner Community",
-            "description": "Join the Slack community with 500+ partners",
-            "button_text": "Join Community"
-          }
-        }
-      ]
-    }
-  ]
-}
+        ]
+      }
+    ]
+  }
 {% endschema %}
