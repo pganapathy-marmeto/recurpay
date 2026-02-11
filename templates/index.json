@@ -90,7 +90,7 @@
       "settings": {
         "badge_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-play-icon lucide-circle-play\"><path d=\"M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle></svg>",
         "badge_text": "Interactive Demo Experience",
-        "heading_main": "See Recurpaysss",
+        "heading_main": "See Recurpay",
         "heading_highlight": "in Action",
         "description": "Experience the power of subscription commerce. Try our interactive demo as a merchant or explore partner integrations."
       }
