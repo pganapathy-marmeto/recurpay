@@ -7,8 +7,8 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #eafaf3;
-    color: #159f6b;
+    background: #F3F4F6;
+    color: #6b7280;
     padding: 8px 14px;
     border-radius: 999px;
     font-weight: 600;
@@ -20,9 +20,7 @@
     font-size: 56px;
     margin: 24px 0 20px;
     font-weight: 600;
-  }
-  .demo-heading span {
-    color: #159f6b;
+    color: #111;
   }
   .demo-description {
     max-width: 640px;
@@ -32,7 +30,7 @@
   }
   .demo-cta-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     max-width: 800px;
     margin: 0 auto 65px;
@@ -40,6 +38,7 @@
   .cta-card {
     display: flex;
     align-items: center;
+    background: #F7FAFB;
     gap: 18px;
     padding: 24px;
     border-radius: 18px;
@@ -79,8 +78,8 @@
   }
   .stat strong {
     display: block;
-    font-size: 28px;
-    color: #159f6b;
+    font-size: 32px;
+    color: #111827;
   }
 
   .stat span {
@@ -90,7 +89,7 @@
   .cta-card .icon__wrapper {
     padding: 10px;
     border-radius: 10px;
-    background: #f4e8ff;
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +124,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: #f4e8ff;
+    background: #0B9A63;
   }
 
   .cta-card.primary .arrow {
@@ -134,7 +133,6 @@
 
   .cta-card:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid #8b5ef3;
   }
   .cta-card.primary:hover {
     border: 1px solid #1e9e6b;
@@ -149,44 +147,27 @@
     border: 1px solid #e5e7eb;
     padding-block: 10px;
   }
+  .or_seperator {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #00000014;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: auto;
+  }
 
   @media(max-width: 768px) {
     .demo-cta-grid {
       grid-template-columns: 1fr;
-      margin-bottom: 40px;
     }
     .demo-heading {
       font-size: 36px;
     }
-    .demo-stats__seperator {
-      display: none !important;
-    }
     .demo-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 15px 30px;
-      margin-bottom: 0;
-      gap: 20px;
-    }
-    .stat strong {
-      font-size: 20px;
-    }
-    .content_container.active {
       flex-direction: column;
-    }
-
-    .cta-card {
-      padding: 12px;
-    }
-
-    .stat span {
-      font-size: 16px;
-    }
-    .cta-card h3 {
-      font-size: 16px;
-    }
-    .cta-card p {
-      font-size: 12px;
+      gap: 20px;
     }
   }
 {% endstyle %}
@@ -237,13 +218,16 @@
                 height="24"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="{%if block.settings.primary%}white {%else%}#8b5ef3{%endif%}"
+                stroke="white"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </span>
           </a>
+          {% if block.settings.or_seperator %}
+            <div class="or_seperator">OR</div>
+          {% endif %}
         {% endif %}
       {% endfor %}
     </div>
@@ -266,39 +250,39 @@
 </section>
 
 {% comment %} <script>
-                                                                                                                    (function() {
-                                                                                                                      // Track CTA card clicks with Mixpanel
-                                                                                                                      document.addEventListener('DOMContentLoaded', function() {
-                                                                                                                        introJs().tour(.demo-heading).start();
-                                                                                                                        const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
-                                                                                                                        
-                                                                                                                        ctaCards.forEach(card => {
-                                                                                                                          card.addEventListener('click', function(e) {
-                                                                                                                            const eventName = this.getAttribute('data-event-name');
-                                                                                                                            const cardTitle = this.getAttribute('data-card-title');
-                                                                                                                            const cardType = this.getAttribute('data-card-type');
-                                                                                                                            const cardLink = this.getAttribute('href');
-                                                                                                                            
-                                                                                                                            // Track event with Mixpanel if available
-                                                                                                                            if (typeof mixpanel !== 'undefined' && mixpanel.track) {
-                                                                                                                              mixpanel.track(eventName, {
-                                                                                                                                card_title: cardTitle,
-                                                                                                                                card_type: cardType,
-                                                                                                                                card_link: cardLink,
-                                                                                                                                section: 'product_experience'
-                                                                                                                              });
-                                                                                                                            }
-                                                                                                                            
-                                                                                                                            // Also log for debugging
-                                                                                                                            console.log('Mixpanel Event:', eventName, {
-                                                                                                                              card_title: cardTitle,
-                                                                                                                              card_type: cardType,
-                                                                                                                              card_link: cardLink
-                                                                                                                            });
-                                                                                                                          });
-                                                                                                                        });
-                                                                                                                      });
-                                                                                                                    })();
+                                                                              (function() {
+                                                                                // Track CTA card clicks with Mixpanel
+                                                                                document.addEventListener('DOMContentLoaded', function() {
+                                                                                  introJs().tour(.demo-heading).start();
+                                                                                  const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
+                                                                                  
+                                                                                  ctaCards.forEach(card => {
+                                                                                    card.addEventListener('click', function(e) {
+                                                                                      const eventName = this.getAttribute('data-event-name');
+                                                                                      const cardTitle = this.getAttribute('data-card-title');
+                                                                                      const cardType = this.getAttribute('data-card-type');
+                                                                                      const cardLink = this.getAttribute('href');
+                                                                                      
+                                                                                      // Track event with Mixpanel if available
+                                                                                      if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+                                                                                        mixpanel.track(eventName, {
+                                                                                          card_title: cardTitle,
+                                                                                          card_type: cardType,
+                                                                                          card_link: cardLink,
+                                                                                          section: 'product_experience'
+                                                                                        });
+                                                                                      }
+                                                                                      
+                                                                                      // Also log for debugging
+                                                                                      console.log('Mixpanel Event:', eventName, {
+                                                                                        card_title: cardTitle,
+                                                                                        card_type: cardType,
+                                                                                        card_link: cardLink
+                                                                                      });
+                                                                                    });
+                                                                                  });
+                                                                                });
+                                                                              })();
 </script> {% endcomment %}
 
 {% schema %}
@@ -368,6 +352,11 @@
             "type": "checkbox",
             "id": "primary",
             "label": "Primary (Green Card)",
+            "default": false
+          }, {
+            "type": "checkbox",
+            "id": "or_seperator",
+            "label": "OR container",
             "default": false
           }
         ]

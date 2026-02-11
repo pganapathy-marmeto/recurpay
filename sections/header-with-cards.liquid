@@ -23,6 +23,9 @@
     padding: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .feature-card:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -30,9 +33,23 @@
   }
 
   .card-cta {
-    color: #159f6b;
-    font-weight: 600;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #00000014;
+    background-color: #F7FAFB;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+  .card-cta svg {
+    width: 14px;
+    height: 14px;
   }
 
   /* MODAL */
@@ -209,12 +226,6 @@
     .features-grid {
       grid-template-columns: 1fr;
     }
-    .section-heading {
-      margin-bottom: 40px;
-    }
-    .subscription-features {
-      padding-bottom: 40px;
-    }
   }
 {% endstyle %}
 
@@ -228,33 +239,50 @@
           class="feature-card"
           data-modal="modal-{{ block.id }}"
           data-event-name="{{ block.settings.event_name_card | default: 'Feature Card Clicked' }}">
-          <div class="feature-card__header-icon_wrapper">
-            {% if block.settings.card_icon %}
-              {{ block.settings.card_icon }}
-            {% endif %}
-            <h3>{{ block.settings.card_title }}</h3>
+          <div class="header__content__wrapper">
+            <div class="feature-card__header-icon_wrapper">
+              {% if block.settings.card_icon %}
+                {{ block.settings.card_icon }}
+              {% endif %}
+              <h3>{{ block.settings.card_title }}</h3>
+            </div>
+            <p>{{ block.settings.card_description }}</p>
           </div>
-          <p>{{ block.settings.card_description }}</p>
 
           <span class="card-cta">
-            ▶ {{ block.settings.card_button }}
+            {{ block.settings.card_button }}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#6b7280"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
           </span>
         </div>
 
         <!-- MODAL -->
         <div class="modal-overlay" id="modal-{{ block.id }}">
           <div class="modal">
-            <button class="modal-close">&times;</button>
-
-            {% if block.settings.modal_icon != blank %}
-              <div class="modal-icon__wrapper">
-                {{ block.settings.modal_icon }}
+            <div class="modal_header_wrapper">
+              sadljvasdvasd
+ 
+              workinggggasjdgasdjgajsd
+              {% if block.settings.modal_icon != blank %}
+                <div class="modal-icon__wrapper">
+                  {{ block.settings.modal_icon }}
+                </div>
+              {% endif %}
+              <div class="header__description__wrapper">
+                <h3>{{ block.settings.modal_title }}</h3>
+                <p class="modal-subtitle inline-spacing">{{ block.settings.modal_subtitle }}</p>
               </div>
-            {% endif %}
-
-            <h3>{{ block.settings.modal_title }}</h3>
-            <p class="modal-subtitle inline-spacing">{{ block.settings.modal_subtitle }}</p>
-
+              <button class="modal-close">&times;</button>
+            </div>
             {% if block.settings.modal_image %}
               <div class="modal-image__wrapper inline-spacing">
                 {{ block.settings.modal_image | image_url: width: 460 | image_tag | replace: "<img", "<img class='modal-image'" }}

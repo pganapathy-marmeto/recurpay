@@ -24,12 +24,11 @@
     gap: 16px;
   }
   .image_with_logo__wrapper img {
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-items: center;
   }
-  .redirect_buttons__wrapper{
+  .redirect_buttons__wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -68,7 +67,8 @@
     text-decoration: none;
   }
 
-  .redirect, .button_demo {
+  .redirect,
+  .button_demo {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -216,11 +216,11 @@
     margin-bottom: 4px;
     cursor: pointer;
     transition: 0.15s;
-    border: 1px dashed rgba(148,163,184,0.4);
+    border: 1px dashed rgba(148, 163, 184, 0.4);
   }
   .sidebar__content-wrapper:hover {
     background: linear-gradient(135deg, rgba(15,157,88,0.06), rgba(15,157,88,0));
-    border: 1px solid rgba(148,163,184,0.4);
+    border: 1px solid rgba(148, 163, 184, 0.4);
   }
   .sidebar__content-wrapper.hidden {
     display: none;
@@ -518,6 +518,25 @@
     text-align: center;
   }
 
+  .button_tab {
+    position: relative;
+  }
+  .button_tab:not(:last-child)::before {
+    content: "";
+    width: 8px;
+    display: block;
+    right: 0;
+    position: absolute;
+    transform: translateX(100%);
+    border: 1px solid rgb(107, 114, 128);
+    top: 50%;
+  }
+  .demo-guide-card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+
   @media (max-width: 768px) {
     .main-heading {
       font-size: 32px;
@@ -554,9 +573,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 20px;
-    background-color: rgb(249, 250, 251);
-    border-bottom: 1px solid rgb(229, 231, 235);
   }
 
   .demo-guide-close {
@@ -634,6 +650,17 @@
     gap: 8px;
     align-items: center;
   }
+  .driver-popover::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    transform: translateX(-50%) rotate(45deg);
+    left: 0;
+    top: 10px;
+    display: block;
+    position: absolute;
+  }
 
   .demo-guide-actions .demo-guide-back {
     display: flex;
@@ -681,12 +708,17 @@
     gap: 4px;
   }
 
-  .demo-guide-body {
-    padding: 18px 20px;
-  }
+
+  /*
+
+   .demo-guide-body {
+   padding: 18px 20px;
+   }
+*/
 
   /* completion state (final tour page) */
-  .header__container.completion-active .sidebar__container, .header__container.completion-active .tagline-heading-section  {
+  .header__container.completion-active .sidebar__container,
+  .header__container.completion-active .tagline-heading-section {
     display: none;
   }
 
@@ -703,9 +735,9 @@
     gap: 10px;
   }
 
-  .driver-popover{
+  .driver-popover {
     max-width: 350px;
-    
+
   }
 
 {% endstyle %}
@@ -720,8 +752,7 @@
     <div class="image_with_logo__wrapper">
       {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
       <h2 class="company_name">{{ section.settings.company_name }}</h2>
-      <span>{{ section.settings.tag_text }}
-      </span>
+      <span>{{ section.settings.tag_text }}</span>
     </div>
     <div class="content__wrapper">
       {% for tab in merchant_tabs %}
@@ -738,13 +769,39 @@
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <a class=" redirect" href="{{ section.settings.redirect_link }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>{{ section.settings.redirect_text }}</a>
-      <a target="_blank" class="button_demo" href="{{ section.settings.demo_url }}">
+      <a class=" redirect" href="{{ section.settings.redirect_link }}">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+        {{ section.settings.redirect_text }}</a>
+      <a
+        target="_blank"
+        class="button_demo"
+        href="{{ section.settings.demo_url }}">
         {% if section.settings.demo_html != blank %}
           {{ section.settings.demo_html }}
           {{ section.settings.demo }}
         {% else %}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>{{ section.settings.demo }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+          {{ section.settings.demo }}
         {% endif %}
       </a>
     </div>
@@ -767,7 +824,7 @@
           </div>
 
           {% if section.settings.heading_widget != blank %}
-            <h2 class="main-heading" id="main-heading">
+            <h2 class="main-heading">
               {{ section.settings.heading_widget }}
             </h2>
           {% endif %}
@@ -905,23 +962,23 @@
 
                 <!-- Header -->
                 <div class="demo-guide-header">
-                  <div class="demo-guide-profile">
-                    {% if section.settings.avatar != blank %}
-                      <div class="demo-avatar-container">
-                        {{ section.settings.avatar }}
-                      </div>
-                    {% endif %}
+                  {% comment %} <div class="demo-guide-profile">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {% if section.settings.avatar != blank %}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-avatar-container">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {{ section.settings.avatar }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {% endif %}
 
-                    <div>
-                      <div class="demo-guide-name">
-                        {{ section.settings.name }}
-                      </div>
-                      <div class="demo-guide-subtitle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                        {{ section.settings.subtitle }}
-                      </div>
-                    </div>
-                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-name">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {{ section.settings.name }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-subtitle">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {{ section.settings.subtitle }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -963,29 +1020,29 @@
                   </p>
                 </div>
 
-                <!-- Footer -->
-                <div class="demo-guide-footer">
-                  <div class="demo-guide-steps">
-                    <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                    <div class="guide_pagination_dots">
-                      {% for tab in merchant_tabs %}
-                        <div class="dots"></div>
-                      {% endfor %}
-                    </div>
-                  </div>
+              <!-- Footer -->
+              {% comment %} <div class="demo-guide-footer">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-steps">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="guide_pagination_dots">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {% for tab in merchant_tabs %}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="dots"></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {% endfor %}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
 
-                  <div class="demo-guide-actions">
-                    <button type="button" class="demo-guide-back">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                      {{ section.settings.back_text }}
-                    </button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-actions">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="demo-guide-back">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {{ section.settings.back_text }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </button>
 
-                    <button type="button" class="demo-guide-finish">
-                      {{ section.settings.finish_text }}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                    </button>
-                  </div>
-                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="demo-guide-finish">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {{ section.settings.finish_text }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div> {% endcomment %}
 
               </div>
             </div>
@@ -1040,7 +1097,10 @@
             <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
             <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
           </div>
-          <a target="_blank" href="{{ section.settings.doc_url }}" data-sidebar-doc-url>View docs</a>
+          <a
+            target="_blank"
+            href="{{ section.settings.doc_url }}"
+            data-sidebar-doc-url>View docs</a>
         </div>
       </div>
       <div class="sidebar__content">
@@ -1048,15 +1108,15 @@
           {% for block in section.blocks %}
             <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
               <div class="content_container">
-              <div class="content_container_wrapper">
-                <div class="image_container">
-                  {{ block.settings.feature_image }}
+                <div class="content_container_wrapper">
+                  <div class="image_container">
+                    {{ block.settings.feature_image }}
+                  </div>
+                  <div class="content_text_wrapper">
+                    <h4>{{ block.settings.content_header }}</h4>
+                    <p>{{ block.settings.content_description }}</p>
+                  </div>
                 </div>
-                <div class="content_text_wrapper">
-                  <h4>{{ block.settings.content_header }}</h4>
-                  <p>{{ block.settings.content_description }}</p>
-                </div>
-              </div>
                 <div class="content_tag_with_link">
                   <div class="tag_container">
                     {% if block.settings.tag_text_one != blank %}
@@ -1089,9 +1149,15 @@
         </div>
       </div>
       <div class="sidebar__footer">
-        <a href="https://apps.shopify.com/recurpay-subscriptions" target="_blank" class="button_trial">Start 30 day trial</a>
+        <a
+          href="https://apps.shopify.com/recurpay-subscriptions"
+          target="_blank"
+          class="button_trial">Start 30 day trial</a>
         <p>Or
-          <a href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav" target="_blank" class="button_call">talk to an expert and book a quick call</a>
+          <a
+            href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+            target="_blank"
+            class="button_call">talk to an expert and book a quick call</a>
         </p>
       </div>
     </div>
@@ -1605,7 +1671,7 @@
           
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
-          const sections = parsed.querySelectorAll('#MainContent');
+          const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
           
           // If no sections found, try to find main content area
           if (sections.length === 0) {
@@ -1975,14 +2041,14 @@
           }
 
           // Log the highlighted element
-          console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
+          // console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
 
           // Center the element in the viewport
           if(currentTabType == 'widget'){
             const widgetElement = document.querySelector(selector);
             widgetElement.closest('section').scrollIntoView({block: 'center', behavior: 'smooth'});
-            console.log("widget element", widgetElement); 
-            console.log("scrolled")
+            // console.log("widget element", widgetElement); 
+            // console.log("scrolled")
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
@@ -2156,6 +2222,10 @@
     }
     function refreshDriver() { 
       let maxAttempts = 5;
+      
+    const popover = document.querySelector(".driver-popover");
+    const something = window.getComputedStyle(popover)
+    console.log("popover", popover.style.right);
       const refreshInterval = setInterval(()=>{
       if(maxAttempts > 0) {
         driverObj.refresh();
@@ -2197,8 +2267,7 @@
             const cacheContainer = document.createElement('div');
             
             // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('#MainContent');
-            console.log("main content", sections);
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2282,7 +2351,7 @@
             const parsed = parser.parseFromString(htmlString, 'text/html');
             
             const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('#MainContent');
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2388,7 +2457,7 @@
         
         // Check if target element exists
         const targetEl = document.querySelector(selector);
-        console.log("targetEl", targetEl);
+        // console.log("targetEl", targetEl);
 
         if (targetEl) {
           // Element found! Hide loader and start tour
@@ -2519,7 +2588,7 @@
         "id": "widget_content_url",
         "label": "Widget content page URL",
         "info": "URL to the page containing widget tab content"
-      },       {
+      }, {
         "type": "text",
         "id": "widget_step_name",
         "label": "Widget step name",
@@ -2605,7 +2674,7 @@
         "id": "cart_upsell_content_url",
         "label": "Cart upsell content page URL",
         "info": "URL to the page containing cart upsell tab content"
-      },       {
+      }, {
         "type": "text",
         "id": "cart_upsell_step_name",
         "label": "Cart upsell step name",
@@ -2661,7 +2730,7 @@
         "type": "url",
         "id": "portal_doc_url",
         "label": "Docs URL for portal"
-      },       {
+      }, {
         "type": "text",
         "id": "portal_step_name",
         "label": "Portal step name",
@@ -2722,7 +2791,7 @@
         "id": "support_resources_content_url",
         "label": "Support & resources content page URL",
         "info": "URL to the page containing support & resources tab content"
-      },       {
+      }, {
         "type": "text",
         "id": "support_resources_step_name",
         "label": "Support & resources step name",
@@ -2766,7 +2835,7 @@
         "id": "completion_content_url",
         "label": "Completion content page URL",
         "info": "URL to the page containing final tour completion content"
-      },       {
+      }, {
         "type": "text",
         "id": "completion_step_name",
         "label": "Completion step name",
@@ -2784,7 +2853,7 @@
         "id": "description_completion_guide",
         "label": "Description for completion tour page",
         "default": "You've completed the tour! Start your 14-day free trial or book a personalized demo with our team."
-      },       {
+      }, {
         "type": "text",
         "id": "steps_text_completion",
         "label": "Steps text for completion",

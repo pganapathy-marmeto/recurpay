@@ -9,6 +9,19 @@
  */
 {
   "sections": {
+    "recurpay_header_NF7hwD": {
+      "type": "recurpay-header",
+      "name": "Header navigation",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_Logo.png",
+        "brand_text": "Recurpay",
+        "main_menu": "header-new-menu",
+        "button_primary_text": "Install Now",
+        "button_primary_link": "",
+        "button_secondary_text": "Book a Demo",
+        "button_secondary_link": ""
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -94,7 +107,7 @@
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 100,
+        "padding_top": 16,
         "padding_bottom": 12
       }
     },
@@ -118,6 +131,7 @@
     }
   },
   "order": [
+    "recurpay_header_NF7hwD",
     "main",
     "related-products"
   ]

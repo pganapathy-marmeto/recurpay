@@ -99,7 +99,7 @@
   }
 
   .brand_name_with_logo img {
-    height: 42px !important;
+    height: 42px;
     width: auto;
     object-fit: contain;
   }
@@ -115,188 +115,188 @@
   }
 {% endstyle %}
 
-{% if page.handle != 'merchant-widget' and page.handle != 'partner-widget' %}
-  <footer class="recurpay-footer">
-    <div class="footer-top">
 
-      <div class="footer-col footer-brand">
-        <div class="brand_name_with_logo">
-          {% if section.settings.logo %}
-            {% comment %} <img src="{{ section.settings.logo | img_url: '160x' }}" alt="Logo"> {% endcomment %}
-            {{ section.settings.logo | image_url: height: 42 | image_tag }}
-          {% endif %}
+<footer class="recurpay-footer">
+  <div class="footer-top">
 
-        {% comment %} <h3>Recurpay</h3> {% endcomment %}
-        </div>
-        <p>{{ section.settings.description }}</p>
+    <div class="footer-col footer-brand">
+      <div class="brand_name_with_logo">
+        {% if section.settings.logo %}
+          {% comment %} <img src="{{ section.settings.logo | img_url: '160x' }}" alt="Logo"> {% endcomment %}
+          {{ section.settings.logo | image_url: width: 60 | image_tag }}
+        {% endif %}
 
-        <div class="social-icons">
-          {% if section.settings.twitter %}
-            <a target="_blank" href="{{ section.settings.twitter }}">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-twitter-x"
-                viewBox="0 0 16 16">
-                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-              </svg>
-            </a>
-          {% endif %}
-          {% if section.settings.linkedin %}
-            <a target="_blank" href="{{ section.settings.linkedin }}">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect
-                  width="4"
-                  height="12"
-                  x="2"
-                  y="9" /><circle
-                  cx="4"
-                  cy="4"
-                  r="2" /></svg>
-            </a>
-          {% endif %}
-          {% if section.settings.instagram %}
-            <a target="_blank" href="{{ section.settings.instagram }}">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-instagram-icon lucide-instagram"><rect
-                  width="20"
-                  height="20"
-                  x="2"
-                  y="2"
-                  rx="5"
-                  ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line
-                  x1="17.5"
-                  x2="17.51"
-                  y1="6.5"
-                  y2="6.5" /></svg>
-            </a>
-          {% endif %}
-          {% if section.settings.youtube %}
-            <a target="_blank" href="{{ section.settings.youtube }}">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-youtube-icon lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
-            </a>
-          {% endif %}
-        </div>
+      {% comment %} <h3>Recurpay</h3> {% endcomment %}
       </div>
+      <p>{{ section.settings.description }}</p>
 
-      {% for link in section.settings.menu_list.links %}
-        <div class="footer-col">
-          <h4>{{ link.title }}</h4>
-          <ul>
-            {% for item in link.links %}
-              <li>
-                <a target="_blank" href="{{ item.url }}">{{ item.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endfor %}
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        {% if section.settings.email != blank %}
-          <p>
+      <div class="social-icons">
+        {% if section.settings.twitter %}
+          <a target="_blank" href="{{ section.settings.twitter }}">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-twitter-x"
+              viewBox="0 0 16 16">
+              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+            </svg>
+          </a>
+        {% endif %}
+        {% if section.settings.linkedin %}
+          <a target="_blank" href="{{ section.settings.linkedin }}">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect
+              class="lucide lucide-linkedin-icon lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect
+                width="4"
+                height="12"
                 x="2"
-                y="4"
+                y="9" /><circle
+                cx="4"
+                cy="4"
+                r="2" /></svg>
+          </a>
+        {% endif %}
+        {% if section.settings.instagram %}
+          <a target="_blank" href="{{ section.settings.instagram }}">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-instagram-icon lucide-instagram"><rect
                 width="20"
-                height="16"
-                rx="2" /></svg>
-            {{ section.settings.email }}</p>
+                height="20"
+                x="2"
+                y="2"
+                rx="5"
+                ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line
+                x1="17.5"
+                x2="17.51"
+                y1="6.5"
+                y2="6.5" /></svg>
+          </a>
         {% endif %}
-        {% if section.settings.phone != blank %}
-          <p>
+        {% if section.settings.youtube %}
+          <a target="_blank" href="{{ section.settings.youtube }}">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
-            {{ section.settings.phone }}</p>
-        {% endif %}
-        {% if section.settings.address != blank %}
-          <p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle
-                cx="12"
-                cy="10"
-                r="3" /></svg>
-            {{ section.settings.address }}</p>
-        {% endif %}
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>{{ section.settings.copyright }}</p>
-      <div class="legal-links">
-        {% if section.settings.privacy %}
-          <a href="{{ section.settings.privacy }}">Privacy Policy</a>
-        {% endif %}
-        {% if section.settings.terms %}
-          <a href="{{ section.settings.terms }}">Terms of Service</a>
-        {% endif %}
-        {% if section.settings.cookies %}
-          <a href="{{ section.settings.cookies }}">Cookie Policy</a>
+              class="lucide lucide-youtube-icon lucide-youtube"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" /></svg>
+          </a>
         {% endif %}
       </div>
     </div>
-  </footer>
-{% endif %}
+
+    {% for link in section.settings.menu_list.links %}
+      <div class="footer-col">
+        <h4>{{ link.title }}</h4>
+        <ul>
+          {% for item in link.links %}
+            <li>
+              <a target="_blank" href="{{ item.url }}">{{ item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      {% if section.settings.email != blank %}
+        <p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect
+              x="2"
+              y="4"
+              width="20"
+              height="16"
+              rx="2" /></svg>
+          {{ section.settings.email }}</p>
+      {% endif %}
+      {% if section.settings.phone != blank %}
+        <p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-phone-icon lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
+          {{ section.settings.phone }}</p>
+      {% endif %}
+      {% if section.settings.address != blank %}
+        <p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle
+              cx="12"
+              cy="10"
+              r="3" /></svg>
+          {{ section.settings.address }}</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>{{ section.settings.copyright }}</p>
+    <div class="legal-links">
+      {% if section.settings.privacy %}
+        <a href="{{ section.settings.privacy }}">Privacy Policy</a>
+      {% endif %}
+      {% if section.settings.terms %}
+        <a href="{{ section.settings.terms }}">Terms of Service</a>
+      {% endif %}
+      {% if section.settings.cookies %}
+        <a href="{{ section.settings.cookies }}">Cookie Policy</a>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+
 
 {% schema %}
   {
