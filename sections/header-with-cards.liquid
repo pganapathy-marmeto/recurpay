@@ -76,9 +76,7 @@
     overflow-y: auto;
   }
   .modal-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    display: block;
     background: none;
     border: none;
     font-size: 26px;
@@ -181,8 +179,6 @@
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    margin-inline: auto;
-    margin-bottom: 8px;
   }
 
   .modal h3 {
@@ -221,6 +217,12 @@
   }
   .section-container {
     max-width: 1200px;
+  }
+  .modal_header_wrapper {
+    display: flex;
+    padding: 20px 32px 16px;
+    align-items: center;
+    justify-content: space-between;
   }
   @media (max-width: 768px) {
     .features-grid {
@@ -269,9 +271,6 @@
         <div class="modal-overlay" id="modal-{{ block.id }}">
           <div class="modal">
             <div class="modal_header_wrapper">
-              sadljvasdvasd
- 
-              workinggggasjdgasdjgajsd
               {% if block.settings.modal_icon != blank %}
                 <div class="modal-icon__wrapper">
                   {{ block.settings.modal_icon }}
