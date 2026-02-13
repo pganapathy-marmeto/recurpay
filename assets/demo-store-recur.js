@@ -1,0 +1,1 @@
+window.recur = 'preview-theme';

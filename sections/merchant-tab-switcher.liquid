@@ -54,7 +54,8 @@
   }
   .content__wrapper {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    align-items: center;
   }
   .button_tab,
   .button_demo,
@@ -71,6 +72,26 @@
     text-decoration: none;
   }
 
+  .button_demo {
+    background: #2F7F6A;
+    color: white;
+  }
+
+  .live_chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid #00000014;
+    color: #6B7280;
+    background: transparent;
+  }
+
   .redirect,
   .button_demo {
     display: flex;
@@ -78,11 +99,14 @@
     gap: 8px;
   }
 
-  .active_tab,
-  .button_demo {
-    background-color: rgb(5, 150, 105);
-    color: white;
-  }
+
+  /*
+   .active_tab,
+   .button_demo {
+   background-color: rgb(5, 150, 105);
+   color: white;
+   }
+*/
 
   .header_content {
     display: flex;
@@ -91,18 +115,20 @@
     gap: 12px;
   }
   .sidebar__container {
+    padding: 28px 24px 24px;
+    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.1), transparent 55%), #FBFBFC;
     position: fixed;
     top: 58px;
-    right: 0;
+    left: 0;
     bottom: 0;
-    width: 320px;
+    overflow-y: auto;
+    width: 400px;
     background-color: rgb(255, 255, 255);
     border-left: 1px solid rgb(229, 231, 235);
     z-index: 90;
     transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
   .sidebar__container.collapsed {
     right: -320px;
@@ -138,8 +164,11 @@
     display: flex;
   }
   .sidebar__header {
-    padding: 20px 20px 16px;
-    border-bottom: 1px solid rgb(243, 244, 246);
+    padding: 16px 14px;
+    border-radius: 16px;
+    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.08), transparent 55%);
+    border: 1px solid #00000014;
+    margin-bottom: 20px;
   }
   .header_title {
     display: flex;
@@ -148,11 +177,19 @@
     margin-bottom: 4px;
   }
   .header_title span {
-    font-size: 12px;
-    font-weight: 600;
-    color: rgb(5, 150, 105);
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    color: #6B7280;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #00000014;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
   }
   .header_title button {
     width: 24px;
@@ -173,17 +210,17 @@
     transform: rotate(180deg);
   }
   .header_content__container h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(17, 24, 39);
-    margin: 0 0 2px;
-    line-height: 1.3;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 10px;
+    margin-bottom: 4px;
   }
   .header_content__container p {
-    font-size: 13px;
-    color: rgb(107, 114, 128);
-    margin: 0;
-    line-height: 1.4;
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 20px;
+    margin-top: 0;
   }
   .header_content a {
     font-size: 13px;
@@ -197,8 +234,6 @@
   }
   .sidebar__content {
     flex: 1 1 0;
-    overflow-y: auto;
-    padding: 12px 16px;
   }
   .sidebar__content-container {
     background-color: transparent;
@@ -209,18 +244,16 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 70px;
   }
   .sidebar__content-wrapper {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: transparent;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 4px;
-    cursor: pointer;
-    transition: 0.15s;
-    border: 1px dashed rgba(148, 163, 184, 0.4);
+    border-radius: 16px;
+    border: 1px solid #00000014;
+    padding: 12px 14px;
+    background: white;
   }
   .sidebar__content-wrapper:hover {
     background: linear-gradient(135deg, rgba(15,157,88,0.06), rgba(15,157,88,0));
@@ -230,15 +263,14 @@
     display: none;
   }
   .image_container {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #eeeeee;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #FBFBFC;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 18px;
   }
 
   .content_container {
@@ -251,14 +283,15 @@
   .content_container h4 {
     font-size: 14px;
     font-weight: 600;
-    color: rgb(17, 24, 39);
-    margin: 0 0 4px;
+    color: #111827;
+    white-space: nowrap;
+    margin-block: 0;
   }
   .content_container p {
     font-size: 13px;
-    color: rgb(107, 114, 128);
-    margin: 0 0 10px;
-    line-height: 1.4;
+    color: #6B7280;
+    line-height: 1.5;
+    margin-block: 0;
   }
   .content_tag_with_link {
     display: flex;
@@ -339,7 +372,7 @@
     flex-wrap: nowrap;
     gap: 0;
   }
-  .header__container.sidebar-collapsed .footer__container {
+  .header__container .footer__container {
     right: 0;
   }
   .footer_paginate_wrapper {
@@ -364,7 +397,7 @@
   }
   .paginate_dot.active {
     width: 24px;
-    background-color: rgb(5, 150, 105);
+    background-color: #0F172A;
   }
   .container_of_next_preview {
     display: flex;
@@ -374,7 +407,7 @@
     justify-content: flex-end;
   }
   .show_guide {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 6px;
     padding: 10px 16px;
@@ -437,7 +470,7 @@
     justify-content: space-between;
     flex: 1 1 auto;
     overflow: hidden;
-    padding-right: 320px;
+    padding-left: 400px;
     transition: padding-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .header__container.sidebar-collapsed .tab__content__container {
@@ -522,19 +555,78 @@
     text-align: center;
   }
 
-  .button_tab {
+  /* Stepper-style tabs in the merchant tab switcher */
+  .merchant_tab_switcher_wrapper .content__wrapper {
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  }
+
+  .merchant_tab_switcher_wrapper .button_tab {
     position: relative;
+    align-items: center;
+    padding: 0;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: none;
   }
-  .button_tab:not(:last-child)::before {
-    content: "";
-    width: 12px;
-    display: block;
-    right: 0;
-    position: absolute;
-    transform: translateX(100%);
-    border: 1px solid #e2e2e2;
-    top: 50%;
+
+  /* Number badge */
+  .stage_number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
   }
+
+  .stage__container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stage__container.active_tab {
+    background: #0F172A;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .stage__container.active_tab .button_tab {
+    color: white;
+  }
+
+  /* Connector line between steps */
+  .button_connector {
+    width: 28px;
+    height: 1px;
+    background-color: #e5e7eb;
+  }
+
+  /* Active tab styling */
+  .merchant_tab_switcher_wrapper .button_tab.active_tab {
+    background-color: #020617;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  }
+
+  .merchant_tab_switcher_wrapper .button_tab.active_tab::before {
+    background-color: #ffffff;
+    color: #020617;
+    border-color: transparent;
+  }
+
   .demo-guide-card {
     display: flex;
     flex-direction: row-reverse;
@@ -736,7 +828,7 @@
 
   .content_container_wrapper {
     display: flex;
-    gap: 10px;
+    gap: 12px;
   }
 
   .driver-popover {
@@ -753,27 +845,57 @@
 {% endif %}
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
-    <div class="image_with_logo__wrapper">
-      {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
-      <h2 class="company_name">{{ section.settings.company_name }}</h2>
-      <span>{{ section.settings.tag_text }}</span>
-    </div>
+    {% comment %} <div class="image_with_logo__wrapper">
+                              {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
+                              <h2 class="company_name">{{ section.settings.company_name }}</h2>
+                              <span>{{ section.settings.tag_text }}</span>
+                    </div> {% endcomment %}
+    <a class=" redirect" href="{{ section.settings.redirect_link }}">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+      {{ section.settings.redirect_text }}</a>
     <div class="content__wrapper">
       {% for tab in merchant_tabs %}
         {% case tab %}
           {% when 'widget' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="widget">{{ section.settings.button_one }}</button>
+            <div class="stage__container {% if forloop.first %} active_tab{% endif %}">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab" data-tab-type="widget">{{ section.settings.button_one }}</button>
+            </div>
+            <div class="button_connector"></div>
           {% when 'cart_upsell' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+            </div>
+            <div class="button_connector"></div>
           {% when 'portal' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+            </div>
+            {% if forloop.last == false %}
+              <div class="button_connector"></div>
+            {% endif %}
           {% when 'support_resources' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
+            </div>
         {% endcase %}
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <a class=" redirect" href="{{ section.settings.redirect_link }}">
+      <button class="live_chat">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -784,8 +906,8 @@
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
-        {{ section.settings.redirect_text }}</a>
+          class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {{ section.settings.live_chat_text }}</button>
       <a
         target="_blank"
         class="button_demo"
@@ -811,8 +933,82 @@
     </div>
   </div>
   <div class="tab__content__container">
+    <div class="sidebar__container">
+      <div class="sidebar__header">
+        <div class="header_title">
+          <span>{{ section.settings.sidebar_header_title }}</span>
+        </div>
+        <div class="header_content">
+          <div class="header_content__container">
+            <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
+            <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
+          </div>
+          {% comment %} <a
+            target="_blank"
+            href="{{ section.settings.doc_url }}"
+            data-sidebar-doc-url>View docs</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="sidebar__content">
+        <div class="sidebar__content-container">
+          {% for block in section.blocks %}
+            <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
+              <div class="content_container">
+                <div class="content_container_wrapper">
+                  <div class="image_container">
+                    {{ block.settings.feature_image }}
+                  </div>
+                  <div class="content_text_wrapper">
+                    <h4>{{ block.settings.content_header }}</h4>
+                    <p>{{ block.settings.content_description }}</p>
+                  </div>
+                </div>
+                <div class="content_tag_with_link">
+                  <div class="tag_container">
+                    {% if block.settings.tag_text_one != blank %}
+                      <span>{{ block.settings.tag_text_one }}</span>
+                    {% endif %}
+                    {% if block.settings.tag_text_two != blank %}
+                      <span>{{ block.settings.tag_text_two }}</span>
+                    {% endif %}
+                  </div>
+                  {% if block.settings.example_url != blank %}
+                    <a href="{{ block.settings.example_url }}">
+                      {{ block.settings.example_text }}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% comment %} <div class="sidebar__footer">
+        <a
+          href="https://apps.shopify.com/recurpay-subscriptions"
+          target="_blank"
+          class="button_trial">Start 30 day trial</a>
+        <p>Or
+          <a
+            href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+            target="_blank"
+            class="button_call">talk to an expert and book a quick call</a>
+        </p>
+      </div> {% endcomment %}
+    </div>
     <div class="main_content">
-      <section class="tagline-heading-section" id="tagline-heading-section">
+      {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
         <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
 
           <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
@@ -840,7 +1036,7 @@
           {% endif %}
 
         </div>
-      </section>
+      </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -967,22 +1163,22 @@
                 <!-- Header -->
                 <div class="demo-guide-header">
                   {% comment %} <div class="demo-guide-profile">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {% if section.settings.avatar != blank %}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="demo-avatar-container">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ section.settings.avatar }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    {% endif %}
+                                                            {% if section.settings.avatar != blank %}
+                                                            <div class="demo-avatar-container">
+                                                            {{ section.settings.avatar }}
+                                                            </div>
+                                                            {% endif %}
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="demo-guide-name">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ section.settings.name }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div class="demo-guide-subtitle">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ section.settings.subtitle }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div> {% endcomment %}
+                                                            <div>
+                                                            <div class="demo-guide-name">
+                                                            {{ section.settings.name }}
+                                                            </div>
+                                                            <div class="demo-guide-subtitle">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                                            {{ section.settings.subtitle }}
+                                                            </div>
+                                                            </div>
+                                                      </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -1026,27 +1222,27 @@
 
               <!-- Footer -->
               {% comment %} <div class="demo-guide-footer">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-steps">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="guide_pagination_dots">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {% for tab in merchant_tabs %}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="dots"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {% endfor %}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+                                  <div class="demo-guide-steps">
+                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                  <div class="guide_pagination_dots">
+                                  {% for tab in merchant_tabs %}
+                                  <div class="dots"></div>
+                                  {% endfor %}
+                                  </div>
+                                  </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div class="demo-guide-actions">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="demo-guide-back">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {{ section.settings.back_text }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </button>
+                                  <div class="demo-guide-actions">
+                                  <button type="button" class="demo-guide-back">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                  {{ section.settings.back_text }}
+                                  </button>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <button type="button" class="demo-guide-finish">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {{ section.settings.finish_text }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> {% endcomment %}
+                                  <button type="button" class="demo-guide-finish">
+                                  {{ section.settings.finish_text }}
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                  </button>
+                                  </div>
+                              </div> {% endcomment %}
 
               </div>
             </div>
@@ -1076,93 +1272,6 @@
               class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </button>
         </div>
-      </div>
-    </div>
-    <div class="sidebar__container">
-      <div class="sidebar__header">
-        <div class="header_title">
-          <span>{{ section.settings.sidebar_header_title }}</span>
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-          </button>
-        </div>
-        <div class="header_content">
-          <div class="header_content__container">
-            <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
-            <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
-          </div>
-          <a
-            target="_blank"
-            href="{{ section.settings.doc_url }}"
-            data-sidebar-doc-url>View docs</a>
-        </div>
-      </div>
-      <div class="sidebar__content">
-        <div class="sidebar__content-container">
-          {% for block in section.blocks %}
-            <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
-              <div class="content_container">
-                <div class="content_container_wrapper">
-                  <div class="image_container">
-                    {{ block.settings.feature_image }}
-                  </div>
-                  <div class="content_text_wrapper">
-                    <h4>{{ block.settings.content_header }}</h4>
-                    <p>{{ block.settings.content_description }}</p>
-                  </div>
-                </div>
-                <div class="content_tag_with_link">
-                  <div class="tag_container">
-                    {% if block.settings.tag_text_one != blank %}
-                      <span>{{ block.settings.tag_text_one }}</span>
-                    {% endif %}
-                    {% if block.settings.tag_text_two != blank %}
-                      <span>{{ block.settings.tag_text_two }}</span>
-                    {% endif %}
-                  </div>
-                  {% if block.settings.example_url != blank %}
-                    <a href="{{ block.settings.example_url }}">
-                      {{ block.settings.example_text }}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-                    </a>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="sidebar__footer">
-        <a
-          href="https://apps.shopify.com/recurpay-subscriptions"
-          target="_blank"
-          class="button_trial">Start 30 day trial</a>
-        <p>Or
-          <a
-            href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
-            target="_blank"
-            class="button_call">talk to an expert and book a quick call</a>
-        </p>
       </div>
     </div>
     <button class="sidebar-restore-button" aria-label="Restore sidebar">
@@ -1296,9 +1405,6 @@
     const tabOrder = {{ merchant_tabs | json }};
     let currentTabIndex = 0;
     let isOnCompletion = false;
-    
-    // Content cache for prefetched tab content
-    const contentCache = {};
     
     // Portal authentication data
       {% assign customer_id = 5959212957931 %}
@@ -1586,6 +1692,7 @@
               console.log(response.json());
             })
             .then(() => {
+              loadTabContent('cart_upsell');
               // Cart updated, now move user to cart_upsell tab
               goToCartUpsellFromWidget();
             })
@@ -1608,51 +1715,6 @@
       if (!mainContentContainer) return;
 
       const config = tabConfig[tabType];
-      
-      // Check if content is already cached
-      if (contentCache[tabType]) {
-        // Use cached content - instant rendering
-        mainContentContainer.innerHTML = '';
-        const cachedContent = contentCache[tabType].cloneNode(true);
-        mainContentContainer.appendChild(cachedContent);
-        
-        // Execute scripts after content is appended
-        executeScripts(mainContentContainer);
-        
-        // Initialize recurpay when widget tab content is loaded using setInterval
-        if (tabType === 'widget') {
-          let attempts = 0;
-          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
-          const initInterval = setInterval(() => {
-            attempts++;
-            if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
-              recurpay.init(window.recurpayScript);
-              clearInterval(initInterval);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(initInterval);
-              console.warn('recurpay.init() not available after maximum attempts');
-            }
-          }, 100);
-        }
-        
-        // Initialize recurpayCartV2 when cart upsell tab content is loaded using setInterval
-        if (tabType === 'cart_upsell') {
-          let attempts = 0;
-          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
-          const initInterval = setInterval(() => {
-            attempts++;
-            if (typeof recurpayCartV2 !== 'undefined' && typeof recurpayCartV2.initScript === 'function' && window.recurpayScript) {
-              recurpayCartV2.initScript(window.recurpayScript);
-              console.log('recurpayCartV2.initScript() ran');
-              clearInterval(initInterval);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(initInterval);
-              console.warn('recurpayCartV2.initScript() not available after maximum attempts');
-            }
-          }, 100);
-        }
-        return;
-      }
       
       // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
       if (tabType === 'portal') {
@@ -1693,11 +1755,6 @@
                 ></iframe>
               </div>
             `;
-            // Cache the portal content
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = portalHTML;
-            contentCache[tabType] = tempDiv.firstElementChild;
-            
             mainContentContainer.innerHTML = portalHTML;
           } else {
             throw new Error('No redirection URL in response');
@@ -1730,34 +1787,31 @@
           const parser = new DOMParser();
           const parsed = parser.parseFromString(htmlString, 'text/html');
           
-          // Create a container to hold the cached content
-          const cacheContainer = document.createElement('div');
+          // Create a container to hold the content
+          const contentContainer = document.createElement('div');
           
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
-          const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+          const sections = parsed.querySelectorAll('#MainContent');
           
           // If no sections found, try to find main content area
           if (sections.length === 0) {
             const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
             if (mainContent) {
-              // Clone and append all child nodes to cache container
+              // Clone and append all child nodes to content container
               Array.from(mainContent.children).forEach(child => {
-                cacheContainer.appendChild(child.cloneNode(true));
+                contentContainer.appendChild(child.cloneNode(true));
               });
             }
           } else {
             sections.forEach(section => {
-              cacheContainer.appendChild(section.cloneNode(true));
+              contentContainer.appendChild(section.cloneNode(true));
             });
           }
           
-          // Cache the content
-          contentCache[tabType] = cacheContainer;
-          
           // Clear loading message and render
           mainContentContainer.innerHTML = '';
-          mainContentContainer.appendChild(cacheContainer.cloneNode(true));
+          mainContentContainer.appendChild(contentContainer);
 
           // Execute scripts after content is appended
           executeScripts(mainContentContainer);
@@ -1815,9 +1869,10 @@
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
-          btn.classList.add('active_tab');
+          btn.closet
+          btn.closest('.stage__container').classList.add('active_tab');
         } else {
-          btn.classList.remove('active_tab');
+          btn.closest('.stage__container').classList.remove('active_tab');
         }
       });
   
@@ -2300,151 +2355,6 @@
       }
     },500)
   }
-    // Prefetch all tab content in parallel for instant tab switching
-    function prefetchAllTabs() {
-      const prefetchPromises = [];
-      
-      // Prefetch all regular tabs
-      tabOrder.forEach(tabType => {
-        const config = tabConfig[tabType];
-        if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
-          return; // Skip tabs without content URLs
-        }
-        
-        // Skip if already cached
-        if (contentCache[tabType]) {
-          return;
-        }
-        
-        const prefetchPromise = fetch(config.contentUrl)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then(htmlString => {
-            const parser = new DOMParser();
-            const parsed = parser.parseFromString(htmlString, 'text/html');
-            
-            // Create a container to hold the cached content
-            const cacheContainer = document.createElement('div');
-            
-            // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
-            
-            if (sections.length === 0) {
-              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
-              if (mainContent) {
-                Array.from(mainContent.children).forEach(child => {
-                  cacheContainer.appendChild(child.cloneNode(true));
-                });
-              }
-            } else {
-              sections.forEach(section => {
-                cacheContainer.appendChild(section.cloneNode(true));
-              });
-            }
-            
-            // Cache the content
-            contentCache[tabType] = cacheContainer;
-            console.log(`Prefetched content for tab: ${tabType}`);
-          })
-          .catch((error) => {
-            console.log(`Error prefetching content for ${tabType}:`, error);
-          });
-        
-        prefetchPromises.push(prefetchPromise);
-      });
-      
-      // Prefetch portal content
-      if (portalAuthData && !contentCache['portal']) {
-        const recurpaySubdomain = 'recurpay-subscriptions';
-        const apiVersion = '2024-07';
-        const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
-        
-        const portalPromise = fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            customer_hash: portalAuthData.customerHash
-          })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.data.redirection_url) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = `
-              <div style="position: relative; width: 100%; height: 100%; min-height: 500px;">
-                <iframe
-                  src="${data.data.redirection_url}"
-                  style="border: 0; width: 100%; height: 100%;position: relative; z-index: 101;"
-                ></iframe>
-              </div>
-            `;
-            contentCache['portal'] = tempDiv.firstElementChild;
-            console.log('Prefetched content for tab: portal');
-          }
-        })
-        .catch((error) => {
-          console.log('Error prefetching portal content:', error);
-        });
-        
-        prefetchPromises.push(portalPromise);
-      }
-      
-      // Prefetch completion content
-      const completionConfig = tabConfig['completion'];
-      if (completionConfig && completionConfig.contentUrl && completionConfig.contentUrl.trim() !== '' && !contentCache['completion']) {
-        const completionPromise = fetch(completionConfig.contentUrl)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then(htmlString => {
-            const parser = new DOMParser();
-            const parsed = parser.parseFromString(htmlString, 'text/html');
-            
-            const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
-            
-            if (sections.length === 0) {
-              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
-              if (mainContent) {
-                Array.from(mainContent.children).forEach(child => {
-                  cacheContainer.appendChild(child.cloneNode(true));
-                });
-              }
-            } else {
-              sections.forEach(section => {
-                cacheContainer.appendChild(section.cloneNode(true));
-              });
-            }
-            
-            contentCache['completion'] = cacheContainer;
-            console.log('Prefetched content for tab: completion');
-          })
-          .catch((error) => {
-            console.log('Error prefetching completion content:', error);
-          });
-        
-        prefetchPromises.push(completionPromise);
-      }
-      
-      // Wait for all prefetches to complete
-      Promise.allSettled(prefetchPromises).then(() => {
-        console.log('All tab content prefetched and cached');
-      });
-    }
   
     // Initialize: set up the first tab
     const activeButton = document.querySelector('.button_tab.active_tab');
@@ -2549,14 +2459,13 @@
         }
       }, 100);
     })();
-    
-    // Prefetch all tab content in the background for instant switching
-    // Start prefetching after a short delay to not interfere with initial load
-    setTimeout(() => {
-      prefetchAllTabs();
-    }, 1000);
   })();
   document.addEventListener('DOMContentLoaded', () => {
+    const live_chat_container = document.querySelector(".live_chat");
+    live_chat_container.addEventListener("click",(event)=>{
+      event.preventDefault();
+      window.Intercom('show');
+    })
     refreshDriver();
   });
 </script>
@@ -2614,6 +2523,11 @@
         "id": "redirect_text",
         "label": "Redirect text",
         "default": "Exit"
+      }, {
+        "type": "text",
+        "id": "live_chat_text",
+        "label": "Live chat text",
+        "default": "Live chat"
       }, {
         "type": "text",
         "id": "demo",
