@@ -74,3 +74,9 @@
     z-index: 1;
   }
 }
+
+/* custom css */
+.featured-product:not(.product--no-media)>.product__info-wrapper {
+  padding-left: 40px;
+  padding-right: 0;
+}

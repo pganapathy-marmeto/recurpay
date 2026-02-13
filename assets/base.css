@@ -3602,3 +3602,48 @@ nav .list-menu li:last-child a#HeaderMenu-book-1-1-demo.header__menu-item.header
 #qab_container {
   display: none !important;
 }
+
+.title-wrapper-with-link .title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.title, .title-wrapper-with-link {
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+.cart-items thead th {
+  font-size: 12px;
+  color: #6b7280;
+}
+.global-media-settings img {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+}
+.quantity, .quantity:before, .quantity:after{
+  border-radius: 999px;
+  border: none;
+}
+.quantity:after {
+  content: none;
+}
+.quantity {
+  width: 100px;
+  min-height: 35px;
+  border: 1px solid #00000014;
+}
+.quantity__button {
+  flex-shrink: initial;
+  padding: 6px 10px;
+  color: #6B7280;
+  font-size: 14px;
+}
+.quantity__input {
+  font-size: 14px;
+}
+
+.underlined-link {
+  display: none;
+}

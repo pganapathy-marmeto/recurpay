@@ -78,7 +78,7 @@
 {% endstyle %}
 
 <section class="completion-cta">
-  <div class="completion-cta__wrapper">
+  {% comment %} <div class="completion-cta__wrapper">
 
     {% if section.settings.icon != blank %}
       <div class="completion-cta__icon">
@@ -112,7 +112,40 @@
       {% endif %}
     </div>
 
-  </div>
+  </div> {% endcomment %}
+  <div class="hero-content">
+      <div class="hero-badge">
+      {{ section.settings.icon }}  
+      {{ section.settings.tag_text }}
+      </div>
+
+      <h1 class="hero-title">
+        {{ section.settings.heading }}
+      </h1>
+      
+      <p class="hero-subtitle">
+        {{ section.settings.description }}
+      </p>
+
+      <div class="cta-container">
+        <a href="{{ section.settings.primary_button_link }}" class="cta-primary" data-media-type="banani-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>  
+          {{ section.settings.primary_button_text }}
+          </a>
+        
+        <div class="cta-secondary-group">
+          <a href="{{ section.settings.secondary_button_link }}" class="cta-secondary" data-media-type="banani-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>  
+          {{section.settings.secondary_button_text}}
+          </a>
+          <button class="cta-chat" data-media-type="banani-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3d8f70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>  
+          Live chat
+          </button>
+        </div>
+      </div>
+
+    </div>
 </section>
 
 
@@ -121,22 +154,26 @@
     "name": "Completion CTA",
     "settings": [
       {
-        "type": "text",
+        "type": "html",
         "id": "icon",
-        "label": "Top Icon (Emoji or Text)",
-        "default": "🎉"
+        "label": "SVG"
       },
       {
         "type": "text",
+        "id": "tag_text",
+        "label": "tag text",
+        "default": "our Completed Successfully"
+      },{
+        "type": "richtext",
         "id": "heading",
-        "label": "Heading",
-        "default": "You've Completed the Tour!"
+        "label": "heading",
+        "default": "<p>Ready to transform your<br>subscription experience?</p>"
       },
       {
         "type": "textarea",
         "id": "description",
         "label": "Description",
-        "default": "Ready to transform your store with powerful subscription features?"
+        "default": "You've seen how Recurpay helps you capture more revenue and retain customers.Join 6,500+ merchants growing their business with us."
       },
       {
         "type": "text",

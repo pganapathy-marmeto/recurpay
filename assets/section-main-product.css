@@ -312,7 +312,8 @@ fieldset.product-form__input .form__label {
 /* Product info */
 
 .product__info-container > * + * {
-  margin: 1.5rem 0;
+  /* margin: 1.5rem 0; */
+  margin: 20px 0;
 }
 
 .product__info-container iframe {
@@ -1446,7 +1447,8 @@ a.product__text {
 
   .product-media-container.constrain-height {
     --viewport-offset: 170px;
-    --constrained-min-height: 500px;
+    /* --constrained-min-height: 500px; */
+    --constrained-min-height: 900px;
   }
 
   .product-media-container.media-fit-cover,
@@ -1597,4 +1599,19 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+.product__title.h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.product_ka_featured_image img {
+  border-radius: 8px;
+}
+
+.product-form__input input[type=radio]+label {
+  padding: 8px 24px;
+  border: 1px solid #00000014;
 }

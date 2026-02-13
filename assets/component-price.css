@@ -100,3 +100,8 @@
   text-transform: uppercase;
   color: rgba(var(--color-foreground), 0.7);
 }
+.price {
+  font-size: 14px;
+  color: #0F172A;
+  font-weight: 500;
+}

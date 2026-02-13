@@ -254,6 +254,7 @@
     border: 1px solid #00000014;
     padding: 12px 14px;
     background: white;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
   }
   .sidebar__content-wrapper:hover {
     background: linear-gradient(135deg, rgba(15,157,88,0.06), rgba(15,157,88,0));
@@ -374,6 +375,7 @@
   }
   .header__container .footer__container {
     right: 0;
+    height: 72px;
   }
   .footer_paginate_wrapper {
     display: flex;
@@ -385,8 +387,12 @@
   .paginate_container {
     display: flex;
     align-items: center;
+    font-size: 14px;
     gap: 8px;
   }
+    [data-step-indicator], [data-step-name] {
+      font-size: 14px;
+    }
   .paginate_dot {
     width: 8px;
     display: block !important;
@@ -402,7 +408,7 @@
   .container_of_next_preview {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     width: auto;
     justify-content: flex-end;
   }
@@ -425,8 +431,8 @@
   .previous {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 20px;
+    gap: 8px;
+    padding: 8px 16px;
     background-color: rgb(249, 250, 251);
     color: rgb(156, 163, 175);
     border: 1px solid rgb(229, 231, 235);
@@ -449,8 +455,8 @@
   .next {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
+    gap: 8px;
+    padding: 8px 18px;
     background-color: rgb(5, 150, 105);
     color: rgb(255, 255, 255);
     border: none;
@@ -564,6 +570,7 @@
   }
 
   .merchant_tab_switcher_wrapper .button_tab {
+    font-family: inherit;
     position: relative;
     align-items: center;
     padding: 0;
@@ -571,7 +578,7 @@
     border: none;
     background: transparent;
     color: #6b7280;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     box-shadow: none;
   }
@@ -581,8 +588,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     border-radius: 999px;
     border: 1px solid #e5e7eb;
     background: #ffffff;
@@ -610,8 +617,9 @@
   /* Connector line between steps */
   .button_connector {
     width: 28px;
-    height: 1px;
-    background-color: #e5e7eb;
+    height: 2px;
+    background: #00000014;
+    border-radius: 999px;
   }
 
   /* Active tab styling */
@@ -751,8 +759,8 @@
     width: 8px;
     height: 8px;
     background: white;
-    transform: translateX(-50%) rotate(45deg);
-    left: 0;
+    transform: translateX(50%) rotate(45deg);
+    right: 0;
     top: 10px;
     display: block;
     position: absolute;
@@ -819,7 +827,7 @@
   }
 
   .header__container.completion-active .tab__content__container {
-    padding-right: 0;
+    padding-left: 0;
   }
 
   .header__container.completion-active .footer__container {
@@ -1250,8 +1258,8 @@
           <button class="previous disabled">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1261,8 +1269,8 @@
               class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>Previous</button>
           <button class="next">Next<svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

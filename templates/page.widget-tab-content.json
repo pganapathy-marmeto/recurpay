@@ -20,13 +20,6 @@
     "featured_product_jcp3Xg": {
       "type": "featured-product",
       "blocks": {
-        "text_tKBX4D": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title_dKWUNH": {
           "type": "title",
           "settings": {
@@ -43,16 +36,16 @@
             "picker_type": "button"
           }
         },
-        "quantity_selector_FLazUg": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
         "buy_buttons_XQjnUt": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "quantity_selector_FLazUg": {
+          "type": "quantity_selector",
+          "settings": {}
         },
         "share_JXLAcD": {
           "type": "share",
@@ -70,19 +63,18 @@
         }
       },
       "block_order": [
-        "text_tKBX4D",
         "title_dKWUNH",
         "price_QCxfWK",
         "variant_picker_V477jY",
-        "quantity_selector_FLazUg",
         "buy_buttons_XQjnUt",
+        "quantity_selector_FLazUg",
         "share_JXLAcD",
         "preview_JPXtk9"
       ],
       "name": "t:sections.featured-product.presets.name",
       "settings": {
         "product": "chamomile-tea",
-        "color_scheme": "",
+        "color_scheme": "background-1",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
@@ -91,8 +83,8 @@
         "image_zoom": "lightbox",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 24,
+        "padding_bottom": 40
       }
     }
   },
