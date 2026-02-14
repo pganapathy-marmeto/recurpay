@@ -11,9 +11,9 @@
   "current": {
     "logo": "shopify://shop_images/Capture.png",
     "logo_width": 130,
-    "type_header_font": "assistant_n4",
+    "type_header_font": "inter_n6",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "inter_n4",
     "body_scale": 100,
     "page_width": 1400,
     "spacing_sections": 0,
@@ -123,7 +123,7 @@
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
     "cart_type": "notification",
-    "show_vendor": true,
+    "show_vendor": false,
     "show_cart_note": true,
     "cart_drawer_collection": "subscription-types",
     "sections": {

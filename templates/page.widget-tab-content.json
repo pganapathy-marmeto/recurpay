@@ -45,6 +45,7 @@
         },
         "quantity_selector_FLazUg": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "share_JXLAcD": {
@@ -78,9 +79,9 @@
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 24,
