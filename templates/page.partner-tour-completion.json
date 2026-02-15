@@ -21,13 +21,114 @@
       "type": "tour-completion",
       "name": "Completion CTA",
       "settings": {
-        "icon": "🎉",
-        "heading": "You've Completed the Tour!",
+        "icon": "Partnern tour completed",
+        "heading": "<p>You've Completed the Tour!</p>",
         "description": "Ready to transform your store with powerful subscription features?",
         "primary_button_text": "Start 30-Day free trial",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=partner",
         "secondary_button_text": "Book a Demo",
         "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+      }
+    },
+    "testimonial_stack_aqxxQX": {
+      "type": "testimonial-stack",
+      "blocks": {
+        "card_wm6Y7k": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/gempages_575406951106609695-af5e8ec4-1b94-4c97-ab7c-e9bd98fd5791.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        },
+        "card_PLtn38": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        },
+        "card_gXrgyg": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        }
+      },
+      "block_order": [
+        "card_wm6Y7k",
+        "card_PLtn38",
+        "card_gXrgyg"
+      ],
+      "name": "Testimonial Stack",
+      "settings": {}
+    },
+    "stats_footer_WCpDnY": {
+      "type": "stats-footer",
+      "blocks": {
+        "stat_MtEVdb": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_CrnnF8": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_Tzganb": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_ePamXJ": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        }
+      },
+      "block_order": [
+        "stat_MtEVdb",
+        "stat_CrnnF8",
+        "stat_Tzganb",
+        "stat_ePamXJ"
+      ],
+      "name": "Stats Footer",
+      "settings": {
+        "social_proof_label": "Proof of success",
+        "social_proof_heading": "Trusted by merchants worldwide",
+        "badge_icon": "lucide:shield-check",
+        "badge_text": "No setup fees • Cancel anytime"
       }
     },
     "features_grid_QmQfCf": {
@@ -72,6 +173,7 @@
         "feature_ybQqdy",
         "feature_P7jjEa"
       ],
+      "disabled": true,
       "name": "Features Grid",
       "settings": {
         "heading": "Partner Program Benefits",
@@ -116,13 +218,17 @@
         "stat_EPDqfY",
         "stat_4Vt3be"
       ],
+      "disabled": true,
       "name": "Stats Highlight",
       "settings": {
-        "heading": ""
+        "heading": "",
+        "sub_heading": "Cart upsell impact",
+        "tag_text": "FROM LIVE MERCHANTS"
       }
     },
     "testimonial_card_PKPMUB": {
       "type": "testimonial-card",
+      "disabled": true,
       "name": "Testimonial Card",
       "settings": {
         "stars": 5,
@@ -133,13 +239,91 @@
         "back_link_text": "Back to Home",
         "back_link_url": "/"
       }
+    },
+    "content_with_logo_k6b4Vh": {
+      "type": "content-with-logo",
+      "blocks": {
+        "capability_MDqDYi": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_zrTqWE": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_iJN87M": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_YFFG7N": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        }
+      },
+      "block_order": [
+        "capability_MDqDYi",
+        "capability_zrTqWE",
+        "capability_iJN87M",
+        "capability_YFFG7N"
+      ],
+      "name": "Content with Logo",
+      "settings": {}
+    },
+    "partner_resources_JTDYCV": {
+      "type": "partner-resources",
+      "blocks": {
+        "resource_HnpmzG": {
+          "type": "resource",
+          "settings": {}
+        },
+        "resource_E6AHLi": {
+          "type": "resource",
+          "settings": {}
+        },
+        "resource_Tw8FQH": {
+          "type": "resource",
+          "settings": {}
+        },
+        "resource_XBjBqp": {
+          "type": "resource",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "resource_HnpmzG",
+        "resource_E6AHLi",
+        "resource_Tw8FQH",
+        "resource_XBjBqp"
+      ],
+      "name": "Partner Resources",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "tour_completion_FtmeWG",
+    "testimonial_stack_aqxxQX",
+    "stats_footer_WCpDnY",
     "features_grid_QmQfCf",
     "cart_upsell_gRpAxg",
-    "testimonial_card_PKPMUB"
+    "testimonial_card_PKPMUB",
+    "content_with_logo_k6b4Vh",
+    "partner_resources_JTDYCV"
   ]
 }

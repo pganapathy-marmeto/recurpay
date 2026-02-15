@@ -22,12 +22,113 @@
       "name": "Completion CTA",
       "settings": {
         "icon": "Tour Completed Successfully",
-        "heading": "<p>You've Completed the Tour!</p>",
-        "description": "Ready to transform your store with powerful subscription features?",
+        "heading": "<p>Ready to transform your<br/>subscription experience?</p>",
+        "description": "You've seen how Recurpay helps you capture more revenue and retain customers. Join 6,500+ merchants growing their business with us.",
         "primary_button_text": "Start 30-Day free trial",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
         "secondary_button_text": "Book a Demo",
         "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+      }
+    },
+    "testimonial_stack_aqxxQX": {
+      "type": "testimonial-stack",
+      "blocks": {
+        "card_wm6Y7k": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/gempages_575406951106609695-af5e8ec4-1b94-4c97-ab7c-e9bd98fd5791.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        },
+        "card_PLtn38": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        },
+        "card_gXrgyg": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
+            "card-name": "Laura Mendes",
+            "card-rating": 5,
+            "card-title": "Founder, Meadow & Oak",
+            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        }
+      },
+      "block_order": [
+        "card_wm6Y7k",
+        "card_PLtn38",
+        "card_gXrgyg"
+      ],
+      "name": "Testimonial Stack",
+      "settings": {}
+    },
+    "stats_footer_WCpDnY": {
+      "type": "stats-footer",
+      "blocks": {
+        "stat_MtEVdb": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_CrnnF8": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_Tzganb": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        },
+        "stat_ePamXJ": {
+          "type": "stat",
+          "settings": {
+            "stat_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
+            "stat_value": "6,500+",
+            "stat_label": "Active Merchants"
+          }
+        }
+      },
+      "block_order": [
+        "stat_MtEVdb",
+        "stat_CrnnF8",
+        "stat_Tzganb",
+        "stat_ePamXJ"
+      ],
+      "name": "Stats Footer",
+      "settings": {
+        "social_proof_label": "Proof of success",
+        "social_proof_heading": "Trusted by merchants worldwide",
+        "badge_icon": "lucide:shield-check",
+        "badge_text": "No setup fees • Cancel anytime"
       }
     },
     "features_grid_QmQfCf": {
@@ -90,6 +191,7 @@
         "feature_ybQqdy",
         "feature_P7jjEa"
       ],
+      "disabled": true,
       "name": "Features Grid",
       "settings": {
         "heading": "What You Get with Recurpay",
@@ -134,6 +236,7 @@
         "stat_EPDqfY",
         "stat_4Vt3be"
       ],
+      "disabled": true,
       "name": "Stats Highlight",
       "settings": {
         "heading": "",
@@ -143,6 +246,7 @@
     },
     "testimonial_card_PKPMUB": {
       "type": "testimonial-card",
+      "disabled": true,
       "name": "Testimonial Card",
       "settings": {
         "stars": 5,
@@ -158,6 +262,8 @@
   "order": [
     "main",
     "tour_completion_FtmeWG",
+    "testimonial_stack_aqxxQX",
+    "stats_footer_WCpDnY",
     "features_grid_QmQfCf",
     "cart_upsell_gRpAxg",
     "testimonial_card_PKPMUB"
