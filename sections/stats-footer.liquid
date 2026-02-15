@@ -1,0 +1,189 @@
+{% style %}
+  .stats-footer {
+    width: 100%;
+    background: white;
+    border-top: 1px solid #00000014;
+    padding: 32px 0 40px;
+    margin-top: auto;
+    position: relative;
+    z-index: 20;
+  }
+
+  .stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 !important;
+    padding: 0 24px;
+  }
+
+  .social-proof {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #00000014;
+  }
+
+  .social-proof__label {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6B7280;
+    margin-bottom: 4px;
+  }
+
+  .social-proof__heading {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F172A;
+  }
+
+  .social-proof__badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #FBFBFC;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6B7280;
+  }
+
+  .social-proof__badge-icon {
+    font-size: 14px;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px;
+    border-right: 1px solid #00000014;
+  }
+
+  .stat-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: #FBFBFC;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: #0F172A;
+  }
+
+  .stat-val {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .stat-lbl {
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7280;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+{% endstyle %}
+
+<div class="stats-footer">
+    <div class="stats-grid">
+      <div class="social-proof">
+        <div>
+          <div class="social-proof__label">{{ section.settings.social_proof_label }}</div>
+          <div class="social-proof__heading">{{ section.settings.social_proof_heading }}</div>
+        </div>
+        <div class="social-proof__badge">
+          <iconify-icon icon="{{ section.settings.badge_icon }}" class="social-proof__badge-icon"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12l2 2l4-4"></path></g></svg></template></iconify-icon>
+          {{ section.settings.badge_text }}
+        </div>
+      </div>
+
+      {% for block in section.blocks %}
+        <div class="stat-box" {{ block.shopify_attributes }}>
+          <div class="stat-icon-wrapper">
+            {{ block.settings.stat_icon }}
+          </div>
+          <div class="stat-val">{{ block.settings.stat_value }}</div>
+          <div class="stat-lbl">{{ block.settings.stat_label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "social_proof_label",
+      "label": "Social Proof Label",
+      "default": "Proof of success"
+    },
+    {
+      "type": "text",
+      "id": "social_proof_heading",
+      "label": "Social Proof Heading",
+      "default": "Trusted by merchants worldwide"
+    },
+    {
+      "type": "text",
+      "id": "badge_icon",
+      "label": "Badge Icon",
+      "default": "lucide:shield-check",
+      "info": "Enter an Iconify icon name (e.g., lucide:shield-check)"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "No setup fees • Cancel anytime"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "html",
+          "id": "stat_icon",
+          "label": "Stat Icon",
+          "info": "svg icon"
+        },
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Stat Value",
+          "default": "6,500+"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Stat Label",
+          "default": "Active Merchants"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Stats Footer"
+    }
+  ]
+}
+{% endschema %}

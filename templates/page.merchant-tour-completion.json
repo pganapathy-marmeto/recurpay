@@ -21,8 +21,8 @@
       "type": "tour-completion",
       "name": "Completion CTA",
       "settings": {
-        "icon": "🎉",
-        "heading": "You've Completed the Tour!",
+        "icon": "Tour Completed Successfully",
+        "heading": "<p>You've Completed the Tour!</p>",
         "description": "Ready to transform your store with powerful subscription features?",
         "primary_button_text": "Start 30-Day free trial",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
@@ -136,7 +136,9 @@
       ],
       "name": "Stats Highlight",
       "settings": {
-        "heading": ""
+        "heading": "",
+        "sub_heading": "Cart upsell impact",
+        "tag_text": "FROM LIVE MERCHANTS"
       }
     },
     "testimonial_card_PKPMUB": {
