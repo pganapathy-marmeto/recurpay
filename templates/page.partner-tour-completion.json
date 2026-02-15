@@ -81,6 +81,51 @@
       "name": "Testimonial Stack",
       "settings": {}
     },
+    "content_with_logo_k6b4Vh": {
+      "type": "content-with-logo",
+      "blocks": {
+        "capability_MDqDYi": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_zrTqWE": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_iJN87M": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        },
+        "capability_YFFG7N": {
+          "type": "capability",
+          "settings": {
+            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
+            "capability_title": "API & webhooks access",
+            "capability_subtitle": "Build deeply integrated subscription flows."
+          }
+        }
+      },
+      "block_order": [
+        "capability_MDqDYi",
+        "capability_zrTqWE",
+        "capability_iJN87M",
+        "capability_YFFG7N"
+      ],
+      "name": "Content with Logo",
+      "settings": {}
+    },
     "stats_footer_WCpDnY": {
       "type": "stats-footer",
       "blocks": {
@@ -240,69 +285,44 @@
         "back_link_url": "/"
       }
     },
-    "content_with_logo_k6b4Vh": {
-      "type": "content-with-logo",
-      "blocks": {
-        "capability_MDqDYi": {
-          "type": "capability",
-          "settings": {
-            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
-            "capability_title": "API & webhooks access",
-            "capability_subtitle": "Build deeply integrated subscription flows."
-          }
-        },
-        "capability_zrTqWE": {
-          "type": "capability",
-          "settings": {
-            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
-            "capability_title": "API & webhooks access",
-            "capability_subtitle": "Build deeply integrated subscription flows."
-          }
-        },
-        "capability_iJN87M": {
-          "type": "capability",
-          "settings": {
-            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
-            "capability_title": "API & webhooks access",
-            "capability_subtitle": "Build deeply integrated subscription flows."
-          }
-        },
-        "capability_YFFG7N": {
-          "type": "capability",
-          "settings": {
-            "capability_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-slack-icon lucide-slack\"><rect width=\"3\" height=\"8\" x=\"13\" y=\"2\" rx=\"1.5\"></rect><path d=\"M19 8.5V10h1.5A1.5 1.5 0 1 0 19 8.5\"></path><rect width=\"3\" height=\"8\" x=\"8\" y=\"14\" rx=\"1.5\"></rect><path d=\"M5 15.5V14H3.5A1.5 1.5 0 1 0 5 15.5\"></path><rect width=\"8\" height=\"3\" x=\"14\" y=\"13\" rx=\"1.5\"></rect><path d=\"M15.5 19H14v1.5a1.5 1.5 0 1 0 1.5-1.5\"></path><rect width=\"8\" height=\"3\" x=\"2\" y=\"8\" rx=\"1.5\"></rect><path d=\"M8.5 5H10V3.5A1.5 1.5 0 1 0 8.5 5\"></path></svg>",
-            "capability_title": "API & webhooks access",
-            "capability_subtitle": "Build deeply integrated subscription flows."
-          }
-        }
-      },
-      "block_order": [
-        "capability_MDqDYi",
-        "capability_zrTqWE",
-        "capability_iJN87M",
-        "capability_YFFG7N"
-      ],
-      "name": "Content with Logo",
-      "settings": {}
-    },
     "partner_resources_JTDYCV": {
       "type": "partner-resources",
       "blocks": {
         "resource_HnpmzG": {
           "type": "resource",
-          "settings": {}
+          "settings": {
+            "resource_icon": "",
+            "resource_title": "Developer Docs",
+            "resource_subtitle": "Read documentation →",
+            "resource_url": ""
+          }
         },
         "resource_E6AHLi": {
           "type": "resource",
-          "settings": {}
+          "settings": {
+            "resource_icon": "",
+            "resource_title": "Developer Docs",
+            "resource_subtitle": "Read documentation →",
+            "resource_url": ""
+          }
         },
         "resource_Tw8FQH": {
           "type": "resource",
-          "settings": {}
+          "settings": {
+            "resource_icon": "",
+            "resource_title": "Developer Docs",
+            "resource_subtitle": "Read documentation →",
+            "resource_url": ""
+          }
         },
         "resource_XBjBqp": {
           "type": "resource",
-          "settings": {}
+          "settings": {
+            "resource_icon": "",
+            "resource_title": "Developer Docs",
+            "resource_subtitle": "Read documentation →",
+            "resource_url": ""
+          }
         }
       },
       "block_order": [
@@ -312,18 +332,21 @@
         "resource_XBjBqp"
       ],
       "name": "Partner Resources",
-      "settings": {}
+      "settings": {
+        "main_title": "Partner Resources",
+        "main_subtitle": "Everything you need to succeed with Recurpay."
+      }
     }
   },
   "order": [
     "main",
     "tour_completion_FtmeWG",
     "testimonial_stack_aqxxQX",
+    "content_with_logo_k6b4Vh",
+    "partner_resources_JTDYCV",
     "stats_footer_WCpDnY",
     "features_grid_QmQfCf",
     "cart_upsell_gRpAxg",
-    "testimonial_card_PKPMUB",
-    "content_with_logo_k6b4Vh",
-    "partner_resources_JTDYCV"
+    "testimonial_card_PKPMUB"
   ]
 }
