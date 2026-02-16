@@ -157,14 +157,6 @@
         "disabled": false,
         "settings": {}
       },
-      "10557767768680663964": {
-        "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-widget/c600a513-dad8-4030-8697-de47c18881f2",
-        "disabled": false,
-        "settings": {
-          "multiply_price_with_quantity": true,
-          "show_price_in_frequency_dropdown": true
-        }
-      },
       "10518222044023584760": {
         "type": "shopify://apps/recurpay-staging/blocks/recurpay-widget/b8e5620d-f4ca-4526-a5ae-59a189b60d57",
         "disabled": true,
@@ -177,6 +169,17 @@
         "type": "shopify://apps/hextom-announce-bar/blocks/qab-embeded-block/9ac2a261-3b8b-42c8-9613-d34eb2e079d3",
         "disabled": true,
         "settings": {}
+      },
+      "10557767768680663964": {
+        "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-widget/c600a513-dad8-4030-8697-de47c18881f2",
+        "disabled": false,
+        "settings": {
+          "multiply_price_with_quantity": true,
+          "show_price_in_frequency_dropdown": true,
+          "enable_date_range": true,
+          "start_date": "16-02-2026",
+          "end_date": "16-09-2026"
+        }
       }
     },
     "color_schemes": {
