@@ -76,11 +76,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "🛒",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M11 9h2V6h3V4h-3V1h-2v3H8v2h3M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-9.8-3.2v-.1l.9-1.7h7.4c.7 0 1.4-.4 1.7-1l3.9-7l-1.7-1l-3.9 7h-7L4.3 2H1v2h2l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1c0 1.1.9 2 2 2h12v-2H7.4c-.1 0-.2-.1-.2-.2\"></path></svg>",
             "content_header": "One-Click cart upsell",
             "content_description": "Enable cart upsell instantly on any theme and customize colors, styling, and layout to match your brand.",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -89,11 +89,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "💵",
-            "content_header": "Instant Savings Display",
-            "content_description": "Show customers how much they save by subscribing",
-            "tag_text_one": "Tested layouts",
-            "tag_text_two": "No code",
+            "feature_image": "",
+            "content_header": "Compatible with any Cart",
+            "content_description": "Supports Shopify AJAX cart, native cart page, and third-party cart drawers without requiring custom development.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -102,8 +102,8 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "⚡",
-            "content_header": "One-Click Convert",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M6.92 6.956L5.45 5.473m9.309 1.483l1.47-1.483m-10.78 10.88l1.47-1.484m3.92-9.89V3m-5.88 7.913H3m13.875 5.923l3.814-1.506a.496.496 0 0 0 0-.921l-9.165-3.615a.492.492 0 0 0-.635.64l3.582 9.251c.162.42.75.42.912 0z\"></path></svg>",
+            "content_header": "One-Click convert",
             "content_description": "Let customers switch to subscription with a single click",
             "tag_text_one": "No code",
             "tag_text_two": "< 10 min",
@@ -115,11 +115,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "🔌",
-            "content_header": "3rd Party Cart Compatible",
-            "content_description": "Fully compatible with Slide Cart, Cart Drawer, Rebuy, and all popular third-party cart apps.",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 48 48\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\"><path d=\"M41 25c0 9.941-8.059 18-18 18S5 34.941 5 25S13.059 7 23 7\"></path><path d=\"M12 28.5c8.5 0 12-.5 19-9.5\"></path><path d=\"M23 19h8v8m0-22v4.5M43.5 17H39m1.89-10L37 10.89\"></path></g></svg>",
+            "content_header": "Increase subscriber opt-ins",
+            "content_description": "Designed to help more customers switch to subscription directly in cart using proven layout patterns.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
