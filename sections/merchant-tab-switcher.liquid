@@ -108,6 +108,12 @@
    }
 */
 
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .header_content {
     display: flex;
     align-items: flex-start;
@@ -116,7 +122,8 @@
   }
   .sidebar__container {
     padding: 28px 24px 24px;
-    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.1), transparent 55%), #FBFBFC;
+    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.1), transparent 55%)
+    , #FBFBFC;
     position: fixed;
     top: 58px;
     left: 0;
@@ -390,9 +397,10 @@
     font-size: 14px;
     gap: 8px;
   }
-    [data-step-indicator], [data-step-name] {
-      font-size: 14px;
-    }
+  [data-step-indicator],
+  [data-step-name] {
+    font-size: 14px;
+  }
   .paginate_dot {
     width: 8px;
     display: block !important;
@@ -822,7 +830,8 @@
 
   /* completion state (final tour page) */
   .header__container.completion-active .sidebar__container,
-  .header__container.completion-active .tagline-heading-section {
+  .header__container.completion-active .tagline-heading-section,
+  .header__container.completion-active .merchant_tab_switcher_wrapper .content__wrapper {
     display: none;
   }
 
@@ -854,10 +863,10 @@
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
     {% comment %} <div class="image_with_logo__wrapper">
-                              {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
-                              <h2 class="company_name">{{ section.settings.company_name }}</h2>
-                              <span>{{ section.settings.tag_text }}</span>
-                    </div> {% endcomment %}
+                                    {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
+                                    <h2 class="company_name">{{ section.settings.company_name }}</h2>
+                                    <span>{{ section.settings.tag_text }}</span>
+                        </div> {% endcomment %}
     <a class=" redirect" href="{{ section.settings.redirect_link }}">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -951,10 +960,10 @@
             <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
             <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
           </div>
-          {% comment %} <a
-            target="_blank"
-            href="{{ section.settings.doc_url }}"
-            data-sidebar-doc-url>View docs</a> {% endcomment %}
+        {% comment %} <a
+                      target="_blank"
+                      href="{{ section.settings.doc_url }}"
+                    data-sidebar-doc-url>View docs</a> {% endcomment %}
         </div>
       </div>
       <div class="sidebar__content">
@@ -1002,49 +1011,49 @@
           {% endfor %}
         </div>
       </div>
-      {% comment %} <div class="sidebar__footer">
-        <a
-          href="https://apps.shopify.com/recurpay-subscriptions"
-          target="_blank"
-          class="button_trial">Start 30 day trial</a>
-        <p>Or
-          <a
-            href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
-            target="_blank"
-            class="button_call">talk to an expert and book a quick call</a>
-        </p>
-      </div> {% endcomment %}
+    {% comment %} <div class="sidebar__footer">
+              <a
+                href="https://apps.shopify.com/recurpay-subscriptions"
+                target="_blank"
+                class="button_trial">Start 30 day trial</a>
+              <p>Or
+                <a
+                  href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+                  target="_blank"
+                  class="button_call">talk to an expert and book a quick call</a>
+              </p>
+          </div> {% endcomment %}
     </div>
     <div class="main_content">
       {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
-        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
+                <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
 
-          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
-          <div id="tagline-pill-container">
-            {% if section.settings.tag_text_widget != blank %}
-              <div class="tagline-pill" id="tagline-pill">
-                {% if section.settings.tag_icon_widget != blank %}
-                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
-                {% endif %}
-                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
-              </div>
-            {% endif %}
-          </div>
+                  <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
+                  <div id="tagline-pill-container">
+                    {% if section.settings.tag_text_widget != blank %}
+                      <div class="tagline-pill" id="tagline-pill">
+                        {% if section.settings.tag_icon_widget != blank %}
+                          <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
+                        {% endif %}
+                        <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
+                      </div>
+                    {% endif %}
+                  </div>
 
-          {% if section.settings.heading_widget != blank %}
-            <h2 class="main-heading">
-              {{ section.settings.heading_widget }}
-            </h2>
-          {% endif %}
+                  {% if section.settings.heading_widget != blank %}
+                    <h2 class="main-heading">
+                      {{ section.settings.heading_widget }}
+                    </h2>
+                  {% endif %}
 
-          {% if section.settings.description_widget != blank %}
-            <p class="main-description" id="main-description">
-              {{ section.settings.description_widget }}
-            </p>
-          {% endif %}
+                  {% if section.settings.description_widget != blank %}
+                    <p class="main-description" id="main-description">
+                      {{ section.settings.description_widget }}
+                    </p>
+                  {% endif %}
 
-        </div>
-      </section> {% endcomment %}
+                </div>
+            </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -1171,22 +1180,22 @@
                 <!-- Header -->
                 <div class="demo-guide-header">
                   {% comment %} <div class="demo-guide-profile">
-                                                            {% if section.settings.avatar != blank %}
-                                                            <div class="demo-avatar-container">
-                                                            {{ section.settings.avatar }}
-                                                            </div>
-                                                            {% endif %}
+                                                                                {% if section.settings.avatar != blank %}
+                                                                                <div class="demo-avatar-container">
+                                                                                {{ section.settings.avatar }}
+                                                                                </div>
+                                                                                {% endif %}
 
-                                                            <div>
-                                                            <div class="demo-guide-name">
-                                                            {{ section.settings.name }}
-                                                            </div>
-                                                            <div class="demo-guide-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                                                            {{ section.settings.subtitle }}
-                                                            </div>
-                                                            </div>
-                                                      </div> {% endcomment %}
+                                                                                <div>
+                                                                                <div class="demo-guide-name">
+                                                                                {{ section.settings.name }}
+                                                                                </div>
+                                                                                <div class="demo-guide-subtitle">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                                                                {{ section.settings.subtitle }}
+                                                                                </div>
+                                                                                </div>
+                                                                        </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -1230,27 +1239,27 @@
 
               <!-- Footer -->
               {% comment %} <div class="demo-guide-footer">
-                                  <div class="demo-guide-steps">
-                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                                  <div class="guide_pagination_dots">
-                                  {% for tab in merchant_tabs %}
-                                  <div class="dots"></div>
-                                  {% endfor %}
-                                  </div>
-                                  </div>
+                                                  <div class="demo-guide-steps">
+                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                                  <div class="guide_pagination_dots">
+                                                  {% for tab in merchant_tabs %}
+                                                  <div class="dots"></div>
+                                                  {% endfor %}
+                                                  </div>
+                                                  </div>
 
-                                  <div class="demo-guide-actions">
-                                  <button type="button" class="demo-guide-back">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                                  {{ section.settings.back_text }}
-                                  </button>
+                                                  <div class="demo-guide-actions">
+                                                  <button type="button" class="demo-guide-back">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                                  {{ section.settings.back_text }}
+                                                  </button>
 
-                                  <button type="button" class="demo-guide-finish">
-                                  {{ section.settings.finish_text }}
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                  </button>
-                                  </div>
-                              </div> {% endcomment %}
+                                                  <button type="button" class="demo-guide-finish">
+                                                  {{ section.settings.finish_text }}
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                                  </button>
+                                                  </div>
+                                            </div> {% endcomment %}
 
               </div>
             </div>
@@ -1861,7 +1870,64 @@
           mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content could not be loaded. Please check the content URL configuration.</div>';
         });
     }
+
+    function confettiOnCompletion(){
+      let duration = 10 * 1000;
+      let end = Date.now() + duration;
+
+      function frame() {
+      // launch a few confetti from the left edge
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      // and launch a few from the right edge
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      // keep going until we are out of time
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }
+    frame();
+    }
   
+    // Sidebar loader functions
+    function showSidebarLoader() {
+      if (!sidebarContainer) return;
+      
+      // Store the current sidebar content
+      const sidebarContent = sidebarContainer.innerHTML;
+      sidebarContainer.setAttribute('data-original-content', sidebarContent);
+      
+      // Create and show loader
+      const loaderHTML = `
+        <div class="sidebar-loader" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px;">
+          <div style="width: 40px; height: 40px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+          <span style="font-size: 14px; font-weight: 500; color: rgb(107, 114, 128);"></span>
+        </div>
+      `;
+      sidebarContainer.innerHTML = loaderHTML;
+    }
+
+    function hideSidebarLoader() {
+      if (!sidebarContainer) return;
+      
+      // Restore the original content
+      const originalContent = sidebarContainer.getAttribute('data-original-content');
+      if (originalContent) {
+        sidebarContainer.innerHTML = originalContent;
+        sidebarContainer.removeAttribute('data-original-content');
+      }
+    }
+
     // Function to switch to a specific tab
     function switchToTab(tabIndex) {
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
@@ -1886,9 +1952,18 @@
   
       // Filter sidebar blocks
       filterBlocks(tabType);
-  
-      // Update sidebar header
-      updateSidebarHeader(tabType);
+
+      // Show loader in sidebar
+      showSidebarLoader();
+      
+      // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
+        // Update sidebar header
+        updateSidebarHeader(tabType);
+        
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
   
       // Update footer indicators
       updateStepIndicator(tabIndex, false);
@@ -1963,6 +2038,7 @@
         }
       }
       loadTabContent('completion');
+      confettiOnCompletion();
     }
   
     // Enhanced tab click handler
@@ -2386,13 +2462,7 @@
         <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 99999; background: rgba(255, 255, 255, 0.95); padding: 20px 30px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px;">
           <div style="width: 24px; height: 24px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
           <span style="font-size: 14px; font-weight: 500; color: rgb(17, 24, 39);">Preparing guided tour...</span>
-        </div>
-        <style>
-          @keyframes spin {
-            to { transform: rotate(360deg); }
-          }
-        </style>
-      `;
+        </div>`;
       document.body.appendChild(loader);
     }
 

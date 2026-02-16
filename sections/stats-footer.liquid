@@ -96,6 +96,35 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
+
+  @property --number {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  .stat-val {
+    --number: 0;
+    counter-reset: number var(--number);
+    animation: counter 2s ease-out forwards;
+    animation-play-state: paused;
+  }
+
+  .stat-val.animate {
+    animation-play-state: running;
+  }
+  .stat-val::after {
+    content: counter(number);
+  }
+
+  @keyframes counter {
+    from {
+      --number: 0;
+    }
+    to {
+      --number: var(--target);
+    }
+  }
 {% endstyle %}
 
 <div class="stats-footer">
@@ -116,12 +145,54 @@
           <div class="stat-icon-wrapper">
             {{ block.settings.stat_icon }}
           </div>
-          <div class="stat-val">{{ block.settings.stat_value }}</div>
+          <div class="stat-val" data-target="{{ block.settings.stat_value }}"></div>
           <div class="stat-lbl">{{ block.settings.stat_label }}</div>
         </div>
       {% endfor %}
     </div>
 </div>
+
+<script>
+  (function(){
+    document.addEventListener('DOMContentLoaded', function(){
+      const statElements = document.querySelectorAll('.stat-val');
+      
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting && !entry.target.classList.contains('animated')){
+            const target = entry.target;
+            const targetValue = target.getAttribute('data-target');
+
+            const numericMatch = targetValue.match(/(\d+)/);
+            const suffix = targetValue.replace(/\d+/, '');
+            if(numericMatch){
+              const numericValue = parseInt(numericMatch[1]);
+              target.style.setProperty('--target', numericValue);
+              target.style.setProperty('counter-reset', `number var(--number)`);
+
+              if(suffix) {
+                target.style.setProperty('--suffix', `"${suffix}"`);
+                const style = document.createElement('style');
+                style.textContent =`
+                  .stat-val[data-target="${targetValue}"]::after {
+                    content: counter(number) "${suffix}";
+                  }
+                `;
+                document.head.appendChild(style); 
+              }
+              target.classList.add('animate', 'animated');
+            }
+            observer.unobserve(target);
+          }
+        })
+      }, {
+        threshold: 0.5
+      })
+
+      statElements.forEach(el=>observer.observe(el))
+    })
+  })();
+</script>
 
 {% schema %}
 {

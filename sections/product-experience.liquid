@@ -173,6 +173,36 @@
     margin-block: auto;
   }
 
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  .number-animation {
+    --num: 0;
+    counter-reset: num var(--num);
+    animation: counter 2s ease-out forwards;
+    animation-play-state: paused;
+  }
+
+  .number-animation.animate {
+    animation-play-state: running;
+  }
+
+  .number-animation::after {
+    content: counter(num);
+  }
+
+  @keyframes counter {
+    from {
+      --num: 0;
+    }
+    to {
+      --num: var(--target);
+    }
+  }
+
   @media(max-width: 768px) {
     .demo-cta-grid {
       grid-template-columns: 1fr;
@@ -251,7 +281,7 @@
       {% for block in section.blocks %}
         {% if block.type == 'stat' %}
           <div class="stat">
-            <strong>{{ block.settings.value }}</strong>
+            <strong class="number-animation" data-target="{{ block.settings.value }}"></strong>
             <span>{{ block.settings.label }}</span>
           </div>
         {% endif %}
@@ -264,40 +294,94 @@
   </div>
 </section>
 
+<script>
+  (function() {
+    // Counter animation for stats
+    document.addEventListener('DOMContentLoaded', function() {
+      const numberElements = document.querySelectorAll('.number-animation');
+      
+      // Set up Intersection Observer to trigger animation when visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+            const target = entry.target;
+            const targetValue = target.getAttribute('data-target');
+            
+            // Extract numeric value and any suffix (like +, %, etc.)
+            const numericMatch = targetValue.match(/(\d+)/);
+            const suffix = targetValue.replace(/\d+/, '');
+            
+            if (numericMatch) {
+              const numericValue = parseInt(numericMatch[1]);
+              
+              // Set CSS variable for the target value
+              target.style.setProperty('--target', numericValue);
+              target.style.setProperty('counter-reset', `num var(--num)`);
+              
+              // Update the content to show number + suffix
+              if (suffix) {
+                target.style.setProperty('--suffix', `"${suffix}"`);
+                const style = document.createElement('style');
+                style.textContent = `
+                  .number-animation[data-target="${targetValue}"]::after {
+                    content: counter(num) "${suffix}";
+                  }
+                `;
+                document.head.appendChild(style);
+              }
+              
+              // Trigger animation
+              target.classList.add('animate', 'animated');
+            }
+            
+            // Stop observing this element
+            observer.unobserve(target);
+          }
+        });
+      }, {
+        threshold: 0.5 // Trigger when 50% visible
+      });
+      
+      // Observe all number animation elements
+      numberElements.forEach(el => observer.observe(el));
+    });
+  })();
+</script>
+
 {% comment %} <script>
-                                                                                                                                    (function() {
-                                                                                                                                      // Track CTA card clicks with Mixpanel
-                                                                                                                                      document.addEventListener('DOMContentLoaded', function() {
-                                                                                                                                        introJs().tour(.demo-heading).start();
-                                                                                                                                        const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
-                                                                                                                                        
-                                                                                                                                        ctaCards.forEach(card => {
-                                                                                                                                          card.addEventListener('click', function(e) {
-                                                                                                                                            const eventName = this.getAttribute('data-event-name');
-                                                                                                                                            const cardTitle = this.getAttribute('data-card-title');
-                                                                                                                                            const cardType = this.getAttribute('data-card-type');
-                                                                                                                                            const cardLink = this.getAttribute('href');
-                                                                                                                                            
-                                                                                                                                            // Track event with Mixpanel if available
-                                                                                                                                            if (typeof mixpanel !== 'undefined' && mixpanel.track) {
-                                                                                                                                              mixpanel.track(eventName, {
-                                                                                                                                                card_title: cardTitle,
-                                                                                                                                                card_type: cardType,
-                                                                                                                                                card_link: cardLink,
-                                                                                                                                                section: 'product_experience'
-                                                                                                                                              });
-                                                                                                                                            }
-                                                                                                                                            
-                                                                                                                                            // Also log for debugging
-                                                                                                                                            console.log('Mixpanel Event:', eventName, {
-                                                                                                                                              card_title: cardTitle,
-                                                                                                                                              card_type: cardType,
-                                                                                                                                              card_link: cardLink
-                                                                                                                                            });
-                                                                                                                                          });
-                                                                                                                                        });
-                                                                                                                                      });
-                                                                                                                                    })();
+  (function() {
+  // Track CTA card clicks with Mixpanel
+  document.addEventListener('DOMContentLoaded', function() {
+  introJs().tour(.demo-heading).start();
+  const ctaCards = document.querySelectorAll('.cta-card[data-event-name]');
+  
+  ctaCards.forEach(card => {
+  card.addEventListener('click', function(e) {
+  const eventName = this.getAttribute('data-event-name');
+  const cardTitle = this.getAttribute('data-card-title');
+  const cardType = this.getAttribute('data-card-type');
+  const cardLink = this.getAttribute('href');
+  
+  // Track event with Mixpanel if available
+  if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+  mixpanel.track(eventName, {
+  card_title: cardTitle,
+  card_type: cardType,
+  card_link: cardLink,
+  section: 'product_experience'
+  });
+  }
+  
+  // Also log for debugging
+  console.log('Mixpanel Event:', eventName, {
+  card_title: cardTitle,
+  card_type: cardType,
+  card_link: cardLink
+  });
+  });
+  });
+  });
+  })();
 </script> {% endcomment %}
 
 {% schema %}
