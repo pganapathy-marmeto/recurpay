@@ -118,8 +118,8 @@
             "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12.748 3.572c.059-.503-.532-.777-.835-.388L4.111 13.197c-.258.33-.038.832.364.832h6.988c.285 0 .506.267.47.57l-.68 5.83c-.06.502.53.776.834.387l7.802-10.013c.258-.33.038-.832-.364-.832h-6.988c-.285 0-.506-.267-.47-.57z\"></path></svg>",
             "content_header": "Instant cart updates",
             "content_description": "Customers see instant updates to pricing and savings when switching to subscription directly inside the cart.",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
