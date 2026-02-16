@@ -30,7 +30,7 @@
           "settings": {
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"26\" height=\"26\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#0B9A63\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
             "title": "Experience as a Merchant",
-            "subtitle": "See widgets, checkouts & dashboards",
+            "subtitle": "Step into the complete subscriber journey",
             "link": "shopify://pages/merchant-widget",
             "event_name": "Demo store - merchant tour - step 1 viewed",
             "primary": false,
@@ -41,8 +41,8 @@
           "type": "cta_card",
           "settings": {
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#0B9A63\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-store-icon lucide-store\"><path d=\"M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5\"></path><path d=\"M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244\"></path><path d=\"M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05\"></path></svg>",
-            "title": "Explore as a Partner",
-            "subtitle": "Multi-store, sandbox & APIs",
+            "title": "Experience as a Partner",
+            "subtitle": "Step into the subscription flexibility",
             "link": "shopify://pages/partner-widget",
             "event_name": "Demo store - partner tour - step 1 viewed",
             "primary": false,
@@ -90,9 +90,9 @@
       "settings": {
         "badge_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-play-icon lucide-circle-play\"><path d=\"M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z\"></path><circle cx=\"12\" cy=\"12\" r=\"10\"></circle></svg>",
         "badge_text": "Interactive Demo Experience",
-        "heading_main": "See Recurpay",
+        "heading_main": "See Subscriptions",
         "heading_highlight": "in Action",
-        "description": "Experience the power of subscription commerce. Try our interactive demo as a merchant or explore partner integrations."
+        "description": "See how subscriptions look and feel for your customers - through a real, interactive Recurpay experience."
       }
     },
     "tab_switcher_AfcQPW": {
