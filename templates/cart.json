@@ -43,15 +43,15 @@
         "stat_NAfUQB": {
           "type": "stat",
           "settings": {
-            "value": "+25% lift",
-            "label": "Overall subscription revenue from cart upsell journeys"
+            "value": "+20% lift",
+            "label": "On overall subscription revenue"
           }
         },
-        "stat_Rtga7C": {
+        "stat_EUThpQ": {
           "type": "stat",
           "settings": {
-            "value": "+18%",
-            "label": "Higher subscriber AOV from cart journeys"
+            "value": "1.6x",
+            "label": "Increase in repeat purchases over 90 days"
           }
         },
         "stat_bmY3wi": {
@@ -61,23 +61,25 @@
             "label": "More carts converted to subscriptions"
           }
         },
-        "stat_EUThpQ": {
+        "stat_Rtga7C": {
           "type": "stat",
           "settings": {
-            "value": "1.6x",
-            "label": "Increase in repeat purchases over 90 days"
+            "value": "2x",
+            "label": "Faster decision making to subscribe"
           }
         }
       },
       "block_order": [
         "stat_NAfUQB",
-        "stat_Rtga7C",
+        "stat_EUThpQ",
         "stat_bmY3wi",
-        "stat_EUThpQ"
+        "stat_Rtga7C"
       ],
       "name": "Stats Highlight",
       "settings": {
-        "heading": "Why Cart Upsell Works"
+        "heading": "Real subscription growth from cart upsell",
+        "sub_heading": "Cart upsell impact",
+        "tag_text": "Based on live merchant data"
       }
     }
   },

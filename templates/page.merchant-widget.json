@@ -76,11 +76,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "🛒",
-            "content_header": "Smart Upsell Prompts",
-            "content_description": "Automatically suggest subscription upgrades at checkout",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M11 9h2V6h3V4h-3V1h-2v3H8v2h3M7 18c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-9.8-3.2v-.1l.9-1.7h7.4c.7 0 1.4-.4 1.7-1l3.9-7l-1.7-1l-3.9 7h-7L4.3 2H1v2h2l3.6 7.6L5.2 14c-.1.3-.2.6-.2 1c0 1.1.9 2 2 2h12v-2H7.4c-.1 0-.2-.1-.2-.2\"></path></svg>",
+            "content_header": "One-Click native cart upsell",
+            "content_description": "Enable cart upsell instantly on any theme and customize colors, styling, and layout to match your brand.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -89,24 +89,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "💵",
-            "content_header": "Instant Savings Display",
-            "content_description": "Show customers how much they save by subscribing",
-            "tag_text_one": "Tested layouts",
-            "tag_text_two": "No code",
-            "example_url": "",
-            "example_text": ""
-          }
-        },
-        "feature_Gpgr6H": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "cart_upsell",
-            "feature_image": "⚡",
-            "content_header": "One-Click Convert",
-            "content_description": "Let customers switch to subscription with a single click",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15.39 4.39a1 1 0 0 0 1.68-.474a2.5 2.5 0 1 1 3.014 3.015a1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474a2.5 2.5 0 1 0-3.014 3.015a1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474a2.5 2.5 0 1 1-3.014-3.015a1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474a2.5 2.5 0 1 0 3.014-3.015a1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z\"></path></svg>",
+            "content_header": "Compatible with any Cart",
+            "content_description": "Supports Shopify AJAX cart, native cart page, and third-party cart drawers without requiring custom development.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -115,11 +102,24 @@
           "type": "feature",
           "settings": {
             "tab_type": "cart_upsell",
-            "feature_image": "🔌",
-            "content_header": "3rd Party Cart Compatible",
-            "content_description": "Fully compatible with Slide Cart, Cart Drawer, Rebuy, and all popular third-party cart apps.",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 48 48\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\"><path d=\"M41 25c0 9.941-8.059 18-18 18S5 34.941 5 25S13.059 7 23 7\"></path><path d=\"M12 28.5c8.5 0 12-.5 19-9.5\"></path><path d=\"M23 19h8v8m0-22v4.5M43.5 17H39m1.89-10L37 10.89\"></path></g></svg>",
+            "content_header": "Increase subscriber opt-ins",
+            "content_description": "Designed to help more customers switch to subscription directly in cart using proven layout patterns.",
+            "tag_text_one": "",
+            "tag_text_two": "",
+            "example_url": "",
+            "example_text": ""
+          }
+        },
+        "feature_Gpgr6H": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "cart_upsell",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12.748 3.572c.059-.503-.532-.777-.835-.388L4.111 13.197c-.258.33-.038.832.364.832h6.988c.285 0 .506.267.47.57l-.68 5.83c-.06.502.53.776.834.387l7.802-10.013c.258-.33.038-.832-.364-.832h-6.988c-.285 0-.506-.267-.47-.57z\"></path></svg>",
+            "content_header": "Instant cart updates",
+            "content_description": "Customers see instant updates to pricing and savings when switching to subscription directly inside the cart.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -128,11 +128,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "🎛️",
-            "content_header": "Self-Service Management",
-            "content_description": "Customers manage subscriptions without contacting support",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 256 256\"><path fill=\"currentColor\" d=\"M40 88h33a32 32 0 0 0 62 0h81a8 8 0 0 0 0-16h-81a32 32 0 0 0-62 0H40a8 8 0 0 0 0 16m64-24a16 16 0 1 1-16 16a16 16 0 0 1 16-16m112 104h-17a32 32 0 0 0-62 0H40a8 8 0 0 0 0 16h97a32 32 0 0 0 62 0h17a8 8 0 0 0 0-16m-48 24a16 16 0 1 1 16-16a16 16 0 0 1-16 16\"></path></svg>",
+            "content_header": "Self-Serve portal",
+            "content_description": "Customers can edit, reschedule, skip, cancel, or update details without contacting support.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -141,11 +141,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "📅",
-            "content_header": "Flexible Scheduling",
-            "content_description": "Let customers skip, pause, or reschedule deliveries",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m6.85 19l.85.85q.3.3.288.7t-.288.7q-.3.3-.712.313t-.713-.288L3.7 18.7q-.15-.15-.213-.325T3.426 18t.063-.375t.212-.325l2.575-2.575q.3-.3.713-.287t.712.312q.275.3.288.7t-.288.7l-.85.85H17v-3q0-.425.288-.712T18 13t.713.288T19 14v3q0 .825-.587 1.413T17 19zm10.3-12H7v3q0 .425-.288.713T6 11t-.712-.288T5 10V7q0-.825.588-1.412T7 5h10.15l-.85-.85q-.3-.3-.288-.7t.288-.7q.3-.3.712-.312t.713.287L20.3 5.3q.15.15.213.325t.062.375t-.062.375t-.213.325l-2.575 2.575q-.3.3-.712.288T16.3 9.25q-.275-.3-.288-.7t.288-.7z\"></path></svg>",
+            "content_header": "Product swaps made easy",
+            "content_description": "Let customers swap products directly inside portal without reaching your support.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
@@ -154,10 +154,10 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "💳",
-            "content_header": "Payment Updates",
-            "content_description": "Easy payment method changes to reduce churn",
-            "tag_text_one": "Rewards",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zm0 2.049L5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604zm4.452 5.173l1.415 1.414L11.503 16L7.26 11.757l1.414-1.414l2.828 2.828z\"></path></svg>",
+            "content_header": "Smart cancellation prevention",
+            "content_description": "Offer skip, reschedule, or alternatives before cancellation to reduce churn.",
+            "tag_text_one": "",
             "tag_text_two": "",
             "example_url": "",
             "example_text": ""
@@ -167,13 +167,26 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "📦",
-            "content_header": "Order History",
-            "content_description": "Complete visibility into past and upcoming orders",
-            "tag_text_one": "Tested layouts",
-            "tag_text_two": "No code",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" d=\"M12 18V8zm0 5c6.075 0 11-4.925 11-11S18.075 1 12 1S1 5.925 1 12s4.925 11 11 11Zm5-11l-5-5l-5 5\"></path></svg>",
+            "content_header": "Upsell inside customer portal",
+            "content_description": "Recommend products and upgrades directly inside the customer portal, upsell as one-time purchases or subscriptions.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
+          }
+        },
+        "feature_hxkqJ3": {
+          "type": "feature",
+          "settings": {
+            "tab_type": "portal",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1m0 12h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1m10-4h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1m0-8h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1\"></path></svg>",
+            "content_header": "Fully customizable experience",
+            "content_description": "Add or remove sections, customize layout, language, styling, and flows to match your brand and subscription experience.",
+            "tag_text_one": "",
+            "tag_text_two": "",
+            "example_url": "",
+            "example_text": "See live example"
           }
         }
       },
@@ -184,12 +197,13 @@
         "feature_EqJ3Gw",
         "feature_dbmFAK",
         "feature_96QdCG",
-        "feature_Gpgr6H",
         "feature_9mPtwC",
+        "feature_Gpgr6H",
         "feature_NKMFnY",
         "feature_TKnpiM",
         "feature_LxdL9L",
-        "feature_4VKfr9"
+        "feature_4VKfr9",
+        "feature_hxkqJ3"
       ],
       "name": "Merchant tab switcher",
       "settings": {
@@ -208,12 +222,12 @@
         "demo": "Talk to an Expert",
         "demo_url": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
         "demo_html": "",
-        "sidebar_header_title": "Subscription Widget",
+        "sidebar_header_title": "Feature Highlights",
         "subtext_title": "What can you do with your subscription widget?",
         "subtext_description": "Customize how subscriptions look, behave, and convert - with full control over design, localization, defaults, and AI generation.",
         "doc_url": "https://help.recurpay.com/en/articles/12649398-how-to-customize-your-recurpay-widget-s-design-and-translations",
         "widget_content_url": "shopify://pages/widget-tab-content",
-        "widget_step_name": "Widget",
+        "widget_step_name": "Product page experience",
         "tag_text_widget": "Subscribe & Save Widget",
         "tag_icon_widget": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
         "heading_widget": "Turn Browsers into Subscribers",
@@ -223,34 +237,32 @@
         "subtitle": "Your Demo Guide",
         "title_widget_guide": "Welcome to Recurpay! 👋",
         "description_widget_guide": "Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.",
-        "steps_text": "1 / 4",
-        "back_text": "Back",
-        "finish_text": "Next",
-        "sidebar_header_title_cart_upsell": "Subscription Cart Upsell",
-        "cart_upsell_subtext_title": "Cart Upsell",
-        "cart_upsell_subtext_description": "Everything you get when you enable cart upsell",
+        "steps_text": "1 / 3",
+        "back_text": "Previous",
+        "finish_text": "Continue",
+        "cart_upsell_subtext_title": "How can you acquire more subscribers inside your cart?",
+        "cart_upsell_subtext_description": "Convert one-time buyers into subscribers directly inside cart with smart native upsells.",
         "cart_upsell_doc_url": "https://help.recurpay.com/en/articles/12401035-boost-your-revenue-with-recurpay-cart-upsell",
         "cart_upsell_content_url": "https://recurpay-subscriptions.myshopify.com/cart",
-        "cart_upsell_step_name": "Cart Upsell",
-        "tag_text_cart_upsell": "Cart Upsell",
+        "cart_upsell_step_name": "Cart page experience",
+        "tag_text_cart_upsell": "Cart Experience",
         "tag_icon_cart_upsell": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
         "heading_cart_upsell": "Convert One-Time Buyers to Subscribers",
         "description_cart_upsell": "Nudge customers to switch to subscription right in their cart",
         "title_cart_upsell_guide": "Cart Upsell 🛒",
         "description_cart_upsell_guide": "Convert one-time buyers in their cart! When customers add products without subscribing, nudge them to switch to a subscription and save. This increases subscription conversion by up to 25%",
         "steps_text_cart_upsell": "2 / 4",
-        "sidebar_header_title_portal": "Subscription Portal",
         "portal_subtext_title": "Customer Portal",
         "portal_subtext_description": "Everything you get when you enable customer portal",
         "portal_doc_url": "https://help.recurpay.com/en/articles/13285944-how-to-set-up-the-customer-portal-for-self-management",
-        "portal_step_name": "Portal",
+        "portal_step_name": "Customer portal experience",
         "tag_text_portal": "Customer Portal",
         "tag_icon_portal": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
         "heading_portal": "Self-Service Subscription Management",
         "description_portal": "Let customers manage their own subscriptions and reduce support tickets by 60%",
         "title_portal_guide": "Customer Portal 🎛️",
         "description_portal_guide": "Your customers get a self-service portal to manage subscriptions. They can change frequency, skip orders, update payment info, and discover new products - reducing your support tickets by 60%!",
-        "steps_text_portal": "3 / 4",
+        "steps_text_portal": "3 / 3",
         "support_resources_subtext_title": "Support & Resources",
         "support_resources_subtext_description": "Everything you need to launch and get help when you need it",
         "support_resources_doc_url": "",
