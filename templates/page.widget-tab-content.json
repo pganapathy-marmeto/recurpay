@@ -57,6 +57,7 @@
         },
         "preview_JPXtk9": {
           "type": "preview",
+          "disabled": true,
           "settings": {
             "preview": "Preview Widget on Your Website",
             "script_url": ""

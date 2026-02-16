@@ -1,6 +1,6 @@
 {% style %}
   .completion-cta {
-    padding: 80px 20px 0 20px;
+    padding: 80px 20px 0;
     background: #ffffff;
     text-align: center;
   }
@@ -66,7 +66,7 @@
     border: 1px solid #e5e7eb;
   }
 
-.hero-badge {
+  .hero-badge {
     background: #ecfdf5;
     color: #059669;
     padding: 6px 14px;
@@ -79,8 +79,8 @@
     gap: 6px;
     border: 1px solid rgba(5, 150, 105, 0.2);
     box-shadow: 0 2px 4px rgba(5, 150, 105, 0.05);
-}
-.hero-title {
+  }
+  .hero-title {
     font-size: 64px;
     font-weight: 800;
     color: #0F172A;
@@ -88,30 +88,31 @@
     letter-spacing: -0.04em;
     line-height: 1.05;
     margin-top: 0;
-}
-.cta-secondary:hover {
+  }
+  .cta-secondary:hover {
     background: #fafafa;
     border-color: #d1d5db;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)
+    , 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transform: translateY(-1px);
-}
-.cta-chat:hover {
+  }
+  .cta-chat:hover {
     background: rgba(70, 160, 126, 0.12);
     border-color: rgba(70, 160, 126, 0.3);
     transform: translateY(-1px);
-}
-.hero-title p {
-  margin: 0;
-}
-.hero-subtitle {
+  }
+  .hero-title p {
+    margin: 0;
+  }
+  .hero-subtitle {
     font-size: 20px;
     color: #6B7280;
     max-width: 640px;
     margin: 0 auto 40px;
     line-height: 1.6;
     font-weight: 400;
-}
-.cta-container {
+  }
+  .cta-container {
     margin-inline: auto;
     display: flex;
     flex-direction: column;
@@ -119,8 +120,8 @@
     gap: 16px;
     width: 100%;
     max-width: 440px;
-}
-.cta-primary {
+  }
+  .cta-primary {
     height: 56px;
     width: 100%;
     background: linear-gradient(120deg, #99094d 0%, #4B1640 55%, #111827 100%);
@@ -135,11 +136,13 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s
+    , box-shadow 0.2s;
     position: relative;
     overflow: hidden;
-}
-.cta-primary::after {
+    text-decoration: none;
+  }
+  .cta-primary::after {
     content: '';
     position: absolute;
     top: 0;
@@ -148,14 +151,15 @@
     bottom: 0;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
     pointer-events: none;
-}
-.cta-secondary-group {
+  }
+  .cta-secondary-group {
     display: flex;
     align-items: center;
     gap: 12px;
     width: 100%;
-}
-.cta-secondary {
+  }
+  .cta-secondary {
+    text-decoration: none;
     flex: 1;
     height: 44px;
     background: white;
@@ -171,9 +175,9 @@
     gap: 8px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     transition: all 0.2s;
-}
+  }
 
-.cta-chat {
+  .cta-chat {
     flex: 1;
     height: 44px;
     background: rgba(70, 160, 126, 0.08);
@@ -188,7 +192,7 @@
     justify-content: center;
     gap: 8px;
     transition: all 0.2s;
-}
+  }
 
 
   @media (max-width: 768px) {
@@ -204,13 +208,22 @@
 
 <section class="completion-cta">
   <div class="completion-cta__wrapper">
-{% if section.settings.icon != blank %}
-  <div class="hero-badge">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3d8f70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-party-popper-icon lucide-party-popper"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg>  
-    {{ section.settings.icon }}
-  </div>
-{% endif %}
-
+    {% if section.settings.icon != blank %}
+      <div class="hero-badge">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#3d8f70"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-party-popper-icon lucide-party-popper"><path d="M5.8 11.3 2 22l10.7-3.79" /><path d="M4 3h.01" /><path d="M22 8h.01" /><path d="M15 2h.01" /><path d="M22 20h.01" /><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" /><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" /><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" /></svg>
+        {{ section.settings.icon }}
+      </div>
+    {% endif %}
 
 
     {% if section.settings.heading != blank %}
@@ -226,22 +239,63 @@
     {% endif %}
 
     <div class="cta-container">
-        <button class="cta-primary" data-media-type="banani-button">
-          <iconify-icon icon="lucide:zap" style="font-size: 18px;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></template></iconify-icon>
-          Install Recurpay for Free
+      <a
+        href="{{ section.settings.primary_button_url }}"
+        class="cta-primary"
+        data-media-type="banani-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
+        {{ section.settings.primary_button_text }}
+      </a>
+
+      <div class="cta-secondary-group">
+        <a
+          href="{{ section.settings.secondary_button_url }}"
+          class="cta-secondary"
+          data-media-type="banani-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#6b7280"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4" /><path d="M16 2v4" /><rect
+              width="18"
+              height="18"
+              x="3"
+              y="4"
+              rx="2" /><path d="M3 10h18" /></svg>
+          {{ section.settings.secondary_button_text }}
+        </a>
+        <button class="cta-chat" data-media-type="banani-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#3d8f70"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+          Live chat
         </button>
-        
-        <div class="cta-secondary-group">
-          <button class="cta-secondary" data-media-type="banani-button">
-            <iconify-icon icon="lucide:calendar" style="font-size: 15px; color: #6b7280;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M8 2v4m8-4v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></g></svg></template></iconify-icon>
-            Book a Demo
-          </button>
-          <button class="cta-chat" data-media-type="banani-button">
-            <iconify-icon icon="lucide:message-circle" style="font-size: 15px;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block;margin:auto}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092a10 10 0 1 0-4.777-4.719"></path></svg></template></iconify-icon>
-            Live chat
-          </button>
-        </div>
       </div>
+    </div>
 
   </div>
 </section>

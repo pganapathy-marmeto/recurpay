@@ -152,7 +152,7 @@
     </div>
 </div>
 
-<script>
+{% javascript %}
   (function(){
     document.addEventListener('DOMContentLoaded', function(){
       const statElements = document.querySelectorAll('.stat-val');
@@ -192,7 +192,7 @@
       statElements.forEach(el=>observer.observe(el))
     })
   })();
-</script>
+{% endjavascript %} 
 
 {% schema %}
 {

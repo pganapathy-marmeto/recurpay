@@ -831,8 +831,36 @@
   /* completion state (final tour page) */
   .header__container.completion-active .sidebar__container,
   .header__container.completion-active .tagline-heading-section,
-  .header__container.completion-active .merchant_tab_switcher_wrapper .content__wrapper {
+  .header__container.completion-active .merchant_tab_switcher_wrapper .content__wrapper,
+  .header__container.completion-active .footer__container {
     display: none;
+  }
+
+  .header__container.completion-active .reTour {
+    display: flex;
+  }
+
+  .reTour {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  
+  .reTour svg {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .reTour:hover {
+    border-bottom: 2px solid #6B7280;
+  }
+  
+  .reTour:hover svg{
+    transform: rotate(-180deg);
   }
 
   .header__container.completion-active .tab__content__container {
@@ -912,6 +940,10 @@
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
+      <a href="{{ request.path }}" class="reTour">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        {{ section.settings.reTour }}
+      </a>
       <button class="live_chat">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -1180,22 +1212,22 @@
                 <!-- Header -->
                 <div class="demo-guide-header">
                   {% comment %} <div class="demo-guide-profile">
-                                                                                {% if section.settings.avatar != blank %}
-                                                                                <div class="demo-avatar-container">
-                                                                                {{ section.settings.avatar }}
-                                                                                </div>
-                                                                                {% endif %}
+                    {% if section.settings.avatar != blank %}
+                    <div class="demo-avatar-container">
+                    {{ section.settings.avatar }}
+                    </div>
+                    {% endif %}
 
-                                                                                <div>
-                                                                                <div class="demo-guide-name">
-                                                                                {{ section.settings.name }}
-                                                                                </div>
-                                                                                <div class="demo-guide-subtitle">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                                                                                {{ section.settings.subtitle }}
-                                                                                </div>
-                                                                                </div>
-                                                                        </div> {% endcomment %}
+                    <div>
+                    <div class="demo-guide-name">
+                    {{ section.settings.name }}
+                    </div>
+                    <div class="demo-guide-subtitle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                    {{ section.settings.subtitle }}
+                    </div>
+                    </div>
+                  </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -1373,6 +1405,7 @@
 
     const tabConfig = {
       widget: {
+        sidebarHeader: {{ section.settings.sidebar_header_title | json }},
         sidebarTitle: {{ section.settings.subtext_title | json }},
         sidebarDescription: {{ section.settings.subtext_description | json }},
         docUrl: {{ section.settings.doc_url | json }},
@@ -1383,6 +1416,7 @@
         guideStepsText: {{ section.settings.steps_text | json }}
       },
       cart_upsell: {
+        sidebarHeader: {{ section.settings.sidebar_header_title_cart_upsell | json }},
         sidebarTitle: {{ section.settings.cart_upsell_subtext_title | json }},
         sidebarDescription: {{ section.settings.cart_upsell_subtext_description | json }},
         docUrl: {{ section.settings.cart_upsell_doc_url | json }},
@@ -1393,6 +1427,7 @@
         guideStepsText: {{ section.settings.steps_text_cart_upsell | json }}
       },
       portal: {
+        sidebarHeader: {{ section.settings.sidebar_header_title_portal | json }},
         sidebarTitle: {{ section.settings.portal_subtext_title | json }},
         sidebarDescription: {{ section.settings.portal_subtext_description | json }},
         docUrl: {{ section.settings.portal_doc_url | json }},
@@ -1446,6 +1481,7 @@
     const headerContainer = document.querySelector('.header__container');
     const sidebarContainer = document.querySelector('.sidebar__container');
     const sidebarToggleButton = document.querySelector('.header_title button');
+    const sidebarHeaderTitle = sidebarContainer.querySelector('.header_title span');
 
     // Demo guide elements
     const showGuideButton = document.querySelector('.show_guide');
@@ -1488,9 +1524,13 @@
       const config = tabConfig[tabType];
       if (!config) return;
   
+      if(sidebarHeaderTitle) {
+        // debugger;
+        sidebarHeaderTitle.textContent = config.sidebarHeader;
+        console.log("sidebarHeaderTitle", sidebarHeaderTitle);
+      }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
-      if (sidebarDocUrl) sidebarDocUrl.href = config.docUrl || '#';
     }
   
     // Function to update footer step indicator
@@ -1872,7 +1912,7 @@
     }
 
     function confettiOnCompletion(){
-      let duration = 10 * 1000;
+      let duration = 3 * 1000;
       let end = Date.now() + duration;
 
       function frame() {
@@ -1908,13 +1948,13 @@
       sidebarContainer.setAttribute('data-original-content', sidebarContent);
       
       // Create and show loader
-      const loaderHTML = `
-        <div class="sidebar-loader" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px;">
-          <div style="width: 40px; height: 40px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
-          <span style="font-size: 14px; font-weight: 500; color: rgb(107, 114, 128);"></span>
-        </div>
-      `;
-      sidebarContainer.innerHTML = loaderHTML;
+        const loaderHTML = `
+          <div class="sidebar-loader" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px;">
+            <div style="width: 40px; height: 40px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+            <span style="font-size: 14px; font-weight: 500; color: rgb(107, 114, 128);"></span>
+          </div>
+        `;
+      sidebarContainer. = loaderHTML;
     }
 
     function hideSidebarLoader() {
@@ -1953,13 +1993,14 @@
       // Filter sidebar blocks
       filterBlocks(tabType);
 
+      // Update sidebar header
+      updateSidebarHeader(tabType);
+
       // Show loader in sidebar
       showSidebarLoader();
       
       // Use setTimeout to show loader briefly before updating content
       setTimeout(() => {
-        // Update sidebar header
-        updateSidebarHeader(tabType);
         
         // Hide loader and show updated content
         hideSidebarLoader();
@@ -2539,6 +2580,7 @@
     })();
   })();
   document.addEventListener('DOMContentLoaded', () => {
+    window.Intercom('update', { "hide_default_launcher": true });
     const live_chat_container = document.querySelector(".live_chat");
     live_chat_container.addEventListener("click",(event)=>{
       event.preventDefault();
@@ -2608,6 +2650,11 @@
         "default": "Live chat"
       }, {
         "type": "text",
+        "id": "reTour",
+        "label": "ReTour text",
+        "default": "ReTour"
+      }, {
+        "type": "text",
         "id": "demo",
         "label": "button text",
         "default": "Book Demo"
@@ -2623,7 +2670,7 @@
       }, {
         "type": "text",
         "id": "sidebar_header_title",
-        "label": "Sidebar header title",
+        "label": "Sidebar header title for Widget",
         "default": "KEY BENEFITS"
       }, {
         "type": "text",
@@ -2713,6 +2760,11 @@
         "content": "Cart Upsell Tab Settings"
       }, {
         "type": "text",
+        "id": "sidebar_header_title_cart_upsell",
+        "label": "Sidebar header title for Cart Upsell",
+        "default": "Subscription Cart Upsell"
+      }, {
+        "type": "text",
         "id": "cart_upsell_subtext_title",
         "label": "Subtext title for cart upsell",
         "default": "Cart Upsell Widgets"
@@ -2772,6 +2824,11 @@
       }, {
         "type": "header",
         "content": "Portal Tab Settings"
+      }, {
+        "type": "text",
+        "id": "sidebar_header_title_portal",
+        "label": "Sidebar header title for Portal",
+        "default": "Subscription Portal"
       }, {
         "type": "text",
         "id": "portal_subtext_title",
@@ -3063,4 +3120,4 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %} 
