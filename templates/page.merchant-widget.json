@@ -77,8 +77,8 @@
           "settings": {
             "tab_type": "cart_upsell",
             "feature_image": "🛒",
-            "content_header": "Smart Upsell Prompts",
-            "content_description": "Automatically suggest subscription upgrades at checkout",
+            "content_header": "One-Click cart upsell",
+            "content_description": "Enable cart upsell instantly on any theme and customize colors, styling, and layout to match your brand.",
             "tag_text_one": "No code",
             "tag_text_two": "< 10 min",
             "example_url": "",
