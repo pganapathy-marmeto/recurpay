@@ -21,9 +21,9 @@
       "type": "tour-completion",
       "name": "Completion CTA",
       "settings": {
-        "icon": "Tour Completed Successfully",
-        "heading": "<p>Ready to transform your<br/>subscription experience?</p>",
-        "description": "You've seen how Recurpay helps you capture more revenue and retain customers. Join 6,500+ merchants growing their business with us.",
+        "icon": "You've seen it in action",
+        "heading": "<p>Now imagine this running on your store</p>",
+        "description": "Everything you just experienced can be live on your store - fully branded, fully customizable, and built for subscription growth.",
         "primary_button_text": "Start 30-Day free trial",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
         "secondary_button_text": "Book a Demo",
