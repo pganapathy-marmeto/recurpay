@@ -39,7 +39,7 @@
             "tab_type": "widget",
             "feature_image": "🌍",
             "content_header": "Localization & Multi currency",
-            "content_description": "Supports local languages and currencies so international customers see familiar pricing and content.",
+            "content_description": "Customize widget language and currency settings to match how you sell in different countries.",
             "tag_text_one": "",
             "tag_text_two": "",
             "example_url": "",
@@ -51,8 +51,8 @@
           "settings": {
             "tab_type": "widget",
             "feature_image": "📈",
-            "content_header": "AI-Powered widget generator",
-            "content_description": "Generate fully functional custom subscription widget designs instantly using our AI widget generator",
+            "content_header": "Generate custom widgets with AI",
+            "content_description": "Upload a reference design and let AI generate a fully functional subscription widget ready for use.",
             "tag_text_one": "",
             "tag_text_two": "",
             "example_url": "",
@@ -64,10 +64,10 @@
           "settings": {
             "tab_type": "widget",
             "feature_image": "🎨",
-            "content_header": "On-Brand Styling",
-            "content_description": "Match your store perfectly—customize colors, fonts, spacing, and every visual detail to fit your brand.",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
+            "content_header": "Optimized for conversions",
+            "content_description": "Designed with proven layouts and defaults that help increase subscription selections and improve conversion rates.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": ""
           }
