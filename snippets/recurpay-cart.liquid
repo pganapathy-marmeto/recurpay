@@ -243,6 +243,7 @@
           async:true,
           data: {"products": products,"settings": true},
           success: function(response) {
+            debugger;
             if(response != "ERROR") {
               if(response.plans.length > 0){
                 if(response.settings.translations !== null && !$.isEmptyObject(response.settings.translations)){
