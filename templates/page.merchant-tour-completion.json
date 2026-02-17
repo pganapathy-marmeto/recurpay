@@ -27,35 +27,36 @@
         "primary_button_text": "Install Recurpay for Free",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
         "secondary_button_text": "Talk to an expert",
-        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
+        "teritary_button_text": "Live chat"
       }
     },
     "testimonial_stack_aqxxQX": {
       "type": "testimonial-stack",
       "blocks": {
-        "card_wm6Y7k": {
-          "type": "card",
-          "settings": {
-            "card-heading": "Why merchants choose Recurpay",
-            "card-description": "6,500+ brands",
-            "card-image": "shopify://shop_images/gempages_575406951106609695-af5e8ec4-1b94-4c97-ab7c-e9bd98fd5791.png",
-            "card-name": "Laura Mendes",
-            "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
-            "card-quote": "Real merchants, real subscription growth"
-          }
-        },
         "card_PLtn38": {
           "type": "card",
           "settings": {
             "card-heading": "Why merchants choose Recurpay",
             "card-description": "6,500+ brands",
-            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
-            "card-name": "Laura Mendes",
+            "card-image": "shopify://shop_images/663ca6b789a1bd32d4f79f37_trademark-MightyMissouri-Logo-noedges_9c592d7f-9616-4b58-9c5a-d70fab70c1a7.png",
+            "card-name": "Mighty Missouri Coffee Co.",
             "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-title": "United States",
+            "card-testimonial": "We have over 300 accounts that needed to be transferred over from our previous subscription app.‍We like that they solely focus on subscriptions and are able to give the attention needed.We are looking forward to working with RecurPay, and continuing to help each other grow!",
+            "card-quote": "Real merchants, real subscription growth"
+          }
+        },
+        "card_wm6Y7k": {
+          "type": "card",
+          "settings": {
+            "card-heading": "Why merchants choose Recurpay",
+            "card-description": "6,500+ brands",
+            "card-image": "shopify://shop_images/663cd41850fe177763e1d826_LOIVE_Logo_Wit_512x160_black.png",
+            "card-name": "LOIVE Pitiusas",
+            "card-rating": 5,
+            "card-title": "Spain",
+            "card-testimonial": "Recurpay, you guys are amazing !!!‍The app is perfect and the integration was so seamless and when I had a personal question you guys where fast and so helpful and provided a service that was absolutely the best!!!!‍Really  pleased with this function in the website and with this app. I can 1000% recommend it!!",
             "card-quote": "Real merchants, real subscription growth"
           }
         },
@@ -65,17 +66,17 @@
             "card-heading": "Why merchants choose Recurpay",
             "card-description": "6,500+ brands",
             "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
-            "card-name": "Laura Mendes",
+            "card-name": "The Dressage Coach",
             "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-title": "United Kingdom",
+            "card-testimonial": "Absolutely fantastic. We contacted the team about migrating from another subscription service who’d significantly increased their fees.The process was really simple and the team were really helpful. They reply practically immediately most of the time and they’re so helpful.Couldn’t be happier, very impressed.",
             "card-quote": "Real merchants, real subscription growth"
           }
         }
       },
       "block_order": [
-        "card_wm6Y7k",
         "card_PLtn38",
+        "card_wm6Y7k",
         "card_gXrgyg"
       ],
       "name": "Testimonial Stack",
