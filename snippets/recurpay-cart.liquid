@@ -1,7 +1,6 @@
 {{ 'recurpay-cart.css' | asset_url | stylesheet_tag }}
 <script defer>
   (function() {
-    debugger;
     //Append Script
     var initScript = function(url, callback) {
       var script = document.createElement("script");
@@ -263,6 +262,7 @@
                       }
                     }
                 });
+                response.settings.cart_upsell_status = true;
                 if(response.settings.cart_upsell_status){
                     addCartWidget();
                     if(window.SLIDECART_UPDATE !== undefined){
