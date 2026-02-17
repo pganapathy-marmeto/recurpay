@@ -38,25 +38,25 @@
           "type": "card",
           "settings": {
             "card-heading": "Why merchants choose Recurpay",
-            "card-description": "6,500+ brands",
-            "card-image": "shopify://shop_images/gempages_575406951106609695-af5e8ec4-1b94-4c97-ab7c-e9bd98fd5791.png",
-            "card-name": "Laura Mendes",
+            "card-description": "250+ partners",
+            "card-image": "shopify://shop_images/wearecentous_logo.jpg",
+            "card-name": "Rajan - Centous Solutions",
             "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-title": "Founder",
+            "card-testimonial": "After facing serious limitations and delays with another subscription solution close to launch, we switched to Recurpay with only 15 days remaining, and the team immediately stepped in with proactive support. Despite complex custom requirements and the Diwali holiday period, everything was implemented smoothly and the project was delivered on time. Recurpay truly worked as an extension of our team, and I now confidently recommend it to my clients and partners.",
             "card-quote": "Real merchants, real subscription growth"
           }
         },
         "card_PLtn38": {
           "type": "card",
           "settings": {
-            "card-heading": "Why merchants choose Recurpay",
-            "card-description": "6,500+ brands",
-            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
-            "card-name": "Laura Mendes",
+            "card-heading": "Why partners choose Recurpay",
+            "card-description": "250+ partners",
+            "card-image": "shopify://shop_images/T09KU7CT22Z-U09LRUZM8E4-b60c43d10c11-192.png",
+            "card-name": "Max - Code2Commerce",
             "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-title": "Founder",
+            "card-testimonial": "As a Shopify Partner, finding an app that truly understands both the technical and human side of subscriptions is rare - Recurpay has been one of those rare discoveries for me. The platform is powerful yet effortless, with developer-friendly APIs and webhooks that enable tailored, scalable solutions, backed by a warm and genuinely supportive team. It never feels like dealing with an app company - but working with people who truly care and help elevate the client experience.",
             "card-quote": "Real merchants, real subscription growth"
           }
         },
@@ -66,7 +66,7 @@
             "card-heading": "Why merchants choose Recurpay",
             "card-description": "250+ partners",
             "card-image": "shopify://shop_images/final_logo.png",
-            "card-name": "Blossom Coder",
+            "card-name": "Blossomcoder",
             "card-rating": 5,
             "card-title": "Founder",
             "card-testimonial": "From a technical perspective, Recurpay stands out with its flexible APIs, strong webhook support, and ability to handle advanced subscription logic. As BlossomCoder, we value how the platform enables deep customization while maintaining stability and performance. It makes building complex subscription experiences much more efficient.",
