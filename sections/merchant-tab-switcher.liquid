@@ -68,13 +68,14 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    text-transform: capitalize;
     text-decoration: none;
   }
 
   .button_demo {
     background: #2F7F6A;
     color: white;
+    border: none;
+    padding: 6px 8px;
   }
 
   .live_chat {
@@ -101,11 +102,12 @@
 
 
   /*
-   .active_tab,
-   .button_demo {
-   background-color: rgb(5, 150, 105);
-   color: white;
-   }
+
+   .active_tab, 
+   .button_demo { 
+   background-color: rgb(5, 150, 105); 
+   color: white; 
+   } 
 */
 
   @keyframes spin {
@@ -823,9 +825,9 @@
 
   /*
 
-   .demo-guide-body {
-   padding: 18px 20px;
-   }
+   .demo-guide-body { 
+   padding: 18px 20px; 
+   } 
 */
 
   /* completion state (final tour page) */
@@ -849,7 +851,7 @@
     font-size: 14px;
     transition: 0.2s;
   }
-  
+
   .reTour svg {
     transition: transform 0.3s ease;
     transform-origin: center;
@@ -858,8 +860,8 @@
   .reTour:hover {
     border-bottom: 2px solid #6B7280;
   }
-  
-  .reTour:hover svg{
+
+  .reTour:hover svg {
     transform: rotate(-180deg);
   }
 
@@ -881,20 +883,106 @@
 
   }
 
+  /* Loader styling */
+  .ccs-skel {
+    display: grid;
+    gap: 12px;
+  }
+
+  .ccs-skel .ccs-skel__avatar, .ccs-skel .ccs-skel__line {
+    background: linear-gradient(90deg, rgba(15,23,42,.06) 0%, rgba(15,23,42,.10) 35%, rgba(255,255,255,.65) 50%, rgba(15,23,42,.10) 65%, rgba(15,23,42,.06) 100%);
+    background-size: 220% 100%;
+    animation: ccs-shimmer 1.35s ease-in-out infinite;
+    border: 1px solid rgb(15 23 42 / 3%);
+  }
+
+  @keyframes ccs-shimmer {
+    0% {
+      background-position: 120% 0;
+    }
+    100% {
+      background-position: -120% 0;
+    }
+  }
+
+  .ccs-skel__item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .45);
+    border: 1px solid rgba(15, 23, 42, .3);
+  }
+
+  .ccs-skel__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    flex: 0 0 auto;
+  }
+
+  .ccs-skel__lines {
+    flex: 1;
+    display: grid;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .ccs-skel__line {
+    height: 12px;
+    border-radius: 999px;
+  }
+
+  /* Width helpers (edit these for variety) */
+  .ccs-w-75 {
+    width: 75%;
+  }
+  .ccs-w-90 {
+    width: 90%;
+  }
+  .ccs-w-70 {
+    width: 70%;
+  }
+  .ccs-w-60 {
+    width: 60%;
+  }
+  .ccs-w-50 {
+    width: 50%;
+  }
+  .ccs-w-45 {
+    width: 45%;
+  }
+  .ccs-w-40 {
+    width: 40%;
+  }
+
+  #sidebar__loader {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    padding-top: 40px;
+  }
+
+  .sidebar__container.isLoading .sidebar__header, .sidebar__container.isLoading .sidebar__content  {
+    opacity: 0;
+  }
+
+
 {% endstyle %}
 
 {% assign merchant_tabs = "widget,cart_upsell,portal" | split: "," %}
-{% if section.settings.enable_support_resources %}
+{% comment %} {% if section.settings.enable_support_resources %}
   {% assign support_tab = "support_resources" | split: "," %}
   {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
-{% endif %}
+{% endif %} {% endcomment %}
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
     {% comment %} <div class="image_with_logo__wrapper">
-                                    {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
-                                    <h2 class="company_name">{{ section.settings.company_name }}</h2>
-                                    <span>{{ section.settings.tag_text }}</span>
-                        </div> {% endcomment %}
+                                          {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
+                                          <h2 class="company_name">{{ section.settings.company_name }}</h2>
+                                          <span>{{ section.settings.tag_text }}</span>
+                            </div> {% endcomment %}
     <a class=" redirect" href="{{ section.settings.redirect_link }}">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -941,7 +1029,17 @@
     </div>
     <div class="redirect_buttons__wrapper">
       <a href="{{ request.path }}" class="reTour">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
         {{ section.settings.reTour }}
       </a>
       <button class="live_chat">
@@ -993,9 +1091,9 @@
             <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
           </div>
         {% comment %} <a
-                      target="_blank"
-                      href="{{ section.settings.doc_url }}"
-                    data-sidebar-doc-url>View docs</a> {% endcomment %}
+                                target="_blank"
+                                href="{{ section.settings.doc_url }}"
+                            data-sidebar-doc-url>View docs</a> {% endcomment %}
         </div>
       </div>
       <div class="sidebar__content">
@@ -1044,48 +1142,48 @@
         </div>
       </div>
     {% comment %} <div class="sidebar__footer">
-              <a
-                href="https://apps.shopify.com/recurpay-subscriptions"
-                target="_blank"
-                class="button_trial">Start 30 day trial</a>
-              <p>Or
-                <a
-                  href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
-                  target="_blank"
-                  class="button_call">talk to an expert and book a quick call</a>
-              </p>
-          </div> {% endcomment %}
+                    <a
+                      href="https://apps.shopify.com/recurpay-subscriptions"
+                      target="_blank"
+                      class="button_trial">Start 30 day trial</a>
+                    <p>Or
+                      <a
+                        href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+                        target="_blank"
+                        class="button_call">talk to an expert and book a quick call</a>
+                    </p>
+              </div> {% endcomment %}
     </div>
     <div class="main_content">
       {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
-                <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
-
-                  <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
-                  <div id="tagline-pill-container">
-                    {% if section.settings.tag_text_widget != blank %}
-                      <div class="tagline-pill" id="tagline-pill">
-                        {% if section.settings.tag_icon_widget != blank %}
-                          <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
-                        {% endif %}
-                        <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
-                      </div>
-                    {% endif %}
-                  </div>
-
-                  {% if section.settings.heading_widget != blank %}
-                    <h2 class="main-heading">
-                      {{ section.settings.heading_widget }}
-                    </h2>
-                  {% endif %}
-
-                  {% if section.settings.description_widget != blank %}
-                    <p class="main-description" id="main-description">
-                      {{ section.settings.description_widget }}
-                    </p>
-                  {% endif %}
-
-                </div>
-            </section> {% endcomment %}
+                        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
+  
+                          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
+                          <div id="tagline-pill-container">
+                            {% if section.settings.tag_text_widget != blank %}
+                              <div class="tagline-pill" id="tagline-pill">
+                                {% if section.settings.tag_icon_widget != blank %}
+                                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
+                                {% endif %}
+                                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
+                              </div>
+                            {% endif %}
+                          </div>
+  
+                          {% if section.settings.heading_widget != blank %}
+                            <h2 class="main-heading">
+                              {{ section.settings.heading_widget }}
+                            </h2>
+                          {% endif %}
+  
+                          {% if section.settings.description_widget != blank %}
+                            <p class="main-description" id="main-description">
+                              {{ section.settings.description_widget }}
+                            </p>
+                          {% endif %}
+  
+                        </div>
+                  </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -1212,22 +1310,22 @@
                 <!-- Header -->
                 <div class="demo-guide-header">
                   {% comment %} <div class="demo-guide-profile">
-                    {% if section.settings.avatar != blank %}
-                    <div class="demo-avatar-container">
-                    {{ section.settings.avatar }}
-                    </div>
-                    {% endif %}
-
-                    <div>
-                    <div class="demo-guide-name">
-                    {{ section.settings.name }}
-                    </div>
-                    <div class="demo-guide-subtitle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                    {{ section.settings.subtitle }}
-                    </div>
-                    </div>
-                  </div> {% endcomment %}
+                                        {% if section.settings.avatar != blank %}
+                                        <div class="demo-avatar-container">
+                                        {{ section.settings.avatar }}
+                                        </div>
+                                        {% endif %}
+  
+                                        <div>
+                                        <div class="demo-guide-name">
+                                        {{ section.settings.name }}
+                                        </div>
+                                        <div class="demo-guide-subtitle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                        {{ section.settings.subtitle }}
+                                        </div>
+                                        </div>
+                                    </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -1271,27 +1369,27 @@
 
               <!-- Footer -->
               {% comment %} <div class="demo-guide-footer">
-                                                  <div class="demo-guide-steps">
-                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                                                  <div class="guide_pagination_dots">
-                                                  {% for tab in merchant_tabs %}
-                                                  <div class="dots"></div>
-                                                  {% endfor %}
-                                                  </div>
-                                                  </div>
-
-                                                  <div class="demo-guide-actions">
-                                                  <button type="button" class="demo-guide-back">
-                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                                                  {{ section.settings.back_text }}
-                                                  </button>
-
-                                                  <button type="button" class="demo-guide-finish">
-                                                  {{ section.settings.finish_text }}
-                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                                  </button>
-                                                  </div>
-                                            </div> {% endcomment %}
+                                                                  <div class="demo-guide-steps">
+                                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                                                  <div class="guide_pagination_dots">
+                                                                  {% for tab in merchant_tabs %}
+                                                                  <div class="dots"></div>
+                                                                  {% endfor %}
+                                                                  </div>
+                                                                  </div>
+  
+                                                                  <div class="demo-guide-actions">
+                                                                  <button type="button" class="demo-guide-back">
+                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                                                  {{ section.settings.back_text }}
+                                                                  </button>
+  
+                                                                  <button type="button" class="demo-guide-finish">
+                                                                  {{ section.settings.finish_text }}
+                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                                                  </button>
+                                                                  </div>
+                                                          </div> {% endcomment %}
 
               </div>
             </div>
@@ -1390,7 +1488,7 @@
       sidebarRestore: {{ section.settings.event_sidebar_restore | default: "Sidebar Restore Clicked" | json }},
       completionPage: {{ section.settings.event_completion_page | default: "Completion Page Reached" | json }}
     };
-
+  
     // Helper function to track Mixpanel events
     function trackMixpanelEvent(eventName, properties = {}) {
       if (typeof mixpanel !== 'undefined' && mixpanel.track) {
@@ -1402,7 +1500,7 @@
       // Also log for debugging
       // console.log('Mixpanel Event:', eventName, properties);
     }
-
+  
     const tabConfig = {
       widget: {
         sidebarHeader: {{ section.settings.sidebar_header_title | json }},
@@ -1482,7 +1580,7 @@
     const sidebarContainer = document.querySelector('.sidebar__container');
     const sidebarToggleButton = document.querySelector('.header_title button');
     const sidebarHeaderTitle = sidebarContainer.querySelector('.header_title span');
-
+  
     // Demo guide elements
     const showGuideButton = document.querySelector('.show_guide');
     const demoGuideSection = document.querySelector('.demo-guide-section');
@@ -1535,7 +1633,7 @@
   
     // Function to update footer step indicator
     function updateStepIndicator(tabIndex, isCompletionStep = false) {
-      const totalSteps = tabOrder.length + 1; // tabs + completion page
+      const totalSteps = tabOrder.length; // tabs + completion page
       const currentStep = isCompletionStep ? totalSteps : (tabIndex + 1);
       const tabType = isCompletionStep ? null : tabOrder[tabIndex];
       const config = tabType ? tabConfig[tabType] : null;
@@ -1563,7 +1661,7 @@
       // Update Previous/Next button states
       const isFirstStep = !isCompletionStep && tabIndex === 0;
       const isLastStep = isCompletionStep;
-
+  
       if (previousButton) {
         if (isFirstStep) {
           previousButton.classList.add('disabled');
@@ -1607,17 +1705,17 @@
           }
         }
       }
-
+  
       // Hide guide back button on first tab, show from second tab onwards
       if (demoGuideBackButton) {
         demoGuideBackButton.style.display = isFirstStep ? 'none' : '';
       }
     }
-
+  
     function updateDemoGuide(tabType, tabIndex) {
       const config = tabConfig[tabType];
       if (!config) return;
-
+  
       if (demoGuideTitleEl) demoGuideTitleEl.textContent = config.guideTitle || '';
       if (demoGuideDescriptionEl) demoGuideDescriptionEl.textContent = config.guideDescription || '';
       
@@ -1628,7 +1726,7 @@
       } else {
         if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${tabIndex + 1} / ${tabOrder.length}`;
       }
-
+  
       if (demoGuideDots && demoGuideDots.length) {
         // For completion, don't highlight any dot (or could highlight last one)
         if (tabType === 'completion') {
@@ -1644,7 +1742,7 @@
         }
       }
     }
-
+  
     // Function to ensure cart has items for cart_upsell tab
     async function ensureCartHasItems() {
       try {
@@ -1705,7 +1803,7 @@
         console.log('Error ensuring cart has items:', error);
       }
     }
-
+  
     // Auto-switch from widget tab to cart_upsell tab when primary CTAs are clicked
     let widgetCtaListenerAttached = false;
     function goToCartUpsellFromWidget() {
@@ -1718,7 +1816,7 @@
         switchToTab(cartIndex);
       }, 500);
     }
-
+  
     function attachWidgetCtaAutoSwitch() {
       if (widgetCtaListenerAttached || !mainContentContainer) return;
       widgetCtaListenerAttached = true;
@@ -1730,14 +1828,14 @@
           '.recurpay-subscribe-btn, [data-recurpay-button="subscribe"], [data-recurpay="subscribe"]'
         );
         if (!cta) return;
-
+  
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
         console.log("cartForm", cartForm);
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
-
+  
           fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
             body: formData
@@ -1764,13 +1862,13 @@
         }
       });
     }
-
+  
     attachWidgetCtaAutoSwitch();
-
+  
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
       if (!mainContentContainer) return;
-
+  
       const config = tabConfig[tabType];
       
       // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
@@ -1824,15 +1922,15 @@
         
         return;
       }
-
+  
       // Default behavior: fetch and inject HTML for non-portal tabs
       if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
         mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content URL not configured for this tab.</div>';
         return;
       }
-
+  
       mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading...</div>';
-
+  
       fetch(config.contentUrl)
         .then(response => {
           if (!response.ok) {
@@ -1869,7 +1967,7 @@
           // Clear loading message and render
           mainContentContainer.innerHTML = '';
           mainContentContainer.appendChild(contentContainer);
-
+  
           // Execute scripts after content is appended
           executeScripts(mainContentContainer);
           
@@ -1910,11 +2008,11 @@
           mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content could not be loaded. Please check the content URL configuration.</div>';
         });
     }
-
+  
     function confettiOnCompletion(){
       let duration = 3 * 1000;
       let end = Date.now() + duration;
-
+  
       function frame() {
       // launch a few confetti from the left edge
       confetti({
@@ -1930,7 +2028,7 @@
         spread: 55,
         origin: { x: 1 }
       });
-
+  
       // keep going until we are out of time
       if (Date.now() < end) {
         requestAnimationFrame(frame);
@@ -1940,43 +2038,93 @@
     }
   
     // Sidebar loader functions
-    function showSidebarLoader() {
-      if (!sidebarContainer) return;
-      
-      // Store the current sidebar content
-      const sidebarContent = sidebarContainer.innerHTML;
-      sidebarContainer.setAttribute('data-original-content', sidebarContent);
-      
-      // Create and show loader
-        const loaderHTML = `
-          <div class="sidebar-loader" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 16px;">
-            <div style="width: 40px; height: 40px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
-            <span style="font-size: 14px; font-weight: 500; color: rgb(107, 114, 128);"></span>
-          </div>
+    function showSidebarLoader() {   
+      if(document.getElementById("sidebar__loader")) return; 
+      const sidebarLoader = document.createElement("div");
+      sidebarLoader.id = "sidebar__loader";
+      sidebarLoader.innerHTML = `
+          <div class="ccs-demo">
+  <section class="ccs-skel" aria-label="Loading">
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-50"></div>
+        <div class="ccs-skel__line ccs-w-60"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+    <div class="ccs-skel__item">
+      <div class="ccs-skel__avatar"></div>
+      <div class="ccs-skel__lines">
+        <div class="ccs-skel__line ccs-w-70"></div>
+        <div class="ccs-skel__line ccs-w-90"></div>
+      </div>
+    </div>
+  </section>
+  </div>
         `;
-      sidebarContainer.innerHTML = loaderHTML;
+        sidebarContainer.classList.add("isLoading");
+      sidebarContainer.appendChild(sidebarLoader);
     }
-
+  
     function hideSidebarLoader() {
       if (!sidebarContainer) return;
       
       // Restore the original content
-      const originalContent = sidebarContainer.getAttribute('data-original-content');
-      if (originalContent) {
-        sidebarContainer.innerHTML = originalContent;
-        sidebarContainer.removeAttribute('data-original-content');
-      }
+      // const originalContent = sidebarContainer.getAttribute('data-original-content');
+      // if (originalContent) {
+      //   sidebarContainer.innerHTML = originalContent;
+      //   sidebarContainer.removeAttribute('data-original-content');
+      // }
+       sidebarContainer.classList.remove("isLoading");
+      document.getElementById("sidebar__loader").remove();
     }
-
+  
     // Function to switch to a specific tab
     function switchToTab(tabIndex) {
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
-
+  
       isOnCompletion = false;
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
-
+  
       currentTabIndex = tabIndex;
       const tabType = tabOrder[tabIndex];
   
@@ -1992,10 +2140,10 @@
   
       // Filter sidebar blocks
       filterBlocks(tabType);
-
+  
       // Update sidebar header
       updateSidebarHeader(tabType);
-
+  
       // Show loader in sidebar
       showSidebarLoader();
       
@@ -2013,7 +2161,7 @@
       if (window.updateMerchantTabHeaderSection) {
         window.updateMerchantTabHeaderSection(tabType);
       }
-
+  
       // Update demo guide content + dots
       updateDemoGuide(tabType, tabIndex);
       
@@ -2033,7 +2181,7 @@
           demoGuideFinishButton.textContent = originalFinishButtonText;
         }
       }
-
+  
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
@@ -2044,7 +2192,7 @@
         loadTabContent(tabType);
       }
     }
-
+  
     // Function to show the final completion tour page (after last tab)
     function showCompletionStep() {
       isOnCompletion = true;
@@ -2113,7 +2261,7 @@
           });
         }
         switchToTab(tabIndex);
-
+  
         // If Driver.js guide is active and we're not on completion, re-run it on the new tab
         if (!isOnCompletion && document.querySelector('.driver-popover')) {
           setTimeout(runDriverShowGuide, 500);
@@ -2163,12 +2311,12 @@
           window.location.href = '/';
           return;
         }
-
+  
         trackMixpanelEvent(mixpanelEvents.nextButton, {
           current_tab_index: currentTabIndex,
           total_tabs: tabOrder.length
         });
-
+  
         if (currentTabIndex < tabOrder.length - 1) {
           switchToTab(currentTabIndex + 1);
         } else {
@@ -2181,7 +2329,7 @@
         }
       });
     }
-
+  
    // Demo guide back button handler
    if (demoGuideBackButton) {
      demoGuideBackButton.addEventListener('click', (e) => {
@@ -2206,7 +2354,7 @@
        }
      });
    }
-
+  
    // Demo guide finish button handler
    if (demoGuideFinishButton) {
      demoGuideFinishButton.addEventListener('click', (e) => {
@@ -2236,19 +2384,19 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', handleTabClick);
     });
-
+  
     // Guide visibility toggle (still used by the inline demo guide close button)
     function setGuideVisible(visible) {
       if (!demoGuideSection) return;
       if (visible) demoGuideSection.classList.add('is-visible');
       else demoGuideSection.classList.remove('is-visible');
     }
-
+  
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
-
+  
       // Map tab type to the element selector to highlight
       function getHighlightSelector(tabType) {
         switch (tabType) {
@@ -2266,16 +2414,16 @@
             return null;
         }
       }
-
+  
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-
+  
       // Try to highlight the appropriate element only when it exists, and retry a few times if not found yet
       function highlightCurrentTabElement(retries) {
         // For cart_upsell, use querySelectorAll and get the 2nd element (index 1)
         
         const targetEl = document.querySelector(selector);
-
+  
         if (targetEl) {
           console.log('Target element found:', targetEl);
           // Ensure Driver.js is available before initializing
@@ -2283,10 +2431,10 @@
             console.warn('Driver.js is not available');
             return;
           }
-
+  
           // Log the highlighted element
           // console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
-
+  
           // Center the element in the viewport
           if(currentTabType == 'widget'){
             const widgetElement = document.querySelector(selector);
@@ -2296,7 +2444,7 @@
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
-
+  
           // Start Driver.js highlight with empty popover so we can replace its content
           driverObj.highlight({
             element: targetEl,
@@ -2319,7 +2467,7 @@
               // Clear existing content and inject the demo guide card clone
               popoverEl.innerHTML = '';
               popoverEl.appendChild(demoCard.cloneNode(true));
-
+  
               // Wire popover buttons to global navigation
               const closeBtn = popoverEl.querySelector('.demo-guide-close');
               if (closeBtn) {
@@ -2329,14 +2477,14 @@
                   }
                 });
               }
-
+  
               const backBtn = popoverEl.querySelector('.demo-guide-back');
               if (backBtn) {
                 backBtn.addEventListener('click', () => {
                   if (typeof driverObj.destroy === 'function') {
                     driverObj.destroy();
                   }
-
+  
                   // From completion page, go back to the last real tab (portal or support_resources)
                   if (isOnCompletion) {
                     const lastRealTabIndex = tabOrder.length - 1;
@@ -2353,7 +2501,7 @@
                   }
                 });
               }
-
+  
               const finishBtn = popoverEl.querySelector('.demo-guide-finish');
               if (finishBtn) {
                 finishBtn.addEventListener('click', () => {
@@ -2365,12 +2513,12 @@
                     console.log("finish button text", finishBtn.textContent);
                     showCompletionStep();
                     if(finishBtn.textContent.toLowerCase().includes('next')) {
-
+  
                       updateDemoGuide('completion', tabOrder.length);
-
+  
                       // Hide the inline guide, just in case
                       setGuideVisible(false);
-
+  
                       // Run Driver.js-based guide
                       runDriverShowGuide();
                     }
@@ -2388,16 +2536,16 @@
           setTimeout(() => highlightCurrentTabElement(retries - 1), 300);
         }
       }
-
+  
       // Try up to 10 times to find and highlight the element for the current tab
       highlightCurrentTabElement(10);
     }
-
+  
     // Integrate Driver.js on click of "Show Guide" instead of toggling the inline guide
     if (showGuideButton) {
       showGuideButton.addEventListener('click', (e) => {
         e.preventDefault();
-
+  
         trackMixpanelEvent(mixpanelEvents.showGuide, {
           current_tab_index: currentTabIndex,
           is_on_completion: isOnCompletion,
@@ -2411,22 +2559,22 @@
           const tabType = tabOrder[currentTabIndex] || 'widget';
           updateDemoGuide(tabType, currentTabIndex);
         }
-
+  
         // Hide the inline guide, just in case
         setGuideVisible(false);
-
+  
         // Run Driver.js-based guide
         runDriverShowGuide();
       });
     }
-
+  
     if (demoGuideCloseButton) {
       demoGuideCloseButton.addEventListener('click', (e) => {
         e.preventDefault();
         setGuideVisible(false);
       });
     }
-
+  
     // Function to toggle sidebar collapse state
     function toggleSidebarCollapse(eventSource = 'toggle') {
       if (!sidebarContainer || !headerContainer) return;
@@ -2447,7 +2595,7 @@
         headerContainer.classList.add('sidebar-collapsed');
       }
     }
-
+  
     // Sidebar collapse toggle button
     if (sidebarToggleButton) {
       sidebarToggleButton.addEventListener('click', (e) => {
@@ -2455,7 +2603,7 @@
         toggleSidebarCollapse('toggle');
       });
     }
-
+  
     // Sidebar restore button (appears when collapsed)
     const sidebarRestoreButton = document.querySelector('.sidebar-restore-button');
     if (sidebarRestoreButton) {
@@ -2506,12 +2654,12 @@
         </div>`;
       document.body.appendChild(loader);
     }
-
+  
     function hideDriverLoader() {
       const loader = document.getElementById('driver-tour-loader');
       if (loader) loader.remove();
     }
-
+  
     // Start the Driver.js tour automatically when page loads
     // Use setInterval to check if content is loaded, show loader while waiting
     (function startDriverTourWhenReady() {
@@ -2535,13 +2683,13 @@
             return null;
         }
       }
-
+  
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-
+  
       // Show loader immediately
       showDriverLoader();
-
+  
       let attempts = 0;
       const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
       
@@ -2551,7 +2699,7 @@
         // Check if target element exists
         const targetEl = document.querySelector(selector);
         // console.log("targetEl", targetEl);
-
+  
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
@@ -2624,11 +2772,6 @@
         "id": "button_three",
         "label": "Button text",
         "default": "Portal"
-      }, {
-        "type": "checkbox",
-        "id": "enable_support_resources",
-        "label": "Enable Support & Resources tab",
-        "default": true
       }, {
         "type": "text",
         "id": "button_four",
@@ -2882,78 +3025,7 @@
         "id": "steps_text_portal",
         "label": "Steps text",
         "default": "3 / 4"
-      }, {
-        "type": "header",
-        "content": "Support & Resources Tab Settings"
-      }, {
-        "type": "text",
-        "id": "support_resources_subtext_title",
-        "label": "Subtext title for support & resources",
-        "default": "Support & Resources"
-      }, {
-        "type": "text",
-        "id": "support_resources_subtext_description",
-        "label": "Subtext description for support & resources",
-        "default": "Everything you need to launch and get help when you need it"
-      }, {
-        "type": "url",
-        "id": "support_resources_doc_url",
-        "label": "Docs URL for support & resources"
-      }, {
-        "type": "url",
-        "id": "support_resources_content_url",
-        "label": "Support & resources content page URL",
-        "info": "URL to the page containing support & resources tab content"
-      }, {
-        "type": "text",
-        "id": "support_resources_step_name",
-        "label": "Support & resources step name",
-        "default": "Support & Resources"
-      }, {
-        "type": "text",
-        "id": "tag_text_support_resources",
-        "label": "Top Tag Text",
-        "default": "Support"
-      }, {
-        "type": "html",
-        "id": "tag_icon_support_resources",
-        "label": "Tag Icon (Emoji or Text)"
-      }, {
-        "type": "text",
-        "id": "heading_support_resources",
-        "label": "Main Heading",
-        "default": "Support & implementation resources"
-      }, {
-        "type": "textarea",
-        "id": "description_support_resources",
-        "label": "Description",
-        "default": "Docs, guides, and best practices to help you go live faster."
-      }, {
-        "type": "text",
-        "id": "title_support_resources_guide",
-        "label": "Title for support & resources tab",
-        "default": "Need help? We’ve got you."
-      }, {
-        "type": "textarea",
-        "id": "description_support_resources_guide",
-        "label": "Description for support & resources tab",
-        "default": "Browse docs or talk to our team for fast implementation support."
-      }, {
-        "type": "text",
-        "id": "steps_text_support_resources",
-        "label": "Steps text",
-        "default": "4 / 4"
-      }, {
-        "type": "url",
-        "id": "completion_content_url",
-        "label": "Completion content page URL",
-        "info": "URL to the page containing final tour completion content"
-      }, {
-        "type": "text",
-        "id": "completion_step_name",
-        "label": "Completion step name",
-        "default": "Tour completion"
-      }, {
+      },{
         "type": "header",
         "content": "Completion Tour Page Guide Settings"
       }, {
@@ -3120,4 +3192,4 @@
       }
     ]
   }
-{% endschema %} 
+{% endschema %}
