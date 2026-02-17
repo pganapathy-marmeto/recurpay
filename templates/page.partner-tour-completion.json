@@ -64,12 +64,12 @@
           "type": "card",
           "settings": {
             "card-heading": "Why merchants choose Recurpay",
-            "card-description": "6,500+ brands",
-            "card-image": "shopify://shop_images/663cd42f3964316867ba88f5_Group_1171275642.png",
-            "card-name": "Laura Mendes",
+            "card-description": "250+ partners",
+            "card-image": "shopify://shop_images/final_logo.png",
+            "card-name": "Blossom Coder",
             "card-rating": 5,
-            "card-title": "Founder, Meadow & Oak",
-            "card-testimonial": "Subscriptions with Recurpay are effortless for our customers and our team. Churn is down 18% and support tickets dropped immediately.",
+            "card-title": "Founder",
+            "card-testimonial": "From a technical perspective, Recurpay stands out with its flexible APIs, strong webhook support, and ability to handle advanced subscription logic. As BlossomCoder, we value how the platform enables deep customization while maintaining stability and performance. It makes building complex subscription experiences much more efficient.",
             "card-quote": "Real merchants, real subscription growth"
           }
         }
