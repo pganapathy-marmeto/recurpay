@@ -323,7 +323,7 @@ if(window.recurpayCartV2 == undefined){
                 response.settings.cart_upsell_status = true;
                 let allEmpty = recurpayCartV2.items.every(item => !item.plans || item.plans.length === 0);
                 if(response.settings.cart_upsell_status && !allEmpty){
-                    // sessionStorage.setItem("recurpay_cart_upsell", "true");
+                    sessionStorage.setItem("recurpay_cart_upsell", "true");
                     recurpayCartV2.addCartWidget();
                     if(window.SLIDECART_UPDATE !== undefined){
                         window.SLIDECART_LOADED = function(cart) {
