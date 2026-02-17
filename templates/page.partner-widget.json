@@ -72,19 +72,6 @@
             "example_text": "See integrations"
           }
         },
-        "feature_P3GEpm": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "cart_upsell",
-            "feature_image": "💻",
-            "content_header": "Complete Code Editor",
-            "content_description": "Full HTML, CSS, and JS access for cart upsell widgets—customize every element for your merchants.",
-            "tag_text_one": "API",
-            "tag_text_two": "Custom",
-            "example_url": "",
-            "example_text": "See live example"
-          }
-        },
         "feature_UP77BB": {
           "type": "feature",
           "settings": {
@@ -234,7 +221,6 @@
         "feature_YMMFpQ",
         "feature_3Utf4w",
         "feature_3WGwTf",
-        "feature_P3GEpm",
         "feature_UP77BB",
         "feature_d6GWzf",
         "feature_cEzBjq",
