@@ -152,11 +152,9 @@
     </div>
 </div>
 
-{% javascript %}
-  (function(){
-    document.addEventListener('DOMContentLoaded', function(){
+<script>
+    const initStatsAnimation = () => {
       const statElements = document.querySelectorAll('.stat-val');
-      
       const observer = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
           if(entry.isIntersecting && !entry.target.classList.contains('animated')){
@@ -188,11 +186,11 @@
       }, {
         threshold: 0.5
       })
-
       statElements.forEach(el=>observer.observe(el))
-    })
-  })();
-{% endjavascript %} 
+    };
+
+    initStatsAnimation();
+</script>
 
 {% schema %}
 {

@@ -100,6 +100,7 @@ span.recurpay-widget-banner_tag-text {
 
 .recurpay-widget-banner_title {
   color: #111827 !important;
+  text-shadow: none !important;
 }
 
 .recurpay-widget-banner_timer-value {
@@ -128,7 +129,6 @@ span.recurpay-widget-banner_tag-text {
 .recurpay__widget.recurpay__subscription_first {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12) !important;
   padding-top: 0 !important;
-  border: 1px solid #4b1640 !important;
   border-radius: 18px !important;
   padding-bottom: 0 !important;
   overflow: hidden !important;
@@ -155,6 +155,10 @@ span.recurpay-widget-banner_tag-text {
   background: rgba(253, 242, 248, 0.9) !important;
 }
 
-.recurpay__widget .recurpay__widget_container {
-  margin-bottom: 0 !important;
+.recurpay__widget .recurpay__group_subtitle {
+  display: none !important;
+}
+
+.recurpay__widget .recurpay__offer_wrapper {
+  padding: 10px !important;
 }

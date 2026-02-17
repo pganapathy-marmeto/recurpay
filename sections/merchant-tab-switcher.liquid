@@ -1405,8 +1405,8 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>Previous</button>
-          <button class="next">Next<svg
+              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>{{ section.settings.back_text }}</button>
+          <button class="next">{{ section.settings.finish_text }}<svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -1455,6 +1455,18 @@
   newScript.text = oldScript.textContent;
   oldScript.replaceWith(newScript);
    });
+  }
+
+   function refreshDriver() { 
+      let maxAttempts = 5;
+      const refreshInterval = setInterval(()=>{
+      if(maxAttempts > 0) {
+        driverObj.refresh();
+        maxAttempts--;
+      }else {
+        clearInterval(refreshInterval);
+      }
+    },500)
   }
   
   (function() {
@@ -1607,7 +1619,7 @@
     }
     
     // Store original Next button text (extract text content, excluding SVG)
-    let originalNextButtonText = 'Next';
+    let originalNextButtonText = '';
     if (nextButton) {
       // Get the first text node (which contains "Next")
       const textNode = Array.from(nextButton.childNodes)
@@ -1673,36 +1685,36 @@
       if (nextButton) {
         if (isLastStep) {
           // On completion page, change text to "Finish tour" and don't disable
-          nextButton.classList.remove('disabled');
-          const svgElement = nextButton.querySelector('svg');
+          nextButton.classList.add('disabled');
+          // const svgElement = nextButton.querySelector('svg');
           // Remove all text nodes
-          Array.from(nextButton.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.remove();
-            }
-          });
+          // Array.from(nextButton.childNodes).forEach(node => {
+          //   if (node.nodeType === Node.TEXT_NODE) {
+          //     node.remove();
+          //   }
+          // });
           // Insert "Finish tour" text before SVG (or as only content if no SVG)
-          if (svgElement) {
-            nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
-          } else {
-            nextButton.textContent = 'Finish tour';
-          }
+          // if (svgElement) {
+          //   nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
+          // } else {
+          //   nextButton.textContent = 'Finish tour';
+          // }
         } else {
           // Restore original "Next" text when not on completion
           nextButton.classList.remove('disabled');
-          const svgElement = nextButton.querySelector('svg');
+          // const svgElement = nextButton.querySelector('svg');
           // Remove all text nodes
-          Array.from(nextButton.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.remove();
-            }
-          });
+          // Array.from(nextButton.childNodes).forEach(node => {
+          //   if (node.nodeType === Node.TEXT_NODE) {
+          //     node.remove();
+          //   }
+          // });
           // Insert original text before SVG (or as only content if no SVG)
-          if (svgElement) {
-            nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
-          } else {
-            nextButton.textContent = originalNextButtonText;
-          }
+          // if (svgElement) {
+          //   nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
+          // } else {
+          //   nextButton.textContent = originalNextButtonText;
+          // }
         }
       }
   
@@ -1928,9 +1940,6 @@
         mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content URL not configured for this tab.</div>';
         return;
       }
-  
-      mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading...</div>';
-  
       fetch(config.contentUrl)
         .then(response => {
           if (!response.ok) {
@@ -1968,7 +1977,7 @@
           mainContentContainer.innerHTML = '';
           mainContentContainer.appendChild(contentContainer);
   
-          // Execute scripts after content is appended
+          // Execute scripts after content is appended;
           executeScripts(mainContentContainer);
           
           // Initialize recurpay when widget tab content is loaded using setInterval
@@ -2612,22 +2621,6 @@
         toggleSidebarCollapse('restore');
       });
     }
-    function refreshDriver() { 
-      let maxAttempts = 5;
-      
-    const popover = document.querySelector(".driver-popover");
-    const something = window.getComputedStyle(popover)
-    console.log("popover", popover.style.right);
-      const refreshInterval = setInterval(()=>{
-      if(maxAttempts > 0) {
-        driverObj.refresh();
-        console.log("driverObj refreshed");
-        maxAttempts--;
-      }else {
-        clearInterval(refreshInterval);
-      }
-    },500)
-  }
   
     // Initialize: set up the first tab
     const activeButton = document.querySelector('.button_tab.active_tab');
@@ -2734,6 +2727,7 @@
       event.preventDefault();
       window.Intercom('show');
     })
+
     refreshDriver();
   });
 </script>
@@ -3025,6 +3019,16 @@
         "id": "steps_text_portal",
         "label": "Steps text",
         "default": "3 / 4"
+      },{
+        "type": "url",
+        "id": "completion_content_url",
+        "label": "Completion content page URL",
+        "info": "URL to the page containing final tour completion content"
+      },       {
+        "type": "text",
+        "id": "completion_step_name",
+        "label": "Completion step name",
+        "default": "Tour completion"
       },{
         "type": "header",
         "content": "Completion Tour Page Guide Settings"
