@@ -965,7 +965,7 @@ if(window.recurpayCartV2 == undefined){
        recurpayCartV2.updateCartData($(this),getSellingPlan);
      });
     var getCartUpsellSession = sessionStorage.getItem("recurpay_cart_upsell");
-    if(getCartUpsellSession == "true" || getCartUpsellSession == undefined || getCartUpsellSession == null){
+    if(getCartUpsellSession == "true" || getCartUpsellSession == "false" || getCartUpsellSession == undefined || getCartUpsellSession == null){
       sessionStorage.setItem("recurpay_cart_upsell", "true");
       recurpayCartV2.callCart();
     }
