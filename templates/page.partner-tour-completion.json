@@ -26,8 +26,9 @@
         "description": "Everything you just experienced can be built for your clients - fully customizable, fully branded, and built for subscription growth.",
         "primary_button_text": "Install and Build without limits",
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=partner",
-        "secondary_button_text": "Talk to a Partner Specialist",
-        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+        "secondary_button_text": "Talk to partner support",
+        "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
+        "teritary_button_text": "Live chat"
       }
     },
     "testimonial_stack_aqxxQX": {
