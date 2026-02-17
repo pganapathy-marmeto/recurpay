@@ -115,11 +115,11 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "💻",
-            "content_header": "Open Code Access",
-            "content_description": "Full access to portal HTML, CSS, and JS—customize every element for your merchants.",
-            "tag_text_one": "API",
-            "tag_text_two": "Custom",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><g fill=\"none\"><path stroke=\"currentColor\" stroke-width=\"2\" d=\"M13 2.5V5c0 2.357 0 3.536.732 4.268S15.643 10 18 10h4\"></path><path stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m7 14l-1 1l1 1m4.5 0l1 1l-1 1M10 14l-1.5 4\"></path><path fill=\"currentColor\" d=\"M2.75 10a.75.75 0 0 0-1.5 0zm18.5 4a.75.75 0 0 0 1.5 0zm-5.857-9.946l-.502.557zm3.959 3.563l-.502.557zm2.302 2.537l-.685.305zM3.172 20.828l.53-.53zm17.656 0l-.53-.53zM1.355 5.927a.75.75 0 0 0 1.493.146zm21.29 12.146a.75.75 0 1 0-1.493-.146zM14 21.25h-4v1.5h4zM2.75 14v-4h-1.5v4zm18.5-.437V14h1.5v-.437zM14.891 4.61l3.959 3.563l1.003-1.115l-3.958-3.563zm7.859 8.952c0-1.689.015-2.758-.41-3.714l-1.371.61c.266.598.281 1.283.281 3.104zm-3.9-5.389c1.353 1.218 1.853 1.688 2.119 2.285l1.37-.61c-.426-.957-1.23-1.66-2.486-2.79zM10.03 2.75c1.582 0 2.179.012 2.71.216l.538-1.4c-.852-.328-1.78-.316-3.248-.316zm5.865.746c-1.086-.977-1.765-1.604-2.617-1.93l-.537 1.4c.532.204.98.592 2.15 1.645zM10 21.25c-1.907 0-3.261-.002-4.29-.14c-1.005-.135-1.585-.389-2.008-.812l-1.06 1.06c.748.75 1.697 1.081 2.869 1.239c1.15.155 2.625.153 4.489.153zM1.25 14c0 1.864-.002 3.338.153 4.489c.158 1.172.49 2.121 1.238 2.87l1.06-1.06c-.422-.424-.676-1.004-.811-2.01c-.138-1.027-.14-2.382-.14-4.289zM14 22.75c1.864 0 3.338.002 4.489-.153c1.172-.158 2.121-.49 2.87-1.238l-1.06-1.06c-.424.422-1.004.676-2.01.811c-1.027.138-2.382.14-4.289.14zm-3.97-21.5c-1.875 0-3.356-.002-4.511.153c-1.177.158-2.129.49-2.878 1.238l1.06 1.06c.424-.422 1.005-.676 2.017-.811c1.033-.138 2.395-.14 4.312-.14zM2.848 6.073c.121-1.234.382-1.9.854-2.371l-1.06-1.06c-.836.834-1.153 1.919-1.287 3.285zm18.304 11.854c-.121 1.234-.383 1.9-.854 2.371l1.06 1.06c.836-.834 1.153-1.919 1.287-3.285z\"></path></g></svg>",
+            "content_header": "Run Custom Scripts",
+            "content_description": "Execute custom JavaScript or CSS on the customer portal to take full control over behavior, UI, and functionality.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
             "example_text": "See live example"
           }
@@ -128,91 +128,39 @@
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "🤖",
-            "content_header": "AI Chatbot for Queries",
-            "content_description": "Embed AI chatbot to automatically answer customer subscription queries and reduce support load.",
-            "tag_text_one": "API",
-            "tag_text_two": "Custom",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M12 9.195L1.762 5.188L12 1l10.238 4.188zm.75 1.317L23 6.5v12l-10.25 4.193zm-1.5 0L1 6.5v12l10.25 4.193z\" clip-rule=\"evenodd\"></path></svg>",
+            "content_header": "Modular portal layout",
+            "content_description": "Add or remove portal sections and components to match brand specific workflows and subscription management requirements.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
-            "example_text": "View frequency ideas"
+            "example_text": ""
           }
         },
         "feature_tEzmpa": {
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "🎨",
-            "content_header": "Match Store Themes",
-            "content_description": "Customize the customer portal to perfectly match the look and feel of each merchant's store theme.",
-            "tag_text_one": "API",
-            "tag_text_two": "Custom",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"m7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1-5-5zm10 0l-5-5l1.5-1.5a3.536 3.536 0 1 1 5 5zM3 21l2.5-2.5m13-13L21 3m-11 8l-2 2m5 1l-2 2\"></path></svg>",
+            "content_header": "Supports custom integrations",
+            "content_description": "Build integrations like loyalty redemption, delivery date pickers, and custom cancellation flows directly within the customer portal.",
+            "tag_text_one": "",
+            "tag_text_two": "",
             "example_url": "",
-            "example_text": "See integrations"
+            "example_text": ""
           }
         },
         "feature_EYVrGK": {
           "type": "feature",
           "settings": {
             "tab_type": "portal",
-            "feature_image": "🔗",
-            "content_header": "Event-Driven Architecture",
-            "content_description": "Subscribe to real-time webhook events for subscription lifecycle—renewals, cancellations, payment updates.",
-            "tag_text_one": "API",
-            "tag_text_two": "Custom",
-            "example_url": "",
-            "example_text": "View frequency ideas"
-          }
-        },
-        "feature_bnXzPJ": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "support_resources",
-            "feature_image": "🎧",
-            "content_header": "Dedicated Partner Support",
-            "content_description": "Dedicated Partner Support",
-            "tag_text_one": "No code",
-            "tag_text_two": "< 10 min",
-            "example_url": "",
-            "example_text": "View frequency ideas"
-          }
-        },
-        "feature_zpENBK": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "support_resources",
-            "feature_image": "📚",
-            "content_header": "Developer Portal",
-            "content_description": "Complete API reference with code examples in 6 languages.",
-            "tag_text_one": "API",
+            "feature_image": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 21q-3.775 0-6.387-1.162T3 17V7q0-1.65 2.638-2.825T12 3t6.363 1.175T21 7v10q0 1.675-2.613 2.838T12 21m0-11.975q2.225 0 4.475-.638T19 7.025q-.275-.725-2.512-1.375T12 5q-2.275 0-4.462.638T5 7.025q.35.75 2.538 1.375T12 9.025M12 14q1.05 0 2.025-.1t1.863-.288t1.675-.462T19 12.525v-3q-.65.35-1.437.625t-1.675.463t-1.863.287T12 11t-2.05-.1t-1.888-.288T6.4 10.15T5 9.525v3q.625.35 1.4.625t1.663.463t1.887.287T12 14m0 5q1.15 0 2.338-.175t2.187-.462t1.675-.65t.8-.738v-2.45q-.65.35-1.437.625t-1.675.463t-1.863.287T12 16t-2.05-.1t-1.888-.288T6.4 15.15T5 14.525V17q.125.375.788.725t1.662.638t2.2.462T12 19\"></path></svg>",
+            "content_header": "Access global variables",
+            "content_description": "Access global window objects to retrieve subscription data, line item properties, and cart attributes for building custom workflows and logic.",
+            "tag_text_one": "",
             "tag_text_two": "",
             "example_url": "",
-            "example_text": "See live example"
-          }
-        },
-        "feature_BCx4gp": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "support_resources",
-            "feature_image": "🎓",
-            "content_header": "Partner Academy",
-            "content_description": "Get certified and unlock premium partner benefits.",
-            "tag_text_one": "Tested layouts",
-            "tag_text_two": "No code",
-            "example_url": "",
-            "example_text": "View API docs"
-          }
-        },
-        "feature_DYbtxN": {
-          "type": "feature",
-          "settings": {
-            "tab_type": "support_resources",
-            "feature_image": "💬",
-            "content_header": "Priority Slack Channel",
-            "content_description": "Direct Slack channel access to our partner success team.",
-            "tag_text_one": "< 10 min",
-            "tag_text_two": "No code",
-            "example_url": "",
-            "example_text": "Explore playbook"
+            "example_text": ""
           }
         }
       },
@@ -227,11 +175,7 @@
         "feature_Q7PkrP",
         "feature_KVabUC",
         "feature_tEzmpa",
-        "feature_EYVrGK",
-        "feature_bnXzPJ",
-        "feature_zpENBK",
-        "feature_BCx4gp",
-        "feature_DYbtxN"
+        "feature_EYVrGK"
       ],
       "name": "Merchant tab switcher",
       "settings": {
