@@ -2631,8 +2631,8 @@
       function highlightCurrentTabElement(retries) {
         // For cart_upsell, use querySelectorAll and get the 2nd element (index 1)
         
-        const targetEl = document.querySelector(selector);
-        
+        var targetEl = document.querySelector(selector);
+
         if (selector == ".recurpay-pdp-widget" && targetEl) {
           targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
         }
