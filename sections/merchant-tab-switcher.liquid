@@ -1469,7 +1469,7 @@
     },500)
   }
   
-  (function() {
+  const initMerchantTabSwitcher = (function() {
     const tabButtons = document.querySelectorAll('.button_tab');
     const blockWrappers = document.querySelectorAll('.sidebar__content-wrapper');
     const mainContentContainer = document.querySelector('.main_content__container');
@@ -1641,6 +1641,13 @@
       }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
+    }
+
+    // add query params to url to easily switch and resume the journey
+    function addURLParams(tabIndex) {
+      const url = new URL(window.location.href);
+      console.log("URL",  url)
+      window.history.pushState({}, '', "?step=" + (tabIndex+1));
     }
   
     // Function to update footer step indicator
@@ -2053,60 +2060,60 @@
       sidebarLoader.id = "sidebar__loader";
       sidebarLoader.innerHTML = `
           <div class="ccs-demo">
-  <section class="ccs-skel" aria-label="Loading">
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-50"></div>
-        <div class="ccs-skel__line ccs-w-60"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-    <div class="ccs-skel__item">
-      <div class="ccs-skel__avatar"></div>
-      <div class="ccs-skel__lines">
-        <div class="ccs-skel__line ccs-w-70"></div>
-        <div class="ccs-skel__line ccs-w-90"></div>
-      </div>
-    </div>
-  </section>
-  </div>
+            <section class="ccs-skel" aria-label="Loading">
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-50"></div>
+                  <div class="ccs-skel__line ccs-w-60"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+            </section>
+          </div>
         `;
         sidebarContainer.classList.add("isLoading");
       sidebarContainer.appendChild(sidebarLoader);
@@ -2128,14 +2135,15 @@
     // Function to switch to a specific tab
     function switchToTab(tabIndex) {
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
-  
+      currentTabIndex = tabIndex;
       isOnCompletion = false;
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
-  
-      currentTabIndex = tabIndex;
+      console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
+      
+      addURLParams(tabIndex);
   
       // Update active tab button
       tabButtons.forEach((btn, index) => {
@@ -2719,6 +2727,10 @@
         }
       }, 100);
     })();
+
+    return {
+      switchToTab
+    }
   })();
   document.addEventListener('DOMContentLoaded', () => {
     window.Intercom('update', { "hide_default_launcher": true });
@@ -2727,6 +2739,14 @@
       event.preventDefault();
       window.Intercom('show');
     })
+    window.addEventListener('popstate', (event) => {
+      console.log('User navigated with back/forward');
+      console.log(window.location.search);
+      if(!window.location.search) return;
+      const tabIndex = window.location.search.split("=")[1];
+      initMerchantTabSwitcher.switchToTab(tabIndex);
+    });
+
 
     refreshDriver();
   });
