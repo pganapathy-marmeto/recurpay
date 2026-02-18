@@ -2633,9 +2633,9 @@
         
         var targetEl = document.querySelector(selector);
 
-        if (selector == ".recurpay-pdp-widget" && targetEl) {
+        {% comment %} if (selector == ".recurpay-pdp-widget" && targetEl) {
           targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
-        }
+        } {% endcomment %}
   
         if (targetEl) {
           console.log('Target element found:', targetEl);
