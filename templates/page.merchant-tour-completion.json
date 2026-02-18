@@ -28,7 +28,15 @@
         "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
         "secondary_button_text": "Talk to an expert",
         "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
-        "teritary_button_text": "Live chat"
+        "teritary_button_text": "Live chat",
+        "retour_link": "shopify://pages/merchant-widget",
+        "retour_text": "Retour",
+        "live_chat_icon": "",
+        "live_chat_text": "Live chat",
+        "demo_html": "",
+        "demo": "Talk to an Expert",
+        "redirect_text": "Exit Demo",
+        "redirect_link": "/"
       }
     },
     "testimonial_stack_aqxxQX": {

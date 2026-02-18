@@ -11,15 +11,16 @@
   "sections": {
     "recurpay_header_Uew4xK": {
       "type": "recurpay-header",
+      "disabled": true,
       "name": "Header navigation",
       "settings": {
         "logo": "shopify://shop_images/recurpaylogo.svg",
         "brand_text": "",
         "main_menu": "header-new-menu",
         "button_primary_text": "Install Now",
-        "button_primary_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage",
+        "button_primary_link": "http://apps.shopify.com/recurpay-subscriptions?utm_source=DemostoreNav",
         "button_secondary_text": "Book a Demo",
-        "button_secondary_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+        "button_secondary_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav&utm_source=DemostoreNav"
       }
     },
     "product_experience_UtRKFq": {

@@ -1,10 +1,15 @@
 {% style %}
-  .completion-cta {
-    padding: 80px 20px 0;
+  /* .completion-cta {
+    padding: 0 20px;
     background: #ffffff;
     text-align: center;
   }
-
+   */
+  .completion-cta__wrapper {
+  padding: 0 20px;
+  background: #ffffff;
+  text-align: center;
+}
   .completion-cta__wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -194,6 +199,79 @@
     gap: 8px;
     transition: all 0.2s;
   }
+  .merchant_tab_switcher_wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(229, 231, 235);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  .redirect {
+    padding: 6px 14px;
+    background-color: white;
+    color: rgb(107, 114, 128);
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .redirect,
+  .button_demo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .button_demo {
+    background: #2F7F6A;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .redirect_buttons__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .reTour {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  .reTour:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .live_chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid #00000014;
+    color: #6B7280;
+    background: transparent;
+  }
 
 
   @media (max-width: 768px) {
@@ -208,6 +286,76 @@
 {% endstyle %}
 
 <section class="completion-cta">
+  <div class="merchant_tab_switcher_wrapper">
+    <a class="redirect" href="{{ section.settings.redirect_link }}">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+      {{ section.settings.redirect_text }}</a>
+    <div class="redirect_buttons__wrapper">
+      <a href="{{ section.settings.retour_link }}" class="reTour">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
+        {{ section.settings.retour_text }}
+      </a>
+      {% comment %} <button class="live_chat">
+        {% if section.settings.live_chat_icon != blank %}
+          {{ section.settings.live_chat_icon }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {% endif %}
+        {{ section.settings.live_chat_text }}</button>
+      <a
+        target="_blank"
+        class="button_demo"
+        href="{{ section.settings.demo_url }}">
+        {% if section.settings.demo_html != blank %}
+          {{ section.settings.demo_html }}
+          {{ section.settings.demo }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+          {{ section.settings.demo }}
+        {% endif %}
+      </a> {% endcomment %}
+    </div>
+  </div>
   <div class="completion-cta__wrapper">
     {% if section.settings.icon != blank %}
       <div class="hero-badge">
@@ -300,6 +448,38 @@
 
   </div>
 </section>
+<script>
+  function confettiOnCompletion(){
+      let duration = 3 * 1000;
+      let end = Date.now() + duration;
+  
+      function frame() {
+      // launch a few confetti from the left edge
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      // and launch a few from the right edge
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+  
+      // keep going until we are out of time
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }
+    frame();
+    }
+    setTimeout(() => {
+      confettiOnCompletion();
+    }, 2000);
+</script>
 
 
 {% schema %}
@@ -347,6 +527,40 @@
         "id": "teritary_button_text",
         "label": "Teritary Button Text",
         "default": "Live chat"
+      },{
+        "type": "url",
+        "id": "retour_link",
+        "label": "Retour Link"
+      },{
+        "type": "text",
+        "id": "retour_text",
+        "label": "Retour Text",
+        "default": "Retour"
+      },{
+        "type": "html",
+        "id": "live_chat_icon",
+        "label": "Live Chat Icon"
+      },{
+        "type": "text",
+        "id": "live_chat_text",
+        "label": "Live Chat Text",
+        "default": "Live chat"
+      },{
+        "type": "html",
+        "id": "demo_html",
+        "label": "Demo icon HTML"
+      },{
+        "type": "text",
+        "id": "demo",
+        "label": "Button text"
+      },{
+        "type": "text",
+        "id": "redirect_text",
+        "label": "Redirect text"
+      },{
+        "type": "url",
+        "id": "redirect_link",
+        "label": "Redirect link"
       }
     ],
     "presets": [

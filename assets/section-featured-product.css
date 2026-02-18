@@ -162,3 +162,7 @@ span.recurpay-widget-banner_tag-text {
 .recurpay__widget .recurpay__offer_wrapper {
   padding: 10px !important;
 }
+
+.recurpay__widget .recurpay__widget_container {
+  margin-inline: 10px !important;
+}

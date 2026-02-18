@@ -248,7 +248,6 @@
     background-color: transparent;
     border-radius: 12px;
     margin-bottom: 4px;
-    cursor: pointer;
     transition: 0.15s;
     display: flex;
     flex-direction: column;
@@ -442,7 +441,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
+    padding: 11px 16px;
     background-color: rgb(249, 250, 251);
     color: rgb(156, 163, 175);
     border: 1px solid rgb(229, 231, 235);
@@ -466,7 +465,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 18px;
+    padding: 12px 18px;
     background-color: rgb(5, 150, 105);
     color: rgb(255, 255, 255);
     border: none;
@@ -889,7 +888,8 @@
     gap: 12px;
   }
 
-  .ccs-skel .ccs-skel__avatar, .ccs-skel .ccs-skel__line {
+  .ccs-skel .ccs-skel__avatar,
+  .ccs-skel .ccs-skel__line {
     background: linear-gradient(90deg, rgba(15,23,42,.06) 0%, rgba(15,23,42,.10) 35%, rgba(255,255,255,.65) 50%, rgba(15,23,42,.10) 65%, rgba(15,23,42,.06) 100%);
     background-size: 220% 100%;
     animation: ccs-shimmer 1.35s ease-in-out infinite;
@@ -911,8 +911,8 @@
     align-items: center;
     padding: 10px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, .45);
-    border: 1px solid rgba(15, 23, 42, .3);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(15, 23, 42, 0.3);
   }
 
   .ccs-skel__avatar {
@@ -960,12 +960,157 @@
   #sidebar__loader {
     position: absolute;
     inset: 0;
-    padding: 20px;
-    padding-top: 40px;
+    padding: 40px 20px 20px;
   }
 
-  .sidebar__container.isLoading .sidebar__header, .sidebar__container.isLoading .sidebar__content  {
+  .sidebar__container.isLoading .sidebar__header,
+  .sidebar__container.isLoading .sidebar__content {
     opacity: 0;
+  }
+
+  /* main content loader */
+
+  #recurpay-loader {
+    position: absolute;
+    inset: 0;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.35s ease;
+  }
+
+  .rp-loader-wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  .rp-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(47, 127, 106, 0.15);
+  }
+
+  .rp-ring.big {
+    width: 100%;
+    height: 100%;
+  }
+  .rp-ring.medium {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+  }
+  .rp-ring.small {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+  }
+
+  .rp-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: orbitSlow 12s linear infinite;
+  }
+
+  .rp-orbit.medium {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    animation: orbitMedium 8s linear infinite reverse;
+  }
+
+  .rp-orbit.fast {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    animation: orbitFast 4s linear infinite;
+  }
+
+  .rp-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #2f7f6a;
+  }
+
+  .rp-dot.big {
+    width: 12px;
+    height: 12px;
+    opacity: .3;
+  }
+  .rp-dot.medium {
+    width: 10px;
+    height: 10px;
+    opacity: .5;
+  }
+  .rp-dot.small {
+    width: 8px;
+    height: 8px;
+    opacity: .7;
+  }
+
+  .rp-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .rp-logo-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #2f7f6a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: centerPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(47, 127, 106, 0.5);
+  }
+
+  .rp-logo-wrap img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  @keyframes orbitSlow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbitMedium {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbitFast {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes centerPulse {
+    0,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: .9;
+    }
   }
 
 
@@ -973,16 +1118,16 @@
 
 {% assign merchant_tabs = "widget,cart_upsell,portal" | split: "," %}
 {% comment %} {% if section.settings.enable_support_resources %}
-  {% assign support_tab = "support_resources" | split: "," %}
-  {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
+        {% assign support_tab = "support_resources" | split: "," %}
+        {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
 {% endif %} {% endcomment %}
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
     {% comment %} <div class="image_with_logo__wrapper">
-                                          {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
-                                          <h2 class="company_name">{{ section.settings.company_name }}</h2>
-                                          <span>{{ section.settings.tag_text }}</span>
-                            </div> {% endcomment %}
+                                                            {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
+                                                            <h2 class="company_name">{{ section.settings.company_name }}</h2>
+                                                            <span>{{ section.settings.tag_text }}</span>
+                                        </div> {% endcomment %}
     <a class=" redirect" href="{{ section.settings.redirect_link }}">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -1043,17 +1188,21 @@
         {{ section.settings.reTour }}
       </a>
       <button class="live_chat">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {% if section.settings.live_chat_icon != blank %}
+          {{ section.settings.live_chat_icon }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {% endif %}
         {{ section.settings.live_chat_text }}</button>
       <a
         target="_blank"
@@ -1091,9 +1240,9 @@
             <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
           </div>
         {% comment %} <a
-                                target="_blank"
-                                href="{{ section.settings.doc_url }}"
-                            data-sidebar-doc-url>View docs</a> {% endcomment %}
+                                                              target="_blank"
+                                                              href="{{ section.settings.doc_url }}"
+                                                    data-sidebar-doc-url>View docs</a> {% endcomment %}
         </div>
       </div>
       <div class="sidebar__content">
@@ -1142,48 +1291,48 @@
         </div>
       </div>
     {% comment %} <div class="sidebar__footer">
-                    <a
-                      href="https://apps.shopify.com/recurpay-subscriptions"
-                      target="_blank"
-                      class="button_trial">Start 30 day trial</a>
-                    <p>Or
-                      <a
-                        href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
-                        target="_blank"
-                        class="button_call">talk to an expert and book a quick call</a>
-                    </p>
-              </div> {% endcomment %}
+                                      <a
+                                        href="https://apps.shopify.com/recurpay-subscriptions"
+                                        target="_blank"
+                                        class="button_trial">Start 30 day trial</a>
+                                      <p>Or
+                                        <a
+                                          href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+                                          target="_blank"
+                                          class="button_call">talk to an expert and book a quick call</a>
+                                      </p>
+                          </div> {% endcomment %}
     </div>
     <div class="main_content">
       {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
-                        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
-  
-                          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
-                          <div id="tagline-pill-container">
-                            {% if section.settings.tag_text_widget != blank %}
-                              <div class="tagline-pill" id="tagline-pill">
-                                {% if section.settings.tag_icon_widget != blank %}
-                                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
-                                {% endif %}
-                                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
-                              </div>
-                            {% endif %}
-                          </div>
-  
-                          {% if section.settings.heading_widget != blank %}
-                            <h2 class="main-heading">
-                              {{ section.settings.heading_widget }}
-                            </h2>
-                          {% endif %}
-  
-                          {% if section.settings.description_widget != blank %}
-                            <p class="main-description" id="main-description">
-                              {{ section.settings.description_widget }}
-                            </p>
-                          {% endif %}
-  
-                        </div>
-                  </section> {% endcomment %}
+                                                <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
+        
+                                                  <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
+                                                  <div id="tagline-pill-container">
+                                                    {% if section.settings.tag_text_widget != blank %}
+                                                      <div class="tagline-pill" id="tagline-pill">
+                                                        {% if section.settings.tag_icon_widget != blank %}
+                                                          <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
+                                                        {% endif %}
+                                                        <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
+                                                      </div>
+                                                    {% endif %}
+                                                  </div>
+        
+                                                  {% if section.settings.heading_widget != blank %}
+                                                    <h2 class="main-heading">
+                                                      {{ section.settings.heading_widget }}
+                                                    </h2>
+                                                  {% endif %}
+        
+                                                  {% if section.settings.description_widget != blank %}
+                                                    <p class="main-description" id="main-description">
+                                                      {{ section.settings.description_widget }}
+                                                    </p>
+                                                  {% endif %}
+        
+                                                </div>
+                                    </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -1310,22 +1459,22 @@
                 <!-- Header -->
                 <div class="demo-guide-header">
                   {% comment %} <div class="demo-guide-profile">
-                                        {% if section.settings.avatar != blank %}
-                                        <div class="demo-avatar-container">
-                                        {{ section.settings.avatar }}
-                                        </div>
-                                        {% endif %}
-  
-                                        <div>
-                                        <div class="demo-guide-name">
-                                        {{ section.settings.name }}
-                                        </div>
-                                        <div class="demo-guide-subtitle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                                        {{ section.settings.subtitle }}
-                                        </div>
-                                        </div>
-                                    </div> {% endcomment %}
+                                                                                                    {% if section.settings.avatar != blank %}
+                                                                                                    <div class="demo-avatar-container">
+                                                                                                    {{ section.settings.avatar }}
+                                                                                                    </div>
+                                                                                                    {% endif %}
+        
+                                                                                                    <div>
+                                                                                                    <div class="demo-guide-name">
+                                                                                                    {{ section.settings.name }}
+                                                                                                    </div>
+                                                                                                    <div class="demo-guide-subtitle">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                                                                                    {{ section.settings.subtitle }}
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                          </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -1369,27 +1518,27 @@
 
               <!-- Footer -->
               {% comment %} <div class="demo-guide-footer">
-                                                                  <div class="demo-guide-steps">
-                                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                                                                  <div class="guide_pagination_dots">
-                                                                  {% for tab in merchant_tabs %}
-                                                                  <div class="dots"></div>
-                                                                  {% endfor %}
-                                                                  </div>
-                                                                  </div>
-  
-                                                                  <div class="demo-guide-actions">
-                                                                  <button type="button" class="demo-guide-back">
-                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                                                                  {{ section.settings.back_text }}
-                                                                  </button>
-  
-                                                                  <button type="button" class="demo-guide-finish">
-                                                                  {{ section.settings.finish_text }}
-                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                                                  </button>
-                                                                  </div>
-                                                          </div> {% endcomment %}
+                                                                                                                  <div class="demo-guide-steps">
+                                                                                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                                                                                                  <div class="guide_pagination_dots">
+                                                                                                                  {% for tab in merchant_tabs %}
+                                                                                                                  <div class="dots"></div>
+                                                                                                                  {% endfor %}
+                                                                                                                  </div>
+                                                                                                                  </div>
+        
+                                                                                                                  <div class="demo-guide-actions">
+                                                                                                                  <button type="button" class="demo-guide-back">
+                                                                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                                                                                                  {{ section.settings.back_text }}
+                                                                                                                  </button>
+        
+                                                                                                                  <button type="button" class="demo-guide-finish">
+                                                                                                                  {{ section.settings.finish_text }}
+                                                                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                                                                                                  </button>
+                                                                                                                  </div>
+                                                                                                    </div> {% endcomment %}
 
               </div>
             </div>
@@ -1405,7 +1554,8 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>{{ section.settings.back_text }}</button>
+              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            {{ section.settings.back_text }}</button>
           <button class="next">{{ section.settings.finish_text }}<svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -1456,7 +1606,7 @@
   oldScript.replaceWith(newScript);
    });
   }
-
+  
    function refreshDriver() { 
       let maxAttempts = 5;
       const refreshInterval = setInterval(()=>{
@@ -1642,7 +1792,7 @@
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
     }
-
+  
     // add query params to url to easily switch and resume the journey
     function addURLParams(tabIndex) {
       const url = new URL(window.location.href);
@@ -1892,7 +2042,43 @@
       
       // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
       if (tabType === 'portal') {
-        mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
+        const loaderHTML = `
+        <div id="recurpay-loader">
+        
+        <div class="rp-loader-wrapper">
+        
+          <div class="rp-ring big"></div>
+          <div class="rp-ring medium"></div>
+          <div class="rp-ring small"></div>
+        
+          <div class="rp-orbit"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
+        
+          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
+          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
+        
+          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
+        
+          <div class="rp-center">
+            <div class="rp-logo-wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+            </div>
+          </div>
+        
+        </div>
+        
+        </div>
+        `;
+        mainContentContainer.innerHTML = `
+        <div style="position:relative;width:100%;height:100%;min-height:500px;">
+          ${loaderHTML}
+        </div>
+        `;
+        // mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
         
         if (portalAuthData === null) {
           mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Please log in to access the portal.</div>';
@@ -1929,6 +2115,7 @@
                 ></iframe>
               </div>
             `;
+            mainContentContainer.innerHTML = '';
             mainContentContainer.innerHTML = portalHTML;
           } else {
             throw new Error('No redirection URL in response');
@@ -1940,6 +2127,10 @@
         });
         
         return;
+      }
+
+      if (tabType === 'completion') {
+        window.location.href = config.contentUrl;
       }
   
       // Default behavior: fetch and inject HTML for non-portal tabs
@@ -2025,33 +2216,33 @@
         });
     }
   
-    function confettiOnCompletion(){
-      let duration = 3 * 1000;
-      let end = Date.now() + duration;
+    // function confettiOnCompletion(){
+    //   let duration = 3 * 1000;
+    //   let end = Date.now() + duration;
   
-      function frame() {
-      // launch a few confetti from the left edge
-      confetti({
-        particleCount: 7,
-        angle: 60,
-        spread: 55,
-        origin: { x: 0 }
-      });
-      // and launch a few from the right edge
-      confetti({
-        particleCount: 7,
-        angle: 120,
-        spread: 55,
-        origin: { x: 1 }
-      });
+    //   function frame() {
+    //   // launch a few confetti from the left edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 60,
+    //     spread: 55,
+    //     origin: { x: 0 }
+    //   });
+    //   // and launch a few from the right edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 120,
+    //     spread: 55,
+    //     origin: { x: 1 }
+    //   });
   
-      // keep going until we are out of time
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    }
-    frame();
-    }
+    //   // keep going until we are out of time
+    //   if (Date.now() < end) {
+    //     requestAnimationFrame(frame);
+    //   }
+    // }
+    // frame();
+    // }
   
     // Sidebar loader functions
     function showSidebarLoader() {   
@@ -2244,7 +2435,7 @@
         }
       }
       loadTabContent('completion');
-      confettiOnCompletion();
+      // confettiOnCompletion();
     }
   
     // Enhanced tab click handler
@@ -2727,7 +2918,7 @@
         }
       }, 100);
     })();
-
+  
     return {
       switchToTab
     }
@@ -2738,16 +2929,17 @@
     live_chat_container.addEventListener("click",(event)=>{
       event.preventDefault();
       window.Intercom('show');
+      // window.Intercom('showNewMessage', 'Pre-filled message')
     })
     window.addEventListener('popstate', (event) => {
       console.log('User navigated with back/forward');
       console.log(window.location.search);
       if(!window.location.search) return;
       const tabIndex = window.location.search.split("=")[1];
-      initMerchantTabSwitcher.switchToTab(tabIndex);
+      initMerchantTabSwitcher.switchToTab(tabIndex-1);
     });
-
-
+  
+  
     refreshDriver();
   });
 </script>
@@ -2800,6 +2992,10 @@
         "id": "redirect_text",
         "label": "Redirect text",
         "default": "Exit"
+      }, {
+        "type": "html",
+        "id": "live_chat_icon",
+        "label": "Live chat icon"
       }, {
         "type": "text",
         "id": "live_chat_text",
@@ -3039,17 +3235,17 @@
         "id": "steps_text_portal",
         "label": "Steps text",
         "default": "3 / 4"
-      },{
+      }, {
         "type": "url",
         "id": "completion_content_url",
         "label": "Completion content page URL",
         "info": "URL to the page containing final tour completion content"
-      },       {
+      }, {
         "type": "text",
         "id": "completion_step_name",
         "label": "Completion step name",
         "default": "Tour completion"
-      },{
+      }, {
         "type": "header",
         "content": "Completion Tour Page Guide Settings"
       }, {

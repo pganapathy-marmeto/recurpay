@@ -22,7 +22,6 @@
     border: 1px solid #e5e5e5;
     border-radius: 14px;
     padding: 24px;
-    cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -174,6 +173,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
+    column-gap: 8px;
   }
   .feature-card__header-icon_wrapper h3 {
     font-size: 16px;
@@ -276,21 +276,22 @@
             </div>
             <p>{{ block.settings.card_description }}</p>
           </div>
-
-          <span class="card-cta">
-            {{ block.settings.card_button }}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#6b7280"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-          </span>
+          {% if block.settings.card_button != blank %}
+            <span class="card-cta">
+              {{ block.settings.card_button }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#6b7280"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+            </span>
+          {% endif %}
         </div>
 
         <!-- MODAL -->

@@ -32,11 +32,10 @@
     },
     "recurpay_header_bDLQBh": {
       "type": "recurpay-header",
-      "disabled": true,
       "name": "Header navigation",
       "settings": {
-        "logo": "shopify://shop_images/Recurpay_Logo.png",
-        "brand_text": "Recurpay",
+        "logo": "shopify://shop_images/recurpaylogo.svg",
+        "brand_text": "",
         "main_menu": "header-new-menu",
         "button_primary_text": "Install Now",
         "button_primary_link": "",
