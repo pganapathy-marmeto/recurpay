@@ -479,6 +479,10 @@
     setTimeout(() => {
       confettiOnCompletion();
     }, 2000);
+    const chatButton = document.querySelector('.cta-chat');
+    chatButton.addEventListener('click', () => {
+      window.Intercom('showNewMessage');
+    });
 </script>
 
 
