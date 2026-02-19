@@ -2073,7 +2073,10 @@
               console.log(response.json());
             })
             .then(() => {
-              loadTabContent('cart_upsell');
+              setTimeout(() => {
+                loadTabContent('cart_upsell');
+              }, 1000);
+
               // Cart updated, now move user to cart_upsell tab
               goToCartUpsellFromWidget();
             })
@@ -2478,17 +2481,21 @@
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
-          loadTabContent(tabType);
+          setTimeout(() => {
+            loadTabContent(tabType);
+          }, 1000);
+
           // Use setTimeout to show loader briefly before updating content
-      setTimeout(() => {
-        
-        // Hide loader and show updated content
-        hideSidebarLoader();
-      }, 2000);
-        });
+          setTimeout(() => {
+            // Hide loader and show updated content
+            hideSidebarLoader();
+          }, 2000);
+            });
       } else {
         // Load content
-        loadTabContent(tabType);
+        setTimeout(() => {
+          loadTabContent(tabType);
+        }, 1000);
         // Use setTimeout to show loader briefly before updating content
       setTimeout(() => {
         
@@ -2531,7 +2538,9 @@
           demoGuideFinishButton.textContent = 'Finish';
         }
       }
-      loadTabContent('completion');
+      setTimeout(() => {
+        loadTabContent('completion');
+      }, 1000);
       // confettiOnCompletion();
     }
   
