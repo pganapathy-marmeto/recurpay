@@ -2963,8 +2963,7 @@
             const cacheContainer = document.createElement('div');
             
             // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('#MainContent');
-            console.log("main content", sections);
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -3048,7 +3047,7 @@
             const parsed = parser.parseFromString(htmlString, 'text/html');
             
             const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('#MainContent');
+            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
