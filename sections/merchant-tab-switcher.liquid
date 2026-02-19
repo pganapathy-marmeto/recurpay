@@ -2674,9 +2674,9 @@
         debugger;
         console.log(tabType);
         if (nextButton.classList.contains('disabled')) return;
-        if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
+        {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
           isOnCompletion = true;
-        }
+        } {% endcomment %}
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
@@ -2698,7 +2698,7 @@
           switchToTab(currentTabIndex + 1);
         } else {
           // From last tab, move to completion tour page
-          showCompletionStep();
+          window.location.href = '/pages/merchant-tour-completion';
         }
         // If Driver.js guide is active and we're not on completion, re-run it on the new tab
         if (!isOnCompletion && document.querySelector('.driver-popover')) {
