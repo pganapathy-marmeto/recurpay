@@ -3674,6 +3674,8 @@ nav .list-menu li:last-child a#HeaderMenu-book-1-1-demo.header__menu-item.header
   min-height:550px !important;
 }
 
-.title-wrapper-with-link {
-  margin-top: 90px;
+.recurpay__group_frequency {
+  display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }

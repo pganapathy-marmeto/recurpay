@@ -912,7 +912,7 @@
     padding: 10px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.45);
-    border: 1px solid rgba(15, 23, 42, 0.3);
+    border: 1px solid #EBEBEB;
   }
 
   .ccs-skel__avatar {
@@ -1111,6 +1111,11 @@
       transform: scale(1.1);
       opacity: .9;
     }
+  }
+
+  #driver-tour-loader {
+    height: 100%;
+    margin-block: auto;
   }
 
 
@@ -2227,7 +2232,10 @@
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
           const sections = parsed.querySelectorAll('#MainContent');
-          
+          if (tabType === 'cart_upsell') {
+            // debugger;
+            console.log(" sections==>", sections)
+        }
           // If no sections found, try to find main content area
           if (sections.length === 0) {
             const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2977,6 +2985,7 @@
       </div>
         `;
       mainContentContainer.appendChild(loader);
+      // debugger;
     }
   
     function hideDriverLoader() {
