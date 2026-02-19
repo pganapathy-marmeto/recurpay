@@ -2123,6 +2123,7 @@
             })
             .then(() => {
               setTimeout(() => {
+                debugger;
                 loadTabContent('cart_upsell');
               }, 2000);
   
@@ -2145,6 +2146,7 @@
   
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
+      debugger;
       if (!mainContentContainer) return;
   
       const config = tabConfig[tabType];
@@ -2533,6 +2535,7 @@
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           setTimeout(() => {
+            debugger;
             loadTabContent(tabType);
           }, 2000);
   
@@ -2590,6 +2593,7 @@
         }
       }
       setTimeout(() => {
+        debugger;
         loadTabContent('completion');
       }, 2000);
       // confettiOnCompletion();
