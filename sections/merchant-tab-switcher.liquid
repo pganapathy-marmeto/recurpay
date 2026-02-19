@@ -2267,6 +2267,7 @@
             let attempts = 0;
             const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
             const initInterval = setInterval(() => {
+              console.log("attempts- "+attempts);
               attempts++;
               if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
                 recurpay.init(window.recurpayScript);
