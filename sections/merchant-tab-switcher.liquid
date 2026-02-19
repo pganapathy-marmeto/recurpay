@@ -2672,7 +2672,7 @@
       debugger;
       nextButton.addEventListener('click', () => {
         debugger;
-        console.log(tabType);
+        {% comment %} console.log(tabType); {% endcomment %}
         if (nextButton.classList.contains('disabled')) return;
         {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
           isOnCompletion = true;
