@@ -3671,6 +3671,7 @@ nav .list-menu li:last-child a#HeaderMenu-book-1-1-demo.header__menu-item.header
 
 .recurpay-pdp-widget {
   max-width: 450px !important;
+  min-height:550px !important;
 }
 
 .title-wrapper-with-link {
