@@ -2673,7 +2673,7 @@
       nextButton.addEventListener('click', () => {
         debugger;
         if (nextButton.classList.contains('disabled')) return;
-        
+        isOnCompletion = true;
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
