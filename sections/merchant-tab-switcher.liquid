@@ -3036,6 +3036,7 @@
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
+          {% comment %} hideDriverLoader(); {% endcomment %}
           
           // Ensure content matches the current tab so the cloned card has correct text
           if (isOnCompletion) {
@@ -3053,7 +3054,7 @@
         } else if (attempts >= maxAttempts) {
           // Timeout reached, hide loader and give up
           clearInterval(checkInterval);
-          hideDriverLoader();
+          {% comment %} hideDriverLoader(); {% endcomment %}
           console.warn('Target element not found after maximum attempts:', selector);
         }
       }, 5000);
