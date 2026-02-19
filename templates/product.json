@@ -11,6 +11,7 @@
   "sections": {
     "recurpay_header_NF7hwD": {
       "type": "recurpay-header",
+      "disabled": true,
       "name": "Header navigation",
       "settings": {
         "logo": "shopify://shop_images/Recurpay_Logo.png",
@@ -57,28 +58,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "c47a0a2b-d258-4306-9563-9cbc9d5bf921": {
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "9dc217ab-8f39-435f-8aab-28fd7eb12900"
-          }
-        },
-        "b9e88df2-20f6-428c-9947-a6c414b79bdb": {
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "3f5ae232-989b-4c8f-bba0-1c323f859938"
-          }
-        },
-        "535d47f0-7a03-4d58-a9c4-dab432e044d5": {
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "disabled": true,
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "bb952603-216a-4d0d-8230-c168494ac86b"
-          }
-        },
         "description": {
           "type": "description",
           "settings": {}
@@ -91,9 +70,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "c47a0a2b-d258-4306-9563-9cbc9d5bf921",
-        "b9e88df2-20f6-428c-9947-a6c414b79bdb",
-        "535d47f0-7a03-4d58-a9c4-dab432e044d5",
         "description"
       ],
       "settings": {

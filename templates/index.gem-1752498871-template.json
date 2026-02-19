@@ -15,14 +15,14 @@
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Key Features We Offer<\/strong>",
+            "heading": "<strong>Key Features We Offer</strong>",
             "heading_size": "h1"
           }
         },
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"https:\/\/apps.shopify.com\/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\" target=\"_blank\" title=\"https:\/\/apps.shopify.com\/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\">Install the app and explore on your store <\/a><\/p>"
+            "text": "<p><a href=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\" target=\"_blank\" title=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\">Install the app and explore on your store </a></p>"
           }
         },
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-button-1": {
@@ -80,7 +80,7 @@
           "settings": {}
         },
         "recurpay_subscriptions_app_recurpay_app_block_widget_RamcRk": {
-          "type": "shopify:\/\/apps\/recurpay-subscriptions-app\/blocks\/recurpay-app-block-widget\/c600a513-dad8-4030-8697-de47c18881f2",
+          "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-app-block-widget/c600a513-dad8-4030-8697-de47c18881f2",
           "settings": {
             "multiply_price_with_quantity": false,
             "show_price_in_frequency_dropdown": true
@@ -103,20 +103,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "70b28d6c-8caa-4b65-b426-af84a21678eb": {
-          "type": "shopify:\/\/apps\/essential-trust-badges\/blocks\/app-block\/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "bb952603-216a-4d0d-8230-c168494ac86b"
-          }
-        },
-        "8b2d02d3-f35f-4588-a775-529dc6963c45": {
-          "type": "shopify:\/\/apps\/essential-trust-badges\/blocks\/app-block\/0ff65b25-07e1-408e-950f-f54dd3d1751b",
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "dcf37328-4a52-4deb-ad74-2587fe73c87f"
-          }
-        },
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-share-1": {
           "type": "share",
           "disabled": true,
@@ -133,8 +119,6 @@
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-variant_picker-1",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-quantity_selector-1",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-buy_buttons-1",
-        "70b28d6c-8caa-4b65-b426-af84a21678eb",
-        "8b2d02d3-f35f-4588-a775-529dc6963c45",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-share-1"
       ],
       "settings": {
@@ -158,21 +142,21 @@
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Book 1:1 Demo<\/strong>",
+            "heading": "<strong>Book 1:1 Demo</strong>",
             "heading_size": "h1"
           }
         },
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-text-1": {
           "type": "text",
           "settings": {
-            "text": "<h3><strong>Unlock Subscription Success! Connect with Our Experts for Tailored Solutions.<\/strong><\/h3>"
+            "text": "<h3><strong>Unlock Subscription Success! Connect with Our Experts for Tailored Solutions.</strong></h3>"
           }
         },
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-button-1": {
           "type": "button",
           "settings": {
             "button_label": "Book 1:1 Demo",
-            "button_link": "https:\/\/recurpay.youcanbook.me\/?Source=demoh2",
+            "button_link": "https://recurpay.youcanbook.me/?Source=demoh2",
             "button_style_secondary": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -214,7 +198,7 @@
         "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>A customer can access there subscriptions from the ecommerce platform's account page. <strong>Recurpay <\/strong>adds a widget to the account page which allows the customer to manage there subscriptions directly.<\/p>",
+            "text": "<p>A customer can access there subscriptions from the ecommerce platform's account page. <strong>Recurpay </strong>adds a widget to the account page which allows the customer to manage there subscriptions directly.</p>",
             "text_style": "body"
           }
         },
@@ -222,7 +206,7 @@
           "type": "button",
           "settings": {
             "button_label": "See it in action",
-            "button_link": "https:\/\/recurpay-subscriptions.myshopify.com\/account\/login",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/account/login",
             "button_style_secondary": false
           }
         }
@@ -233,7 +217,7 @@
         "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-button-1"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Demostore-1_2.png",
+        "image": "shopify://shop_images/Demostore-1_2.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -250,11 +234,11 @@
     "video_b8hHmE": {
       "type": "video",
       "settings": {
-        "heading": "<strong>Shopify Subscription Experts Rank Recurpay Among Top Apps <\/strong>for Support & Prepaid Subscription Options",
+        "heading": "<strong>Shopify Subscription Experts Rank Recurpay Among Top Apps </strong>for Support & Prepaid Subscription Options",
         "heading_size": "h2",
         "enable_video_looping": true,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=I-S5HUdScW4",
-        "cover_image": "shopify:\/\/shop_images\/TN_4.jpg",
+        "video_url": "https://www.youtube.com/watch?v=I-S5HUdScW4",
+        "cover_image": "shopify://shop_images/TN_4.jpg",
         "description": "Andriy Rudnyk, recommends Recurpay Subscriptions!",
         "full_width": false,
         "color_scheme": "background-2",
@@ -364,9 +348,9 @@
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-1": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-12-13_at_12.20.55_AM.png",
-            "title": "<strong>Build Your Own Box<\/strong>",
-            "text": "<p>Create a personalized experience with our Build Your Own Box subscription. Your customers can curate a selection of premium items, tailoring a box that reflects their unique preferences. Unbox joy, surprise, and a touch of personality with each delivery. Customize your subscription and let the excitement begin!<\/p>",
+            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.20.55_AM.png",
+            "title": "<strong>Build Your Own Box</strong>",
+            "text": "<p>Create a personalized experience with our Build Your Own Box subscription. Your customers can curate a selection of premium items, tailoring a box that reflects their unique preferences. Unbox joy, surprise, and a touch of personality with each delivery. Customize your subscription and let the excitement begin!</p>",
             "link_label": "Try here",
             "link": ""
           }
@@ -374,9 +358,9 @@
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-2": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Screenshot_2023-12-13_at_12.16.18_AM.png",
-            "title": "<strong>Tiered Based Discounting<\/strong>",
-            "text": "<p>As your customers stick with your subscription service and renew, they move up various levels. At each level, they unlock more discounts and special perks. It's our way of thanking them for their loyalty and keeping them engaged. This system not only enhances their subscription experience but also encourages long-term commitment, benefitting both you and your customers.<\/p>",
+            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.16.18_AM.png",
+            "title": "<strong>Tiered Based Discounting</strong>",
+            "text": "<p>As your customers stick with your subscription service and renew, they move up various levels. At each level, they unlock more discounts and special perks. It's our way of thanking them for their loyalty and keeping them engaged. This system not only enhances their subscription experience but also encourages long-term commitment, benefitting both you and your customers.</p>",
             "link_label": "",
             "link": ""
           }
@@ -384,11 +368,11 @@
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-3": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2_2e4c656f-f105-422a-9815-e7b9bbe2a4ee.png",
-            "title": "<strong>Self-Managed Customer Portal<\/strong>",
-            "text": "<p>With our self-managed subscription customer portal—a streamlined platform that empowers your customers to effortlessly Swap, Edit, reschedule, etc on the go. This user-friendly portal not only simplifies subscription management but also enhances your overall customer experience<\/p>",
+            "image": "shopify://shop_images/2_2e4c656f-f105-422a-9815-e7b9bbe2a4ee.png",
+            "title": "<strong>Self-Managed Customer Portal</strong>",
+            "text": "<p>With our self-managed subscription customer portal—a streamlined platform that empowers your customers to effortlessly Swap, Edit, reschedule, etc on the go. This user-friendly portal not only simplifies subscription management but also enhances your overall customer experience</p>",
             "link_label": "Try Now",
-            "link": "\/account"
+            "link": "/account"
           }
         }
       },

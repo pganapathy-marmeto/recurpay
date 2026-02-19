@@ -74,43 +74,19 @@
       "blocks": {
         "resource_Lpt8cC": {
           "type": "resource",
-          "settings": {
-            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-book-open-icon lucide-book-open\"><path d=\"M12 7v14\"></path><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"></path></svg>",
-            "title": "API Documentation",
-            "description": "Complete API reference with examples",
-            "button_text": "View Docs",
-            "button_url": "https://docs.recurpay.com/reference/plans"
-          }
+          "settings": {}
         },
         "resource_rMrUtT": {
           "type": "resource",
-          "settings": {
-            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-award-icon lucide-award\"><path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\"></path><circle cx=\"12\" cy=\"8\" r=\"6\"></circle></svg>",
-            "title": "Partner Certification",
-            "description": "Get certified and unlock premium features",
-            "button_text": "Start Certification",
-            "button_url": "https://www.recurpay.com/growth-with-recurpay-partner-program"
-          }
+          "settings": {}
         },
         "resource_f3aGPa": {
           "type": "resource",
-          "settings": {
-            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-file-spreadsheet-icon lucide-file-spreadsheet\"><path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\"></path><path d=\"M14 2v5a1 1 0 0 0 1 1h5\"></path><path d=\"M8 13h2\"></path><path d=\"M14 13h2\"></path><path d=\"M8 17h2\"></path><path d=\"M14 17h2\"></path></svg>",
-            "title": "Marketing Kit",
-            "description": "Logos, badges, and co-marketing materials",
-            "button_text": "Download Kit",
-            "button_url": ""
-          }
+          "settings": {}
         },
         "resource_qypXfA": {
           "type": "resource",
-          "settings": {
-            "custom_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"22\" height=\"22\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#059669\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-users-icon lucide-users\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"></path><path d=\"M16 3.128a4 4 0 0 1 0 7.744\"></path><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"></path><circle cx=\"9\" cy=\"7\" r=\"4\"></circle></svg>",
-            "title": "Partner Community",
-            "description": "Join the Slack community with 500+ partners",
-            "button_text": "Join Community",
-            "button_url": ""
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -120,14 +96,7 @@
         "resource_qypXfA"
       ],
       "name": "Partner Resources",
-      "settings": {
-        "heading": "Partner Resources",
-        "show_support_banner": true,
-        "support_heading": "Partner Support Promise",
-        "support_subtext": "Average response time: under 5 minutes • 98% satisfaction rate",
-        "support_button_text": "Start Chat",
-        "support_button_url": ""
-      }
+      "settings": {}
     }
   },
   "order": [

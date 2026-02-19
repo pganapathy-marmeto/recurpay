@@ -222,3 +222,7 @@ cart-items {
     gap: 1rem;
   }
 }
+
+.cart__items {
+  padding-bottom: 16px;
+}

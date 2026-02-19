@@ -12,8 +12,8 @@
     "cart-items": {
       "type": "main-cart-items",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     },
     "cart-footer": {
@@ -32,7 +32,6 @@
         "subtotal",
         "buttons"
       ],
-      "disabled": true,
       "settings": {
         "padding_top": 20,
         "padding_bottom": 40
@@ -41,36 +40,46 @@
     "cart_upsell_3wpnjx": {
       "type": "cart-upsell",
       "blocks": {
-        "stat_Rtga7C": {
+        "stat_NAfUQB": {
           "type": "stat",
           "settings": {
-            "value": "+25%",
-            "label": "Subscription conversion rate"
-          }
-        },
-        "stat_bmY3wi": {
-          "type": "stat",
-          "settings": {
-            "value": "2x",
-            "label": "Higher customer LTV"
+            "value": "+20% lift",
+            "label": "On overall subscription revenue"
           }
         },
         "stat_EUThpQ": {
           "type": "stat",
           "settings": {
-            "value": "40%",
-            "label": "Of cart visitors convert"
+            "value": "1.6x",
+            "label": "Increase in repeat purchases over 90 days"
+          }
+        },
+        "stat_bmY3wi": {
+          "type": "stat",
+          "settings": {
+            "value": "+12%",
+            "label": "More carts converted to subscriptions"
+          }
+        },
+        "stat_Rtga7C": {
+          "type": "stat",
+          "settings": {
+            "value": "2x",
+            "label": "Faster decision making to subscribe"
           }
         }
       },
       "block_order": [
-        "stat_Rtga7C",
+        "stat_NAfUQB",
+        "stat_EUThpQ",
         "stat_bmY3wi",
-        "stat_EUThpQ"
+        "stat_Rtga7C"
       ],
       "name": "Stats Highlight",
       "settings": {
-        "heading": "Why Cart Upsell Works"
+        "heading": "Real subscription growth from cart upsell",
+        "sub_heading": "Cart upsell impact",
+        "tag_text": "Based on live merchant data"
       }
     }
   },

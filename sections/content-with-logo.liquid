@@ -1,0 +1,125 @@
+{% style %}
+  .partner-capabilities-strip {
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
+    background-image: linear-gradient(90deg, #064e3b 0%, #10b981 100%);
+    background-repeat: no-repeat;
+    background-size: 140% 140%;
+    background-position: center;
+    border-radius: 0;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .partner-capabilities-inner {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  .partner-capability-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px 10px 10px;
+    border-radius: 999px;
+    background: #F9FAFB;
+    border: 1px solid #00000014;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.35);
+  }
+
+  .partner-capability-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: #0F172A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F9FAFB;
+    flex-shrink: 0;
+    border: 1px solid rgba(15, 23, 42, 0.8);
+  }
+
+  .partner-capability-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .partner-capability-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .partner-capability-subtitle {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+{% endstyle %}
+
+<section class="partner-capabilities-strip">
+  <div class="partner-capabilities-inner">
+    {% for block in section.blocks %}
+      <div class="partner-capability-item" {{ block.shopify_attributes }}>
+        <div class="partner-capability-icon">
+          {{ block.settings.capability_icon }}
+        </div>
+        <div class="partner-capability-text-group">
+          <div class="partner-capability-title">{{ block.settings.capability_title }}</div>
+          <div class="partner-capability-subtitle">{{ block.settings.capability_subtitle }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Content with Logo",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "capability",
+        "name": "Capability Item",
+        "settings": [
+          {
+            "type": "html",
+            "id": "capability_icon",
+            "label": "Icon",
+            "info": "Paste SVG icon code here"
+          }, {
+            "type": "text",
+            "id": "capability_title",
+            "label": "Title",
+            "default": "API & webhooks access"
+          }, {
+            "type": "text",
+            "id": "capability_subtitle",
+            "label": "Subtitle",
+            "default": "Build deeply integrated subscription flows."
+          }
+        ]
+      }
+    ],
+    "max_blocks": 4,
+    "presets": [
+      {
+        "name": "Content with Logo"
+      }
+    ]
+  }
+{% endschema %}

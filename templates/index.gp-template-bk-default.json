@@ -25,151 +25,203 @@
   ],
   "sections": {
     "1a00f58a-e9c6-4613-a491-abb0984a8851": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Key Features We Offer</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\" target=\"_blank\" title=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\">Install the app and explore on your store </a></p>"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-heading-1",
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-text-1",
         "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-button-1"
       ],
-      "blocks": {
-        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-button-1": {
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_label_2": "",
-            "button_link": "",
-            "button_link_2": "",
-            "button_style_secondary": false,
-            "button_style_secondary_2": false
-          },
-          "type": "button"
-        },
-        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-heading-1": {
-          "settings": {
-            "heading": "<strong>Key Features We Offer</strong>",
-            "heading_size": "h1"
-          },
-          "type": "heading"
-        },
-        "template--16947034882283__1a00f58a-e9c6-4613-a491-abb0984a8851-text-1": {
-          "settings": {
-            "text": "<p><a href=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\" target=\"_blank\" title=\"https://apps.shopify.com/recurpay-subscriptions?utm_source=dmstore&utm_medium=demostore&utm_campaign=head&utm_term=hmpage\">Install the app and explore on your store </a></p>"
-          },
-          "type": "text"
-        }
-      },
       "settings": {
-        "color_scheme": "",
-        "content_alignment": "center",
         "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
         "full_width": true,
-        "padding_bottom": 20,
-        "padding_top": 12
-      },
-      "type": "rich-text"
+        "padding_top": 12,
+        "padding_bottom": 20
+      }
     },
     "35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Book 1:1 Demo",
+            "button_link": "https://recurpay.youcanbook.me/?Source=demoh2",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Book 1:1 Demo</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<h3><strong>Unlock Subscription Success! Connect with Our Experts for Tailored Solutions.</strong></h3>"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-heading-1",
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-text-1",
         "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-button-1"
       ],
-      "blocks": {
-        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-button-1": {
-          "settings": {
-            "button_label": "Book 1:1 Demo",
-            "button_label_2": "",
-            "button_link": "https://recurpay.youcanbook.me/?Source=demoh2",
-            "button_link_2": "",
-            "button_style_secondary": false,
-            "button_style_secondary_2": false
-          },
-          "type": "button"
-        },
-        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-heading-1": {
-          "settings": {
-            "heading": "<strong>Book 1:1 Demo</strong>",
-            "heading_size": "h1"
-          },
-          "type": "heading"
-        },
-        "template--16947034882283__35dd5d7c-1cc8-4df1-b8cb-1101bdbd05e2-text-1": {
-          "settings": {
-            "text": "<h3><strong>Unlock Subscription Success! Connect with Our Experts for Tailored Solutions.</strong></h3>"
-          },
-          "type": "text"
-        }
-      },
       "disabled": true,
       "settings": {
-        "color_scheme": "accent-1",
-        "content_alignment": "center",
         "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "accent-1",
         "full_width": true,
-        "padding_bottom": 4,
-        "padding_top": 4
-      },
-      "type": "rich-text"
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
     },
     "4259eef6-c179-40e5-9cad-91513ecb10b2": {
+      "type": "pagefly-section",
       "settings": {
         "section_id": "pf-0674985f"
-      },
-      "type": "pagefly-section"
+      }
     },
     "4c692ddb-9eec-4b0c-97da-72efbb23bd5a": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "See it in action",
+            "button_link": "https://recurpay-subscriptions.myshopify.com/account/login",
+            "button_style_secondary": false
+          }
+        },
+        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Post Subscription Customer journey",
+            "heading_size": "h2"
+          }
+        },
+        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A customer can access there subscriptions from the ecommerce platform's account page. <strong>Recurpay </strong>adds a widget to the account page which allows the customer to manage there subscriptions directly.</p>",
+            "text_style": "body"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-heading-1",
         "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-text-1",
         "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-button-1"
       ],
-      "blocks": {
-        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-button-1": {
-          "settings": {
-            "button_label": "See it in action",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/account/login",
-            "button_style_secondary": false
-          },
-          "type": "button"
-        },
-        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-heading-1": {
-          "settings": {
-            "heading": "Post Subscription Customer journey",
-            "heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "template--16947034882283__4c692ddb-9eec-4b0c-97da-72efbb23bd5a-text-1": {
-          "settings": {
-            "text": "<p>A customer can access there subscriptions from the ecommerce platform's account page. <strong>Recurpay </strong>adds a widget to the account page which allows the customer to manage there subscriptions directly.</p>",
-            "text_style": "body"
-          },
-          "type": "text"
-        }
-      },
       "settings": {
-        "color_scheme": "",
-        "content_layout": "no-overlap",
-        "desktop_content_alignment": "left",
-        "desktop_content_position": "top",
-        "desktop_image_width": "medium",
-        "height": "adapt",
         "image": "shopify://shop_images/Demostore-1_2.png",
-        "image_behavior": "none",
+        "height": "adapt",
+        "desktop_image_width": "medium",
         "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "",
+        "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_bottom": 36,
-        "padding_top": 36
-      },
-      "type": "image-with-text"
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "4df60808-bf8c-4a38-a287-fb8f333b2a6a": {
+      "type": "pagefly-section",
       "disabled": true,
       "settings": {
         "section_id": "pf-7e0b9d2e"
-      },
-      "type": "pagefly-section"
+      }
     },
     "51e60eb1-91d3-46a3-85d2-9f003043bb20": {
+      "type": "featured-product",
+      "blocks": {
+        "recurpay_subscriptions_app_recurpay_app_block_widget_RamcRk": {
+          "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-app-block-widget/c600a513-dad8-4030-8697-de47c18881f2",
+          "settings": {
+            "multiply_price_with_quantity": false,
+            "show_price_in_frequency_dropdown": true
+          }
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-buy_buttons-1": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-price-1": {
+          "type": "price",
+          "settings": {}
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-quantity_selector-1": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-share-1": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-text-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-title-1": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h2"
+          }
+        },
+        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-variant_picker-1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-text-1",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-title-1",
@@ -178,161 +230,126 @@
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-variant_picker-1",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-quantity_selector-1",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-buy_buttons-1",
-        "70b28d6c-8caa-4b65-b426-af84a21678eb",
-        "8b2d02d3-f35f-4588-a775-529dc6963c45",
         "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-share-1"
       ],
-      "blocks": {
-        "70b28d6c-8caa-4b65-b426-af84a21678eb": {
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "bb952603-216a-4d0d-8230-c168494ac86b"
-          },
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b"
-        },
-        "8b2d02d3-f35f-4588-a775-529dc6963c45": {
-          "settings": {
-            "banner_display": "single",
-            "banner_id": "dcf37328-4a52-4deb-ad74-2587fe73c87f"
-          },
-          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b"
-        },
-        "recurpay_subscriptions_app_recurpay_app_block_widget_RamcRk": {
-          "settings": {
-            "multiply_price_with_quantity": false,
-            "show_price_in_frequency_dropdown": true
-          },
-          "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-app-block-widget/c600a513-dad8-4030-8697-de47c18881f2"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-buy_buttons-1": {
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          },
-          "type": "buy_buttons"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-price-1": {
-          "settings": {},
-          "type": "price"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-quantity_selector-1": {
-          "settings": {},
-          "type": "quantity_selector"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-share-1": {
-          "disabled": true,
-          "settings": {
-            "share_label": "Share"
-          },
-          "type": "share"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-text-1": {
-          "disabled": true,
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          },
-          "type": "text"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-title-1": {
-          "settings": {
-            "heading_size": "h2"
-          },
-          "type": "title"
-        },
-        "template--16947034882283__51e60eb1-91d3-46a3-85d2-9f003043bb20-variant_picker-1": {
-          "settings": {
-            "picker_type": "button"
-          },
-          "type": "variant_picker"
-        }
-      },
       "settings": {
+        "product": "coffee-blend",
         "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "small",
         "constrain_to_viewport": true,
-        "enable_video_looping": false,
-        "hide_variants": false,
-        "image_zoom": "lightbox",
         "media_fit": "contain",
         "media_position": "left",
-        "media_size": "small",
-        "padding_bottom": 24,
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
         "padding_top": 24,
-        "product": "coffee-blend",
-        "secondary_background": false
-      },
-      "type": "featured-product"
+        "padding_bottom": 24
+      }
     },
     "8a24368b-2e32-4db4-8426-530627a10aa3": {
+      "type": "pagefly-section",
       "settings": {
         "section_id": "pf-7e0b9d2e"
-      },
-      "type": "pagefly-section"
+      }
     },
     "92396d54-4cbd-4890-a8d3-8d467f854a7b": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.20.55_AM.png",
+            "title": "<strong>Build Your Own Box</strong>",
+            "text": "<p>Create a personalized experience with our Build Your Own Box subscription. Your customers can curate a selection of premium items, tailoring a box that reflects their unique preferences. Unbox joy, surprise, and a touch of personality with each delivery. Customize your subscription and let the excitement begin!</p>",
+            "link_label": "Try here",
+            "link": ""
+          }
+        },
+        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.16.18_AM.png",
+            "title": "<strong>Tiered Based Discounting</strong>",
+            "text": "<p>As your customers stick with your subscription service and renew, they move up various levels. At each level, they unlock more discounts and special perks. It's our way of thanking them for their loyalty and keeping them engaged. This system not only enhances their subscription experience but also encourages long-term commitment, benefitting both you and your customers.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2_2e4c656f-f105-422a-9815-e7b9bbe2a4ee.png",
+            "title": "<strong>Self-Managed Customer Portal</strong>",
+            "text": "<p>With our self-managed subscription customer portal—a streamlined platform that empowers your customers to effortlessly Swap, Edit, reschedule, etc on the go. This user-friendly portal not only simplifies subscription management but also enhances your overall customer experience</p>",
+            "link_label": "Try Now",
+            "link": "/account"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-1",
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-2",
         "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-3"
       ],
-      "blocks": {
-        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-1": {
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.20.55_AM.png",
-            "link": "",
-            "link_label": "Try here",
-            "text": "<p>Create a personalized experience with our Build Your Own Box subscription. Your customers can curate a selection of premium items, tailoring a box that reflects their unique preferences. Unbox joy, surprise, and a touch of personality with each delivery. Customize your subscription and let the excitement begin!</p>",
-            "title": "<strong>Build Your Own Box</strong>"
-          },
-          "type": "column"
-        },
-        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-2": {
-          "settings": {
-            "image": "shopify://shop_images/Screenshot_2023-12-13_at_12.16.18_AM.png",
-            "link": "",
-            "link_label": "",
-            "text": "<p>As your customers stick with your subscription service and renew, they move up various levels. At each level, they unlock more discounts and special perks. It's our way of thanking them for their loyalty and keeping them engaged. This system not only enhances their subscription experience but also encourages long-term commitment, benefitting both you and your customers.</p>",
-            "title": "<strong>Tiered Based Discounting</strong>"
-          },
-          "type": "column"
-        },
-        "template--16947034882283__92396d54-4cbd-4890-a8d3-8d467f854a7b-column-3": {
-          "settings": {
-            "image": "shopify://shop_images/2_2e4c656f-f105-422a-9815-e7b9bbe2a4ee.png",
-            "link": "/account",
-            "link_label": "Try Now",
-            "text": "<p>With our self-managed subscription customer portal—a streamlined platform that empowers your customers to effortlessly Swap, Edit, reschedule, etc on the go. This user-friendly portal not only simplifies subscription management but also enhances your overall customer experience</p>",
-            "title": "<strong>Self-Managed Customer Portal</strong>"
-          },
-          "type": "column"
-        }
-      },
       "disabled": true,
       "settings": {
+        "title": "Boost your retention rate",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
         "background_style": "primary",
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 3,
         "columns_mobile": "1",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "image_width": "full",
-        "padding_bottom": 36,
-        "padding_top": 36,
         "swipe_on_mobile": false,
-        "title": "Boost your retention rate"
-      },
-      "type": "multicolumn"
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "959731f3-aad7-479b-8db7-7cebd9762961": {
+      "type": "pagefly-section",
       "settings": {
         "section_id": "pf-1c1615fa"
-      },
-      "type": "pagefly-section"
+      }
     },
     "c636316a-fa83-4161-aefb-aee7363a55e9": {
+      "type": "collection-list",
+      "blocks": {
+        "0875f4c2-8830-4fa6-bb29-a0c1ecad486e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "wine-subscriptions"
+          }
+        },
+        "featured_collection_TDMPLy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "salad-meal-box"
+          }
+        },
+        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "coffee"
+          }
+        },
+        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "women-hygiene"
+          }
+        },
+        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pet-care"
+          }
+        }
+      },
       "block_order": [
         "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-1",
         "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-2",
@@ -340,101 +357,68 @@
         "0875f4c2-8830-4fa6-bb29-a0c1ecad486e",
         "featured_collection_TDMPLy"
       ],
-      "blocks": {
-        "0875f4c2-8830-4fa6-bb29-a0c1ecad486e": {
-          "settings": {
-            "collection": "wine-subscriptions"
-          },
-          "type": "featured_collection"
-        },
-        "featured_collection_TDMPLy": {
-          "settings": {
-            "collection": "salad-meal-box"
-          },
-          "type": "featured_collection"
-        },
-        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-1": {
-          "settings": {
-            "collection": "coffee"
-          },
-          "type": "featured_collection"
-        },
-        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-2": {
-          "settings": {
-            "collection": "women-hygiene"
-          },
-          "type": "featured_collection"
-        },
-        "template--16947034882283__c636316a-fa83-4161-aefb-aee7363a55e9-featured_collection-3": {
-          "settings": {
-            "collection": "pet-care"
-          },
-          "type": "featured_collection"
-        }
-      },
       "settings": {
-        "color_scheme": "",
-        "columns_desktop": 4,
-        "columns_mobile": "1",
+        "title": "Industries:",
         "heading_size": "h1",
         "image_ratio": "square",
-        "padding_bottom": 36,
-        "padding_top": 36,
+        "columns_desktop": 4,
+        "color_scheme": "",
         "show_view_all": false,
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "title": "Industries:"
-      },
-      "type": "collection-list"
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     },
     "d089298c-6c9b-4c2d-acde-6fc814f626f3": {
+      "type": "pagefly-section",
       "settings": {
         "section_id": "pf-4a4dc11c"
-      },
-      "type": "pagefly-section"
+      }
     },
     "featured_collection": {
+      "type": "featured-collection",
       "disabled": true,
       "settings": {
-        "collection": "all",
-        "color_scheme": "background-1",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "description": "",
-        "description_style": "body",
-        "enable_desktop_slider": false,
-        "enable_quick_add": false,
-        "full_width": false,
+        "title": "Featured products",
         "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "padding_bottom": 36,
-        "padding_top": 44,
-        "products_to_show": 8,
-        "show_description": false,
-        "show_rating": false,
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_view_all": true,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "title": "Featured products",
-        "view_all_style": "solid"
-      },
-      "type": "featured-collection"
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
     },
     "video_b8hHmE": {
+      "type": "video",
       "settings": {
-        "color_scheme": "background-2",
-        "cover_image": "shopify://shop_images/TN_4.jpg",
-        "description": "Andriy Rudnyk, recommends Recurpay Subscriptions!",
-        "enable_video_looping": true,
-        "full_width": false,
         "heading": "<strong>Shopify Subscription Experts Rank Recurpay Among Top Apps </strong>for Support & Prepaid Subscription Options",
         "heading_size": "h2",
-        "padding_bottom": 56,
+        "enable_video_looping": true,
+        "video_url": "https://www.youtube.com/watch?v=I-S5HUdScW4",
+        "cover_image": "shopify://shop_images/TN_4.jpg",
+        "description": "Andriy Rudnyk, recommends Recurpay Subscriptions!",
+        "full_width": false,
+        "color_scheme": "background-2",
         "padding_top": 48,
-        "video_url": "https://www.youtube.com/watch?v=I-S5HUdScW4"
-      },
-      "type": "video"
+        "padding_bottom": 56
+      }
     }
   }
 }

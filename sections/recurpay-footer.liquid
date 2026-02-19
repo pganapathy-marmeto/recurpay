@@ -123,7 +123,7 @@
       <div class="brand_name_with_logo">
         {% if section.settings.logo %}
           {% comment %} <img src="{{ section.settings.logo | img_url: '160x' }}" alt="Logo"> {% endcomment %}
-          {{ section.settings.logo | image_url: width: 60 | image_tag }}
+          {{ section.settings.logo | image_url: height: 1000, width: 1000| image_tag }}
         {% endif %}
 
       {% comment %} <h3>Recurpay</h3> {% endcomment %}
@@ -285,13 +285,13 @@
     <p>{{ section.settings.copyright }}</p>
     <div class="legal-links">
       {% if section.settings.privacy %}
-        <a href="{{ section.settings.privacy }}">Privacy Policy</a>
+        <a target="_blank" href="{{ section.settings.privacy }}">Privacy Policy</a>
       {% endif %}
       {% if section.settings.terms %}
-        <a href="{{ section.settings.terms }}">Terms of Service</a>
+        <a target="_blank" href="{{ section.settings.terms }}">Terms of Service</a>
       {% endif %}
       {% if section.settings.cookies %}
-        <a href="{{ section.settings.cookies }}">Cookie Policy</a>
+        <a target="_blank" href="{{ section.settings.cookies }}">Cookie Policy</a>
       {% endif %}
     </div>
   </div>

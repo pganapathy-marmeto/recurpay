@@ -334,8 +334,9 @@
     }
   }
 {% endstyle %}
-<header class="recurpay-header" id="recurpay-header">
-  <div class="page-width header-inner">
+{% if page.handle != 'merchant-widget' and page.handle != 'partner-widget' and page.handle != 'partner-tour-completion' and page.handle != 'merchant-tour-completion' %}
+  <header class="recurpay-header" id="recurpay-header">
+    <div class="page-width header-inner">
 
     <!-- Logo -->
     <a href="{{ routes.root_url }}" class="header-logo">
@@ -405,36 +406,36 @@
 
   </div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <nav>
-      <ul>
-        {% for link in linklists[section.settings.main_menu].links %}
-          <li>
-            {% if link.title and link.title contains 'Support' %}
-              <button class="support-button" data-intercom-support>
-                {{ link.title }}
-              </button>
-            {% else %}
-              <a class="header-nav-title" target="_blank" href="{{ link.url }}" {% if link.links.size > 0 %}data-toggle-dropdown{% endif %}>
-                {{ link.title }}
-                {% if link.links.size > 0 %}▾{% endif %}
-              </a>
-            {% endif %}
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <nav>
+        <ul>
+          {% for link in linklists[section.settings.main_menu].links %}
+            <li>
+              {% if link.title and link.title contains 'Support' %}
+                <button class="support-button" data-intercom-support>
+                  {{ link.title }}
+                </button>
+              {% else %}
+                <a class="header-nav-title" target="_blank" href="{{ link.url }}" {% if link.links.size > 0 %}data-toggle-dropdown{% endif %}>
+                  {{ link.title }}
+                  {% if link.links.size > 0 %}▾{% endif %}
+                </a>
+              {% endif %}
 
-            {% if link.links.size > 0 %}
-              <ul class="dropdown">
-                {% for child in link.links %}
-                  <li>
-                      <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </nav>
+              {% if link.links.size > 0 %}
+                <ul class="dropdown">
+                  {% for child in link.links %}
+                    <li>
+                        <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
 
     <!-- Mobile Buttons -->
     <div class="header-buttons">

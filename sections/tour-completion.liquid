@@ -1,10 +1,15 @@
 {% style %}
-  .completion-cta {
-    padding: 80px 20px;
+  /* .completion-cta {
+    padding: 0 20px;
     background: #ffffff;
     text-align: center;
   }
-
+   */
+  .completion-cta__wrapper {
+  padding: 15px 20px;
+  background: #ffffff;
+  text-align: center;
+}
   .completion-cta__wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -66,6 +71,209 @@
     border: 1px solid #e5e7eb;
   }
 
+  .hero-badge {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.05);
+  }
+  .hero-title {
+    font-size: 64px;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 24px;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin-top: 0;
+    max-width: 800px;
+  }
+  .cta-secondary:hover {
+    background: #fafafa;
+    border-color: #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1)
+    , 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+  }
+  .cta-chat:hover {
+    background: rgba(70, 160, 126, 0.12);
+    border-color: rgba(70, 160, 126, 0.3);
+    transform: translateY(-1px);
+  }
+  .hero-title p {
+    margin: 0;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+    color: #6B7280;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .cta-container {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 440px;
+  }
+  .cta-primary {
+    height: 56px;
+    width: 100%;
+    background: linear-gradient(120deg, #99094d 0%, #4B1640 55%, #111827 100%);
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px rgba(153, 9, 77, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s
+    , box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  .cta-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+  }
+  .cta-secondary-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .cta-secondary {
+    text-decoration: none;
+    flex: 1;
+    height: 44px;
+    background: white;
+    border: 1px solid #00000014;
+    color: #0F172A;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+  }
+
+  .cta-chat {
+    flex: 1;
+    height: 44px;
+    background: rgba(70, 160, 126, 0.08);
+    border: 1px solid rgba(70, 160, 126, 0.2);
+    color: #3d8f70;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .merchant_tab_switcher_wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(229, 231, 235);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+  }
+  .redirect {
+    padding: 6px 14px;
+    background-color: white;
+    color: rgb(107, 114, 128);
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .redirect,
+  .button_demo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .button_demo {
+    background: #2F7F6A;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .redirect_buttons__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .reTour {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+  .reTour:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .live_chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid #00000014;
+    color: #6B7280;
+    background: transparent;
+  }
+
+
   @media (max-width: 768px) {
     .completion-cta__heading {
       font-size: 32px;
@@ -78,42 +286,204 @@
 {% endstyle %}
 
 <section class="completion-cta">
+  <div class="merchant_tab_switcher_wrapper">
+    <a class="redirect" href="{{ section.settings.redirect_link }}">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+      {{ section.settings.redirect_text }}</a>
+    <div class="redirect_buttons__wrapper">
+      <a href="{{ section.settings.retour_link }}" class="reTour">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
+        {{ section.settings.retour_text }}
+      </a>
+      {% comment %} <button class="live_chat">
+        {% if section.settings.live_chat_icon != blank %}
+          {{ section.settings.live_chat_icon }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {% endif %}
+        {{ section.settings.live_chat_text }}</button>
+      <a
+        target="_blank"
+        class="button_demo"
+        href="{{ section.settings.demo_url }}">
+        {% if section.settings.demo_html != blank %}
+          {{ section.settings.demo_html }}
+          {{ section.settings.demo }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+          {{ section.settings.demo }}
+        {% endif %}
+      </a> {% endcomment %}
+    </div>
+  </div>
   <div class="completion-cta__wrapper">
-
     {% if section.settings.icon != blank %}
-      <div class="completion-cta__icon">
+      <div class="hero-badge">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#3d8f70"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-party-popper-icon lucide-party-popper"><path d="M5.8 11.3 2 22l10.7-3.79" /><path d="M4 3h.01" /><path d="M22 8h.01" /><path d="M15 2h.01" /><path d="M22 20h.01" /><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17" /><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7" /><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" /></svg>
         {{ section.settings.icon }}
       </div>
     {% endif %}
 
+
     {% if section.settings.heading != blank %}
-      <h2 class="completion-cta__heading">
+      <h1 class="hero-title">
         {{ section.settings.heading }}
-      </h2>
+      </h1>
     {% endif %}
 
     {% if section.settings.description != blank %}
-      <p class="completion-cta__description">
+      <p class="hero-subtitle">
         {{ section.settings.description }}
       </p>
     {% endif %}
 
-    <div class="completion-cta__buttons">
-      {% if section.settings.primary_button_text != blank %}
-        <a href="{{ section.settings.primary_button_link }}" class="completion-cta__button completion-cta__button--primary">
-          {{ section.settings.primary_button_text }}
-        </a>
-      {% endif %}
+    <div class="cta-container">
+      <a
+        href="{{ section.settings.primary_button_link }}"
+        class="cta-primary"
+        data-media-type="banani-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-zap-icon lucide-zap"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
+        {{ section.settings.primary_button_text }}
+      </a>
 
-      {% if section.settings.secondary_button_text != blank %}
-        <a href="{{ section.settings.secondary_button_link }}" class="completion-cta__button completion-cta__button--secondary">
+      <div class="cta-secondary-group">
+        <a
+          href="{{ section.settings.secondary_button_link }}"
+          class="cta-secondary"
+          data-media-type="banani-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#6b7280"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4" /><path d="M16 2v4" /><rect
+              width="18"
+              height="18"
+              x="3"
+              y="4"
+              rx="2" /><path d="M3 10h18" /></svg>
           {{ section.settings.secondary_button_text }}
         </a>
-      {% endif %}
+        <button class="cta-chat" data-media-type="banani-button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#3d8f70"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+          {{ section.settings.teritary_button_text }}
+        </button>
+      </div>
     </div>
 
   </div>
 </section>
+<script>
+  function confettiOnCompletion(){
+      let duration = 3 * 1000;
+      let end = Date.now() + duration;
+  
+      function frame() {
+      // launch a few confetti from the left edge
+      confetti({
+        particleCount: 7,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      // and launch a few from the right edge
+      confetti({
+        particleCount: 7,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+  
+      // keep going until we are out of time
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }
+    frame();
+    }
+    setTimeout(() => {
+      confettiOnCompletion();
+    }, 2000);
+    const chatButton = document.querySelector('.cta-chat');
+    chatButton.addEventListener('click', () => {
+      window.Intercom('showNewMessage');
+    });
+</script>
 
 
 {% schema %}
@@ -123,14 +493,14 @@
       {
         "type": "text",
         "id": "icon",
-        "label": "Top Icon (Emoji or Text)",
-        "default": "🎉"
+        "label": "Sub text",
+        "default": "Tour Completed Successfully"
       },
       {
-        "type": "text",
+        "type": "richtext",
         "id": "heading",
         "label": "Heading",
-        "default": "You've Completed the Tour!"
+        "default": "<p>Ready to transform your<br>subscription experience?</p>"
       },
       {
         "type": "textarea",
@@ -156,6 +526,45 @@
         "type": "url",
         "id": "secondary_button_link",
         "label": "Secondary Button Link"
+      },{
+        "type": "text",
+        "id": "teritary_button_text",
+        "label": "Teritary Button Text",
+        "default": "Live chat"
+      },{
+        "type": "url",
+        "id": "retour_link",
+        "label": "Retour Link"
+      },{
+        "type": "text",
+        "id": "retour_text",
+        "label": "Retour Text",
+        "default": "Retour"
+      },{
+        "type": "html",
+        "id": "live_chat_icon",
+        "label": "Live Chat Icon"
+      },{
+        "type": "text",
+        "id": "live_chat_text",
+        "label": "Live Chat Text",
+        "default": "Live chat"
+      },{
+        "type": "html",
+        "id": "demo_html",
+        "label": "Demo icon HTML"
+      },{
+        "type": "text",
+        "id": "demo",
+        "label": "Button text"
+      },{
+        "type": "text",
+        "id": "redirect_text",
+        "label": "Redirect text"
+      },{
+        "type": "url",
+        "id": "redirect_link",
+        "label": "Redirect link"
       }
     ],
     "presets": [

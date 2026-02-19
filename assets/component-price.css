@@ -25,6 +25,7 @@
 
 .price__regular .price-item--regular {
   margin-right: 0;
+  color: #374151;
 }
 
 .price:not(.price--show-badge) .price-item--last:last-of-type {
@@ -98,4 +99,9 @@
   margin-top: 0.2rem;
   text-transform: uppercase;
   color: rgba(var(--color-foreground), 0.7);
+}
+.price {
+  font-size: 14px;
+  color: #0F172A;
+  font-weight: 500;
 }

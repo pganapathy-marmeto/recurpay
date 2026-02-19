@@ -11,6 +11,7 @@
   "sections": {
     "recurpay_header_BWMFdH": {
       "type": "recurpay-header",
+      "disabled": true,
       "name": "Header navigation",
       "settings": {
         "logo": "shopify://shop_images/Recurpay_Logo.png",

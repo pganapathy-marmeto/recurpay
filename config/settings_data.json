@@ -11,9 +11,9 @@
   "current": {
     "logo": "shopify://shop_images/Capture.png",
     "logo_width": 130,
-    "type_header_font": "assistant_n4",
+    "type_header_font": "inter_n6",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "inter_n4",
     "body_scale": 100,
     "page_width": 1400,
     "spacing_sections": 0,
@@ -122,8 +122,8 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
-    "cart_type": "drawer",
-    "show_vendor": true,
+    "cart_type": "notification",
+    "show_vendor": false,
     "show_cart_note": true,
     "cart_drawer_collection": "subscription-types",
     "sections": {
@@ -142,41 +142,16 @@
     },
     "content_for_index": [],
     "blocks": {
-      "16278478101612877664": {
-        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
-        "disabled": false,
-        "settings": {}
-      },
-      "11348531219507317188": {
-        "type": "shopify://apps/easy-bundles/blocks/app-embed/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
-        "disabled": false,
-        "settings": {}
-      },
-      "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": false,
-        "settings": {}
-      },
       "10557767768680663964": {
         "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-widget/c600a513-dad8-4030-8697-de47c18881f2",
         "disabled": false,
         "settings": {
           "multiply_price_with_quantity": true,
-          "show_price_in_frequency_dropdown": true
+          "show_price_in_frequency_dropdown": true,
+          "enable_date_range": true,
+          "start_date": "16-02-2026",
+          "end_date": "16-09-2026"
         }
-      },
-      "10518222044023584760": {
-        "type": "shopify://apps/recurpay-staging/blocks/recurpay-widget/b8e5620d-f4ca-4526-a5ae-59a189b60d57",
-        "disabled": true,
-        "settings": {
-          "multiply_price_with_quantity": false,
-          "show_price_in_frequency_dropdown": false
-        }
-      },
-      "1027443428159536739": {
-        "type": "shopify://apps/hextom-announce-bar/blocks/qab-embeded-block/9ac2a261-3b8b-42c8-9613-d34eb2e079d3",
-        "disabled": true,
-        "settings": {}
       }
     },
     "color_schemes": {
@@ -232,6 +207,17 @@
           "button": "#ffffff",
           "button_label": "#334fb4",
           "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-ccfb4338-51b9-4b5f-ad60-a65e6354a4e8": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#f3f4f6",
+          "button_label": "#f3f4f6",
+          "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
       }

@@ -24,13 +24,14 @@
     gap: 16px;
   }
   .image_with_logo__wrapper img {
-    border-radius: 8px;
-    background-color: rgb(5, 150, 105);
+    object-fit: contain;
+    height: 42px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-items: center;
   }
-  .redirect_buttons__wrapper{
+  .redirect_buttons__wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -45,6 +46,7 @@
   .image_with_logo__wrapper span {
     background-color: rgb(236, 253, 245);
     color: rgb(5, 150, 105);
+    white-space: nowrap;
     padding: 4px 12px;
     border-radius: 12px;
     font-size: 12px;
@@ -52,33 +54,66 @@
   }
   .content__wrapper {
     display: flex;
-    gap: 8px;
+    gap: 10px;
+    align-items: center;
   }
   .button_tab,
   .button_demo,
   .redirect {
     padding: 6px 14px;
-    background-color: transparent;
+    background-color: white;
     color: rgb(107, 114, 128);
     border: 1px solid rgb(229, 231, 235);
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    text-transform: capitalize;
     text-decoration: none;
   }
 
-  .redirect, .button_demo {
+  .button_demo {
+    background: #2F7F6A;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+  }
+
+  .live_chat {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid #00000014;
+    color: #6B7280;
+    background: transparent;
+  }
+
+  .redirect,
+  .button_demo {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .active_tab,
-  .button_demo {
-    background-color: rgb(5, 150, 105);
-    color: white;
+
+  /*
+
+   .active_tab, 
+   .button_demo { 
+   background-color: rgb(5, 150, 105); 
+   color: white; 
+   } 
+*/
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .header_content {
@@ -88,18 +123,21 @@
     gap: 12px;
   }
   .sidebar__container {
+    padding: 28px 24px 24px;
+    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.1), transparent 55%)
+    , #FBFBFC;
     position: fixed;
     top: 58px;
-    right: 0;
+    left: 0;
     bottom: 0;
-    width: 320px;
+    overflow-y: auto;
+    width: 400px;
     background-color: rgb(255, 255, 255);
     border-left: 1px solid rgb(229, 231, 235);
     z-index: 90;
     transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
   .sidebar__container.collapsed {
     right: -320px;
@@ -135,8 +173,11 @@
     display: flex;
   }
   .sidebar__header {
-    padding: 20px 20px 16px;
-    border-bottom: 1px solid rgb(243, 244, 246);
+    padding: 16px 14px;
+    border-radius: 16px;
+    background: radial-gradient(circle at top left, rgba(153, 9, 77, 0.08), transparent 55%);
+    border: 1px solid #00000014;
+    margin-bottom: 20px;
   }
   .header_title {
     display: flex;
@@ -145,11 +186,19 @@
     margin-bottom: 4px;
   }
   .header_title span {
-    font-size: 12px;
-    font-weight: 600;
-    color: rgb(5, 150, 105);
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
+    color: #6B7280;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #00000014;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
   }
   .header_title button {
     width: 24px;
@@ -170,17 +219,17 @@
     transform: rotate(180deg);
   }
   .header_content__container h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(17, 24, 39);
-    margin: 0 0 2px;
-    line-height: 1.3;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 10px;
+    margin-bottom: 4px;
   }
   .header_content__container p {
-    font-size: 13px;
-    color: rgb(107, 114, 128);
-    margin: 0;
-    line-height: 1.4;
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 20px;
+    margin-top: 0;
   }
   .header_content a {
     font-size: 13px;
@@ -194,48 +243,43 @@
   }
   .sidebar__content {
     flex: 1 1 0;
-    overflow-y: auto;
-    padding: 12px 16px;
   }
   .sidebar__content-container {
     background-color: transparent;
     border-radius: 12px;
     margin-bottom: 4px;
-    cursor: pointer;
     transition: 0.15s;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 70px;
   }
   .sidebar__content-wrapper {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: transparent;
-    border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 4px;
-    cursor: pointer;
-    transition: 0.15s;
-    border: 1px dashed rgba(148,163,184,0.4);
+    border-radius: 16px;
+    border: 1px solid #00000014;
+    padding: 12px 14px;
+    background: white;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
   }
   .sidebar__content-wrapper:hover {
     background: linear-gradient(135deg, rgba(15,157,88,0.06), rgba(15,157,88,0));
-    border: 1px solid rgba(148,163,184,0.4);
+    border: 1px solid rgba(148, 163, 184, 0.4);
   }
   .sidebar__content-wrapper.hidden {
     display: none;
   }
   .image_container {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #eeeeee;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: #FBFBFC;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 18px;
   }
 
   .content_container {
@@ -248,14 +292,15 @@
   .content_container h4 {
     font-size: 14px;
     font-weight: 600;
-    color: rgb(17, 24, 39);
-    margin: 0 0 4px;
+    color: #111827;
+    white-space: nowrap;
+    margin-block: 0;
   }
   .content_container p {
     font-size: 13px;
-    color: rgb(107, 114, 128);
-    margin: 0 0 10px;
-    line-height: 1.4;
+    color: #6B7280;
+    line-height: 1.5;
+    margin-block: 0;
   }
   .content_tag_with_link {
     display: flex;
@@ -336,8 +381,9 @@
     flex-wrap: nowrap;
     gap: 0;
   }
-  .header__container.sidebar-collapsed .footer__container {
+  .header__container .footer__container {
     right: 0;
+    height: 72px;
   }
   .footer_paginate_wrapper {
     display: flex;
@@ -349,7 +395,12 @@
   .paginate_container {
     display: flex;
     align-items: center;
+    font-size: 14px;
     gap: 8px;
+  }
+  [data-step-indicator],
+  [data-step-name] {
+    font-size: 14px;
   }
   .paginate_dot {
     width: 8px;
@@ -361,17 +412,17 @@
   }
   .paginate_dot.active {
     width: 24px;
-    background-color: rgb(5, 150, 105);
+    background-color: #0F172A;
   }
   .container_of_next_preview {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     width: auto;
     justify-content: flex-end;
   }
   .show_guide {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 6px;
     padding: 10px 16px;
@@ -389,8 +440,8 @@
   .previous {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 20px;
+    gap: 8px;
+    padding: 11px 16px;
     background-color: rgb(249, 250, 251);
     color: rgb(156, 163, 175);
     border: 1px solid rgb(229, 231, 235);
@@ -413,8 +464,8 @@
   .next {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
+    gap: 8px;
+    padding: 12px 18px;
     background-color: rgb(5, 150, 105);
     color: rgb(255, 255, 255);
     border: none;
@@ -434,7 +485,7 @@
     justify-content: space-between;
     flex: 1 1 auto;
     overflow: hidden;
-    padding-right: 320px;
+    padding-left: 400px;
     transition: padding-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .header__container.sidebar-collapsed .tab__content__container {
@@ -519,6 +570,86 @@
     text-align: center;
   }
 
+  /* Stepper-style tabs in the merchant tab switcher */
+  .merchant_tab_switcher_wrapper .content__wrapper {
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  }
+
+  .merchant_tab_switcher_wrapper .button_tab {
+    font-family: inherit;
+    position: relative;
+    align-items: center;
+    padding: 0;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: none;
+  }
+
+  /* Number badge */
+  .stage_number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .stage__container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stage__container.active_tab {
+    background: #0F172A;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .stage__container.active_tab .button_tab {
+    color: white;
+  }
+
+  /* Connector line between steps */
+  .button_connector {
+    width: 28px;
+    height: 2px;
+    background: #00000014;
+    border-radius: 999px;
+  }
+
+  /* Active tab styling */
+  .merchant_tab_switcher_wrapper .button_tab.active_tab {
+    background-color: #020617;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+  }
+
+  .merchant_tab_switcher_wrapper .button_tab.active_tab::before {
+    background-color: #ffffff;
+    color: #020617;
+    border-color: transparent;
+  }
+
+  .demo-guide-card {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+
   @media (max-width: 768px) {
     .main-heading {
       font-size: 32px;
@@ -555,9 +686,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 20px;
-    background-color: rgb(249, 250, 251);
-    border-bottom: 1px solid rgb(229, 231, 235);
   }
 
   .demo-guide-close {
@@ -635,6 +763,17 @@
     gap: 8px;
     align-items: center;
   }
+  .driver-popover::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    transform: translateX(50%) rotate(45deg);
+    right: 0;
+    top: 10px;
+    display: block;
+    position: absolute;
+  }
 
   .demo-guide-actions .demo-guide-back {
     display: flex;
@@ -682,17 +821,51 @@
     gap: 4px;
   }
 
-  .demo-guide-body {
-    padding: 18px 20px;
-  }
+
+  /*
+
+   .demo-guide-body { 
+   padding: 18px 20px; 
+   } 
+*/
 
   /* completion state (final tour page) */
-  .header__container.completion-active .sidebar__container, .header__container.completion-active .tagline-heading-section  {
+  .header__container.completion-active .sidebar__container,
+  .header__container.completion-active .tagline-heading-section,
+  .header__container.completion-active .merchant_tab_switcher_wrapper .content__wrapper,
+  .header__container.completion-active .footer__container {
     display: none;
   }
 
+  .header__container.completion-active .reTour {
+    display: flex;
+  }
+
+  .reTour {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    color: #6B7280;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+  }
+
+  .reTour svg {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .reTour:hover {
+    border-bottom: 2px solid #6B7280;
+  }
+
+  .reTour:hover svg {
+    transform: rotate(-180deg);
+  }
+
   .header__container.completion-active .tab__content__container {
-    padding-right: 0;
+    padding-left: 0;
   }
 
   .header__container.completion-active .footer__container {
@@ -701,86 +874,465 @@
 
   .content_container_wrapper {
     display: flex;
-    gap: 10px;
+    gap: 12px;
   }
 
-  .driver-popover{
+  .driver-popover {
     max-width: 350px;
-    
+
   }
+
+  /* Loader styling */
+  .ccs-skel {
+    display: grid;
+    gap: 12px;
+  }
+
+  .ccs-skel .ccs-skel__avatar,
+  .ccs-skel .ccs-skel__line {
+    background: linear-gradient(90deg, rgba(15,23,42,.06) 0%, rgba(15,23,42,.10) 35%, rgba(255,255,255,.65) 50%, rgba(15,23,42,.10) 65%, rgba(15,23,42,.06) 100%);
+    background-size: 220% 100%;
+    animation: ccs-shimmer 1.35s ease-in-out infinite;
+    border: 1px solid rgb(15 23 42 / 3%);
+  }
+
+  @keyframes ccs-shimmer {
+    0% {
+      background-position: 120% 0;
+    }
+    100% {
+      background-position: -120% 0;
+    }
+  }
+
+  .ccs-skel__item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(15, 23, 42, 0.3);
+  }
+
+  .ccs-skel__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    flex: 0 0 auto;
+  }
+
+  .ccs-skel__lines {
+    flex: 1;
+    display: grid;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .ccs-skel__line {
+    height: 12px;
+    border-radius: 999px;
+  }
+
+  /* Width helpers (edit these for variety) */
+  .ccs-w-75 {
+    width: 75%;
+  }
+  .ccs-w-90 {
+    width: 90%;
+  }
+  .ccs-w-70 {
+    width: 70%;
+  }
+  .ccs-w-60 {
+    width: 60%;
+  }
+  .ccs-w-50 {
+    width: 50%;
+  }
+  .ccs-w-45 {
+    width: 45%;
+  }
+  .ccs-w-40 {
+    width: 40%;
+  }
+
+  #sidebar__loader {
+    position: absolute;
+    inset: 0;
+    padding: 40px 20px 20px;
+  }
+
+  .sidebar__container.isLoading .sidebar__header,
+  .sidebar__container.isLoading .sidebar__content {
+    opacity: 0;
+  }
+
+  /* main content loader */
+
+  #recurpay-loader {
+    position: absolute;
+    inset: 0;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.35s ease;
+  }
+
+  .rp-loader-wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  .rp-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(47, 127, 106, 0.15);
+  }
+
+  .rp-ring.big {
+    width: 100%;
+    height: 100%;
+  }
+  .rp-ring.medium {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+  }
+  .rp-ring.small {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+  }
+
+  .rp-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: orbitSlow 12s linear infinite;
+  }
+
+  .rp-orbit.medium {
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    animation: orbitMedium 8s linear infinite reverse;
+  }
+
+  .rp-orbit.fast {
+    width: 40%;
+    height: 40%;
+    top: 30%;
+    left: 30%;
+    animation: orbitFast 4s linear infinite;
+  }
+
+  .rp-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #2f7f6a;
+  }
+
+  .rp-dot.big {
+    width: 12px;
+    height: 12px;
+    opacity: .3;
+  }
+  .rp-dot.medium {
+    width: 10px;
+    height: 10px;
+    opacity: .5;
+  }
+  .rp-dot.small {
+    width: 8px;
+    height: 8px;
+    opacity: .7;
+  }
+
+  .rp-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .rp-logo-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #2f7f6a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: centerPulse 2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(47, 127, 106, 0.5);
+  }
+
+  .rp-logo-wrap img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  @keyframes orbitSlow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbitMedium {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbitFast {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes centerPulse {
+    0,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: .9;
+    }
+  }
+
 
 {% endstyle %}
 
 {% assign merchant_tabs = "widget,cart_upsell,portal" | split: "," %}
-{% if section.settings.enable_support_resources %}
-  {% assign support_tab = "support_resources" | split: "," %}
-  {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
-{% endif %}
+{% comment %} {% if section.settings.enable_support_resources %}
+        {% assign support_tab = "support_resources" | split: "," %}
+        {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
+{% endif %} {% endcomment %}
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
-    <div class="image_with_logo__wrapper">
-      {{ section.settings.company_logo | image_url: width: 32, height: 32 | image_tag }}
-      <h2 class="company_name">{{ section.settings.company_name }}</h2>
-      <span>{{ section.settings.tag_text }}
-      </span>
-    </div>
+    {% comment %} <div class="image_with_logo__wrapper">
+                                                            {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
+                                                            <h2 class="company_name">{{ section.settings.company_name }}</h2>
+                                                            <span>{{ section.settings.tag_text }}</span>
+                                        </div> {% endcomment %}
+    <a class=" redirect" href="{{ section.settings.redirect_link }}">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+      {{ section.settings.redirect_text }}</a>
     <div class="content__wrapper">
       {% for tab in merchant_tabs %}
         {% case tab %}
           {% when 'widget' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="widget">{{ section.settings.button_one }}</button>
+            <div class="stage__container {% if forloop.first %} active_tab{% endif %}">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab" data-tab-type="widget">{{ section.settings.button_one }}</button>
+            </div>
+            <div class="button_connector"></div>
           {% when 'cart_upsell' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+            </div>
+            <div class="button_connector"></div>
           {% when 'portal' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+            </div>
+            {% if forloop.last == false %}
+              <div class="button_connector"></div>
+            {% endif %}
           {% when 'support_resources' %}
-            <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
+            <div class="stage__container">
+              <div class="stage_number">{{ forloop.index }}</div>
+              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
+            </div>
         {% endcase %}
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <a class=" redirect" href="{{ section.settings.redirect_link }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>{{ section.settings.redirect_text }}</a>
-      <a target="_blank" class="button_demo" href="{{ section.settings.demo_url }}">
+      <a href="{{ request.path }}" class="reTour">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
+        {{ section.settings.reTour }}
+      </a>
+      <button class="live_chat">
+        {% if section.settings.live_chat_icon != blank %}
+          {{ section.settings.live_chat_icon }}
+        {% else %}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+        {% endif %}
+        {{ section.settings.live_chat_text }}</button>
+      <a
+        target="_blank"
+        class="button_demo"
+        href="{{ section.settings.demo_url }}">
         {% if section.settings.demo_html != blank %}
           {{ section.settings.demo_html }}
           {{ section.settings.demo }}
         {% else %}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>{{ section.settings.demo }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-book-open-icon lucide-book-open"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></svg>
+          {{ section.settings.demo }}
         {% endif %}
       </a>
     </div>
   </div>
   <div class="tab__content__container">
-    <div class="main_content">
-      <section class="tagline-heading-section" id="tagline-heading-section">
-        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
-
-          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
-          <div id="tagline-pill-container">
-            {% if section.settings.tag_text_widget != blank %}
-              <div class="tagline-pill" id="tagline-pill">
-                {% if section.settings.tag_icon_widget != blank %}
-                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
-                {% endif %}
-                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
-              </div>
-            {% endif %}
-          </div>
-
-          {% if section.settings.heading_widget != blank %}
-            <h2 class="main-heading" id="main-heading">
-              {{ section.settings.heading_widget }}
-            </h2>
-          {% endif %}
-
-          {% if section.settings.description_widget != blank %}
-            <p class="main-description" id="main-description">
-              {{ section.settings.description_widget }}
-            </p>
-          {% endif %}
-
+    <div class="sidebar__container">
+      <div class="sidebar__header">
+        <div class="header_title">
+          <span>{{ section.settings.sidebar_header_title }}</span>
         </div>
-      </section>
+        <div class="header_content">
+          <div class="header_content__container">
+            <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
+            <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
+          </div>
+        {% comment %} <a
+                                                              target="_blank"
+                                                              href="{{ section.settings.doc_url }}"
+                                                    data-sidebar-doc-url>View docs</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="sidebar__content">
+        <div class="sidebar__content-container">
+          {% for block in section.blocks %}
+            <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
+              <div class="content_container">
+                <div class="content_container_wrapper">
+                  <div class="image_container">
+                    {{ block.settings.feature_image }}
+                  </div>
+                  <div class="content_text_wrapper">
+                    <h4>{{ block.settings.content_header }}</h4>
+                    <p>{{ block.settings.content_description }}</p>
+                  </div>
+                </div>
+                <div class="content_tag_with_link">
+                  <div class="tag_container">
+                    {% if block.settings.tag_text_one != blank %}
+                      <span>{{ block.settings.tag_text_one }}</span>
+                    {% endif %}
+                    {% if block.settings.tag_text_two != blank %}
+                      <span>{{ block.settings.tag_text_two }}</span>
+                    {% endif %}
+                  </div>
+                  {% if block.settings.example_url != blank %}
+                    <a href="{{ block.settings.example_url }}">
+                      {{ block.settings.example_text }}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% comment %} <div class="sidebar__footer">
+                                      <a
+                                        href="https://apps.shopify.com/recurpay-subscriptions"
+                                        target="_blank"
+                                        class="button_trial">Start 30 day trial</a>
+                                      <p>Or
+                                        <a
+                                          href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
+                                          target="_blank"
+                                          class="button_call">talk to an expert and book a quick call</a>
+                                      </p>
+                          </div> {% endcomment %}
+    </div>
+    <div class="main_content">
+      {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
+                                                <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
+        
+                                                  <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
+                                                  <div id="tagline-pill-container">
+                                                    {% if section.settings.tag_text_widget != blank %}
+                                                      <div class="tagline-pill" id="tagline-pill">
+                                                        {% if section.settings.tag_icon_widget != blank %}
+                                                          <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
+                                                        {% endif %}
+                                                        <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
+                                                      </div>
+                                                    {% endif %}
+                                                  </div>
+        
+                                                  {% if section.settings.heading_widget != blank %}
+                                                    <h2 class="main-heading">
+                                                      {{ section.settings.heading_widget }}
+                                                    </h2>
+                                                  {% endif %}
+        
+                                                  {% if section.settings.description_widget != blank %}
+                                                    <p class="main-description" id="main-description">
+                                                      {{ section.settings.description_widget }}
+                                                    </p>
+                                                  {% endif %}
+        
+                                                </div>
+                                    </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -906,23 +1458,23 @@
 
                 <!-- Header -->
                 <div class="demo-guide-header">
-                  <div class="demo-guide-profile">
-                    {% if section.settings.avatar != blank %}
-                      <div class="demo-avatar-container">
-                        {{ section.settings.avatar }}
-                      </div>
-                    {% endif %}
-
-                    <div>
-                      <div class="demo-guide-name">
-                        {{ section.settings.name }}
-                      </div>
-                      <div class="demo-guide-subtitle">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                        {{ section.settings.subtitle }}
-                      </div>
-                    </div>
-                  </div>
+                  {% comment %} <div class="demo-guide-profile">
+                                                                                                    {% if section.settings.avatar != blank %}
+                                                                                                    <div class="demo-avatar-container">
+                                                                                                    {{ section.settings.avatar }}
+                                                                                                    </div>
+                                                                                                    {% endif %}
+        
+                                                                                                    <div>
+                                                                                                    <div class="demo-guide-name">
+                                                                                                    {{ section.settings.name }}
+                                                                                                    </div>
+                                                                                                    <div class="demo-guide-subtitle">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+                                                                                                    {{ section.settings.subtitle }}
+                                                                                                    </div>
+                                                                                                    </div>
+                                                                                          </div> {% endcomment %}
 
                   <button
                     type="button"
@@ -964,29 +1516,29 @@
                   </p>
                 </div>
 
-                <!-- Footer -->
-                <div class="demo-guide-footer">
-                  <div class="demo-guide-steps">
-                    <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                    <div class="guide_pagination_dots">
-                      {% for tab in merchant_tabs %}
-                        <div class="dots"></div>
-                      {% endfor %}
-                    </div>
-                  </div>
-
-                  <div class="demo-guide-actions">
-                    <button type="button" class="demo-guide-back">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                      {{ section.settings.back_text }}
-                    </button>
-
-                    <button type="button" class="demo-guide-finish">
-                      {{ section.settings.finish_text }}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                    </button>
-                  </div>
-                </div>
+              <!-- Footer -->
+              {% comment %} <div class="demo-guide-footer">
+                                                                                                                  <div class="demo-guide-steps">
+                                                                                                                  <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
+                                                                                                                  <div class="guide_pagination_dots">
+                                                                                                                  {% for tab in merchant_tabs %}
+                                                                                                                  <div class="dots"></div>
+                                                                                                                  {% endfor %}
+                                                                                                                  </div>
+                                                                                                                  </div>
+        
+                                                                                                                  <div class="demo-guide-actions">
+                                                                                                                  <button type="button" class="demo-guide-back">
+                                                                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+                                                                                                                  {{ section.settings.back_text }}
+                                                                                                                  </button>
+        
+                                                                                                                  <button type="button" class="demo-guide-finish">
+                                                                                                                  {{ section.settings.finish_text }}
+                                                                                                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                                                                                                  </button>
+                                                                                                                  </div>
+                                                                                                    </div> {% endcomment %}
 
               </div>
             </div>
@@ -994,19 +1546,20 @@
           <button class="previous disabled">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>Previous</button>
-          <button class="next">Next<svg
+              class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg>
+            {{ section.settings.back_text }}</button>
+          <button class="next">{{ section.settings.finish_text }}<svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -1016,84 +1569,6 @@
               class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </button>
         </div>
-      </div>
-    </div>
-    <div class="sidebar__container">
-      <div class="sidebar__header">
-        <div class="header_title">
-          <span>{{ section.settings.sidebar_header_title }}</span>
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6" /></svg>
-          </button>
-        </div>
-        <div class="header_content">
-          <div class="header_content__container">
-            <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
-            <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
-          </div>
-          <a target="_blank" href="{{ section.settings.doc_url }}" data-sidebar-doc-url>View docs</a>
-        </div>
-      </div>
-      <div class="sidebar__content">
-        <div class="sidebar__content-container">
-          {% for block in section.blocks %}
-            <div class="sidebar__content-wrapper" data-block-tab-type="{{ block.settings.tab_type }}">
-              <div class="content_container">
-              <div class="content_container_wrapper">
-                <div class="image_container">
-                  {{ block.settings.feature_image }}
-                </div>
-                <div class="content_text_wrapper">
-                  <h4>{{ block.settings.content_header }}</h4>
-                  <p>{{ block.settings.content_description }}</p>
-                </div>
-              </div>
-                <div class="content_tag_with_link">
-                  <div class="tag_container">
-                    {% if block.settings.tag_text_one != blank %}
-                      <span>{{ block.settings.tag_text_one }}</span>
-                    {% endif %}
-                    {% if block.settings.tag_text_two != blank %}
-                      <span>{{ block.settings.tag_text_two }}</span>
-                    {% endif %}
-                  </div>
-                  {% if block.settings.example_url != blank %}
-                    <a href="{{ block.settings.example_url }}">
-                      {{ block.settings.example_text }}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
-                    </a>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="sidebar__footer">
-        <a href="https://apps.shopify.com/recurpay-subscriptions" target="_blank" class="button_trial">Start 30 day trial</a>
-        <p>Or
-          <a href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav" target="_blank" class="button_call">talk to an expert and book a quick call</a>
-        </p>
       </div>
     </div>
     <button class="sidebar-restore-button" aria-label="Restore sidebar">
@@ -1132,7 +1607,19 @@
    });
   }
   
-  (function() {
+   function refreshDriver() { 
+      let maxAttempts = 5;
+      const refreshInterval = setInterval(()=>{
+      if(maxAttempts > 0) {
+        driverObj.refresh();
+        maxAttempts--;
+      }else {
+        clearInterval(refreshInterval);
+      }
+    },500)
+  }
+  
+  const initMerchantTabSwitcher = (function() {
     const tabButtons = document.querySelectorAll('.button_tab');
     const blockWrappers = document.querySelectorAll('.sidebar__content-wrapper');
     const mainContentContainer = document.querySelector('.main_content__container');
@@ -1163,7 +1650,7 @@
       sidebarRestore: {{ section.settings.event_sidebar_restore | default: "Sidebar Restore Clicked" | json }},
       completionPage: {{ section.settings.event_completion_page | default: "Completion Page Reached" | json }}
     };
-
+  
     // Helper function to track Mixpanel events
     function trackMixpanelEvent(eventName, properties = {}) {
       if (typeof mixpanel !== 'undefined' && mixpanel.track) {
@@ -1175,9 +1662,10 @@
       // Also log for debugging
       // console.log('Mixpanel Event:', eventName, properties);
     }
-
+  
     const tabConfig = {
       widget: {
+        sidebarHeader: {{ section.settings.sidebar_header_title | json }},
         sidebarTitle: {{ section.settings.subtext_title | json }},
         sidebarDescription: {{ section.settings.subtext_description | json }},
         docUrl: {{ section.settings.doc_url | json }},
@@ -1188,6 +1676,7 @@
         guideStepsText: {{ section.settings.steps_text | json }}
       },
       cart_upsell: {
+        sidebarHeader: {{ section.settings.sidebar_header_title_cart_upsell | json }},
         sidebarTitle: {{ section.settings.cart_upsell_subtext_title | json }},
         sidebarDescription: {{ section.settings.cart_upsell_subtext_description | json }},
         docUrl: {{ section.settings.cart_upsell_doc_url | json }},
@@ -1198,6 +1687,7 @@
         guideStepsText: {{ section.settings.steps_text_cart_upsell | json }}
       },
       portal: {
+        sidebarHeader: {{ section.settings.sidebar_header_title_portal | json }},
         sidebarTitle: {{ section.settings.portal_subtext_title | json }},
         sidebarDescription: {{ section.settings.portal_subtext_description | json }},
         docUrl: {{ section.settings.portal_doc_url | json }},
@@ -1227,13 +1717,84 @@
     const tabOrder = {{ merchant_tabs | json }};
     let currentTabIndex = 0;
     let isOnCompletion = false;
-    
-    // Content cache for prefetched tab content
-    const contentCache = {};
+    let lastWidgetVariantId = null;
+
+    function parseVariantId(rawValue) {
+      if (rawValue === null || rawValue === undefined || rawValue === '') return null;
+      const numericValue = Number(rawValue);
+      if (!Number.isFinite(numericValue) || numericValue <= 0) return null;
+      return numericValue;
+    }
+
+    function extractVariantIdFromContainer(container) {
+      if (!container || !container.querySelectorAll) return null;
+
+      const checkedInput = container.querySelector('form[action*="/cart/add"] input[name="id"]:checked, input[name="id"]:checked');
+      const checkedId = parseVariantId(checkedInput && checkedInput.value);
+      if (checkedId) return checkedId;
+
+      const formCandidates = container.querySelectorAll('form[action*="/cart/add"]');
+      for (const form of formCandidates) {
+        try {
+          const formData = new FormData(form);
+          const variantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
+          if (variantId) return variantId;
+        } catch (error) {
+          // Ignore malformed forms and continue searching.
+        }
+      }
+
+      const selectInput = container.querySelector('form[action*="/cart/add"] select[name="id"], select[name="id"]');
+      if (selectInput) {
+        const selectedValue = selectInput.options && selectInput.selectedIndex >= 0
+          ? selectInput.options[selectInput.selectedIndex].value
+          : selectInput.value;
+        const selectedId = parseVariantId(selectedValue);
+        if (selectedId) return selectedId;
+      }
+
+      const hiddenInput = container.querySelector('form[action*="/cart/add"] input[name="id"], input[name="id"]');
+      const hiddenId = parseVariantId(hiddenInput && hiddenInput.value);
+      if (hiddenId) return hiddenId;
+
+      return null;
+    }
+
+    async function resolveWidgetVariantId() {
+      const inViewVariantId = extractVariantIdFromContainer(mainContentContainer);
+      if (inViewVariantId) {
+        lastWidgetVariantId = inViewVariantId;
+        return inViewVariantId;
+      }
+
+      if (lastWidgetVariantId) return lastWidgetVariantId;
+
+      const widgetUrl = tabConfig.widget && tabConfig.widget.contentUrl;
+      if (!widgetUrl || widgetUrl.trim() === '') return null;
+
+      try {
+        const widgetResponse = await fetch(widgetUrl);
+        if (!widgetResponse.ok) return null;
+
+        const widgetHtml = await widgetResponse.text();
+        const parser = new DOMParser();
+        const parsedWidgetPage = parser.parseFromString(widgetHtml, 'text/html');
+        const fetchedVariantId = extractVariantIdFromContainer(parsedWidgetPage);
+
+        if (fetchedVariantId) {
+          lastWidgetVariantId = fetchedVariantId;
+          return fetchedVariantId;
+        }
+      } catch (error) {
+        console.log('Error resolving widget variant:', error);
+      }
+
+      return null;
+    }
     
     // Portal authentication data
-      {% assign customer_id = 5959212957931 %}
-      {% assign secret_key = "mGm3J210eDPvaUPL0TSpNWXk5z4YkQTe" %}
+      {% assign customer_id = 9631239798947 %}
+      {% assign secret_key = "wGglbCrckE10Qx8ImfHCkqRdPCY5Ztdf" %}
       {% assign customer_hash = customer_id |  hmac_sha256: secret_key %}
       const portalAuthData = {
         customerId: {{ customer_id | json }},
@@ -1254,7 +1815,8 @@
     const headerContainer = document.querySelector('.header__container');
     const sidebarContainer = document.querySelector('.sidebar__container');
     const sidebarToggleButton = document.querySelector('.header_title button');
-
+    const sidebarHeaderTitle = sidebarContainer.querySelector('.header_title span');
+  
     // Demo guide elements
     const showGuideButton = document.querySelector('.show_guide');
     const demoGuideSection = document.querySelector('.demo-guide-section');
@@ -1281,7 +1843,7 @@
     }
     
     // Store original Next button text (extract text content, excluding SVG)
-    let originalNextButtonText = 'Next';
+    let originalNextButtonText = '';
     if (nextButton) {
       // Get the first text node (which contains "Next")
       const textNode = Array.from(nextButton.childNodes)
@@ -1296,14 +1858,40 @@
       const config = tabConfig[tabType];
       if (!config) return;
   
+      if(sidebarHeaderTitle) {
+        // debugger;
+        sidebarHeaderTitle.textContent = config.sidebarHeader;
+        console.log("sidebarHeaderTitle", sidebarHeaderTitle);
+      }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
-      if (sidebarDocUrl) sidebarDocUrl.href = config.docUrl || '#';
+    }
+  
+    // Keep active tab synced with the URL so refresh/back/forward restores the same step
+    function setURLStep(tabIndex, method = 'push') {
+      const url = new URL(window.location.href);
+      const step = tabIndex + 1;
+      url.searchParams.set('step', step);
+      const state = { merchantTabStep: step };
+      if (method === 'replace') {
+        window.history.replaceState(state, '', url.toString());
+      } else {
+        window.history.pushState(state, '', url.toString());
+      }
+    }
+
+    function getStepIndexFromURL() {
+      const url = new URL(window.location.href);
+      const stepValue = Number.parseInt(url.searchParams.get('step'), 10);
+      if (Number.isNaN(stepValue)) return null;
+      const tabIndex = stepValue - 1;
+      if (tabIndex < 0 || tabIndex >= tabOrder.length) return null;
+      return tabIndex;
     }
   
     // Function to update footer step indicator
     function updateStepIndicator(tabIndex, isCompletionStep = false) {
-      const totalSteps = tabOrder.length + 1; // tabs + completion page
+      const totalSteps = tabOrder.length; // tabs + completion page
       const currentStep = isCompletionStep ? totalSteps : (tabIndex + 1);
       const tabType = isCompletionStep ? null : tabOrder[tabIndex];
       const config = tabType ? tabConfig[tabType] : null;
@@ -1331,7 +1919,7 @@
       // Update Previous/Next button states
       const isFirstStep = !isCompletionStep && tabIndex === 0;
       const isLastStep = isCompletionStep;
-
+  
       if (previousButton) {
         if (isFirstStep) {
           previousButton.classList.add('disabled');
@@ -1343,49 +1931,49 @@
       if (nextButton) {
         if (isLastStep) {
           // On completion page, change text to "Finish tour" and don't disable
-          nextButton.classList.remove('disabled');
-          const svgElement = nextButton.querySelector('svg');
+          nextButton.classList.add('disabled');
+          // const svgElement = nextButton.querySelector('svg');
           // Remove all text nodes
-          Array.from(nextButton.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.remove();
-            }
-          });
+          // Array.from(nextButton.childNodes).forEach(node => {
+          //   if (node.nodeType === Node.TEXT_NODE) {
+          //     node.remove();
+          //   }
+          // });
           // Insert "Finish tour" text before SVG (or as only content if no SVG)
-          if (svgElement) {
-            nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
-          } else {
-            nextButton.textContent = 'Finish tour';
-          }
+          // if (svgElement) {
+          //   nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
+          // } else {
+          //   nextButton.textContent = 'Finish tour';
+          // }
         } else {
           // Restore original "Next" text when not on completion
           nextButton.classList.remove('disabled');
-          const svgElement = nextButton.querySelector('svg');
+          // const svgElement = nextButton.querySelector('svg');
           // Remove all text nodes
-          Array.from(nextButton.childNodes).forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-              node.remove();
-            }
-          });
+          // Array.from(nextButton.childNodes).forEach(node => {
+          //   if (node.nodeType === Node.TEXT_NODE) {
+          //     node.remove();
+          //   }
+          // });
           // Insert original text before SVG (or as only content if no SVG)
-          if (svgElement) {
-            nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
-          } else {
-            nextButton.textContent = originalNextButtonText;
-          }
+          // if (svgElement) {
+          //   nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
+          // } else {
+          //   nextButton.textContent = originalNextButtonText;
+          // }
         }
       }
-
+  
       // Hide guide back button on first tab, show from second tab onwards
       if (demoGuideBackButton) {
         demoGuideBackButton.style.display = isFirstStep ? 'none' : '';
       }
     }
-
+  
     function updateDemoGuide(tabType, tabIndex) {
       const config = tabConfig[tabType];
       if (!config) return;
-
+  
       if (demoGuideTitleEl) demoGuideTitleEl.textContent = config.guideTitle || '';
       if (demoGuideDescriptionEl) demoGuideDescriptionEl.textContent = config.guideDescription || '';
       
@@ -1396,7 +1984,7 @@
       } else {
         if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${tabIndex + 1} / ${tabOrder.length}`;
       }
-
+  
       if (demoGuideDots && demoGuideDots.length) {
         // For completion, don't highlight any dot (or could highlight last one)
         if (tabType === 'completion') {
@@ -1412,7 +2000,7 @@
         }
       }
     }
-
+  
     // Function to ensure cart has items for cart_upsell tab
     async function ensureCartHasItems() {
       try {
@@ -1428,28 +2016,13 @@
         if (cartData.items && cartData.items.length > 0) {
           return;
         }
-        
-        // Cart is empty, fetch first product
-        const productsResponse = await fetch("https://recurpay-subscriptions.myshopify.com/products.json?limit=1");
-        if (!productsResponse.ok) {
-          console.error('Failed to fetch products');
+
+        // Cart is empty, resolve product variant currently shown in widget tab
+        const widgetVariantId = await resolveWidgetVariantId();
+        if (!widgetVariantId) {
+          console.log('No widget variant available to add to cart');
           return;
         }
-        const productsData = await productsResponse.json();
-        
-        if (!productsData.products || productsData.products.length === 0) {
-          console.log('No products available');
-          return;
-        }
-        
-        const firstProduct = productsData.products[0];
-        if (!firstProduct.variants || firstProduct.variants.length === 0) {
-          console.log('Product has no variants');
-          return;
-        }
-        
-        // Get first variant
-        const firstVariant = firstProduct.variants[0];
         
         // Add to cart using add.js API
         const addResponse = await fetch(`{{ routes.cart_add_url }}.js`, {
@@ -1458,7 +2031,7 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: firstVariant.id,
+            id: widgetVariantId,
             quantity: 1
           })
         });
@@ -1473,61 +2046,117 @@
         console.log('Error ensuring cart has items:', error);
       }
     }
-
+  
+    // Auto-switch from widget tab to cart_upsell tab when primary CTAs are clicked
+    let widgetCtaListenerAttached = false;
+    function goToCartUpsellFromWidget() {
+      const currentTabType = tabOrder[currentTabIndex];
+      if (currentTabType !== 'widget') return;
+      const cartIndex = tabOrder.indexOf('cart_upsell');
+      if (cartIndex === -1) return;
+      // Small delay to allow add-to-cart / subscribe actions to process
+      setTimeout(() => {
+        switchToTab(cartIndex);
+      }, 500);
+    }
+  
+    function attachWidgetCtaAutoSwitch() {
+      if (widgetCtaListenerAttached || !mainContentContainer) return;
+      widgetCtaListenerAttached = true;
+      mainContentContainer.addEventListener('click', (event) => {
+        const cta = event.target.closest(
+          // Common add-to-cart and subscribe button selectors
+          'form[action*="/cart/add"] button[type="submit"],' +
+          'button[name="add"], button[name="add-to-cart"], .product-form__submit,' +
+          '.recurpay-subscribe-btn, [data-recurpay-button="subscribe"], [data-recurpay="subscribe"]'
+        );
+        if (!cta) return;
+  
+        // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
+        const cartForm = cta.closest('form[action*="/cart/add"]');
+        console.log("cartForm", cartForm);
+        if (cartForm) {
+          event.preventDefault();
+          let formData = new FormData(cartForm);
+          const clickedVariantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
+          if (clickedVariantId) {
+            lastWidgetVariantId = clickedVariantId;
+          }
+  
+          fetch(window.Shopify.routes.root + 'cart/add.js', {
+            method: 'POST',
+            body: formData
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`Add to cart failed with status ${response.status}`);
+              }
+              console.log(response.json());
+            })
+            .then(() => {
+              loadTabContent('cart_upsell');
+              // Cart updated, now move user to cart_upsell tab
+              goToCartUpsellFromWidget();
+            })
+            .catch((error) => {
+              console.log('Error adding item to cart via API:', error);
+              // Even if add fails, still move to cart_upsell so user can see state
+              goToCartUpsellFromWidget();
+            });
+        } else {
+          // No /cart/add form found; just switch to cart_upsell and let other handlers run
+          goToCartUpsellFromWidget();
+        }
+      });
+    }
+  
+    attachWidgetCtaAutoSwitch();
+  
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
       if (!mainContentContainer) return;
-
+  
       const config = tabConfig[tabType];
-      
-      // Check if content is already cached
-      if (contentCache[tabType]) {
-        // Use cached content - instant rendering
-        mainContentContainer.innerHTML = '';
-        const cachedContent = contentCache[tabType].cloneNode(true);
-        mainContentContainer.appendChild(cachedContent);
-        
-        // Execute scripts after content is appended
-        executeScripts(mainContentContainer);
-        
-        // Initialize recurpay when widget tab content is loaded using setInterval
-        if (tabType === 'widget') {
-          let attempts = 0;
-          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
-          const initInterval = setInterval(() => {
-            attempts++;
-            if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
-              recurpay.init(window.recurpayScript);
-              clearInterval(initInterval);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(initInterval);
-              console.warn('recurpay.init() not available after maximum attempts');
-            }
-          }, 100);
-        }
-        
-        // Initialize recurpayCartV2 when cart upsell tab content is loaded using setInterval
-        if (tabType === 'cart_upsell') {
-          let attempts = 0;
-          const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
-          const initInterval = setInterval(() => {
-            attempts++;
-            if (typeof recurpayCartV2 !== 'undefined' && typeof recurpayCartV2.initScript === 'function' && window.recurpayScript) {
-              recurpayCartV2.initScript(window.recurpayScript);
-              console.log('recurpayCartV2.initScript() ran');
-              clearInterval(initInterval);
-            } else if (attempts >= maxAttempts) {
-              clearInterval(initInterval);
-              console.warn('recurpayCartV2.initScript() not available after maximum attempts');
-            }
-          }, 100);
-        }
-        return;
-      }
       
       // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
       if (tabType === 'portal') {
-        mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
+        const loaderHTML = `
+        <div id="recurpay-loader">
+        
+        <div class="rp-loader-wrapper">
+        
+          <div class="rp-ring big"></div>
+          <div class="rp-ring medium"></div>
+          <div class="rp-ring small"></div>
+        
+          <div class="rp-orbit"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
+        
+          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
+          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
+        
+          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
+        
+          <div class="rp-center">
+            <div class="rp-logo-wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+            </div>
+          </div>
+        
+        </div>
+        
+        </div>
+        `;
+        mainContentContainer.innerHTML = `
+        <div style="position:relative;width:100%;height:100%;min-height:500px;">
+          ${loaderHTML}
+        </div>
+        `;
+        // mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
         
         if (portalAuthData === null) {
           mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Please log in to access the portal.</div>';
@@ -1535,7 +2164,7 @@
         }
         
         // Hardcoded Recurpay API configuration
-        const recurpaySubdomain = 'recurpay-subscriptions'; // Update with your Recurpay subdomain
+        const recurpaySubdomain = 'demorecurpay'; // Update with your Recurpay subdomain
         const apiVersion = '2024-07';
         const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
         
@@ -1564,11 +2193,7 @@
                 ></iframe>
               </div>
             `;
-            // Cache the portal content
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = portalHTML;
-            contentCache[tabType] = tempDiv.firstElementChild;
-            
+            mainContentContainer.innerHTML = '';
             mainContentContainer.innerHTML = portalHTML;
           } else {
             throw new Error('No redirection URL in response');
@@ -1582,14 +2207,15 @@
         return;
       }
 
+      if (tabType === 'completion') {
+        window.location.href = config.contentUrl;
+      }
+  
       // Default behavior: fetch and inject HTML for non-portal tabs
       if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
         mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content URL not configured for this tab.</div>';
         return;
       }
-
-      mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading...</div>';
-
       fetch(config.contentUrl)
         .then(response => {
           if (!response.ok) {
@@ -1601,8 +2227,8 @@
           const parser = new DOMParser();
           const parsed = parser.parseFromString(htmlString, 'text/html');
           
-          // Create a container to hold the cached content
-          const cacheContainer = document.createElement('div');
+          // Create a container to hold the content
+          const contentContainer = document.createElement('div');
           
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
@@ -1612,25 +2238,22 @@
           if (sections.length === 0) {
             const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
             if (mainContent) {
-              // Clone and append all child nodes to cache container
+              // Clone and append all child nodes to content container
               Array.from(mainContent.children).forEach(child => {
-                cacheContainer.appendChild(child.cloneNode(true));
+                contentContainer.appendChild(child.cloneNode(true));
               });
             }
           } else {
             sections.forEach(section => {
-              cacheContainer.appendChild(section.cloneNode(true));
+              contentContainer.appendChild(section.cloneNode(true));
             });
           }
           
-          // Cache the content
-          contentCache[tabType] = cacheContainer;
-          
           // Clear loading message and render
           mainContentContainer.innerHTML = '';
-          mainContentContainer.appendChild(cacheContainer.cloneNode(true));
-
-          // Execute scripts after content is appended
+          mainContentContainer.appendChild(contentContainer);
+  
+          // Execute scripts after content is appended;
           executeScripts(mainContentContainer);
           
           // Initialize recurpay when widget tab content is loaded using setInterval
@@ -1671,24 +2294,138 @@
         });
     }
   
+    // function confettiOnCompletion(){
+    //   let duration = 3 * 1000;
+    //   let end = Date.now() + duration;
+  
+    //   function frame() {
+    //   // launch a few confetti from the left edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 60,
+    //     spread: 55,
+    //     origin: { x: 0 }
+    //   });
+    //   // and launch a few from the right edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 120,
+    //     spread: 55,
+    //     origin: { x: 1 }
+    //   });
+  
+    //   // keep going until we are out of time
+    //   if (Date.now() < end) {
+    //     requestAnimationFrame(frame);
+    //   }
+    // }
+    // frame();
+    // }
+  
+    // Sidebar loader functions
+    function showSidebarLoader() {   
+      if(document.getElementById("sidebar__loader")) return; 
+      const sidebarLoader = document.createElement("div");
+      sidebarLoader.id = "sidebar__loader";
+      sidebarLoader.innerHTML = `
+          <div class="ccs-demo">
+            <section class="ccs-skel" aria-label="Loading">
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-50"></div>
+                  <div class="ccs-skel__line ccs-w-60"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+              <div class="ccs-skel__item">
+                <div class="ccs-skel__avatar"></div>
+                <div class="ccs-skel__lines">
+                  <div class="ccs-skel__line ccs-w-70"></div>
+                  <div class="ccs-skel__line ccs-w-90"></div>
+                </div>
+              </div>
+            </section>
+          </div>
+        `;
+        sidebarContainer.classList.add("isLoading");
+      sidebarContainer.appendChild(sidebarLoader);
+    }
+  
+    function hideSidebarLoader() {
+      if (!sidebarContainer) return;
+      
+      // Restore the original content
+      // const originalContent = sidebarContainer.getAttribute('data-original-content');
+      // if (originalContent) {
+      //   sidebarContainer.innerHTML = originalContent;
+      //   sidebarContainer.removeAttribute('data-original-content');
+      // }
+       sidebarContainer.classList.remove("isLoading");
+      document.getElementById("sidebar__loader").remove();
+    }
+  
     // Function to switch to a specific tab
-    function switchToTab(tabIndex) {
+    function switchToTab(tabIndex, options = {}) {
+      const { updateHistory = true, historyMethod = 'push' } = options;
+      // debugger;
+      showDriverLoader();
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
-
+      currentTabIndex = tabIndex;
       isOnCompletion = false;
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
-
-      currentTabIndex = tabIndex;
+      console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
+      
+      if (updateHistory) {
+        setURLStep(tabIndex, historyMethod);
+      }
   
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
-          btn.classList.add('active_tab');
+          // btn.closet
+          btn.closest('.stage__container').classList.add('active_tab');
         } else {
-          btn.classList.remove('active_tab');
+          btn.closest('.stage__container').classList.remove('active_tab');
         }
       });
   
@@ -1698,6 +2435,16 @@
       // Update sidebar header
       updateSidebarHeader(tabType);
   
+      // Show loader in sidebar
+      showSidebarLoader();
+      
+      // // Use setTimeout to show loader briefly before updating content
+      // setTimeout(() => {
+        
+      //   // Hide loader and show updated content
+      //   hideSidebarLoader();
+      // }, 2000);
+  
       // Update footer indicators
       updateStepIndicator(tabIndex, false);
   
@@ -1705,38 +2452,50 @@
       if (window.updateMerchantTabHeaderSection) {
         window.updateMerchantTabHeaderSection(tabType);
       }
-
+  
       // Update demo guide content + dots
       updateDemoGuide(tabType, tabIndex);
       
       // Restore original finish button text when not on completion page
-      if (demoGuideFinishButton && originalFinishButtonText) {
-        const svgElement = demoGuideFinishButton.querySelector('svg');
-        // Remove all text nodes
-        Array.from(demoGuideFinishButton.childNodes).forEach(node => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            node.remove();
-          }
-        });
-        // Insert original text before SVG (or as only content if no SVG)
-        if (svgElement) {
-          demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
-        } else {
-          demoGuideFinishButton.textContent = originalFinishButtonText;
-        }
-      }
-
+      // if (demoGuideFinishButton && originalFinishButtonText) {
+      //   const svgElement = demoGuideFinishButton.querySelector('svg');
+      //   // Remove all text nodes
+      //   Array.from(demoGuideFinishButton.childNodes).forEach(node => {
+      //     if (node.nodeType === Node.TEXT_NODE) {
+      //       node.remove();
+      //     }
+      //   });
+      //   // Insert original text before SVG (or as only content if no SVG)
+      //   if (svgElement) {
+      //     demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
+      //   } else {
+      //     demoGuideFinishButton.textContent = originalFinishButtonText;
+      //   }
+      // }
+  
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           loadTabContent(tabType);
+          // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
+        
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
         });
       } else {
         // Load content
         loadTabContent(tabType);
+        // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
+        
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
       }
     }
-
+  
     // Function to show the final completion tour page (after last tab)
     function showCompletionStep() {
       isOnCompletion = true;
@@ -1771,6 +2530,7 @@
         }
       }
       loadTabContent('completion');
+      // confettiOnCompletion();
     }
   
     // Enhanced tab click handler
@@ -1804,7 +2564,7 @@
           });
         }
         switchToTab(tabIndex);
-
+  
         // If Driver.js guide is active and we're not on completion, re-run it on the new tab
         if (!isOnCompletion && document.querySelector('.driver-popover')) {
           setTimeout(runDriverShowGuide, 500);
@@ -1854,12 +2614,12 @@
           window.location.href = '/';
           return;
         }
-
+  
         trackMixpanelEvent(mixpanelEvents.nextButton, {
           current_tab_index: currentTabIndex,
           total_tabs: tabOrder.length
         });
-
+  
         if (currentTabIndex < tabOrder.length - 1) {
           switchToTab(currentTabIndex + 1);
         } else {
@@ -1872,7 +2632,7 @@
         }
       });
     }
-
+  
    // Demo guide back button handler
    if (demoGuideBackButton) {
      demoGuideBackButton.addEventListener('click', (e) => {
@@ -1897,7 +2657,7 @@
        }
      });
    }
-
+  
    // Demo guide finish button handler
    if (demoGuideFinishButton) {
      demoGuideFinishButton.addEventListener('click', (e) => {
@@ -1927,24 +2687,25 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', handleTabClick);
     });
-
+  
     // Guide visibility toggle (still used by the inline demo guide close button)
     function setGuideVisible(visible) {
       if (!demoGuideSection) return;
       if (visible) demoGuideSection.classList.add('is-visible');
       else demoGuideSection.classList.remove('is-visible');
     }
-
+  
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
+      // debugger;
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
-
+  
       // Map tab type to the element selector to highlight
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay-pdp-widget';
+            return '.recurpay__widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
@@ -1957,16 +2718,20 @@
             return null;
         }
       }
-
+  
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-
+  
       // Try to highlight the appropriate element only when it exists, and retry a few times if not found yet
       function highlightCurrentTabElement(retries) {
         // For cart_upsell, use querySelectorAll and get the 2nd element (index 1)
         
-        const targetEl = document.querySelector(selector);
+        var targetEl = document.querySelector(selector);
 
+        {% comment %} if (selector == ".recurpay-pdp-widget" && targetEl) {
+          targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
+        } {% endcomment %}
+  
         if (targetEl) {
           console.log('Target element found:', targetEl);
           // Ensure Driver.js is available before initializing
@@ -1974,26 +2739,26 @@
             console.warn('Driver.js is not available');
             return;
           }
-
+  
           // Log the highlighted element
-          console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
-
+          // console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
+  
           // Center the element in the viewport
           if(currentTabType == 'widget'){
             const widgetElement = document.querySelector(selector);
             widgetElement.closest('section').scrollIntoView({block: 'center', behavior: 'smooth'});
-            console.log("widget element", widgetElement); 
-            console.log("scrolled")
+            // console.log("widget element", widgetElement); 
+            // console.log("scrolled")
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
-
+  
           // Start Driver.js highlight with empty popover so we can replace its content
           driverObj.highlight({
             element: targetEl,
             popover: {
-              title: '',
-              description: '',
+              title: 'Welcome to Recurpay! 👋',
+              description: 'Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.',
               showButtons: false,
               side: 'right',
               align: 'start'
@@ -2010,7 +2775,7 @@
               // Clear existing content and inject the demo guide card clone
               popoverEl.innerHTML = '';
               popoverEl.appendChild(demoCard.cloneNode(true));
-
+  
               // Wire popover buttons to global navigation
               const closeBtn = popoverEl.querySelector('.demo-guide-close');
               if (closeBtn) {
@@ -2020,14 +2785,14 @@
                   }
                 });
               }
-
+  
               const backBtn = popoverEl.querySelector('.demo-guide-back');
               if (backBtn) {
                 backBtn.addEventListener('click', () => {
                   if (typeof driverObj.destroy === 'function') {
                     driverObj.destroy();
                   }
-
+  
                   // From completion page, go back to the last real tab (portal or support_resources)
                   if (isOnCompletion) {
                     const lastRealTabIndex = tabOrder.length - 1;
@@ -2044,7 +2809,7 @@
                   }
                 });
               }
-
+  
               const finishBtn = popoverEl.querySelector('.demo-guide-finish');
               if (finishBtn) {
                 finishBtn.addEventListener('click', () => {
@@ -2056,12 +2821,12 @@
                     console.log("finish button text", finishBtn.textContent);
                     showCompletionStep();
                     if(finishBtn.textContent.toLowerCase().includes('next')) {
-
+  
                       updateDemoGuide('completion', tabOrder.length);
-
+  
                       // Hide the inline guide, just in case
                       setGuideVisible(false);
-
+  
                       // Run Driver.js-based guide
                       runDriverShowGuide();
                     }
@@ -2079,16 +2844,16 @@
           setTimeout(() => highlightCurrentTabElement(retries - 1), 300);
         }
       }
-
+  
       // Try up to 10 times to find and highlight the element for the current tab
       highlightCurrentTabElement(10);
     }
-
+  
     // Integrate Driver.js on click of "Show Guide" instead of toggling the inline guide
     if (showGuideButton) {
       showGuideButton.addEventListener('click', (e) => {
         e.preventDefault();
-
+  
         trackMixpanelEvent(mixpanelEvents.showGuide, {
           current_tab_index: currentTabIndex,
           is_on_completion: isOnCompletion,
@@ -2102,22 +2867,22 @@
           const tabType = tabOrder[currentTabIndex] || 'widget';
           updateDemoGuide(tabType, currentTabIndex);
         }
-
+  
         // Hide the inline guide, just in case
         setGuideVisible(false);
-
+  
         // Run Driver.js-based guide
         runDriverShowGuide();
       });
     }
-
+  
     if (demoGuideCloseButton) {
       demoGuideCloseButton.addEventListener('click', (e) => {
         e.preventDefault();
         setGuideVisible(false);
       });
     }
-
+  
     // Function to toggle sidebar collapse state
     function toggleSidebarCollapse(eventSource = 'toggle') {
       if (!sidebarContainer || !headerContainer) return;
@@ -2138,7 +2903,7 @@
         headerContainer.classList.add('sidebar-collapsed');
       }
     }
-
+  
     // Sidebar collapse toggle button
     if (sidebarToggleButton) {
       sidebarToggleButton.addEventListener('click', (e) => {
@@ -2146,7 +2911,7 @@
         toggleSidebarCollapse('toggle');
       });
     }
-
+  
     // Sidebar restore button (appears when collapsed)
     const sidebarRestoreButton = document.querySelector('.sidebar-restore-button');
     if (sidebarRestoreButton) {
@@ -2198,7 +2963,8 @@
             const cacheContainer = document.createElement('div');
             
             // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            const sections = parsed.querySelectorAll('#MainContent');
+            console.log("main content", sections);
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2282,7 +3048,7 @@
             const parsed = parser.parseFromString(htmlString, 'text/html');
             
             const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+            const sections = parsed.querySelectorAll('#MainContent');
             
             if (sections.length === 0) {
               const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2314,42 +3080,74 @@
     }
   
     // Initialize: set up the first tab
-    const activeButton = document.querySelector('.button_tab.active_tab');
-    if (activeButton) {
-      const activeTabType = activeButton.getAttribute('data-tab-type');
-      const initialTabIndex = tabOrder.indexOf(activeTabType);
-      if (initialTabIndex !== -1) {
-        switchToTab(initialTabIndex);
-      }
+    const stepFromURL = getStepIndexFromURL();
+    if (stepFromURL !== null) {
+      switchToTab(stepFromURL, { updateHistory: true, historyMethod: 'replace' });
     } else {
-      // Default to first tab if none is active
-      switchToTab(0);
+      const activeButton = document.querySelector('.button_tab.active_tab');
+      if (activeButton) {
+        const activeTabType = activeButton.getAttribute('data-tab-type');
+        const initialTabIndex = tabOrder.indexOf(activeTabType);
+        if (initialTabIndex !== -1) {
+          switchToTab(initialTabIndex, { updateHistory: true, historyMethod: 'replace' });
+        }
+      } else {
+        // Default to first tab if none is active
+        switchToTab(0, { updateHistory: true, historyMethod: 'replace' });
+      }
     }
     
     // Loader functions for Driver.js tour
     function showDriverLoader() {
+      mainContentContainer.innerHTML = ''
+      // debugger;
       if (document.getElementById('driver-tour-loader')) return;
       const loader = document.createElement('div');
       loader.id = 'driver-tour-loader';
+      // <div style="position:relative;width:100%;height:100%;min-height:500px;">
+      //     ${loaderHTML}
+      //   </div>
       loader.innerHTML = `
-        <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 99999; background: rgba(255, 255, 255, 0.95); padding: 20px 30px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px;">
-          <div style="width: 24px; height: 24px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
-          <span style="font-size: 14px; font-weight: 500; color: rgb(17, 24, 39);">Preparing guided tour...</span>
+      <div style="position:relative;width:100%;height:100%;min-height:500px;display:flex;justify-content:center;align-items:center;>
+        <div id="recurpay-loader">
+        
+        <div class="rp-loader-wrapper">
+        
+          <div class="rp-ring big"></div>
+          <div class="rp-ring medium"></div>
+          <div class="rp-ring small"></div>
+        
+          <div class="rp-orbit"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
+        
+          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
+          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
+        
+          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
+        
+          <div class="rp-center">
+            <div class="rp-logo-wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+            </div>
+          </div>
+        
         </div>
-        <style>
-          @keyframes spin {
-            to { transform: rotate(360deg); }
-          }
-        </style>
-      `;
-      document.body.appendChild(loader);
+        
+        </div>
+      </div>
+        `;
+      mainContentContainer.appendChild(loader);
     }
-
+  
     function hideDriverLoader() {
       const loader = document.getElementById('driver-tour-loader');
       if (loader) loader.remove();
     }
-
+  
     // Start the Driver.js tour automatically when page loads
     // Use setInterval to check if content is loaded, show loader while waiting
     (function startDriverTourWhenReady() {
@@ -2373,13 +3171,13 @@
             return null;
         }
       }
-
+  
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-
+  
       // Show loader immediately
       showDriverLoader();
-
+  
       let attempts = 0;
       const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
       
@@ -2388,8 +3186,8 @@
         
         // Check if target element exists
         const targetEl = document.querySelector(selector);
-        console.log("targetEl", targetEl);
-
+        // console.log("targetEl", targetEl);
+  
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
@@ -2416,14 +3214,28 @@
         }
       }, 100);
     })();
-    
-    // Prefetch all tab content in the background for instant switching
-    // Start prefetching after a short delay to not interfere with initial load
-    setTimeout(() => {
-      prefetchAllTabs();
-    }, 1000);
+  
+    return {
+      switchToTab
+    }
   })();
   document.addEventListener('DOMContentLoaded', () => {
+    window.Intercom('update', { "hide_default_launcher": true });
+    const live_chat_container = document.querySelector(".live_chat");
+    live_chat_container.addEventListener("click",(event)=>{
+      event.preventDefault();
+      window.Intercom('show');
+      // window.Intercom('showNewMessage', 'Pre-filled message')
+    })
+    // window.addEventListener('popstate', (event) => {
+    //   console.log('User navigated with back/forward');
+    //   console.log(window.location.search);
+    //   if(!window.location.search) return;
+    //   const tabIndex = window.location.search.split("=")[1];
+    //   initMerchantTabSwitcher.switchToTab(tabIndex-1);
+    // });
+  
+  
     refreshDriver();
   });
 </script>
@@ -2463,11 +3275,6 @@
         "label": "Button text",
         "default": "Portal"
       }, {
-        "type": "checkbox",
-        "id": "enable_support_resources",
-        "label": "Enable Support & Resources tab",
-        "default": true
-      }, {
         "type": "text",
         "id": "button_four",
         "label": "Support & Resources button text",
@@ -2481,6 +3288,20 @@
         "id": "redirect_text",
         "label": "Redirect text",
         "default": "Exit"
+      }, {
+        "type": "html",
+        "id": "live_chat_icon",
+        "label": "Live chat icon"
+      }, {
+        "type": "text",
+        "id": "live_chat_text",
+        "label": "Live chat text",
+        "default": "Live chat"
+      }, {
+        "type": "text",
+        "id": "reTour",
+        "label": "ReTour text",
+        "default": "ReTour"
       }, {
         "type": "text",
         "id": "demo",
@@ -2498,7 +3319,7 @@
       }, {
         "type": "text",
         "id": "sidebar_header_title",
-        "label": "Sidebar header title",
+        "label": "Sidebar header title for Widget",
         "default": "KEY BENEFITS"
       }, {
         "type": "text",
@@ -2519,7 +3340,7 @@
         "id": "widget_content_url",
         "label": "Widget content page URL",
         "info": "URL to the page containing widget tab content"
-      },       {
+      }, {
         "type": "text",
         "id": "widget_step_name",
         "label": "Widget step name",
@@ -2588,6 +3409,11 @@
         "content": "Cart Upsell Tab Settings"
       }, {
         "type": "text",
+        "id": "sidebar_header_title_cart_upsell",
+        "label": "Sidebar header title for Cart Upsell",
+        "default": "Subscription Cart Upsell"
+      }, {
+        "type": "text",
         "id": "cart_upsell_subtext_title",
         "label": "Subtext title for cart upsell",
         "default": "Cart Upsell Widgets"
@@ -2605,7 +3431,7 @@
         "id": "cart_upsell_content_url",
         "label": "Cart upsell content page URL",
         "info": "URL to the page containing cart upsell tab content"
-      },       {
+      }, {
         "type": "text",
         "id": "cart_upsell_step_name",
         "label": "Cart upsell step name",
@@ -2649,6 +3475,11 @@
         "content": "Portal Tab Settings"
       }, {
         "type": "text",
+        "id": "sidebar_header_title_portal",
+        "label": "Sidebar header title for Portal",
+        "default": "Subscription Portal"
+      }, {
+        "type": "text",
         "id": "portal_subtext_title",
         "label": "Subtext title for portal",
         "default": "Customer Portal"
@@ -2661,7 +3492,7 @@
         "type": "url",
         "id": "portal_doc_url",
         "label": "Docs URL for portal"
-      },       {
+      }, {
         "type": "text",
         "id": "portal_step_name",
         "label": "Portal step name",
@@ -2701,72 +3532,11 @@
         "label": "Steps text",
         "default": "3 / 4"
       }, {
-        "type": "header",
-        "content": "Support & Resources Tab Settings"
-      }, {
-        "type": "text",
-        "id": "support_resources_subtext_title",
-        "label": "Subtext title for support & resources",
-        "default": "Support & Resources"
-      }, {
-        "type": "text",
-        "id": "support_resources_subtext_description",
-        "label": "Subtext description for support & resources",
-        "default": "Everything you need to launch and get help when you need it"
-      }, {
-        "type": "url",
-        "id": "support_resources_doc_url",
-        "label": "Docs URL for support & resources"
-      }, {
-        "type": "url",
-        "id": "support_resources_content_url",
-        "label": "Support & resources content page URL",
-        "info": "URL to the page containing support & resources tab content"
-      },       {
-        "type": "text",
-        "id": "support_resources_step_name",
-        "label": "Support & resources step name",
-        "default": "Support & Resources"
-      }, {
-        "type": "text",
-        "id": "tag_text_support_resources",
-        "label": "Top Tag Text",
-        "default": "Support"
-      }, {
-        "type": "html",
-        "id": "tag_icon_support_resources",
-        "label": "Tag Icon (Emoji or Text)"
-      }, {
-        "type": "text",
-        "id": "heading_support_resources",
-        "label": "Main Heading",
-        "default": "Support & implementation resources"
-      }, {
-        "type": "textarea",
-        "id": "description_support_resources",
-        "label": "Description",
-        "default": "Docs, guides, and best practices to help you go live faster."
-      }, {
-        "type": "text",
-        "id": "title_support_resources_guide",
-        "label": "Title for support & resources tab",
-        "default": "Need help? We’ve got you."
-      }, {
-        "type": "textarea",
-        "id": "description_support_resources_guide",
-        "label": "Description for support & resources tab",
-        "default": "Browse docs or talk to our team for fast implementation support."
-      }, {
-        "type": "text",
-        "id": "steps_text_support_resources",
-        "label": "Steps text",
-        "default": "4 / 4"
-      }, {
         "type": "url",
         "id": "completion_content_url",
         "label": "Completion content page URL",
         "info": "URL to the page containing final tour completion content"
-      },       {
+      }, {
         "type": "text",
         "id": "completion_step_name",
         "label": "Completion step name",
@@ -2784,7 +3554,7 @@
         "id": "description_completion_guide",
         "label": "Description for completion tour page",
         "default": "You've completed the tour! Start your 14-day free trial or book a personalized demo with our team."
-      },       {
+      }, {
         "type": "text",
         "id": "steps_text_completion",
         "label": "Steps text for completion",
