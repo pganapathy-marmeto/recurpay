@@ -58,7 +58,9 @@
     margin-top: auto;
   }
   .testimonial-footer img {
-    object-fit: cover;
+    object-fit: contain;
+    width: 60px;
+    height: 60;
     padding: 3px;
   }
   .testimonial-footer strong {
@@ -139,7 +141,7 @@
           <div class="testimonial-footer">
             {% if block.settings.avatar %}
               <div class="brand__container">
-                {{ block.settings.avatar | image_url: width: 60 | image_tag }}
+                {{ block.settings.avatar | image_url: width: 1000, height: 1000| image_tag }}
               </div>
             {% endif %}
             <div>
