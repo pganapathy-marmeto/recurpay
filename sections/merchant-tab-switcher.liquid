@@ -2223,7 +2223,6 @@
           return response.text();
         })
         .then(htmlString => {
-          debugger;
           const parser = new DOMParser();
           const parsed = parser.parseFromString(htmlString, 'text/html');
           
@@ -2252,12 +2251,9 @@
             });
           }
           
-          // Clear loading message after delay and render
-          
-          setTimeout(() => {
-            mainContentContainer.innerHTML = '';
-            mainContentContainer.appendChild(contentContainer);
-          }, 2000);
+          // Clear loading message and render
+          mainContentContainer.innerHTML = '';
+          mainContentContainer.appendChild(contentContainer);
   
           // Execute scripts after content is appended;
           executeScripts(mainContentContainer);
@@ -2267,7 +2263,6 @@
             let attempts = 0;
             const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
             const initInterval = setInterval(() => {
-              console.log("attempts- "+attempts);
               attempts++;
               if (typeof recurpay !== 'undefined' && typeof recurpay.init === 'function' && window.recurpayScript) {
                 recurpay.init(window.recurpayScript);
