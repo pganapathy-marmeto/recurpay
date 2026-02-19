@@ -16,6 +16,15 @@
         "padding_bottom": 24
       }
     },
+    "step_note_g4hA9Q": {
+      "type": "step-note",
+      "name": "Step Note",
+      "settings": {
+        "step_icon": "",
+        "step_title": "Next step in this demo",
+        "step_note": "Add your notWe’ll skip checkout and open the Customer Portal preview directly so you can see how subscribers manage their orders here."
+      }
+    },
     "cart-footer": {
       "type": "main-cart-footer",
       "blocks": {
@@ -85,6 +94,7 @@
   },
   "order": [
     "cart-items",
+    "step_note_g4hA9Q",
     "cart-footer",
     "cart_upsell_3wpnjx"
   ]

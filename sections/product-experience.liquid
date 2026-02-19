@@ -187,6 +187,21 @@
       --num: var(--target);
     }
   }
+  .hero-avatar-stack {
+    display: flex;
+    align-items: center;
+}
+.hero-avatar-stack img {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 2px solid #ffffff;
+    object-fit: contain;
+    margin-left: -10px;
+}
+.hero-avatar-stack img:first-child {
+    margin-left: 0;
+}
 
   @media(max-width: 768px) {
     .demo-cta-grid {
@@ -206,10 +221,13 @@
   <div class="page-width">
 
     {% if section.settings.badge_text != blank %}
-      <div class="demo-badge">
-        {% if section.settings.badge_icon %}
-          {{ section.settings.badge_icon }}
-        {% endif %}
+      <div class="demo-badge"> 
+        <div class="hero-avatar-stack">
+          {{ section.settings.image_one |  image_url: width: 1000, height: 1000 | image_tag }}
+          {{ section.settings.image_two |  image_url: width: 1000, height: 1000 | image_tag }}
+          {{ section.settings.image_three |  image_url: width: 1000, height: 1000 | image_tag }}
+          {{ section.settings.image_four |  image_url: width: 1000, height: 1000 | image_tag }}
+         </div>
         <span>{{ section.settings.badge_text }}</span>
       </div>
     {% endif %}
@@ -374,9 +392,24 @@
     "name": "Product experience",
     "settings": [
       {
-        "type": "html",
-        "id": "badge_icon",
-        "label": "Top Badge Icon"
+        "type": "image_picker",
+        "id": "image_one",
+        "label": "profile picture "
+      },
+      {
+        "type": "image_picker",
+        "id": "image_two",
+        "label": "profile picture "
+      },
+      {
+        "type": "image_picker",
+        "id": "image_three",
+        "label": "profile picture "
+      },
+      {
+        "type": "image_picker",
+        "id": "image_four",
+        "label": "profile picture "
       },
       {
         "type": "text",
