@@ -2562,6 +2562,7 @@
   
     // Function to show the final completion tour page (after last tab)
     function showCompletionStep() {
+      debugger;
       isOnCompletion = true;
       
       // Track completion page reached
@@ -2668,7 +2669,9 @@
   
     // Next button handler
     if (nextButton) {
+      debugger;
       nextButton.addEventListener('click', () => {
+        debugger;
         if (nextButton.classList.contains('disabled')) return;
         
         // If on completion page, redirect to homepage
