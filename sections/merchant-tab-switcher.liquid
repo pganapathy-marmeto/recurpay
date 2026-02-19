@@ -2124,7 +2124,7 @@
             .then(() => {
               setTimeout(() => {
                 loadTabContent('cart_upsell');
-              }, 1000);
+              }, 2000);
   
               // Cart updated, now move user to cart_upsell tab
               goToCartUpsellFromWidget();
@@ -2534,13 +2534,13 @@
         ensureCartHasItems().then(() => {
           setTimeout(() => {
             loadTabContent(tabType);
-          }, 1000);
+          }, 2000);
   
           // Use setTimeout to show loader briefly before updating content
           setTimeout(() => {
             // Hide loader and show updated content
             hideSidebarLoader();
-          }, 3000);
+          }, 3500);
             });
       } else {
         // Load content
@@ -2552,7 +2552,7 @@
         
         // Hide loader and show updated content
         hideSidebarLoader();
-      }, 3000);
+      }, 3500);
       }
     }
   
@@ -2591,7 +2591,7 @@
       }
       setTimeout(() => {
         loadTabContent('completion');
-      }, 1000);
+      }, 2000);
       // confettiOnCompletion();
     }
   
