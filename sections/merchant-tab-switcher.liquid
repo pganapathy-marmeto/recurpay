@@ -2128,8 +2128,9 @@
             })
             .then(() => {
               setTimeout(() => {
+                debugger;
                 loadTabContent('cart_upsell');
-              }, 1000);
+              }, 2000);
   
               // Cart updated, now move user to cart_upsell tab
               goToCartUpsellFromWidget();
@@ -2150,6 +2151,7 @@
   
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
+      debugger;
       if (!mainContentContainer) return;
   
       const config = tabConfig[tabType];
@@ -2538,31 +2540,34 @@
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           setTimeout(() => {
+            debugger;
             loadTabContent(tabType);
-          }, 1000);
+          }, 2000);
   
           // Use setTimeout to show loader briefly before updating content
           setTimeout(() => {
             // Hide loader and show updated content
             hideSidebarLoader();
-          }, 3000);
+          }, 3500);
             });
       } else {
         // Load content
         setTimeout(() => {
+          debugger;
           loadTabContent(tabType);
-        }, 1000);
+        }, 2000);
         // Use setTimeout to show loader briefly before updating content
       setTimeout(() => {
         
         // Hide loader and show updated content
         hideSidebarLoader();
-      }, 3000);
+      }, 3500);
       }
     }
   
     // Function to show the final completion tour page (after last tab)
     function showCompletionStep() {
+      debugger;
       isOnCompletion = true;
       
       // Track completion page reached
@@ -2595,8 +2600,9 @@
         }
       }
       setTimeout(() => {
+        debugger;
         loadTabContent('completion');
-      }, 1000);
+      }, 2000);
       // confettiOnCompletion();
     }
   
@@ -2668,9 +2674,14 @@
   
     // Next button handler
     if (nextButton) {
+      debugger;
       nextButton.addEventListener('click', () => {
+        debugger;
+        {% comment %} console.log(tabType); {% endcomment %}
         if (nextButton.classList.contains('disabled')) return;
-        
+        {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
+          isOnCompletion = true;
+        } {% endcomment %}
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
@@ -2678,7 +2689,7 @@
             total_tabs: tabOrder.length,
             action: 'finish_tour'
           });
-          window.location.href = '/';
+          window.location.href = '/pages/merchant-tour-completion';
           return;
         }
   
@@ -2692,7 +2703,7 @@
           switchToTab(currentTabIndex + 1);
         } else {
           // From last tab, move to completion tour page
-          showCompletionStep();
+          window.location.href = '/pages/merchant-tour-completion';
         }
         // If Driver.js guide is active and we're not on completion, re-run it on the new tab
         if (!isOnCompletion && document.querySelector('.driver-popover')) {
