@@ -1591,23 +1591,27 @@
 </div>
 
 <script>
+
   // Initialize Driver.js
   const driver = window.driver.js.driver;
   const driverObj = driver();
+
   function executeScripts(container) {
    const scripts = container.querySelectorAll('script');
-   scripts.forEach(oldScript => {
-  const newScript = document.createElement('script');
-  // Copy attributes
-  [...oldScript.attributes].forEach(attr => {
-   newScript.setAttribute(attr.name, attr.value);
-  });
-  newScript.text = oldScript.textContent;
-  oldScript.replaceWith(newScript);
-   });
+    scripts.forEach(oldScript => {
+    const newScript = document.createElement('script');
+    // Copy attributes
+    [...oldScript.attributes].forEach(attr => {
+    newScript.setAttribute(attr.name, attr.value);
+    });
+    newScript.text = oldScript.textContent;
+    oldScript.replaceWith(newScript);
+    });
   }
   
-   function refreshDriver() { 
+  // Remove - not required
+   function refreshDriver() {
+    debugger;
       let maxAttempts = 5;
       const refreshInterval = setInterval(()=>{
       if(maxAttempts > 0) {
@@ -1717,84 +1721,10 @@
     const tabOrder = {{ merchant_tabs | json }};
     let currentTabIndex = 0;
     let isOnCompletion = false;
-    let lastWidgetVariantId = null;
-
-    function parseVariantId(rawValue) {
-      if (rawValue === null || rawValue === undefined || rawValue === '') return null;
-      const numericValue = Number(rawValue);
-      if (!Number.isFinite(numericValue) || numericValue <= 0) return null;
-      return numericValue;
-    }
-
-    function extractVariantIdFromContainer(container) {
-      if (!container || !container.querySelectorAll) return null;
-
-      const checkedInput = container.querySelector('form[action*="/cart/add"] input[name="id"]:checked, input[name="id"]:checked');
-      const checkedId = parseVariantId(checkedInput && checkedInput.value);
-      if (checkedId) return checkedId;
-
-      const formCandidates = container.querySelectorAll('form[action*="/cart/add"]');
-      for (const form of formCandidates) {
-        try {
-          const formData = new FormData(form);
-          const variantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
-          if (variantId) return variantId;
-        } catch (error) {
-          // Ignore malformed forms and continue searching.
-        }
-      }
-
-      const selectInput = container.querySelector('form[action*="/cart/add"] select[name="id"], select[name="id"]');
-      if (selectInput) {
-        const selectedValue = selectInput.options && selectInput.selectedIndex >= 0
-          ? selectInput.options[selectInput.selectedIndex].value
-          : selectInput.value;
-        const selectedId = parseVariantId(selectedValue);
-        if (selectedId) return selectedId;
-      }
-
-      const hiddenInput = container.querySelector('form[action*="/cart/add"] input[name="id"], input[name="id"]');
-      const hiddenId = parseVariantId(hiddenInput && hiddenInput.value);
-      if (hiddenId) return hiddenId;
-
-      return null;
-    }
-
-    async function resolveWidgetVariantId() {
-      const inViewVariantId = extractVariantIdFromContainer(mainContentContainer);
-      if (inViewVariantId) {
-        lastWidgetVariantId = inViewVariantId;
-        return inViewVariantId;
-      }
-
-      if (lastWidgetVariantId) return lastWidgetVariantId;
-
-      const widgetUrl = tabConfig.widget && tabConfig.widget.contentUrl;
-      if (!widgetUrl || widgetUrl.trim() === '') return null;
-
-      try {
-        const widgetResponse = await fetch(widgetUrl);
-        if (!widgetResponse.ok) return null;
-
-        const widgetHtml = await widgetResponse.text();
-        const parser = new DOMParser();
-        const parsedWidgetPage = parser.parseFromString(widgetHtml, 'text/html');
-        const fetchedVariantId = extractVariantIdFromContainer(parsedWidgetPage);
-
-        if (fetchedVariantId) {
-          lastWidgetVariantId = fetchedVariantId;
-          return fetchedVariantId;
-        }
-      } catch (error) {
-        console.log('Error resolving widget variant:', error);
-      }
-
-      return null;
-    }
     
     // Portal authentication data
-      {% assign customer_id = 9631239798947 %}
-      {% assign secret_key = "wGglbCrckE10Qx8ImfHCkqRdPCY5Ztdf" %}
+      {% assign customer_id = 5959212957931 %}
+      {% assign secret_key = "mGm3J210eDPvaUPL0TSpNWXk5z4YkQTe" %}
       {% assign customer_hash = customer_id |  hmac_sha256: secret_key %}
       const portalAuthData = {
         customerId: {{ customer_id | json }},
@@ -1867,26 +1797,11 @@
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
     }
   
-    // Keep active tab synced with the URL so refresh/back/forward restores the same step
-    function setURLStep(tabIndex, method = 'push') {
+    // add query params to url to easily switch and resume the journey
+    function addURLParams(tabIndex) {
       const url = new URL(window.location.href);
-      const step = tabIndex + 1;
-      url.searchParams.set('step', step);
-      const state = { merchantTabStep: step };
-      if (method === 'replace') {
-        window.history.replaceState(state, '', url.toString());
-      } else {
-        window.history.pushState(state, '', url.toString());
-      }
-    }
-
-    function getStepIndexFromURL() {
-      const url = new URL(window.location.href);
-      const stepValue = Number.parseInt(url.searchParams.get('step'), 10);
-      if (Number.isNaN(stepValue)) return null;
-      const tabIndex = stepValue - 1;
-      if (tabIndex < 0 || tabIndex >= tabOrder.length) return null;
-      return tabIndex;
+      console.log("URL",  url)
+      window.history.pushState({}, '', "?step=" + (tabIndex+1));
     }
   
     // Function to update footer step indicator
@@ -2016,13 +1931,28 @@
         if (cartData.items && cartData.items.length > 0) {
           return;
         }
-
-        // Cart is empty, resolve product variant currently shown in widget tab
-        const widgetVariantId = await resolveWidgetVariantId();
-        if (!widgetVariantId) {
-          console.log('No widget variant available to add to cart');
+        
+        // Cart is empty, fetch first product
+        const productsResponse = await fetch("https://recurpay-subscriptions.myshopify.com/products.json?limit=1");
+        if (!productsResponse.ok) {
+          console.error('Failed to fetch products');
           return;
         }
+        const productsData = await productsResponse.json();
+        
+        if (!productsData.products || productsData.products.length === 0) {
+          console.log('No products available');
+          return;
+        }
+        
+        const firstProduct = productsData.products[0];
+        if (!firstProduct.variants || firstProduct.variants.length === 0) {
+          console.log('Product has no variants');
+          return;
+        }
+        
+        // Get first variant
+        const firstVariant = firstProduct.variants[0];
         
         // Add to cart using add.js API
         const addResponse = await fetch(`{{ routes.cart_add_url }}.js`, {
@@ -2031,7 +1961,7 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: widgetVariantId,
+            id: firstVariant.id,
             quantity: 1
           })
         });
@@ -2078,10 +2008,6 @@
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
-          const clickedVariantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
-          if (clickedVariantId) {
-            lastWidgetVariantId = clickedVariantId;
-          }
   
           fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
@@ -2164,7 +2090,7 @@
         }
         
         // Hardcoded Recurpay API configuration
-        const recurpaySubdomain = 'demorecurpay'; // Update with your Recurpay subdomain
+        const recurpaySubdomain = 'recurpay-subscriptions'; // Update with your Recurpay subdomain
         const apiVersion = '2024-07';
         const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
         
@@ -2232,7 +2158,7 @@
           
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
-          const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
+          const sections = parsed.querySelectorAll('#MainContent');
           
           // If no sections found, try to find main content area
           if (sections.length === 0) {
@@ -2293,34 +2219,6 @@
           mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Content could not be loaded. Please check the content URL configuration.</div>';
         });
     }
-  
-    // function confettiOnCompletion(){
-    //   let duration = 3 * 1000;
-    //   let end = Date.now() + duration;
-  
-    //   function frame() {
-    //   // launch a few confetti from the left edge
-    //   confetti({
-    //     particleCount: 7,
-    //     angle: 60,
-    //     spread: 55,
-    //     origin: { x: 0 }
-    //   });
-    //   // and launch a few from the right edge
-    //   confetti({
-    //     particleCount: 7,
-    //     angle: 120,
-    //     spread: 55,
-    //     origin: { x: 1 }
-    //   });
-  
-    //   // keep going until we are out of time
-    //   if (Date.now() < end) {
-    //     requestAnimationFrame(frame);
-    //   }
-    // }
-    // frame();
-    // }
   
     // Sidebar loader functions
     function showSidebarLoader() {   
@@ -2402,10 +2300,7 @@
     }
   
     // Function to switch to a specific tab
-    function switchToTab(tabIndex, options = {}) {
-      const { updateHistory = true, historyMethod = 'push' } = options;
-      // debugger;
-      showDriverLoader();
+    function switchToTab(tabIndex) {
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
       currentTabIndex = tabIndex;
       isOnCompletion = false;
@@ -2415,14 +2310,12 @@
       console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
       
-      if (updateHistory) {
-        setURLStep(tabIndex, historyMethod);
-      }
+      addURLParams(tabIndex);
   
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
-          // btn.closet
+          btn.closet
           btn.closest('.stage__container').classList.add('active_tab');
         } else {
           btn.closest('.stage__container').classList.remove('active_tab');
@@ -2438,15 +2331,17 @@
       // Show loader in sidebar
       showSidebarLoader();
       
-      // // Use setTimeout to show loader briefly before updating content
-      // setTimeout(() => {
+      // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
         
-      //   // Hide loader and show updated content
-      //   hideSidebarLoader();
-      // }, 2000);
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
   
       // Update footer indicators
       updateStepIndicator(tabIndex, false);
+
+      startDriverTourWhenReady();
   
       // Update tagline header (so Next/Previous also updates it)
       if (window.updateMerchantTabHeaderSection) {
@@ -2456,43 +2351,15 @@
       // Update demo guide content + dots
       updateDemoGuide(tabType, tabIndex);
       
-      // Restore original finish button text when not on completion page
-      // if (demoGuideFinishButton && originalFinishButtonText) {
-      //   const svgElement = demoGuideFinishButton.querySelector('svg');
-      //   // Remove all text nodes
-      //   Array.from(demoGuideFinishButton.childNodes).forEach(node => {
-      //     if (node.nodeType === Node.TEXT_NODE) {
-      //       node.remove();
-      //     }
-      //   });
-      //   // Insert original text before SVG (or as only content if no SVG)
-      //   if (svgElement) {
-      //     demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
-      //   } else {
-      //     demoGuideFinishButton.textContent = originalFinishButtonText;
-      //   }
-      // }
   
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           loadTabContent(tabType);
-          // Use setTimeout to show loader briefly before updating content
-      setTimeout(() => {
-        
-        // Hide loader and show updated content
-        hideSidebarLoader();
-      }, 2000);
         });
       } else {
         // Load content
         loadTabContent(tabType);
-        // Use setTimeout to show loader briefly before updating content
-      setTimeout(() => {
-        
-        // Hide loader and show updated content
-        hideSidebarLoader();
-      }, 2000);
       }
     }
   
@@ -2533,7 +2400,7 @@
       // confettiOnCompletion();
     }
   
-    // Enhanced tab click handler
+    // Enhanced tab click handler - IMP
     function handleTabClick(event) {
       const clickedButton = event.currentTarget;
       const tabType = clickedButton.getAttribute('data-tab-type');
@@ -2565,10 +2432,6 @@
         }
         switchToTab(tabIndex);
   
-        // If Driver.js guide is active and we're not on completion, re-run it on the new tab
-        if (!isOnCompletion && document.querySelector('.driver-popover')) {
-          setTimeout(runDriverShowGuide, 500);
-        }
       }
     }
   
@@ -2591,10 +2454,6 @@
         }
         if (currentTabIndex > 0) {
           switchToTab(currentTabIndex - 1);
-        }
-        // If Driver.js guide is active, re-run it on the new tab
-        if (!isOnCompletion && document.querySelector('.driver-popover')) {
-          setTimeout(runDriverShowGuide, 500);
         }
       });
     }
@@ -2626,78 +2485,18 @@
           // From last tab, move to completion tour page
           showCompletionStep();
         }
-        // If Driver.js guide is active and we're not on completion, re-run it on the new tab
-        if (!isOnCompletion && document.querySelector('.driver-popover')) {
-          setTimeout(runDriverShowGuide, 500);
-        }
       });
     }
-  
-   // Demo guide back button handler
-   if (demoGuideBackButton) {
-     demoGuideBackButton.addEventListener('click', (e) => {
-       e.preventDefault();
-       
-       trackMixpanelEvent(mixpanelEvents.guideBack, {
-         current_tab_index: currentTabIndex,
-         is_on_completion: isOnCompletion
-       });
-       
-       if (isOnCompletion) {
-         // Go back from completion page to last real tab
-         isOnCompletion = false;
-         if (headerContainer) {
-           headerContainer.classList.remove('completion-active');
-         }
-         switchToTab(tabOrder.length - 1);
-         return;
-       }
-       if (currentTabIndex > 0) {
-         switchToTab(currentTabIndex - 1);
-       }
-     });
-   }
-  
-   // Demo guide finish button handler
-   if (demoGuideFinishButton) {
-     demoGuideFinishButton.addEventListener('click', (e) => {
-       e.preventDefault();
-       
-       trackMixpanelEvent(mixpanelEvents.guideFinish, {
-         current_tab_index: currentTabIndex,
-         is_on_completion: isOnCompletion,
-         total_tabs: tabOrder.length
-       });
-       
-       if (isOnCompletion) {
-         // On completion page, redirect to homepage
-         window.location.href = '/';
-         return;
-       }
-       if (currentTabIndex < tabOrder.length - 1) {
-         switchToTab(currentTabIndex + 1);
-       } else {
-         // From last tab, move to completion tour page
-         showCompletionStep();
-       }
-     });
-   }
   
     // Update tab click handlers
     tabButtons.forEach(button => {
       button.addEventListener('click', handleTabClick);
     });
-  
-    // Guide visibility toggle (still used by the inline demo guide close button)
-    function setGuideVisible(visible) {
-      if (!demoGuideSection) return;
-      if (visible) demoGuideSection.classList.add('is-visible');
-      else demoGuideSection.classList.remove('is-visible');
-    }
-  
+
+
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
-      // debugger;
+      debugger;
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
   
@@ -2705,7 +2504,7 @@
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay__widget';
+            return '.recurpay-pdp-widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
@@ -2727,10 +2526,6 @@
         // For cart_upsell, use querySelectorAll and get the 2nd element (index 1)
         
         var targetEl = document.querySelector(selector);
-
-        {% comment %} if (selector == ".recurpay-pdp-widget" && targetEl) {
-          targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
-        } {% endcomment %}
   
         if (targetEl) {
           console.log('Target element found:', targetEl);
@@ -2848,41 +2643,7 @@
       // Try up to 10 times to find and highlight the element for the current tab
       highlightCurrentTabElement(10);
     }
-  
-    // Integrate Driver.js on click of "Show Guide" instead of toggling the inline guide
-    if (showGuideButton) {
-      showGuideButton.addEventListener('click', (e) => {
-        e.preventDefault();
-  
-        trackMixpanelEvent(mixpanelEvents.showGuide, {
-          current_tab_index: currentTabIndex,
-          is_on_completion: isOnCompletion,
-          action: 'open'
-        });
-        
-        // Ensure content matches the current tab so the cloned card has correct text
-        if (isOnCompletion) {
-          updateDemoGuide('completion', tabOrder.length);
-        } else {
-          const tabType = tabOrder[currentTabIndex] || 'widget';
-          updateDemoGuide(tabType, currentTabIndex);
-        }
-  
-        // Hide the inline guide, just in case
-        setGuideVisible(false);
-  
-        // Run Driver.js-based guide
-        runDriverShowGuide();
-      });
-    }
-  
-    if (demoGuideCloseButton) {
-      demoGuideCloseButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        setGuideVisible(false);
-      });
-    }
-  
+
     // Function to toggle sidebar collapse state
     function toggleSidebarCollapse(eventSource = 'toggle') {
       if (!sidebarContainer || !headerContainer) return;
@@ -2920,236 +2681,24 @@
         toggleSidebarCollapse('restore');
       });
     }
-    function refreshDriver() { 
-      let maxAttempts = 5;
-      const refreshInterval = setInterval(()=>{
-      if(maxAttempts > 0) {
-        driverObj.refresh();
-        console.log("driverObj refreshed");
-        maxAttempts--;
-      }else {
-        clearInterval(refreshInterval);
-      }
-    },500)
-  }
-    // Prefetch all tab content in parallel for instant tab switching
-    function prefetchAllTabs() {
-      const prefetchPromises = [];
-      
-      // Prefetch all regular tabs
-      tabOrder.forEach(tabType => {
-        const config = tabConfig[tabType];
-        if (!config || !config.contentUrl || config.contentUrl.trim() === '') {
-          return; // Skip tabs without content URLs
-        }
-        
-        // Skip if already cached
-        if (contentCache[tabType]) {
-          return;
-        }
-        
-        const prefetchPromise = fetch(config.contentUrl)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then(htmlString => {
-            const parser = new DOMParser();
-            const parsed = parser.parseFromString(htmlString, 'text/html');
-            
-            // Create a container to hold the cached content
-            const cacheContainer = document.createElement('div');
-            
-            // Try to find sections by common IDs or class names
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
-            
-            if (sections.length === 0) {
-              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
-              if (mainContent) {
-                Array.from(mainContent.children).forEach(child => {
-                  cacheContainer.appendChild(child.cloneNode(true));
-                });
-              }
-            } else {
-              sections.forEach(section => {
-                cacheContainer.appendChild(section.cloneNode(true));
-              });
-            }
-            
-            // Cache the content
-            contentCache[tabType] = cacheContainer;
-            console.log(`Prefetched content for tab: ${tabType}`);
-          })
-          .catch((error) => {
-            console.log(`Error prefetching content for ${tabType}:`, error);
-          });
-        
-        prefetchPromises.push(prefetchPromise);
-      });
-      
-      // Prefetch portal content
-      if (portalAuthData && !contentCache['portal']) {
-        const recurpaySubdomain = 'recurpay-subscriptions';
-        const apiVersion = '2024-07';
-        const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
-        
-        const portalPromise = fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            customer_hash: portalAuthData.customerHash
-          })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.data.redirection_url) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = `
-              <div style="position: relative; width: 100%; height: 100%; min-height: 500px;">
-                <iframe
-                  src="${data.data.redirection_url}"
-                  style="border: 0; width: 100%; height: 100%;position: relative; z-index: 101;"
-                ></iframe>
-              </div>
-            `;
-            contentCache['portal'] = tempDiv.firstElementChild;
-            console.log('Prefetched content for tab: portal');
-          }
-        })
-        .catch((error) => {
-          console.log('Error prefetching portal content:', error);
-        });
-        
-        prefetchPromises.push(portalPromise);
-      }
-      
-      // Prefetch completion content
-      const completionConfig = tabConfig['completion'];
-      if (completionConfig && completionConfig.contentUrl && completionConfig.contentUrl.trim() !== '' && !contentCache['completion']) {
-        const completionPromise = fetch(completionConfig.contentUrl)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then(htmlString => {
-            const parser = new DOMParser();
-            const parsed = parser.parseFromString(htmlString, 'text/html');
-            
-            const cacheContainer = document.createElement('div');
-            const sections = parsed.querySelectorAll('[id^="shopify-section-"]');
-            
-            if (sections.length === 0) {
-              const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
-              if (mainContent) {
-                Array.from(mainContent.children).forEach(child => {
-                  cacheContainer.appendChild(child.cloneNode(true));
-                });
-              }
-            } else {
-              sections.forEach(section => {
-                cacheContainer.appendChild(section.cloneNode(true));
-              });
-            }
-            
-            contentCache['completion'] = cacheContainer;
-            console.log('Prefetched content for tab: completion');
-          })
-          .catch((error) => {
-            console.log('Error prefetching completion content:', error);
-          });
-        
-        prefetchPromises.push(completionPromise);
-      }
-      
-      // Wait for all prefetches to complete
-      Promise.allSettled(prefetchPromises).then(() => {
-        console.log('All tab content prefetched and cached');
-      });
-    }
   
     // Initialize: set up the first tab
-    const stepFromURL = getStepIndexFromURL();
-    if (stepFromURL !== null) {
-      switchToTab(stepFromURL, { updateHistory: true, historyMethod: 'replace' });
-    } else {
-      const activeButton = document.querySelector('.button_tab.active_tab');
-      if (activeButton) {
-        const activeTabType = activeButton.getAttribute('data-tab-type');
-        const initialTabIndex = tabOrder.indexOf(activeTabType);
-        if (initialTabIndex !== -1) {
-          switchToTab(initialTabIndex, { updateHistory: true, historyMethod: 'replace' });
-        }
-      } else {
-        // Default to first tab if none is active
-        switchToTab(0, { updateHistory: true, historyMethod: 'replace' });
+    const activeButton = document.querySelector('.button_tab.active_tab');
+    if (activeButton) {
+      const activeTabType = activeButton.getAttribute('data-tab-type');
+      const initialTabIndex = tabOrder.indexOf(activeTabType);
+      if (initialTabIndex !== -1) {
+        switchToTab(initialTabIndex);
       }
+    } else {
+      // Default to first tab if none is active
+      switchToTab(0);
     }
-    
-    // Loader functions for Driver.js tour
-    function showDriverLoader() {
-      mainContentContainer.innerHTML = ''
-      // debugger;
-      if (document.getElementById('driver-tour-loader')) return;
-      const loader = document.createElement('div');
-      loader.id = 'driver-tour-loader';
-      // <div style="position:relative;width:100%;height:100%;min-height:500px;">
-      //     ${loaderHTML}
-      //   </div>
-      loader.innerHTML = `
-      <div style="position:relative;width:100%;height:100%;min-height:500px;display:flex;justify-content:center;align-items:center;>
-        <div id="recurpay-loader">
-        
-        <div class="rp-loader-wrapper">
-        
-          <div class="rp-ring big"></div>
-          <div class="rp-ring medium"></div>
-          <div class="rp-ring small"></div>
-        
-          <div class="rp-orbit"><div class="rp-dot big"></div></div>
-          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
-          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
-        
-          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
-          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
-        
-          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
-        
-          <div class="rp-center">
-            <div class="rp-logo-wrap">
-              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
-            </div>
-          </div>
-        
-        </div>
-        
-        </div>
-      </div>
-        `;
-      mainContentContainer.appendChild(loader);
-    }
-  
-    function hideDriverLoader() {
-      const loader = document.getElementById('driver-tour-loader');
-      if (loader) loader.remove();
-    }
-  
+
     // Start the Driver.js tour automatically when page loads
     // Use setInterval to check if content is loaded, show loader while waiting
-    (function startDriverTourWhenReady() {
+    function startDriverTourWhenReady() {
+      debugger;
       // Determine current tab type
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
       
@@ -3157,7 +2706,7 @@
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay-pdp-widget';
+            return '.recurpay__widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
@@ -3173,9 +2722,7 @@
   
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-  
-      // Show loader immediately
-      showDriverLoader();
+
   
       let attempts = 0;
       const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
@@ -3190,7 +2737,6 @@
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
-          hideDriverLoader();
           
           // Ensure content matches the current tab so the cloned card has correct text
           if (isOnCompletion) {
@@ -3199,20 +2745,18 @@
             const tabType = tabOrder[currentTabIndex] || 'widget';
             updateDemoGuide(tabType, currentTabIndex);
           }
-          
-          // Hide the inline guide, just in case
-          setGuideVisible(false);
-          
+           
           // Run Driver.js-based guide
           runDriverShowGuide();
+          
         } else if (attempts >= maxAttempts) {
           // Timeout reached, hide loader and give up
           clearInterval(checkInterval);
-          hideDriverLoader();
           console.warn('Target element not found after maximum attempts:', selector);
         }
       }, 100);
-    })();
+    }
+    startDriverTourWhenReady();
   
     return {
       switchToTab
@@ -3226,13 +2770,13 @@
       window.Intercom('show');
       // window.Intercom('showNewMessage', 'Pre-filled message')
     })
-    // window.addEventListener('popstate', (event) => {
-    //   console.log('User navigated with back/forward');
-    //   console.log(window.location.search);
-    //   if(!window.location.search) return;
-    //   const tabIndex = window.location.search.split("=")[1];
-    //   initMerchantTabSwitcher.switchToTab(tabIndex-1);
-    // });
+    window.addEventListener('popstate', (event) => {
+      console.log('User navigated with back/forward');
+      console.log(window.location.search);
+      if(!window.location.search) return;
+      const tabIndex = window.location.search.split("=")[1];
+      initMerchantTabSwitcher.switchToTab(tabIndex-1);
+    });
   
   
     refreshDriver();

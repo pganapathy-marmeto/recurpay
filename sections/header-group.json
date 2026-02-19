@@ -32,7 +32,6 @@
     },
     "recurpay_header_bDLQBh": {
       "type": "recurpay-header",
-      "disabled": true,
       "name": "Header navigation",
       "settings": {
         "logo": "shopify://shop_images/recurpaylogo.svg",

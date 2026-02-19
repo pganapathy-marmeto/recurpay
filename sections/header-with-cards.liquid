@@ -29,6 +29,7 @@
   }
   .feature-card:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #159f6b;
   }
 
   .card-cta {
@@ -399,7 +400,21 @@
               </ul>
             </div>
             <div class="modal-button__wrapper inline-spacing">
-              <a target="_blank" href="{{ block.settings.modal_button_link | default: '#' }}" class="modal-button">{{ block.settings.modal_button_text | default: 'Try This Feature' }}<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+              <a
+                target="_blank"
+                href="{{ block.settings.modal_button_link | default: '#' }}"
+                class="modal-button">{{ block.settings.modal_button_text | default: 'Try This Feature' }}<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -421,7 +436,7 @@
       // Also log for debugging
       console.log('Mixpanel Event:', eventName, properties);
     }
-
+  
     document.addEventListener("DOMContentLoaded", () => {
       // Track feature card clicks (modal opens)
       document.querySelectorAll('.feature-card').forEach(card => {
@@ -435,7 +450,7 @@
             card_description: cardDescription,
             action: 'modal_opened'
           });
-
+  
           document.getElementById(card.dataset.modal).classList.add('active');
           document.body.classList.add('modal-open');
         });
@@ -453,7 +468,7 @@
               action: 'modal_closed',
               close_method: e.target.classList.contains('modal-close') ? 'close_button' : 'overlay'
             });
-
+  
             overlay.classList.remove('active');
             document.body.classList.remove('modal-open');
           }
@@ -537,7 +552,7 @@
             "type": "text",
             "id": "benefit_2",
             "label": "Key Benefit 2"
-          },           {
+          }, {
             "type": "text",
             "id": "benefit_3",
             "label": "Key Benefit 3"
@@ -553,7 +568,7 @@
             "type": "url",
             "id": "modal_button_link",
             "label": "Modal Button Link"
-          },           {
+          }, {
             "type": "header",
             "content": "Mixpanel Event Settings"
           }, {

@@ -207,7 +207,6 @@
       ],
       "name": "Merchant tab switcher",
       "settings": {
-        "company_logo": "shopify://shop_images/recurpaylogo.svg",
         "company_name": "",
         "tag_text": "Guided Demo",
         "button_one": "Product Page",
