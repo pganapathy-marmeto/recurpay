@@ -1913,7 +1913,6 @@
       if (!config) return;
   
       if(sidebarHeaderTitle) {
-        // debugger;
         sidebarHeaderTitle.textContent = config.sidebarHeader;
         console.log("sidebarHeaderTitle", sidebarHeaderTitle);
       }
@@ -2123,7 +2122,6 @@
             })
             .then(() => {
               setTimeout(() => {
-                debugger;
                 loadTabContent('cart_upsell');
               }, 2000);
   
@@ -2146,7 +2144,6 @@
   
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
-      debugger;
       if (!mainContentContainer) return;
   
       const config = tabConfig[tabType];
@@ -2287,7 +2284,6 @@
           // Look for Shopify section IDs first
           const sections = parsed.querySelectorAll('#MainContent');
           if (tabType === 'cart_upsell') {
-            // debugger;
             console.log(" sections==>", sections)
         }
           // If no sections found, try to find main content area
@@ -2460,7 +2456,6 @@
     // Function to switch to a specific tab
     function switchToTab(tabIndex, options = {}) {
       const { updateHistory = true, historyMethod = 'push' } = options;
-      // debugger;
       showDriverLoader();
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
       currentTabIndex = tabIndex;
@@ -2535,7 +2530,6 @@
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           setTimeout(() => {
-            debugger;
             loadTabContent(tabType);
           }, 2000);
   
@@ -2548,7 +2542,6 @@
       } else {
         // Load content
         setTimeout(() => {
-          debugger;
           loadTabContent(tabType);
         }, 2000);
         // Use setTimeout to show loader briefly before updating content
@@ -2562,7 +2555,6 @@
   
     // Function to show the final completion tour page (after last tab)
     function showCompletionStep() {
-      debugger;
       isOnCompletion = true;
       
       // Track completion page reached
@@ -2595,7 +2587,6 @@
         }
       }
       setTimeout(() => {
-        debugger;
         loadTabContent('completion');
       }, 2000);
       // confettiOnCompletion();
@@ -2669,9 +2660,7 @@
   
     // Next button handler
     if (nextButton) {
-      debugger;
       nextButton.addEventListener('click', () => {
-        debugger;
         {% comment %} console.log(tabType); {% endcomment %}
         if (nextButton.classList.contains('disabled')) return;
         {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
@@ -2771,7 +2760,6 @@
   
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
-      // debugger;
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
   
@@ -3016,7 +3004,6 @@
     // Loader functions for Driver.js tour
     function showDriverLoader() {
       mainContentContainer.innerHTML = ''
-      // debugger;
       if (document.getElementById('driver-tour-loader')) return;
       const loader = document.createElement('div');
       loader.id = 'driver-tour-loader';
@@ -3057,7 +3044,6 @@
       </div>
         `;
       mainContentContainer.appendChild(loader);
-      // debugger;
     }
   
     function hideDriverLoader() {
