@@ -96,7 +96,7 @@
         "badge_text": "Trusted by industry leaders",
         "heading_main": "See subscriptions",
         "heading_highlight": "in action",
-        "description": "See how subscriptions look and feel for your customers - through a real, interactive Recurpay experience."
+        "description": "See how subscriptions look and feel for your customers - through a real, interactive Recurpay experience"
       }
     },
     "tab_switcher_AfcQPW": {
@@ -262,7 +262,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-wallet-icon lucide-wallet\"><path d=\"M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1\"></path><path d=\"M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4\"></path></svg>",
             "card_title": "Customizable subscription widget",
-            "card_description": "DIY subscription widget, customize everything you see, with advanced flexibility and powerful code editor support.",
+            "card_description": "DIY subscription widget, customize everything you see, with advanced flexibility and powerful code editor support",
             "card_button": "",
             "modal_icon": "💳",
             "modal_title": "Pay as you go (Ongoing)",
@@ -282,7 +282,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-gift-icon lucide-gift\"><rect x=\"3\" y=\"8\" width=\"18\" height=\"4\" rx=\"1\"></rect><path d=\"M12 8v13\"></path><path d=\"M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7\"></path><path d=\"M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5\"></path></svg>",
             "card_title": "Flexible subscription frequencies",
-            "card_description": "Offer any subscription frequency - weekly, monthly, or custom cycles - with optional upfront payment for multiple billing periods.",
+            "card_description": "Offer any subscription frequency - weekly, monthly, or custom cycles - with optional upfront payment for multiple billing periods",
             "card_button": "",
             "modal_icon": "🎁",
             "modal_title": "Prepaid (Gift Subscription)",
@@ -302,7 +302,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-credit-card-icon lucide-credit-card\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"></rect><line x1=\"2\" x2=\"22\" y1=\"10\" y2=\"10\"></line></svg>",
             "card_title": "Subscription upsell on cart",
-            "card_description": "Offer native cart upsells that seamlessly convert one-time purchases into subscriptions without disrupting checkout flow.",
+            "card_description": "Offer native cart upsells that seamlessly convert one-time purchases into subscriptions without disrupting checkout flow",
             "card_button": "",
             "modal_icon": "🔄",
             "modal_title": "Auto Debits",
@@ -322,7 +322,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-shopping-cart-icon lucide-shopping-cart\"><circle cx=\"8\" cy=\"21\" r=\"1\"></circle><circle cx=\"19\" cy=\"21\" r=\"1\"></circle><path d=\"M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12\"></path></svg>",
             "card_title": "Offer trials & refill swaps",
-            "card_description": "Offer free or limited-period trials, enable automatic product swaps, and use Recurpay bots to support flexible subscription workflows.",
+            "card_description": "Offer free or limited-period trials, enable automatic product swaps, and use Recurpay bots to support flexible subscription workflows",
             "card_button": "",
             "modal_icon": "🛒",
             "modal_title": "Mixed Cart",
@@ -342,7 +342,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chart-pie-icon lucide-chart-pie\"><path d=\"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z\"></path><path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\"></path></svg>",
             "card_title": "Self serve customer portal",
-            "card_description": "Fully customizable portal with options to add or remove sections, allowing customers to edit, skip, swap, or manage deliveries.",
+            "card_description": "Fully customizable portal with options to add or remove sections, allowing customers to edit, skip, swap, or manage deliveries",
             "card_button": "",
             "modal_icon": "📊",
             "modal_title": "Analytics & Insights",
@@ -362,7 +362,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-zap-icon lucide-zap\"><path d=\"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z\"></path></svg>",
             "card_title": "Build a Box experience",
-            "card_description": "Create fully customizable box experiences with flexible logic, product rules, and advanced code editor support.",
+            "card_description": "Create fully customizable box experiences with flexible logic, product rules, and advanced code editor support",
             "card_button": "",
             "modal_icon": "⚡",
             "modal_title": "Offer Trials",
@@ -382,7 +382,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-box-icon lucide-box\"><path d=\"M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z\"></path><path d=\"m3.3 7 8.7 5 8.7-5\"></path><path d=\"M12 22V12\"></path></svg>",
             "card_title": "Cancellation prevention flows",
-            "card_description": "Intercept cancellations with smart flows offering pauses, swaps, incentives, or alternatives before customers leave.",
+            "card_description": "Intercept cancellations with smart flows offering pauses, swaps, incentives, or alternatives before customers leave",
             "card_button": "",
             "modal_icon": "📦",
             "modal_title": "Physical or Digital Products",
@@ -402,7 +402,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-user-icon lucide-circle-user\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><circle cx=\"12\" cy=\"10\" r=\"3\"></circle><path d=\"M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662\"></path></svg>",
             "card_title": "Powerful subscription analytics",
-            "card_description": "Track revenue, churn, subscriber growth, and performance trends with detailed analytics designed for subscription businesses.",
+            "card_description": "Track revenue, churn, subscriber growth, and performance trends with detailed analytics designed for subscription businesses",
             "card_button": "",
             "modal_icon": "👤",
             "modal_title": "Intuitive Customer Portal",
@@ -422,7 +422,7 @@
           "settings": {
             "card_icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#6b7280\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-bot-icon lucide-bot\"><path d=\"M12 8V4H8\"></path><rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\"></rect><path d=\"M2 14h2\"></path><path d=\"M20 14h2\"></path><path d=\"M15 13v2\"></path><path d=\"M9 13v2\"></path></svg>",
             "card_title": "APIs & Webhooks",
-            "card_description": "Connect external tools, automate workflows, and extend functionality using APIs and webhooks - available on all plans.",
+            "card_description": "Connect external tools, automate workflows, and extend functionality using APIs and webhooks - available on all plans",
             "card_button": "",
             "modal_icon": "🤖",
             "modal_title": "Recurpay Bots",
