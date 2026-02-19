@@ -1932,35 +1932,9 @@
         if (isLastStep) {
           // On completion page, change text to "Finish tour" and don't disable
           nextButton.classList.add('disabled');
-          // const svgElement = nextButton.querySelector('svg');
-          // Remove all text nodes
-          // Array.from(nextButton.childNodes).forEach(node => {
-          //   if (node.nodeType === Node.TEXT_NODE) {
-          //     node.remove();
-          //   }
-          // });
-          // Insert "Finish tour" text before SVG (or as only content if no SVG)
-          // if (svgElement) {
-          //   nextButton.insertBefore(document.createTextNode('Finish tour'), svgElement);
-          // } else {
-          //   nextButton.textContent = 'Finish tour';
-          // }
         } else {
           // Restore original "Next" text when not on completion
           nextButton.classList.remove('disabled');
-          // const svgElement = nextButton.querySelector('svg');
-          // Remove all text nodes
-          // Array.from(nextButton.childNodes).forEach(node => {
-          //   if (node.nodeType === Node.TEXT_NODE) {
-          //     node.remove();
-          //   }
-          // });
-          // Insert original text before SVG (or as only content if no SVG)
-          // if (svgElement) {
-          //   nextButton.insertBefore(document.createTextNode(originalNextButtonText), svgElement);
-          // } else {
-          //   nextButton.textContent = originalNextButtonText;
-          // }
         }
       }
   
