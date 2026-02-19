@@ -1615,3 +1615,6 @@ a.product__text {
   padding: 8px 24px;
   border: 1px solid #00000014;
 }
+.product__column-sticky {
+  z-index: 0;
+}
