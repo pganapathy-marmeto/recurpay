@@ -38,9 +38,9 @@
         "brand_text": "",
         "main_menu": "header-new-menu",
         "button_primary_text": "Install Now",
-        "button_primary_link": "",
+        "button_primary_link": "http://apps.shopify.com/recurpay-subscriptions?utm_source=DemostoreNav",
         "button_secondary_text": "Book a Demo",
-        "button_secondary_link": ""
+        "button_secondary_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav&utm_source=DemostoreNav"
       }
     }
   },
