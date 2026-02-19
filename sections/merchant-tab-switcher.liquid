@@ -1717,10 +1717,84 @@
     const tabOrder = {{ merchant_tabs | json }};
     let currentTabIndex = 0;
     let isOnCompletion = false;
+    let lastWidgetVariantId = null;
+
+    function parseVariantId(rawValue) {
+      if (rawValue === null || rawValue === undefined || rawValue === '') return null;
+      const numericValue = Number(rawValue);
+      if (!Number.isFinite(numericValue) || numericValue <= 0) return null;
+      return numericValue;
+    }
+
+    function extractVariantIdFromContainer(container) {
+      if (!container || !container.querySelectorAll) return null;
+
+      const checkedInput = container.querySelector('form[action*="/cart/add"] input[name="id"]:checked, input[name="id"]:checked');
+      const checkedId = parseVariantId(checkedInput && checkedInput.value);
+      if (checkedId) return checkedId;
+
+      const formCandidates = container.querySelectorAll('form[action*="/cart/add"]');
+      for (const form of formCandidates) {
+        try {
+          const formData = new FormData(form);
+          const variantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
+          if (variantId) return variantId;
+        } catch (error) {
+          // Ignore malformed forms and continue searching.
+        }
+      }
+
+      const selectInput = container.querySelector('form[action*="/cart/add"] select[name="id"], select[name="id"]');
+      if (selectInput) {
+        const selectedValue = selectInput.options && selectInput.selectedIndex >= 0
+          ? selectInput.options[selectInput.selectedIndex].value
+          : selectInput.value;
+        const selectedId = parseVariantId(selectedValue);
+        if (selectedId) return selectedId;
+      }
+
+      const hiddenInput = container.querySelector('form[action*="/cart/add"] input[name="id"], input[name="id"]');
+      const hiddenId = parseVariantId(hiddenInput && hiddenInput.value);
+      if (hiddenId) return hiddenId;
+
+      return null;
+    }
+
+    async function resolveWidgetVariantId() {
+      const inViewVariantId = extractVariantIdFromContainer(mainContentContainer);
+      if (inViewVariantId) {
+        lastWidgetVariantId = inViewVariantId;
+        return inViewVariantId;
+      }
+
+      if (lastWidgetVariantId) return lastWidgetVariantId;
+
+      const widgetUrl = tabConfig.widget && tabConfig.widget.contentUrl;
+      if (!widgetUrl || widgetUrl.trim() === '') return null;
+
+      try {
+        const widgetResponse = await fetch(widgetUrl);
+        if (!widgetResponse.ok) return null;
+
+        const widgetHtml = await widgetResponse.text();
+        const parser = new DOMParser();
+        const parsedWidgetPage = parser.parseFromString(widgetHtml, 'text/html');
+        const fetchedVariantId = extractVariantIdFromContainer(parsedWidgetPage);
+
+        if (fetchedVariantId) {
+          lastWidgetVariantId = fetchedVariantId;
+          return fetchedVariantId;
+        }
+      } catch (error) {
+        console.log('Error resolving widget variant:', error);
+      }
+
+      return null;
+    }
     
     // Portal authentication data
-      {% assign customer_id = 5959212957931 %}
-      {% assign secret_key = "mGm3J210eDPvaUPL0TSpNWXk5z4YkQTe" %}
+      {% assign customer_id = 9631239798947 %}
+      {% assign secret_key = "wGglbCrckE10Qx8ImfHCkqRdPCY5Ztdf" %}
       {% assign customer_hash = customer_id |  hmac_sha256: secret_key %}
       const portalAuthData = {
         customerId: {{ customer_id | json }},
@@ -1793,11 +1867,26 @@
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
     }
   
-    // add query params to url to easily switch and resume the journey
-    function addURLParams(tabIndex) {
+    // Keep active tab synced with the URL so refresh/back/forward restores the same step
+    function setURLStep(tabIndex, method = 'push') {
       const url = new URL(window.location.href);
-      console.log("URL",  url)
-      window.history.pushState({}, '', "?step=" + (tabIndex+1));
+      const step = tabIndex + 1;
+      url.searchParams.set('step', step);
+      const state = { merchantTabStep: step };
+      if (method === 'replace') {
+        window.history.replaceState(state, '', url.toString());
+      } else {
+        window.history.pushState(state, '', url.toString());
+      }
+    }
+
+    function getStepIndexFromURL() {
+      const url = new URL(window.location.href);
+      const stepValue = Number.parseInt(url.searchParams.get('step'), 10);
+      if (Number.isNaN(stepValue)) return null;
+      const tabIndex = stepValue - 1;
+      if (tabIndex < 0 || tabIndex >= tabOrder.length) return null;
+      return tabIndex;
     }
   
     // Function to update footer step indicator
@@ -1927,28 +2016,13 @@
         if (cartData.items && cartData.items.length > 0) {
           return;
         }
-        
-        // Cart is empty, fetch first product
-        const productsResponse = await fetch("https://recurpay-subscriptions.myshopify.com/products.json?limit=1");
-        if (!productsResponse.ok) {
-          console.error('Failed to fetch products');
+
+        // Cart is empty, resolve product variant currently shown in widget tab
+        const widgetVariantId = await resolveWidgetVariantId();
+        if (!widgetVariantId) {
+          console.log('No widget variant available to add to cart');
           return;
         }
-        const productsData = await productsResponse.json();
-        
-        if (!productsData.products || productsData.products.length === 0) {
-          console.log('No products available');
-          return;
-        }
-        
-        const firstProduct = productsData.products[0];
-        if (!firstProduct.variants || firstProduct.variants.length === 0) {
-          console.log('Product has no variants');
-          return;
-        }
-        
-        // Get first variant
-        const firstVariant = firstProduct.variants[0];
         
         // Add to cart using add.js API
         const addResponse = await fetch(`{{ routes.cart_add_url }}.js`, {
@@ -1957,7 +2031,7 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: firstVariant.id,
+            id: widgetVariantId,
             quantity: 1
           })
         });
@@ -2004,6 +2078,10 @@
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
+          const clickedVariantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
+          if (clickedVariantId) {
+            lastWidgetVariantId = clickedVariantId;
+          }
   
           fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
@@ -2086,7 +2164,7 @@
         }
         
         // Hardcoded Recurpay API configuration
-        const recurpaySubdomain = 'recurpay-subscriptions'; // Update with your Recurpay subdomain
+        const recurpaySubdomain = 'demorecurpay'; // Update with your Recurpay subdomain
         const apiVersion = '2024-07';
         const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
         
@@ -2324,7 +2402,10 @@
     }
   
     // Function to switch to a specific tab
-    function switchToTab(tabIndex) {
+    function switchToTab(tabIndex, options = {}) {
+      const { updateHistory = true, historyMethod = 'push' } = options;
+      // debugger;
+      showDriverLoader();
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
       currentTabIndex = tabIndex;
       isOnCompletion = false;
@@ -2334,12 +2415,14 @@
       console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
       
-      addURLParams(tabIndex);
+      if (updateHistory) {
+        setURLStep(tabIndex, historyMethod);
+      }
   
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
-          btn.closet
+          // btn.closet
           btn.closest('.stage__container').classList.add('active_tab');
         } else {
           btn.closest('.stage__container').classList.remove('active_tab');
@@ -2355,12 +2438,12 @@
       // Show loader in sidebar
       showSidebarLoader();
       
-      // Use setTimeout to show loader briefly before updating content
-      setTimeout(() => {
+      // // Use setTimeout to show loader briefly before updating content
+      // setTimeout(() => {
         
-        // Hide loader and show updated content
-        hideSidebarLoader();
-      }, 2000);
+      //   // Hide loader and show updated content
+      //   hideSidebarLoader();
+      // }, 2000);
   
       // Update footer indicators
       updateStepIndicator(tabIndex, false);
@@ -2374,30 +2457,42 @@
       updateDemoGuide(tabType, tabIndex);
       
       // Restore original finish button text when not on completion page
-      if (demoGuideFinishButton && originalFinishButtonText) {
-        const svgElement = demoGuideFinishButton.querySelector('svg');
-        // Remove all text nodes
-        Array.from(demoGuideFinishButton.childNodes).forEach(node => {
-          if (node.nodeType === Node.TEXT_NODE) {
-            node.remove();
-          }
-        });
-        // Insert original text before SVG (or as only content if no SVG)
-        if (svgElement) {
-          demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
-        } else {
-          demoGuideFinishButton.textContent = originalFinishButtonText;
-        }
-      }
+      // if (demoGuideFinishButton && originalFinishButtonText) {
+      //   const svgElement = demoGuideFinishButton.querySelector('svg');
+      //   // Remove all text nodes
+      //   Array.from(demoGuideFinishButton.childNodes).forEach(node => {
+      //     if (node.nodeType === Node.TEXT_NODE) {
+      //       node.remove();
+      //     }
+      //   });
+      //   // Insert original text before SVG (or as only content if no SVG)
+      //   if (svgElement) {
+      //     demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
+      //   } else {
+      //     demoGuideFinishButton.textContent = originalFinishButtonText;
+      //   }
+      // }
   
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
         ensureCartHasItems().then(() => {
           loadTabContent(tabType);
+          // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
+        
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
         });
       } else {
         // Load content
         loadTabContent(tabType);
+        // Use setTimeout to show loader briefly before updating content
+      setTimeout(() => {
+        
+        // Hide loader and show updated content
+        hideSidebarLoader();
+      }, 2000);
       }
     }
   
@@ -2602,7 +2697,7 @@
   
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
-      debugger;
+      // debugger;
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
   
@@ -2827,29 +2922,67 @@
     }
   
     // Initialize: set up the first tab
-    const activeButton = document.querySelector('.button_tab.active_tab');
-    if (activeButton) {
-      const activeTabType = activeButton.getAttribute('data-tab-type');
-      const initialTabIndex = tabOrder.indexOf(activeTabType);
-      if (initialTabIndex !== -1) {
-        switchToTab(initialTabIndex);
-      }
+    const stepFromURL = getStepIndexFromURL();
+    if (stepFromURL !== null) {
+      switchToTab(stepFromURL, { updateHistory: true, historyMethod: 'replace' });
     } else {
-      // Default to first tab if none is active
-      switchToTab(0);
+      const activeButton = document.querySelector('.button_tab.active_tab');
+      if (activeButton) {
+        const activeTabType = activeButton.getAttribute('data-tab-type');
+        const initialTabIndex = tabOrder.indexOf(activeTabType);
+        if (initialTabIndex !== -1) {
+          switchToTab(initialTabIndex, { updateHistory: true, historyMethod: 'replace' });
+        }
+      } else {
+        // Default to first tab if none is active
+        switchToTab(0, { updateHistory: true, historyMethod: 'replace' });
+      }
     }
     
     // Loader functions for Driver.js tour
     function showDriverLoader() {
+      mainContentContainer.innerHTML = ''
+      // debugger;
       if (document.getElementById('driver-tour-loader')) return;
       const loader = document.createElement('div');
       loader.id = 'driver-tour-loader';
+      // <div style="position:relative;width:100%;height:100%;min-height:500px;">
+      //     ${loaderHTML}
+      //   </div>
       loader.innerHTML = `
-        <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 99999; background: rgba(255, 255, 255, 0.95); padding: 20px 30px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); display: flex; align-items: center; gap: 12px;">
-          <div style="width: 24px; height: 24px; border: 3px solid #f3f4f6; border-top-color: rgb(5, 150, 105); border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
-          <span style="font-size: 14px; font-weight: 500; color: rgb(17, 24, 39);">Preparing guided tour...</span>
-        </div>`;
-      document.body.appendChild(loader);
+      <div style="position:relative;width:100%;height:100%;min-height:500px;display:flex;justify-content:center;align-items:center;>
+        <div id="recurpay-loader">
+        
+        <div class="rp-loader-wrapper">
+        
+          <div class="rp-ring big"></div>
+          <div class="rp-ring medium"></div>
+          <div class="rp-ring small"></div>
+        
+          <div class="rp-orbit"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
+          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
+        
+          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
+          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
+        
+          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
+          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
+        
+          <div class="rp-center">
+            <div class="rp-logo-wrap">
+              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+            </div>
+          </div>
+        
+        </div>
+        
+        </div>
+      </div>
+        `;
+      mainContentContainer.appendChild(loader);
     }
   
     function hideDriverLoader() {
@@ -2936,13 +3069,13 @@
       window.Intercom('show');
       // window.Intercom('showNewMessage', 'Pre-filled message')
     })
-    window.addEventListener('popstate', (event) => {
-      console.log('User navigated with back/forward');
-      console.log(window.location.search);
-      if(!window.location.search) return;
-      const tabIndex = window.location.search.split("=")[1];
-      initMerchantTabSwitcher.switchToTab(tabIndex-1);
-    });
+    // window.addEventListener('popstate', (event) => {
+    //   console.log('User navigated with back/forward');
+    //   console.log(window.location.search);
+    //   if(!window.location.search) return;
+    //   const tabIndex = window.location.search.split("=")[1];
+    //   initMerchantTabSwitcher.switchToTab(tabIndex-1);
+    // });
   
   
     refreshDriver();
