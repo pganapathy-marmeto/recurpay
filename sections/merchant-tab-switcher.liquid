@@ -2674,7 +2674,9 @@
         debugger;
         console.log(tabType);
         if (nextButton.classList.contains('disabled')) return;
-        isOnCompletion = true;
+        if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
+          isOnCompletion = true;
+        }
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
