@@ -2252,9 +2252,12 @@
             });
           }
           
-          // Clear loading message and render
-          mainContentContainer.innerHTML = '';
-          mainContentContainer.appendChild(contentContainer);
+          // Clear loading message after delay and render
+          
+          setTimeout(() => {
+            mainContentContainer.innerHTML = '';
+            mainContentContainer.appendChild(contentContainer);
+          }, 2000);
   
           // Execute scripts after content is appended;
           executeScripts(mainContentContainer);
