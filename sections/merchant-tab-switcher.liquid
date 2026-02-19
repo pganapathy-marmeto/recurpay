@@ -2705,7 +2705,7 @@
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay-pdp-widget';
+            return '.recurpay__widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
@@ -2757,8 +2757,8 @@
           driverObj.highlight({
             element: targetEl,
             popover: {
-              title: '',
-              description: '',
+              title: 'Welcome to Recurpay! 👋',
+              description: 'Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.',
               showButtons: false,
               side: 'right',
               align: 'start'
