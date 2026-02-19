@@ -2094,91 +2094,111 @@
       
       // For portal tab, fetch redirection URL from Recurpay API and embed in iframe
       if (tabType === 'portal') {
-        const loaderHTML = `
-        <div id="recurpay-loader">
-        
-        <div class="rp-loader-wrapper">
-        
-          <div class="rp-ring big"></div>
-          <div class="rp-ring medium"></div>
-          <div class="rp-ring small"></div>
-        
-          <div class="rp-orbit"><div class="rp-dot big"></div></div>
-          <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
-          <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
-        
-          <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
-          <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
-        
-          <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
-          <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
-        
-          <div class="rp-center">
-            <div class="rp-logo-wrap">
-              <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+
+          const loaderHTML = `
+          <div id="recurpay-loader">
+            <div class="rp-loader-wrapper">
+
+              <div class="rp-ring big"></div>
+              <div class="rp-ring medium"></div>
+              <div class="rp-ring small"></div>
+
+              <div class="rp-orbit"><div class="rp-dot big"></div></div>
+              <div class="rp-orbit" style="animation-delay:4s"><div class="rp-dot big"></div></div>
+              <div class="rp-orbit" style="animation-delay:8s"><div class="rp-dot big"></div></div>
+
+              <div class="rp-orbit medium"><div class="rp-dot medium"></div></div>
+              <div class="rp-orbit medium" style="animation-delay:4s"><div class="rp-dot medium"></div></div>
+
+              <div class="rp-orbit fast"><div class="rp-dot small"></div></div>
+              <div class="rp-orbit fast" style="animation-delay:1s"><div class="rp-dot small"></div></div>
+              <div class="rp-orbit fast" style="animation-delay:2s"><div class="rp-dot small"></div></div>
+              <div class="rp-orbit fast" style="animation-delay:3s"><div class="rp-dot small"></div></div>
+
+              <div class="rp-center">
+                <div class="rp-logo-wrap">
+                  <img src="https://cdn.shopify.com/s/files/1/0650/1233/4816/files/recurpay-logo_1.png?v=1771332366"/>
+                </div>
+              </div>
+
             </div>
           </div>
-        
-        </div>
-        
-        </div>
-        `;
-        mainContentContainer.innerHTML = `
-        <div style="position:relative;width:100%;height:100%;min-height:500px;">
-          ${loaderHTML}
-        </div>
-        `;
-        // mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Loading portal...</div>';
-        
-        if (portalAuthData === null) {
-          mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Please log in to access the portal.</div>';
-          return;
-        }
-        
-        // Hardcoded Recurpay API configuration
-        const recurpaySubdomain = 'demorecurpay'; // Update with your Recurpay subdomain
-        const apiVersion = '2024-07';
-        const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
-        
-        fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            customer_hash: portalAuthData.customerHash
+          `;
+
+          if (portalAuthData === null) {
+              mainContentContainer.innerHTML =
+                  '<div style="padding:40px;text-align:center;color:rgb(107,114,128);">Please log in to access the portal.</div>';
+              return;
+          }
+
+          // Render loader + iframe container together
+          mainContentContainer.innerHTML = `
+            <div style="position:relative;width:100%;height:100%;min-height:500px;">
+                ${loaderHTML}
+                <iframe id="recurpay-portal-iframe"
+                    style="border:0;width:100%;height:100%;position:relative;z-index:101;opacity:0;transition:opacity .3s ease;">
+                </iframe>
+            </div>
+          `;
+
+          const iframe = document.getElementById('recurpay-portal-iframe');
+          const loader = document.getElementById('recurpay-loader');
+
+          // Hardcoded Recurpay API configuration
+          const recurpaySubdomain = 'demorecurpay';
+          const apiVersion = '2024-07';
+          const apiUrl = `https://${recurpaySubdomain}.recurpay.com/admin/api/${apiVersion}/subscribers/${portalAuthData.subscriberId}/login`;
+
+          fetch(apiUrl, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                  customer_hash: portalAuthData.customerHash
+              })
           })
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.data.redirection_url) {
-            const portalHTML = `
-              <div style="position: relative; width: 100%; height: 100%; min-height: 500px;">
-                <iframe
-                  src="${data.data.redirection_url}"
-                  style="border: 0; width: 100%; height: 100%;position: relative; z-index: 101;"
-                ></iframe>
-              </div>
-            `;
-            mainContentContainer.innerHTML = '';
-            mainContentContainer.innerHTML = portalHTML;
-          } else {
-            throw new Error('No redirection URL in response');
-          }
-        })
-        .catch((error) => {
-          console.log("Error loading portal:", error);
-          mainContentContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: rgb(107, 114, 128);">Unable to load portal. Please try again later.</div>';
-        });
-        
-        return;
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+
+              if (!data || !data.data.redirection_url) {
+                  throw new Error('No redirection URL in response');
+              }
+
+              // ⭐ VERY IMPORTANT - attach load listener BEFORE setting src
+              iframe.addEventListener('load', function () {
+
+                  console.log("iframe fully loaded");
+
+                  if (loader) {
+                      loader.style.transition = "opacity .3s ease";
+                      loader.style.opacity = "0";
+
+                      setTimeout(() => {
+                          loader.remove();
+                      }, 300);
+                  }
+
+                  iframe.style.opacity = "1";
+
+              });
+
+              // start loading iframe
+              iframe.src = data.data.redirection_url;
+
+          })
+          .catch((error) => {
+              console.log("Error loading portal:", error);
+              mainContentContainer.innerHTML =
+                  '<div style="padding:40px;text-align:center;color:rgb(107,114,128);">Unable to load portal. Please try again later.</div>';
+          });
+
+          return;
       }
 
       if (tabType === 'completion') {
