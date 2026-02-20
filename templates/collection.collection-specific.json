@@ -58,7 +58,7 @@
         "collection": "{{ collection }}",
         "products_to_show": 4,
         "title": "{{ section.settings.collection.title }}",
-        "subtitle": "",
+        "subtitle": "Discover products you love, whether you prefer a one-time purchase or a convenient subscription.",
         "heading_size": 32,
         "heading_size_mobile": 24,
         "heading_weight": "600",
