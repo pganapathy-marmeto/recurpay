@@ -28,12 +28,12 @@
         "primary_button_link": "http://apps.shopify.com/recurpay-subscriptions?utm_source=DemostoreMerchantCompletion",
         "secondary_button_text": "<p>Need help in setting this up on you store? <a href=\"https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav\" title=\"https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav\">Talk to an expert</a> </p>",
         "retour_link": "shopify://pages/merchant-widget",
-        "retour_text": "Retour",
+        "retour_text": "Restart tour",
         "live_chat_icon": "",
         "live_chat_text": "Live chat",
         "demo_html": "",
         "demo": "Talk to an Expert",
-        "redirect_text": "Exit Demo",
+        "redirect_text": "Exit demo",
         "redirect_link": "/"
       }
     },
