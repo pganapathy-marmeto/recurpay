@@ -164,19 +164,19 @@
             const target = entry.target;
             const targetValue = target.getAttribute('data-target');
 
-            const numericMatch = targetValue.match(/(\d+)/);
-            const suffix = targetValue.replace(/\d+/, '');
-            if(numericMatch){
-              const numericValue = parseInt(numericMatch[1]);
+            const valueParts = targetValue.match(/^([^0-9]*)(\d+)(.*)$/);
+            if(valueParts){
+              const prefix = valueParts[1] || '';
+              const numericValue = parseInt(valueParts[2], 10);
+              const suffix = valueParts[3] || '';
               target.style.setProperty('--target', numericValue);
               target.style.setProperty('counter-reset', `number var(--number)`);
 
-              if(suffix) {
-                target.style.setProperty('--suffix', `"${suffix}"`);
+              if(prefix || suffix) {
                 const style = document.createElement('style');
                 style.textContent =`
                   .stat-val[data-target="${targetValue}"]::after {
-                    content: counter(number) "${suffix}";
+                    content: "${prefix}" counter(number) "${suffix}";
                   }
                 `;
                 document.head.appendChild(style); 
