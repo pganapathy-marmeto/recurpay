@@ -350,6 +350,7 @@
   </script>
 </head>
 
+
 <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
   <a class="skip-to-content-link button visually-hidden" href="#MainContent">
     {{ 'accessibility.skip_to_text' | t }}
@@ -359,7 +360,6 @@
     {%- render 'cart-drawer' -%}
   {%- endif -%}
 
-  {%- render 'mobile-card' -%}
   {% sections 'header-group' %}
 
   <main
@@ -455,4 +455,23 @@
       console.log("refresh")
     };
   </script>
-</body></html>
+</body>
+{%- render 'mobile-card' -%}
+<script>
+function checkScreen() {
+
+  const warning = document.querySelector('.mobile-warning');
+
+  if (window.innerWidth < 1024) {
+    document.body.style.display = 'none';
+    warning.style.display = 'flex';
+  } else {
+    document.body.style.display = '';
+    warning.style.display = 'none';
+  }
+
+}
+checkScreen();
+window.addEventListener('resize', checkScreen);
+</script>
+</html>
