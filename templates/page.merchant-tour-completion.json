@@ -25,7 +25,7 @@
         "heading": "<p>Now imagine this running on your store</p>",
         "description": "Everything you just experienced can be live on your store - fully branded, fully customizable, and built for subscription growth.",
         "primary_button_text": "Install Recurpay for Free",
-        "primary_button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=merchant",
+        "primary_button_link": "http://apps.shopify.com/recurpay-subscriptions/?utm_source=demostore&utm_medium=merchantTourFinalPageCTA",
         "secondary_button_text": "Talk to an expert",
         "secondary_button_link": "https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav",
         "teritary_button_text": "Live chat",
@@ -35,7 +35,7 @@
         "live_chat_text": "Live chat",
         "demo_html": "",
         "demo": "Talk to an Expert",
-        "redirect_text": "Exit Demo",
+        "redirect_text": "Exit demo",
         "redirect_link": "/"
       }
     },
