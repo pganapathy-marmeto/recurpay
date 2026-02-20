@@ -1,0 +1,88 @@
+{% style %}
+.section.step-note-section {
+    padding-inline: 40px;
+}
+    .next-step-note {
+    margin-block: 20px;
+    border-radius:6px;
+    background: #FFFBEB;
+    border: 1px solid #00000014;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.next-step-note-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0F172A;
+    flex-shrink: 0;
+}
+.next-step-note-text {
+    font-size: 13px;
+    color: #6B7280;
+}
+.next-step-header {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6B7280;
+    margin-bottom: 4px;
+}
+.next-step-description {
+    font-size: 13px;
+    color: #0F172A;
+    font-weight: 500;
+}
+
+{% endstyle %}
+
+
+<div class="next-step-note" style="cursor: default;">
+    <div class="next-step-note-icon">
+        {{ section.settings.step_icon }}
+    </div>
+    <div class="next-step-note-text" style="cursor: text;">
+    <div class="next-step-header" >{{ section.settings.step_title }}</div>
+    <div class="next-step-description">
+        {{ section.settings.step_note }}
+    </div>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+      "name": "Step Note",
+      "class": "section step-note-section",
+      "settings": [
+        {
+          "type": "html",
+          "id": "step_icon",
+          "label": "Step icon"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step header"
+        },
+        {
+          "type": "text",
+          "id": "step_note",
+          "label": "Step description",
+          "default": "Add your note here."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Step Note"
+        }
+      ]
+    }
+    {% endschema %}
