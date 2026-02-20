@@ -115,7 +115,7 @@
             "content_pointer_two": "Discount badges",
             "content_pointer_three": "One-click subscribe",
             "content_pointer_four": "Mobile optimized",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+product+page+widget",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+product+page+widget",
             "button_text": "Get started",
             "event_name": "Product Page WIdgets Tab Clicked",
             "event_name_cta": "Product Page WIdgets Button Clicked"
@@ -134,7 +134,7 @@
             "content_pointer_two": "",
             "content_pointer_three": "Custom offers",
             "content_pointer_four": "Analytics tracking",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+cart+upsell",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+cart+upsell",
             "button_text": "Get started",
             "event_name": "Cart Upsell Tab Clicked",
             "event_name_cta": "Cart Upsell Button Clicked"
@@ -153,7 +153,7 @@
             "content_pointer_two": "Min/max items",
             "content_pointer_three": "Product bundles",
             "content_pointer_four": "Preview checkout",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+bulid+your+own+box",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+bulid+your+own+box",
             "button_text": "Get started",
             "event_name": "Build Your Own Box Tab Clicked",
             "event_name_cta": "Build Your Own Box Button Clicked"
@@ -172,7 +172,7 @@
             "content_pointer_two": "Instant generation",
             "content_pointer_three": "Real-time preview",
             "content_pointer_four": "One-click deploy",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+ai+widget",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+ai+widget",
             "button_text": "Get started",
             "event_name": "AI Widget Builder Tab Clicked",
             "event_name_cta": "AI Widget Builder Button Clicked"
@@ -191,7 +191,7 @@
             "content_pointer_two": "Store settings",
             "content_pointer_three": "Analytics & AI insights",
             "content_pointer_four": "Integration hub",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+merchant+dashboard",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+merchant+dashboard",
             "button_text": "Get started",
             "event_name": "Merchant Dashboard Tab Clicked",
             "event_name_cta": "Merchant Dashboard Button Clicked"
@@ -210,7 +210,7 @@
             "content_pointer_two": "Trend charts",
             "content_pointer_three": "Cohort analysis",
             "content_pointer_four": "Export reports",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+analytics+demo",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+analytics+demo",
             "button_text": "Get started",
             "event_name": "Analytics Demo Tab Clicked",
             "event_name_cta": "Analytics Demo Button Clicked"
@@ -229,7 +229,7 @@
             "content_pointer_two": "Scheduled delivery",
             "content_pointer_three": "Custom messages",
             "content_pointer_four": "Recipient management",
-            "button_link": "https://recurpay-subscriptions.myshopify.com/?utm_source=store&utm_medium=homepage+gift+subscription",
+            "button_link": "https://apps.shopify.com/recurpay-subscriptions?utm_source=store&utm_medium=homepage+gift+subscription",
             "button_text": "Get started",
             "event_name": "Gift Subscriptions Tab Clicked",
             "event_name_cta": "Gift Subscriptions Button Clicked"
