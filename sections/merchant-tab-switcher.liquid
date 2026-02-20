@@ -103,6 +103,9 @@
   .main_content__container #main-cart-footer {
     display: none;
   }
+  .main_content__container cart-items {
+    padding-top: 24px;
+  }
 
 
   /*
@@ -1196,7 +1199,7 @@
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <a href="{{ request.path }}" class="reTour">
+      {% comment %} <a href="{{ request.path }}" class="reTour">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -1209,7 +1212,7 @@
           stroke-linejoin="round"
           class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
         {{ section.settings.reTour }}
-      </a>
+      </a> {% endcomment %}
       <button class="live_chat">
         {% if section.settings.live_chat_icon != blank %}
           {{ section.settings.live_chat_icon }}
@@ -1520,7 +1523,7 @@
                 <!-- Body -->
                 <div class="demo-guide-body">
                   <h3 class="demo-guide-title">
-                    <svg
+                    {% comment %} <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
@@ -1530,7 +1533,7 @@
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
+                      class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> {% endcomment %}
                     <span data-demo-guide-title>{{ section.settings.title_widget_guide }}</span>
                   </h3>
 
@@ -3177,11 +3180,6 @@
         "id": "live_chat_text",
         "label": "Live chat text",
         "default": "Live chat"
-      }, {
-        "type": "text",
-        "id": "reTour",
-        "label": "ReTour text",
-        "default": "ReTour"
       }, {
         "type": "text",
         "id": "demo",
