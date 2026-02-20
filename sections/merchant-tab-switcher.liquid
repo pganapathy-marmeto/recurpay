@@ -2661,7 +2661,7 @@
           total_tabs: tabOrder.length
         });
   
-        debugger
+        // debugger
         if (currentTabIndex <= tabOrder.length - 1) {
           const activeTabType = tabOrder[currentTabIndex];
           if (activeTabType === 'portal') {
@@ -2757,7 +2757,7 @@
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
-            return '.main_content__container';
+            return '#recurpay-portal-iframe';
           case 'support_resources':
             return '.partner-support-section';
           case 'completion':
@@ -2808,7 +2808,7 @@
               title: 'Welcome to Recurpay! 👋',
               description: 'Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.',
               showButtons: false,
-              side: 'right',
+              side: 'left',
               align: 'start'
             },
           });
@@ -3051,7 +3051,7 @@
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
-            return '.main_content__container';
+            return '#recurpay-portal-iframe';
           case 'support_resources':
             return '.partner-support-section';
           case 'completion':
