@@ -2435,7 +2435,7 @@
     // Function to switch to a specific tab
     function switchToTab(tabIndex, options = {}) {
       const { updateHistory = true, historyMethod = 'push' } = options;
-      showDriverLoader();
+      // showDriverLoader();
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
       currentTabIndex = tabIndex;
       isOnCompletion = false;
@@ -2488,23 +2488,6 @@
   
       // Update demo guide content + dots
       updateDemoGuide(tabType, tabIndex);
-      
-      // Restore original finish button text when not on completion page
-      // if (demoGuideFinishButton && originalFinishButtonText) {
-      //   const svgElement = demoGuideFinishButton.querySelector('svg');
-      //   // Remove all text nodes
-      //   Array.from(demoGuideFinishButton.childNodes).forEach(node => {
-      //     if (node.nodeType === Node.TEXT_NODE) {
-      //       node.remove();
-      //     }
-      //   });
-      //   // Insert original text before SVG (or as only content if no SVG)
-      //   if (svgElement) {
-      //     demoGuideFinishButton.insertBefore(document.createTextNode(originalFinishButtonText), svgElement);
-      //   } else {
-      //     demoGuideFinishButton.textContent = originalFinishButtonText;
-      //   }
-      // }
   
       // For cart_upsell tab, ensure cart has items before loading content
       if (tabType === 'cart_upsell') {
@@ -2652,7 +2635,6 @@
             total_tabs: tabOrder.length,
             action: 'finish_tour'
           });
-          window.location.href = '/pages/merchant-tour-completion';
           return;
         }
   
@@ -2669,7 +2651,10 @@
             return;
           }
           switchToTab(currentTabIndex + 1);
-          startDriverTourWhenReady()
+          
+          setTimeout(() => {
+            startDriverTourWhenReady()
+          }, 1500);
         } else {
           // From last tab, move to completion tour page
           window.location.href = '/pages/merchant-tour-completion';
