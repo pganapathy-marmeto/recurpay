@@ -2104,6 +2104,7 @@
     // Auto-switch from widget tab to cart_upsell tab when primary CTAs are clicked
     let widgetCtaListenerAttached = false;
     function goToCartUpsellFromWidget() {
+      driverObj.destroy();
       const currentTabType = tabOrder[currentTabIndex];
       if (currentTabType !== 'widget') return;
       const cartIndex = tabOrder.indexOf('cart_upsell');
@@ -2450,7 +2451,6 @@
     // Function to switch to a specific tab
     function switchToTab(tabIndex, options = {}) {
       const { updateHistory = true, historyMethod = 'push' } = options;
-      // showDriverLoader();
       if (tabIndex < 0 || tabIndex >= tabOrder.length) return;
       currentTabIndex = tabIndex;
       isOnCompletion = false;
@@ -2459,6 +2459,9 @@
       }
       console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
+      if( tabType !== 'portal') {
+        showDriverLoader();
+      }
       
       if (updateHistory) {
         setURLStep(tabIndex, historyMethod);
@@ -2511,6 +2514,7 @@
         ensureCartHasItems().then(() => {
           setTimeout(() => {
             loadTabContent(tabType);
+            startDriverTourWhenReady();            
           }, 2000);
   
           // Use setTimeout to show loader briefly before updating content
@@ -2660,7 +2664,7 @@
             return;
           }
           switchToTab(currentTabIndex + 1);
-            startDriverTourWhenReady()
+          startDriverTourWhenReady()
         } else {
           // From last tab, move to completion tour page
           window.location.href = '/pages/merchant-tour-completion';
