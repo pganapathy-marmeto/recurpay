@@ -2651,10 +2651,7 @@
             return;
           }
           switchToTab(currentTabIndex + 1);
-          
-          setTimeout(() => {
             startDriverTourWhenReady()
-          }, 1500);
         } else {
           // From last tab, move to completion tour page
           window.location.href = '/pages/merchant-tour-completion';
@@ -2785,7 +2782,6 @@
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
-            // debugger;
           // Start Driver.js highlight with empty popover so we can replace its content
           driverObj.highlight({
             element: targetEl,
@@ -3079,7 +3075,13 @@
           setGuideVisible(false);
           
           // Run Driver.js-based guide
-          runDriverShowGuide();
+          if (currentTabType == 'portal') {
+            setTimeout(() => {
+              runDriverShowGuide();
+            },1500);
+          } else {
+            runDriverShowGuide();
+          }
         } else if (attempts >= maxAttempts) {
           // Timeout reached, hide loader and give up
           clearInterval(checkInterval);
