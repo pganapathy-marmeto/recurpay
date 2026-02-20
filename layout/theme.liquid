@@ -459,16 +459,20 @@
   </script>
 </body>
 <script>
-function checkScreen() {
+  function checkScreen() {
 
-  const warning = document.querySelector('.mobile-warning');
+  const desktop = document.querySelector('.desktop-content');
+  const header = document.querySelector('.recurpay-header');
+  const mobile = document.querySelector('.mobile-warning');
 
   if (window.innerWidth < 1024) {
-    document.body.style.display = 'none';
-    warning.style.display = 'flex';
+    desktop.style.display = 'none';
+    header.style.display = 'none';
+    mobile.style.display = 'flex';
   } else {
-    document.body.style.display = '';
-    warning.style.display = 'none';
+    desktop.style.display = '';
+    header.style.display = '';
+    mobile.style.display = 'none';
   }
 
 }
