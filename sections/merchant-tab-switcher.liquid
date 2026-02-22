@@ -107,16 +107,6 @@
     padding-top: 24px;
   }
 
-
-  /*
-
-   .active_tab, 
-   .button_demo { 
-   background-color: rgb(5, 150, 105); 
-   color: white; 
-   } 
-*/
-
   @keyframes spin {
     to {
       transform: rotate(360deg);
@@ -148,36 +138,6 @@
   }
   .sidebar__container.collapsed {
     right: -320px;
-  }
-  .sidebar-restore-button {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 80px;
-    background-color: rgb(5, 150, 105);
-    border: none;
-    border-radius: 8px 0 0 8px;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 89;
-    box-shadow: rgba(0, 0, 0, 0.1) -2px 0 8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .sidebar-restore-button:hover {
-    background-color: rgb(4, 120, 87);
-    width: 44px;
-  }
-  .sidebar-restore-button svg {
-    color: white;
-    width: 20px;
-    height: 20px;
-  }
-  .header__container.sidebar-collapsed .sidebar-restore-button {
-    display: flex;
   }
   .sidebar__header {
     padding: 16px 14px;
@@ -446,9 +406,9 @@
     font-weight: 500;
     cursor: pointer;
   }
-  .show__guide__container {
+  /* .show__guide__container {
     position: relative;
-  }
+  } */
   .previous {
     display: flex;
     align-items: center;
@@ -681,6 +641,69 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    .container_of_next_preview {
+      justify-content: space-between;
+    }
+    .header__container .footer__container {
+      height: 100px;
+      padding: 8px;
+    }
+    .paginate_container_wrapper {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 4px;
+    }
+    .footer__container {
+      height: 100px;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer_paginate_wrapper {
+      justify-content: space-between;
+      width: 100%;
+      align-items: flex-start;
+    }
+    .footer_paginate_wrapper {
+      display: flex;
+    }
+    .next, .previous {
+      padding: 8px;
+      font-size: 12px;
+      gap: 4px;
+    }
+    .content__wrapper {
+      display: none;
+    }
+    .merchant_tab_switcher_wrapper {
+      flex-direction: column;
+      row-gap: 8px;
+      padding: 8px;
+    }
+    .tab__content__container {
+      flex-direction: column;
+      padding-left: 0;
+    }
+    .main_content {
+      order: 1;
+    }
+    .sidebar__container {
+      order: 2;
+      position: relative;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      width: 100%;
+      padding: 8px;
+    }
+    .footer__container {
+      right: 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
   /* show guide styling */
   .demo-guide-section {
     position: absolute;
@@ -843,12 +866,6 @@
   }
 
 
-  /*
-
-   .demo-guide-body { 
-   padding: 18px 20px; 
-   } 
-*/
 
   /* completion state (final tour page) */
   .header__container.completion-active .sidebar__container,
@@ -1143,17 +1160,8 @@
 {% endstyle %}
 
 {% assign merchant_tabs = "widget,cart_upsell,portal" | split: "," %}
-{% comment %} {% if section.settings.enable_support_resources %}
-          {% assign support_tab = "support_resources" | split: "," %}
-          {% assign merchant_tabs = merchant_tabs | concat: support_tab %}
-{% endif %} {% endcomment %}
 <div class="header__container">
   <div class="merchant_tab_switcher_wrapper">
-    {% comment %} <div class="image_with_logo__wrapper">
-                                                                  {{ section.settings.company_logo | image_url: height: 42 | image_tag }}
-                                                                  <h2 class="company_name">{{ section.settings.company_name }}</h2>
-                                                                  <span>{{ section.settings.tag_text }}</span>
-                                            </div> {% endcomment %}
     <a class=" redirect" href="{{ section.settings.redirect_link }}">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -1190,29 +1198,10 @@
             {% if forloop.last == false %}
               <div class="button_connector"></div>
             {% endif %}
-          {% when 'support_resources' %}
-            <div class="stage__container">
-              <div class="stage_number">{{ forloop.index }}</div>
-              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="support_resources">{{ section.settings.button_four }}</button>
-            </div>
         {% endcase %}
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      {% comment %} <a href="{{ request.path }}" class="reTour">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
-        {{ section.settings.reTour }}
-      </a> {% endcomment %}
       <button class="live_chat">
         {% if section.settings.live_chat_icon != blank %}
           {{ section.settings.live_chat_icon }}
@@ -1265,10 +1254,6 @@
             <h3 data-sidebar-title>{{ section.settings.subtext_title }}</h3>
             <p data-sidebar-description>{{ section.settings.subtext_description }}</p>
           </div>
-        {% comment %} <a
-                                                                        target="_blank"
-                                                                        href="{{ section.settings.doc_url }}"
-                                                            data-sidebar-doc-url>View docs</a> {% endcomment %}
         </div>
       </div>
       <div class="sidebar__content">
@@ -1316,49 +1301,8 @@
           {% endfor %}
         </div>
       </div>
-    {% comment %} <div class="sidebar__footer">
-                                            <a
-                                              href="https://apps.shopify.com/recurpay-subscriptions"
-                                              target="_blank"
-                                              class="button_trial">Start 30 day trial</a>
-                                            <p>Or
-                                              <a
-                                                href="https://recurpay.youcanbookme.com/?SOURCE=DemostoreNav"
-                                                target="_blank"
-                                                class="button_call">talk to an expert and book a quick call</a>
-                                            </p>
-                              </div> {% endcomment %}
     </div>
     <div class="main_content">
-      {% comment %} <section class="tagline-heading-section" id="tagline-heading-section">
-                                                        <div class="tagline-heading-wrapper" id="tagline-heading-wrapper">
-          
-                                                          <!-- These markup blocks will be updated dynamically based on the active tab via JS -->
-                                                          <div id="tagline-pill-container">
-                                                            {% if section.settings.tag_text_widget != blank %}
-                                                              <div class="tagline-pill" id="tagline-pill">
-                                                                {% if section.settings.tag_icon_widget != blank %}
-                                                                  <span class="tagline-icon" id="tagline-icon">{{ section.settings.tag_icon_widget }}</span>
-                                                                {% endif %}
-                                                                <span id="tagline-text">{{ section.settings.tag_text_widget }}</span>
-                                                              </div>
-                                                            {% endif %}
-                                                          </div>
-          
-                                                          {% if section.settings.heading_widget != blank %}
-                                                            <h2 class="main-heading">
-                                                              {{ section.settings.heading_widget }}
-                                                            </h2>
-                                                          {% endif %}
-          
-                                                          {% if section.settings.description_widget != blank %}
-                                                            <p class="main-description" id="main-description">
-                                                              {{ section.settings.description_widget }}
-                                                            </p>
-                                                          {% endif %}
-          
-                                                        </div>
-                                          </section> {% endcomment %}
       <script>
         (function() {
           // Map of per-tab content from section.settings
@@ -1380,12 +1324,6 @@
               tagIcon: {{ section.settings.tag_icon_portal | json }},
               heading: {{ section.settings.heading_portal | json }},
               description: {{ section.settings.description_portal | json }}
-            },
-            support_resources: {
-              tagText: {{ section.settings.tag_text_support_resources | json }},
-              tagIcon: {{ section.settings.tag_icon_support_resources | json }},
-              heading: {{ section.settings.heading_support_resources | json }},
-              description: {{ section.settings.description_support_resources | json }}
             }
           };
         
@@ -1455,16 +1393,18 @@
       <div class="main_content__container" data-dynamic-content="merchant-tab"></div>
       <div class="footer__container">
         <div class="footer_paginate_wrapper">
-          <div class="paginate_container">
-            {% for tab in merchant_tabs %}
-              <div class="paginate_dot{% if forloop.first %} active{% endif %}" data-tab-index="{{ forloop.index0 }}"></div>
-            {% endfor %}
+          <div class="paginate_container_wrapper">
+            <div class="paginate_container">
+              {% for tab in merchant_tabs %}
+                <div class="paginate_dot{% if forloop.first %} active{% endif %}" data-tab-index="{{ forloop.index0 }}"></div>
+              {% endfor %}
+            </div>
+            <span data-step-indicator>Step 1/{{ merchant_tabs.size }}:</span>
           </div>
-          <span data-step-indicator>Step 1/{{ merchant_tabs.size }}:</span>
           <span data-step-name>Widget</span>
         </div>
         <div class="container_of_next_preview">
-          <div class="show__guide__container">
+          {% comment %} <div class="show__guide__container">
             <button class="show_guide">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1484,24 +1424,6 @@
 
                 <!-- Header -->
                 <div class="demo-guide-header">
-                  {% comment %} <div class="demo-guide-profile">
-                                              {% if section.settings.avatar != blank %}
-                                              <div class="demo-avatar-container">
-                                              {{ section.settings.avatar }}
-                                              </div>
-                                              {% endif %}
-  
-                                              <div>
-                                              <div class="demo-guide-name">
-                                              {{ section.settings.name }}
-                                              </div>
-                                              <div class="demo-guide-subtitle">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles-icon lucide-sparkles"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
-                                              {{ section.settings.subtitle }}
-                                              </div>
-                                              </div>
-                                  </div> {% endcomment %}
-
                   <button
                     type="button"
                     class="demo-guide-close"
@@ -1523,17 +1445,6 @@
                 <!-- Body -->
                 <div class="demo-guide-body">
                   <h3 class="demo-guide-title">
-                    {% comment %} <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#329669"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg> {% endcomment %}
                     <span data-demo-guide-title>{{ section.settings.title_widget_guide }}</span>
                   </h3>
 
@@ -1542,33 +1453,9 @@
                   </p>
                 </div>
 
-              <!-- Footer -->
-              {% comment %} <div class="demo-guide-footer">
-                                              <div class="demo-guide-steps">
-                                              <span data-guide-steps-text>{{ section.settings.steps_text }}</span>
-                                              <div class="guide_pagination_dots">
-                                              {% for tab in merchant_tabs %}
-                                              <div class="dots"></div>
-                                              {% endfor %}
-                                              </div>
-                                              </div>
-  
-                                              <div class="demo-guide-actions">
-                                              <button type="button" class="demo-guide-back">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-                                              {{ section.settings.back_text }}
-                                              </button>
-  
-                                              <button type="button" class="demo-guide-finish">
-                                              {{ section.settings.finish_text }}
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                                              </button>
-                                              </div>
-                              </div> {% endcomment %}
-
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
           <button class="previous disabled">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1597,21 +1484,6 @@
         </div>
       </div>
     </div>
-    <button class="sidebar-restore-button" aria-label="Restore sidebar">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-chevron-left-icon lucide-chevron-left">
-        <path d="m15 18-6-6 6-6" />
-      </svg>
-    </button>
   </div>
 
 </div>
@@ -1637,7 +1509,6 @@
   
   // Remove - not required
    function refreshDriver() {
-    debugger;
       let maxAttempts = 5;
       const refreshInterval = setInterval(()=>{
       if(maxAttempts > 0) {
@@ -1700,7 +1571,6 @@
       tabWidget: {{ section.settings.event_tab_widget | default: "Tab Clicked - Widget" | json }},
       tabCartUpsell: {{ section.settings.event_tab_cart_upsell | default: "Tab Clicked - Cart Upsell" | json }},
       tabPortal: {{ section.settings.event_tab_portal | default: "Tab Clicked - Portal" | json }},
-      tabSupportResources: {{ section.settings.event_tab_support_resources | default: "Tab Clicked - Support & Resources" | json }},
       previousButton: {{ section.settings.event_previous_button | default: "Previous Button Clicked" | json }},
       nextButton: {{ section.settings.event_next_button | default: "Next Button Clicked" | json }},
       showGuide: {{ section.settings.event_show_guide | default: "Show Guide Clicked" | json }},
@@ -1719,8 +1589,6 @@
           section: 'merchant_tab_switcher'
         });
       }
-      // Also log for debugging
-      // console.log('Mixpanel Event:', eventName, properties);
     }
   
     const tabConfig = {
@@ -1728,7 +1596,6 @@
         sidebarHeader: {{ section.settings.sidebar_header_title | json }},
         sidebarTitle: {{ section.settings.subtext_title | json }},
         sidebarDescription: {{ section.settings.subtext_description | json }},
-        docUrl: {{ section.settings.doc_url | json }},
         contentUrl: {{ section.settings.widget_content_url | json }},
         stepName: {{ section.settings.widget_step_name | default: "Widget" | json }},
         guideTitle: {{ section.settings.title_widget_guide | json }},
@@ -1741,7 +1608,6 @@
         sidebarHeader: {{ section.settings.sidebar_header_title_cart_upsell | json }},
         sidebarTitle: {{ section.settings.cart_upsell_subtext_title | json }},
         sidebarDescription: {{ section.settings.cart_upsell_subtext_description | json }},
-        docUrl: {{ section.settings.cart_upsell_doc_url | json }},
         contentUrl: {{ section.settings.cart_upsell_content_url | json }},
         stepName: {{ section.settings.cart_upsell_step_name | default: "Cart Upsell" | json }},
         guideTitle: {{ section.settings.title_cart_upsell_guide | json }},
@@ -1754,23 +1620,12 @@
         sidebarHeader: {{ section.settings.sidebar_header_title_portal | json }},
         sidebarTitle: {{ section.settings.portal_subtext_title | json }},
         sidebarDescription: {{ section.settings.portal_subtext_description | json }},
-        docUrl: {{ section.settings.portal_doc_url | json }},
         stepName: {{ section.settings.portal_step_name | default: "Portal" | json }},
         guideTitle: {{ section.settings.title_portal_guide | json }},
         guideDescription: {{ section.settings.description_portal_guide | json }},
         guideStepsText: {{ section.settings.steps_text_portal | json }},
         nextButtonText: {{ section.settings.finish_text_portal | json }},
         previousButtonText: {{ section.settings.back_text_portal | json }}
-      },
-      support_resources: {
-        sidebarTitle: {{ section.settings.support_resources_subtext_title | json }},
-        sidebarDescription: {{ section.settings.support_resources_subtext_description | json }},
-        docUrl: {{ section.settings.support_resources_doc_url | json }},
-        contentUrl: {{ section.settings.support_resources_content_url | json }},
-        stepName: {{ section.settings.support_resources_step_name | default: "Support & Resources" | json }},
-        guideTitle: {{ section.settings.title_support_resources_guide | json }},
-        guideDescription: {{ section.settings.description_support_resources_guide | json }},
-        guideStepsText: {{ section.settings.steps_text_support_resources | json }}
       },
       completion: {
         contentUrl: {{ section.settings.completion_content_url | json }},
@@ -1867,12 +1722,9 @@
         customerHash: {{ customer_hash | json }},
         subscriberId: {{ customer_id | json }}
       };
-      // console.log("portalAuthData", portalAuthData);
-  
-    // Get sidebar elements
+      // Get sidebar elements
     const sidebarTitle = document.querySelector('[data-sidebar-title]');
     const sidebarDescription = document.querySelector('[data-sidebar-description]');
-    const sidebarDocUrl = document.querySelector('[data-sidebar-doc-url]');
     const stepIndicator = document.querySelector('[data-step-indicator]');
     const stepName = document.querySelector('[data-step-name]');
     const previousButton = document.querySelector('.previous');
@@ -1892,10 +1744,8 @@
     const demoGuideTitleEl = document.querySelector('[data-demo-guide-title]');
     const demoGuideDescriptionEl = document.querySelector('[data-demo-guide-description]');
     const demoGuideStepsTextEl = document.querySelector('[data-guide-steps-text]');
-    const demoGuideDots = document.querySelectorAll('.demo-guide-section .dots');
     
     // Store original finish button text (extract text content, excluding SVG)
-    let originalFinishButtonText = '';
     if (demoGuideFinishButton) {
       // Get the first text node (which contains the finish_text setting)
       const textNode = Array.from(demoGuideFinishButton.childNodes)
@@ -1909,7 +1759,6 @@
     }
     
     // Store original Next button text (extract text content, excluding SVG)
-    let originalNextButtonText = '';
     if (nextButton) {
       // Get the first text node (which contains "Next")
       const textNode = Array.from(nextButton.childNodes)
@@ -1926,14 +1775,13 @@
   
       if(sidebarHeaderTitle) {
         sidebarHeaderTitle.textContent = config.sidebarHeader;
-        console.log("sidebarHeaderTitle", sidebarHeaderTitle);
       }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
     }
-  
-    // add query params to url to easily switch and resume the journey
-    function addURLParams(tabIndex) {
+
+    // Keep active tab synced with the URL so refresh/back/forward restores the same step
+    function setURLStep(tabIndex, method = 'push') {
       const url = new URL(window.location.href);
       const step = tabIndex + 1;
       url.searchParams.set('step', step);
@@ -2023,21 +1871,6 @@
       } else {
         if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${tabIndex + 1} / ${tabOrder.length}`;
       }
-  
-      if (demoGuideDots && demoGuideDots.length) {
-        // For completion, don't highlight any dot (or could highlight last one)
-        if (tabType === 'completion') {
-          demoGuideDots.forEach((dot, idx) => {
-            if (idx === tabOrder.length - 1) dot.classList.add('active');
-            else dot.classList.remove('active');
-          });
-        } else {
-          demoGuideDots.forEach((dot, idx) => {
-            if (idx === tabIndex) dot.classList.add('active');
-            else dot.classList.remove('active');
-          });
-        }
-      }
     }
   
     // Function to ensure cart has items for cart_upsell tab
@@ -2095,7 +1928,6 @@
           return;
         }
         
-        console.log('Product added to cart successfully');
       } catch (error) {
         console.log('Error ensuring cart has items:', error);
       }
@@ -2129,7 +1961,6 @@
   
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
-        console.log("cartForm", cartForm);
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
@@ -2142,7 +1973,7 @@
               if (!response.ok) {
                 throw new Error(`Add to cart failed with status ${response.status}`);
               }
-              console.log(response.json());
+              return response.json();
             })
             .then(() => {
               setTimeout(() => {
@@ -2252,9 +2083,6 @@
   
               // ⭐ VERY IMPORTANT - attach load listener BEFORE setting src
               iframe.addEventListener('load', function () {
-  
-                  console.log("iframe fully loaded");
-  
                   if (loader) {
                       loader.style.transition = "opacity .3s ease";
                       loader.style.opacity = "0";
@@ -2265,7 +2093,6 @@
                   }
   
                   iframe.style.opacity = "1";
-  
               });
   
               // start loading iframe
@@ -2307,9 +2134,6 @@
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
           const sections = parsed.querySelectorAll('#MainContent');
-          if (tabType === 'cart_upsell') {
-            console.log(" sections==>", sections)
-          }
           // If no sections found, try to find main content area
           if (sections.length === 0) {
             const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2438,13 +2262,7 @@
     function hideSidebarLoader() {
       if (!sidebarContainer) return;
       
-      // Restore the original content
-      // const originalContent = sidebarContainer.getAttribute('data-original-content');
-      // if (originalContent) {
-      //   sidebarContainer.innerHTML = originalContent;
-      //   sidebarContainer.removeAttribute('data-original-content');
-      // }
-       sidebarContainer.classList.remove("isLoading");
+      sidebarContainer.classList.remove("isLoading");
       document.getElementById("sidebar__loader").remove();
     }
   
@@ -2457,7 +2275,6 @@
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
-      console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
       if( tabType !== 'portal') {
         showDriverLoader();
@@ -2471,7 +2288,6 @@
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
-          btn.closet
           btn.closest('.stage__container').classList.add('active_tab');
         } else {
           btn.closest('.stage__container').classList.remove('active_tab');
@@ -2594,9 +2410,6 @@
           case 'portal':
             eventName = mixpanelEvents.tabPortal;
             break;
-          case 'support_resources':
-            eventName = mixpanelEvents.tabSupportResources;
-            break;
         }
         if (eventName) {
           trackMixpanelEvent(eventName, {
@@ -2636,11 +2449,7 @@
     // Next button handler
     if (nextButton) {
       nextButton.addEventListener('click', () => {
-        {% comment %} console.log(tabType); {% endcomment %}
         if (nextButton.classList.contains('disabled')) return;
-        {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
-          isOnCompletion = true;
-        } {% endcomment %}
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
@@ -2656,7 +2465,6 @@
           total_tabs: tabOrder.length
         });
   
-        // debugger
         if (currentTabIndex <= tabOrder.length - 1) {
           const activeTabType = tabOrder[currentTabIndex];
           if (activeTabType === 'portal') {
@@ -2736,7 +2544,6 @@
     function runDriverShowGuide() {
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
-      console.log("currentTab", currentTabType);
   
       // Map tab type to the element selector to highlight
       function getHighlightSelector(tabType) {
@@ -2747,8 +2554,6 @@
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
             return '#recurpay-portal-iframe';
-          case 'support_resources':
-            return '.partner-support-section';
           case 'completion':
             return '.completion-cta__buttons';
           default:
@@ -2765,27 +2570,17 @@
         
         var targetEl = document.querySelector(selector);
   
-        {% comment %} if (selector == ".recurpay-pdp-widget" && targetEl) {
-          targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
-        } {% endcomment %}
-  
         if (targetEl) {
-          console.log('Target element found:', targetEl);
           // Ensure Driver.js is available before initializing
           if (!window.driver || !window.driver.js || typeof window.driver.js.driver !== 'function') {
             console.warn('Driver.js is not available');
             return;
           }
   
-          // Log the highlighted element
-          // console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
-  
           // Center the element in the viewport
           if(currentTabType == 'widget'){
             const widgetElement = document.querySelector(selector);
             widgetElement.closest('section').scrollIntoView({block: 'center', behavior: 'smooth'});
-            // console.log("widget element", widgetElement); 
-            // console.log("scrolled")
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
@@ -2829,7 +2624,7 @@
                     driverObj.destroy();
                   }
   
-                  // From completion page, go back to the last real tab (portal or support_resources)
+                  // From completion page, go back to the last real tab
                   if (isOnCompletion) {
                     const lastRealTabIndex = tabOrder.length - 1;
                     if (lastRealTabIndex >= 0) {
@@ -2854,7 +2649,6 @@
                   }
                   const isLastRealTab = currentTabIndex >= tabOrder.length - 1;
                   if (isLastRealTab) {
-                    console.log("finish button text", finishBtn.textContent);
                     showCompletionStep();
                     if(finishBtn.textContent.toLowerCase().includes('next')) {
   
@@ -2914,15 +2708,6 @@
       });
     }
   
-    // Sidebar restore button (appears when collapsed)
-    const sidebarRestoreButton = document.querySelector('.sidebar-restore-button');
-    if (sidebarRestoreButton) {
-      sidebarRestoreButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        toggleSidebarCollapse('restore');
-      });
-    }
-  
     // Initialize: set up the first tab
     const stepFromURL = getStepIndexFromURL();
     if (stepFromURL !== null) {
@@ -2947,9 +2732,6 @@
       if (document.getElementById('driver-tour-loader')) return;
       const loader = document.createElement('div');
       loader.id = 'driver-tour-loader';
-      // <div style="position:relative;width:100%;height:100%;min-height:500px;">
-      //     ${loaderHTML}
-      //   </div>
       loader.innerHTML = `
       <div style="position:relative;width:100%;height:100%;min-height:500px;display:flex;justify-content:center;align-items:center;>
         <div id="recurpay-loader">
@@ -3006,8 +2788,6 @@
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
             return '#recurpay-portal-iframe';
-          case 'support_resources':
-            return '.partner-support-section';
           case 'completion':
             return '.completion-cta__buttons';
           default:
@@ -3027,12 +2807,10 @@
         
         // Check if target element exists
         const targetEl = document.querySelector(selector);
-        // console.log("targetEl", targetEl);
   
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
-          {% comment %} hideDriverLoader(); {% endcomment %}
           
           // Ensure content matches the current tab so the cloned card has correct text
           if (isOnCompletion) {
@@ -3053,7 +2831,6 @@
         } else if (attempts >= maxAttempts) {
           // Timeout reached, hide loader and give up
           clearInterval(checkInterval);
-          {% comment %} hideDriverLoader(); {% endcomment %}
           console.warn('Target element not found after maximum attempts:', selector);
         }
       }, 3500);
@@ -3435,12 +3212,6 @@
         "info": "Event name that will appear in Mixpanel dashboard when Portal tab is clicked"
       }, {
         "type": "text",
-        "id": "event_tab_support_resources",
-        "label": "Event Name - Support & Resources Tab Clicked",
-        "default": "Tab Clicked - Support & Resources",
-        "info": "Event name that will appear in Mixpanel dashboard when Support & Resources tab is clicked"
-      }, {
-        "type": "text",
         "id": "event_previous_button",
         "label": "Event Name - Previous Button Clicked",
         "default": "Previous Button Clicked",
@@ -3508,9 +3279,6 @@
               }, {
                 "value": "portal",
                 "label": "Portal"
-              }, {
-                "value": "support_resources",
-                "label": "Support & Resources"
               }
             ],
             "default": "widget"

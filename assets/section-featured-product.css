@@ -166,3 +166,9 @@ span.recurpay-widget-banner_tag-text {
 .recurpay__widget .recurpay__widget_container {
   margin-inline: 10px !important;
 }
+
+@media screen and (max-width: 768px) {
+  .featured-product:not(.product--no-media)>.product__info-wrapper {
+    padding-left: 0;
+  }
+}

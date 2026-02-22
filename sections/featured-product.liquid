@@ -11,7 +11,7 @@
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    padding-inline: 40px; 
+    padding-inline: 8px; 
   }
 
   .preview_store__wrapper {
@@ -31,10 +31,11 @@
         margin-top: 20px;
     }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 768px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-inline: 40px;
     }
   }
 {%- endstyle -%}
