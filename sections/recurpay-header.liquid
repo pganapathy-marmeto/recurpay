@@ -186,13 +186,13 @@
     transition: all 0.3s ease;
   }
   .hamburger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(7px, 3px);
   }
   .hamburger-menu.active span:nth-child(2) {
     opacity: 0;
   }
   .hamburger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(8px, -5px);
   }
   
   .mobile-menu li {
@@ -200,6 +200,7 @@
   }
   .mobile-menu li a {
     text-decoration: none;
+    color: #111;
   }
   
   /* Mobile Menu */
@@ -218,7 +219,9 @@
     z-index: 10000;
   }
   .mobile-menu.active {
-    max-height: 1000px;
+    max-height: 90dvh;
+    padding-bottom: 20px;
+    overflow: scroll;
   }
   .mobile-menu ul {
     flex-direction: column;
@@ -441,7 +444,12 @@
                 <ul class="dropdown">
                   {% for child in link.links %}
                     <li>
+                      {% if link.title == 'Migration' %}
+                        {% assign paras = child.title | split: '|' %}
+                        <a target="_blank" href="{{ child.url }}" {% if child.title == 'Support' %}data-intercom-support class="support-button"{% endif %}><span>{{ paras[0] }}</span><span>{{ paras[1] }}</span></a>
+                      {%  else %}
                         <a target="_blank" href="{{ child.url }}">{{ child.title }}</a>
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
@@ -488,6 +496,7 @@
       hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
+        document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';
       });
     }
     
