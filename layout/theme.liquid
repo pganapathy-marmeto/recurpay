@@ -346,6 +346,7 @@
   </script>
 </head>
 
+
 <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
   <a class="skip-to-content-link button visually-hidden" href="#MainContent">
     {{ 'accessibility.skip_to_text' | t }}
@@ -359,11 +360,13 @@
 
   <main
     id="MainContent"
-    class="content-for-layout focus-none"
+    class="content-for-layout focus-none desktop-content"
     role="main"
     tabindex="-1">
     {{ content_for_layout }}
   </main>
+
+{%- render 'mobile-card' -%}
 
   {% sections 'footer-group' %}
 
@@ -450,4 +453,26 @@
       console.log("refresh")
     };
   </script>
-</body></html>
+</body>
+<script>
+  function checkScreen() {
+
+  const desktop = document.querySelector('.desktop-content');
+  const header = document.querySelector('.recurpay-header');
+  const mobile = document.querySelector('.mobile-warning');
+
+  if (window.innerWidth < 1024) {
+    desktop.style.display = 'none';
+    header.style.display = 'none';
+    mobile.style.display = 'flex';
+  } else {
+    desktop.style.display = '';
+    header.style.display = '';
+    mobile.style.display = 'none';
+  }
+
+}
+checkScreen();
+window.addEventListener('resize', checkScreen);
+</script>
+</html>
