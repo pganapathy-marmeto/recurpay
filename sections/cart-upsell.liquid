@@ -119,10 +119,16 @@
     font-weight: 500;
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .stats-grid {
       grid-template-columns: 1fr;
       gap: 16px;
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: 1fr 1fr;
     }
   }
   @media (max-width: 1024px) {

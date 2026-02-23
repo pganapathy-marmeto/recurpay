@@ -205,6 +205,21 @@
       margin-top: 20px;
     }
   }
+  @media screen and (max-width: 768px) {
+    .mockup-widget {
+      width: 270px;
+      height: 310px;
+    }
+    .mockup-base:last-child {
+      transform: translateX(60px) translateY(90px) rotate(6deg);
+    }
+    .mockup-base:first-child {
+      transform: translateX(-380px) translateY(90px) rotate(-6deg);
+    }
+    .visual-container {
+      height: 300px;
+    }
+  }
 {% endstyle %}
 
 <div class="visual-container testimonial-stack-container">

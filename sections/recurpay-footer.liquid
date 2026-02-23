@@ -103,7 +103,7 @@
     width: auto;
     object-fit: contain;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 425px) {
     .footer-top {
       grid-template-columns: 1fr;
     }
@@ -111,6 +111,14 @@
       flex-direction: column;
       gap: 15px;
       text-align: center;
+    }
+  }
+  @media (min-width: 426px) and (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-col.footer-brand {
+      grid-column: 1/-1;
     }
   }
 {% endstyle %}

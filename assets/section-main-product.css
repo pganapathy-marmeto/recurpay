@@ -1618,3 +1618,9 @@ a.product__text {
 .product__column-sticky {
   z-index: 0;
 }
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .product.grid {
+    gap: 8px;
+  }
+}

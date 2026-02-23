@@ -203,7 +203,7 @@
     margin-left: 0;
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 425px) {
     .recurpay-demo> div {
       padding-inline: 8px;
     }
@@ -229,6 +229,7 @@
     }
     .demo-cta-grid {
       gap: 10px;
+      grid-template-columns: 1fr;
     }
     .or_seperator {
       width: 30px;
@@ -255,9 +256,6 @@
     .demo-description {
       font-size: 14px;
     }
-    .demo-cta-grid {
-      grid-template-columns: 1fr;
-    }
     .demo-heading {
       font-size: 30px;
     }
@@ -267,11 +265,21 @@
       margin-bottom: 0;
     }
   }
-  @media (max-width: 1024px) {
+
+  @media screen and (max-width: 768px){
     .demo-stats__seperator {
       padding-block: 0;
     }
+    .demo-cta-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-cta-grid a {
+      max-width: 480px;
+      width: 100%;
+    }
   }
+
 {% endstyle %}
 
 <section class="recurpay-demo">

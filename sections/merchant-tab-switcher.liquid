@@ -99,6 +99,9 @@
     align-items: center;
     gap: 8px;
   }
+  .redirect.mobile {
+    display: none;
+  }
 
   .main_content__container #main-cart-footer {
     display: none;
@@ -632,12 +635,33 @@
   }
 
   @media (max-width: 768px) {
+    .redirect.mobile {
+      display: flex;
+    }
+    .live_chat, .redirect {
+      display: none;
+    }
     .main-heading {
       font-size: 32px;
     }
 
     .main-description {
       font-size: 16px;
+    }
+    .next {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+    }
+    .footer_paginate_wrapper {
+      justify-content: center;
+    }
+    .footer_paginate_wrapper > span {
+      font-weight: 600;
+    }
+    .footer_paginate_wrapper span {
+      white-space: nowrap;
+      font-size: 12px;
     }
   }
 
@@ -655,7 +679,6 @@
     }
     .paginate_container_wrapper {
       display: flex;
-      flex-direction: column-reverse;
       gap: 4px;
     }
     .footer__container {
@@ -664,7 +687,6 @@
       gap: 8px;
     }
     .footer_paginate_wrapper {
-      justify-content: space-between;
       width: 100%;
       align-items: flex-start;
     }
@@ -680,7 +702,6 @@
       display: none;
     }
     .merchant_tab_switcher_wrapper {
-      flex-direction: column;
       row-gap: 8px;
       padding: 8px;
     }
@@ -811,7 +832,10 @@
     gap: 8px;
     align-items: center;
   }
-  .driver-popover::before {
+  .driver-popover-navigation-btns {
+    display: none;
+  }
+  /* .driver-popover::before {
     content: "";
     width: 8px;
     height: 8px;
@@ -821,7 +845,7 @@
     top: 10px;
     display: block;
     position: absolute;
-  }
+  } */
 
   .demo-guide-actions .demo-guide-back {
     display: flex;
@@ -1179,6 +1203,18 @@
         stroke-linejoin="round"
         class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
       {{ section.settings.redirect_text }}</a>
+      <a class=" redirect mobile" href="{{ section.settings.redirect_link }}">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></a>
     <div class="content__wrapper">
       {% for tab in merchant_tabs %}
         {% case tab %}
@@ -1496,7 +1532,13 @@
 
   // Initialize Driver.js
   const driver = window.driver.js.driver;
-  const driverObj = driver();
+  const driverObj = driver({
+    onCloseClick:() => {
+      console.log('Close Button Clicked');
+      // Implement your own functionality here
+      driverObj.destroy();
+    }
+  });
 
   function executeScripts(container) {
    const scripts = container.querySelectorAll('script');
@@ -2267,7 +2309,7 @@
       if (!sidebarContainer) return;
       
       sidebarContainer.classList.remove("isLoading");
-      document.getElementById("sidebar__loader").remove();
+      document.getElementById("sidebar__loader")?.remove();
     }
   
     // Function to switch to a specific tab
@@ -2853,8 +2895,6 @@
       event.preventDefault();
       window.Intercom('show');
     })
-  
-  
     refreshDriver();
   });
 </script>

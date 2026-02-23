@@ -417,7 +417,7 @@ html body .upgrade-subscription-cart .subscribe-text-head {
   margin-top: 0;
 }
 
-@media  screen and (max-width: 768px) {
+@media  screen and (max-width: 425px) {
   .cart-item td {
     padding-left: 0 !important;
     padding-top: 0 !important;
@@ -425,5 +425,8 @@ html body .upgrade-subscription-cart .subscribe-text-head {
   }
   .cart-item .cart-item__totals {
     justify-content: flex-start !important;
+  }
+  .cart-items thead tr {
+    margin-bottom: 20px;
   }
 }

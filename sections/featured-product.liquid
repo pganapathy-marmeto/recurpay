@@ -31,7 +31,13 @@
         margin-top: 20px;
     }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 425px) and (max-width: 768px) {
+    .section-{{ section.id }}-padding {
+      padding-inline: 15px
+    }
+  }
+
+  @media screen and (min-width: 769px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;

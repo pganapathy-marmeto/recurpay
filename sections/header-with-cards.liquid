@@ -250,7 +250,7 @@
     justify-content: space-between;
     background: #F6F7FB;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 425px) {
     .subscription-features {
       padding-top: 20px;
     }
@@ -284,6 +284,17 @@
     }
     .section-container {
       padding-inline: 8px;
+    }
+  }
+  @media screen and (min-width: 426px) and (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature-card {
+      padding: 20px;
+    }
+    .section-container {
+      padding-inline: 20px;
     }
   }
 {% endstyle %}
