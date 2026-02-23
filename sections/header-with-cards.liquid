@@ -251,8 +251,35 @@
     background: #F6F7FB;
   }
   @media (max-width: 768px) {
+    .section-heading {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+    .feature-card {
+      padding: 8px;
+      max-width: 300px;
+    }
     .features-grid {
       grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .feature-card__header-icon_wrapper {
+      margin-bottom: 6px;
+    }
+    .feature-card__header-icon_wrapper svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .feature-card__header-icon_wrapper h3 {
+      font-size: 14px;
+    }
+    .header__content__wrapper p {
+      font-size: 12px;
+      margin-bottom:0;
+    }
+    .section-container {
+      padding-inline: 8px;
     }
   }
 {% endstyle %}

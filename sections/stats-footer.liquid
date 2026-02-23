@@ -128,6 +128,25 @@
       --number: var(--target);
     }
   }
+  @media (max-width: 1024px) {
+    .social-proof {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 0;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+      padding-inline: 8px;
+    }
+    .stat-box {
+      border-bottom: 1px solid #00000014;
+      border-right: none;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      padding-inline: 8px;
+    }
+  }
 {% endstyle %}
 
 <div class="stats-footer">
