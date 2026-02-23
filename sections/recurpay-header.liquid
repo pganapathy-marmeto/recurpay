@@ -195,6 +195,13 @@
     transform: rotate(-45deg) translate(7px, -7px);
   }
   
+  .mobile-menu li {
+    list-style: none;
+  }
+  .mobile-menu li a {
+    text-decoration: none;
+  }
+  
   /* Mobile Menu */
   .mobile-menu {
     display: none;
@@ -319,7 +326,7 @@
   }
 
   
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .header-nav {
       display: none;
     }
@@ -331,6 +338,13 @@
     }
     .mobile-menu {
       display: block;
+    }
+    .mobile-menu ul {
+      padding-block: 0;
+      margin-block: 0;
+    }
+    .mobile-menu li:last-child {
+      padding-block: 15px;
     }
   }
 {% endstyle %}

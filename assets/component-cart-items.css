@@ -416,3 +416,14 @@ html body .upgrade-subscription-cart .subscribe-text-head {
 .cart-item cart-remove-button {
   margin-top: 0;
 }
+
+@media  screen and (max-width: 768px) {
+  .cart-item td {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    grid-column: 1/-1 !important;
+  }
+  .cart-item .cart-item__totals {
+    justify-content: flex-start !important;
+  }
+}
