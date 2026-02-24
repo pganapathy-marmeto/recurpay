@@ -635,6 +635,9 @@
   }
 
   @media (max-width: 768px) {
+    .main_content__container iframe {
+      height: 500px !important;
+    }
     .redirect.mobile {
       display: flex;
     }
@@ -674,15 +677,15 @@
       width: 100%;
     }
     .header__container .footer__container {
-      height: 100px;
-      padding: 8px;
+      height: auto;
+      padding: 12px 15px;
+      gap: 15px;
     }
     .paginate_container_wrapper {
       display: flex;
       gap: 4px;
     }
     .footer__container {
-      height: 100px;
       flex-direction: column;
       gap: 8px;
     }
@@ -694,8 +697,7 @@
       display: flex;
     }
     .next, .previous {
-      padding: 8px;
-      font-size: 12px;
+      font-size: 14px;
       gap: 4px;
     }
     .content__wrapper {
@@ -1529,7 +1531,6 @@
 </div>
 
 <script>
-
   // Initialize Driver.js
   const driver = window.driver.js.driver;
   const driverObj = driver({
@@ -1542,19 +1543,18 @@
 
   function executeScripts(container) {
    const scripts = container.querySelectorAll('script');
-    scripts.forEach(oldScript => {
-    const newScript = document.createElement('script');
-    // Copy attributes
-    [...oldScript.attributes].forEach(attr => {
-    newScript.setAttribute(attr.name, attr.value);
-    });
-    newScript.text = oldScript.textContent;
-    oldScript.replaceWith(newScript);
-    });
+   scripts.forEach(oldScript => {
+  const newScript = document.createElement('script');
+  // Copy attributes
+  [...oldScript.attributes].forEach(attr => {
+   newScript.setAttribute(attr.name, attr.value);
+  });
+  newScript.text = oldScript.textContent;
+  oldScript.replaceWith(newScript);
+   });
   }
   
-  // Remove - not required
-   function refreshDriver() {
+   function refreshDriver() { 
       let maxAttempts = 5;
       const refreshInterval = setInterval(()=>{
       if(maxAttempts > 0) {
@@ -1617,6 +1617,7 @@
       tabWidget: {{ section.settings.event_tab_widget | default: "Tab Clicked - Widget" | json }},
       tabCartUpsell: {{ section.settings.event_tab_cart_upsell | default: "Tab Clicked - Cart Upsell" | json }},
       tabPortal: {{ section.settings.event_tab_portal | default: "Tab Clicked - Portal" | json }},
+      tabSupportResources: {{ section.settings.event_tab_support_resources | default: "Tab Clicked - Support & Resources" | json }},
       previousButton: {{ section.settings.event_previous_button | default: "Previous Button Clicked" | json }},
       nextButton: {{ section.settings.event_next_button | default: "Next Button Clicked" | json }},
       showGuide: {{ section.settings.event_show_guide | default: "Show Guide Clicked" | json }},
@@ -1635,6 +1636,8 @@
           section: 'merchant_tab_switcher'
         });
       }
+      // Also log for debugging
+      // console.log('Mixpanel Event:', eventName, properties);
     }
   
     const tabConfig = {
@@ -1642,6 +1645,7 @@
         sidebarHeader: {{ section.settings.sidebar_header_title | json }},
         sidebarTitle: {{ section.settings.subtext_title | json }},
         sidebarDescription: {{ section.settings.subtext_description | json }},
+        docUrl: {{ section.settings.doc_url | json }},
         contentUrl: {{ section.settings.widget_content_url | json }},
         stepName: {{ section.settings.widget_step_name | default: "Widget" | json }},
         guideTitle: {{ section.settings.title_widget_guide | json }},
@@ -1760,15 +1764,15 @@
     }
     
     // Portal authentication data
-      {% assign customer_id = 5959212957931 %}
-      {% assign secret_key = "mGm3J210eDPvaUPL0TSpNWXk5z4YkQTe" %}
+      {% assign customer_id = 9631239798947 %}
+      {% assign secret_key = "wGglbCrckE10Qx8ImfHCkqRdPCY5Ztdf" %}
       {% assign customer_hash = customer_id |  hmac_sha256: secret_key %}
       const portalAuthData = {
         customerId: {{ customer_id | json }},
         customerHash: {{ customer_hash | json }},
         subscriberId: {{ customer_id | json }}
       };
-      // Get sidebar elements
+    // Get sidebar elements
     const sidebarTitle = document.querySelector('[data-sidebar-title]');
     const sidebarDescription = document.querySelector('[data-sidebar-description]');
     const stepIndicator = document.querySelector('[data-step-indicator]');
@@ -1790,8 +1794,10 @@
     const demoGuideTitleEl = document.querySelector('[data-demo-guide-title]');
     const demoGuideDescriptionEl = document.querySelector('[data-demo-guide-description]');
     const demoGuideStepsTextEl = document.querySelector('[data-guide-steps-text]');
+    const demoGuideDots = document.querySelectorAll('.demo-guide-section .dots');
     
     // Store original finish button text (extract text content, excluding SVG)
+    let originalFinishButtonText = '';
     if (demoGuideFinishButton) {
       // Get the first text node (which contains the finish_text setting)
       const textNode = Array.from(demoGuideFinishButton.childNodes)
@@ -1805,6 +1811,7 @@
     }
     
     // Store original Next button text (extract text content, excluding SVG)
+    let originalNextButtonText = '';
     if (nextButton) {
       // Get the first text node (which contains "Next")
       const textNode = Array.from(nextButton.childNodes)
@@ -1821,11 +1828,12 @@
   
       if(sidebarHeaderTitle) {
         sidebarHeaderTitle.textContent = config.sidebarHeader;
+        console.log("sidebarHeaderTitle", sidebarHeaderTitle);
       }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
     }
-
+  
     // Keep active tab synced with the URL so refresh/back/forward restores the same step
     function setURLStep(tabIndex, method = 'push') {
       const url = new URL(window.location.href);
@@ -1917,6 +1925,21 @@
       } else {
         if (demoGuideStepsTextEl) demoGuideStepsTextEl.textContent = config.guideStepsText || `${tabIndex + 1} / ${tabOrder.length}`;
       }
+  
+      if (demoGuideDots && demoGuideDots.length) {
+        // For completion, don't highlight any dot (or could highlight last one)
+        if (tabType === 'completion') {
+          demoGuideDots.forEach((dot, idx) => {
+            if (idx === tabOrder.length - 1) dot.classList.add('active');
+            else dot.classList.remove('active');
+          });
+        } else {
+          demoGuideDots.forEach((dot, idx) => {
+            if (idx === tabIndex) dot.classList.add('active');
+            else dot.classList.remove('active');
+          });
+        }
+      }
     }
   
     // Function to ensure cart has items for cart_upsell tab
@@ -1941,21 +1964,6 @@
           console.log('No widget variant available to add to cart');
           return;
         }
-        const productsData = await productsResponse.json();
-        
-        if (!productsData.products || productsData.products.length === 0) {
-          console.log('No products available');
-          return;
-        }
-        
-        const firstProduct = productsData.products[0];
-        if (!firstProduct.variants || firstProduct.variants.length === 0) {
-          console.log('Product has no variants');
-          return;
-        }
-        
-        // Get first variant
-        const firstVariant = firstProduct.variants[0];
         
         // Add to cart using add.js API
         const addResponse = await fetch(`{{ routes.cart_add_url }}.js`, {
@@ -1964,7 +1972,7 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: firstVariant.id,
+            id: widgetVariantId,
             quantity: 1
           })
         });
@@ -1974,6 +1982,7 @@
           return;
         }
         
+        console.log('Product added to cart successfully');
       } catch (error) {
         console.log('Error ensuring cart has items:', error);
       }
@@ -2007,9 +2016,14 @@
   
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
+        console.log("cartForm", cartForm);
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
+          const clickedVariantId = parseVariantId(formData.get('id') || formData.get('items[0][id]'));
+          if (clickedVariantId) {
+            lastWidgetVariantId = clickedVariantId;
+          }
   
           fetch(window.Shopify.routes.root + 'cart/add.js', {
             method: 'POST',
@@ -2019,7 +2033,7 @@
               if (!response.ok) {
                 throw new Error(`Add to cart failed with status ${response.status}`);
               }
-              return response.json();
+              console.log(response.json());
             })
             .then(() => {
               setTimeout(() => {
@@ -2129,6 +2143,9 @@
   
               // ⭐ VERY IMPORTANT - attach load listener BEFORE setting src
               iframe.addEventListener('load', function () {
+  
+                  console.log("iframe fully loaded");
+  
                   if (loader) {
                       loader.style.transition = "opacity .3s ease";
                       loader.style.opacity = "0";
@@ -2139,6 +2156,7 @@
                   }
   
                   iframe.style.opacity = "1";
+  
               });
   
               // start loading iframe
@@ -2180,6 +2198,9 @@
           // Try to find sections by common IDs or class names
           // Look for Shopify section IDs first
           const sections = parsed.querySelectorAll('#MainContent');
+          if (tabType === 'cart_upsell') {
+            console.log(" sections==>", sections)
+          }
           // If no sections found, try to find main content area
           if (sections.length === 0) {
             const mainContent = parsed.querySelector('main') || parsed.querySelector('.main-content') || parsed.body;
@@ -2308,8 +2329,14 @@
     function hideSidebarLoader() {
       if (!sidebarContainer) return;
       
-      sidebarContainer.classList.remove("isLoading");
-      document.getElementById("sidebar__loader")?.remove();
+      // Restore the original content
+      // const originalContent = sidebarContainer.getAttribute('data-original-content');
+      // if (originalContent) {
+      //   sidebarContainer.innerHTML = originalContent;
+      //   sidebarContainer.removeAttribute('data-original-content');
+      // }
+       sidebarContainer.classList.remove("isLoading");
+      document.getElementById("sidebar__loader").remove();
     }
   
     // Function to switch to a specific tab
@@ -2321,6 +2348,7 @@
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
+      console.log("index", currentTabIndex)
       const tabType = tabOrder[tabIndex];
       if( tabType !== 'portal') {
         showDriverLoader();
@@ -2334,6 +2362,7 @@
       // Update active tab button
       tabButtons.forEach((btn, index) => {
         if (index === tabIndex) {
+          // btn.closet
           btn.closest('.stage__container').classList.add('active_tab');
         } else {
           btn.closest('.stage__container').classList.remove('active_tab');
@@ -2351,17 +2380,15 @@
       // Show loader in sidebar
       showSidebarLoader();
       
-      // Use setTimeout to show loader briefly before updating content
-      setTimeout(() => {
+      // // Use setTimeout to show loader briefly before updating content
+      // setTimeout(() => {
         
-        // Hide loader and show updated content
-        hideSidebarLoader();
-      }, 2000);
+      //   // Hide loader and show updated content
+      //   hideSidebarLoader();
+      // }, 2000);
   
       // Update footer indicators
       updateStepIndicator(tabIndex, false);
-
-      startDriverTourWhenReady();
   
       // Update tagline header (so Next/Previous also updates it)
       if (window.updateMerchantTabHeaderSection) {
@@ -2437,7 +2464,7 @@
       // confettiOnCompletion();
     }
   
-    // Enhanced tab click handler - IMP
+    // Enhanced tab click handler
     function handleTabClick(event) {
       const clickedButton = event.currentTarget;
       const tabType = clickedButton.getAttribute('data-tab-type');
@@ -2456,6 +2483,9 @@
           case 'portal':
             eventName = mixpanelEvents.tabPortal;
             break;
+          case 'support_resources':
+            eventName = mixpanelEvents.tabSupportResources;
+            break;
         }
         if (eventName) {
           trackMixpanelEvent(eventName, {
@@ -2466,6 +2496,10 @@
         }
         switchToTab(tabIndex);
   
+        // If Driver.js guide is active and we're not on completion, re-run it on the new tab
+        if (!isOnCompletion && document.querySelector('.driver-popover')) {
+          setTimeout(runDriverShowGuide, 500);
+        }
       }
     }
   
@@ -2489,13 +2523,21 @@
         if (currentTabIndex > 0) {
           switchToTab(currentTabIndex - 1);
         }
+        // If Driver.js guide is active, re-run it on the new tab
+        if (!isOnCompletion && document.querySelector('.driver-popover')) {
+          setTimeout(runDriverShowGuide, 500);
+        }
       });
     }
   
     // Next button handler
     if (nextButton) {
       nextButton.addEventListener('click', () => {
+        {% comment %} console.log(tabType); {% endcomment %}
         if (nextButton.classList.contains('disabled')) return;
+        {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
+          isOnCompletion = true;
+        } {% endcomment %}
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
@@ -2511,6 +2553,7 @@
           total_tabs: tabOrder.length
         });
   
+        // debugger
         if (currentTabIndex <= tabOrder.length - 1) {
           const activeTabType = tabOrder[currentTabIndex];
           if (activeTabType === 'portal') {
@@ -2584,22 +2627,31 @@
     tabButtons.forEach(button => {
       button.addEventListener('click', handleTabClick);
     });
-
-
+  
+    // Guide visibility toggle (still used by the inline demo guide close button)
+    function setGuideVisible(visible) {
+      if (!demoGuideSection) return;
+      if (visible) demoGuideSection.classList.add('is-visible');
+      else demoGuideSection.classList.remove('is-visible');
+    }
+  
     // Helper to run Driver.js guide highlighting for the current tab
     function runDriverShowGuide() {
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
+      console.log("currentTab", currentTabType);
   
       // Map tab type to the element selector to highlight
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay-pdp-widget';
+            return '.recurpay__widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
             return '#recurpay-portal-iframe';
+          case 'support_resources':
+            return '.partner-support-section';
           case 'completion':
             return '.completion-cta__buttons';
           default:
@@ -2616,26 +2668,37 @@
         
         var targetEl = document.querySelector(selector);
   
+        {% comment %} if (selector == ".recurpay-pdp-widget" && targetEl) {
+          targetEl = targetEl.querySelector('input[name="recurpay_plan_input"]');
+        } {% endcomment %}
+  
         if (targetEl) {
+          console.log('Target element found:', targetEl);
           // Ensure Driver.js is available before initializing
           if (!window.driver || !window.driver.js || typeof window.driver.js.driver !== 'function') {
             console.warn('Driver.js is not available');
             return;
           }
   
+          // Log the highlighted element
+          // console.log('Highlighted element:', targetEl, 'Selector:', selector, 'Tab type:', currentTabType);
+  
           // Center the element in the viewport
           if(currentTabType == 'widget'){
             const widgetElement = document.querySelector(selector);
             widgetElement.closest('section').scrollIntoView({block: 'center', behavior: 'smooth'});
+            // console.log("widget element", widgetElement); 
+            // console.log("scrolled")
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
+          console.log("current tab value",tabConfig[currentTabType].guideTitle)
           // Start Driver.js highlight with empty popover so we can replace its content
           driverObj.highlight({
             element: targetEl,
             popover: {
-              title: 'Welcome to Recurpay! 👋',
-              description: 'Let me show you our Subscribe & Save widget. This is what your customers see on your product page - fully customizable to match your brand.',
+              title: tabConfig[currentTabType].guideTitle,
+              description: tabConfig[currentTabType].guideDescription,
               showButtons: false,
               side: 'left',
               align: 'start'
@@ -2670,7 +2733,7 @@
                     driverObj.destroy();
                   }
   
-                  // From completion page, go back to the last real tab
+                  // From completion page, go back to the last real tab (portal or support_resources)
                   if (isOnCompletion) {
                     const lastRealTabIndex = tabOrder.length - 1;
                     if (lastRealTabIndex >= 0) {
@@ -2695,6 +2758,7 @@
                   }
                   const isLastRealTab = currentTabIndex >= tabOrder.length - 1;
                   if (isLastRealTab) {
+                    console.log("finish button text", finishBtn.textContent);
                     showCompletionStep();
                     if(finishBtn.textContent.toLowerCase().includes('next')) {
   
@@ -2724,7 +2788,41 @@
       // Try up to 10 times to find and highlight the element for the current tab
       highlightCurrentTabElement(10);
     }
-
+  
+    // Integrate Driver.js on click of "Show Guide" instead of toggling the inline guide
+    if (showGuideButton) {
+      showGuideButton.addEventListener('click', (e) => {
+        e.preventDefault();
+  
+        trackMixpanelEvent(mixpanelEvents.showGuide, {
+          current_tab_index: currentTabIndex,
+          is_on_completion: isOnCompletion,
+          action: 'open'
+        });
+        
+        // Ensure content matches the current tab so the cloned card has correct text
+        if (isOnCompletion) {
+          updateDemoGuide('completion', tabOrder.length);
+        } else {
+          const tabType = tabOrder[currentTabIndex] || 'widget';
+          updateDemoGuide(tabType, currentTabIndex);
+        }
+  
+        // Hide the inline guide, just in case
+        setGuideVisible(false);
+  
+        // Run Driver.js-based guide
+        runDriverShowGuide();
+      });
+    }
+  
+    if (demoGuideCloseButton) {
+      demoGuideCloseButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        setGuideVisible(false);
+      });
+    }
+  
     // Function to toggle sidebar collapse state
     function toggleSidebarCollapse(eventSource = 'toggle') {
       if (!sidebarContainer || !headerContainer) return;
@@ -2754,6 +2852,15 @@
       });
     }
   
+    // Sidebar restore button (appears when collapsed)
+    const sidebarRestoreButton = document.querySelector('.sidebar-restore-button');
+    if (sidebarRestoreButton) {
+      sidebarRestoreButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleSidebarCollapse('restore');
+      });
+    }
+  
     // Initialize: set up the first tab
     const stepFromURL = getStepIndexFromURL();
     if (stepFromURL !== null) {
@@ -2778,6 +2885,9 @@
       if (document.getElementById('driver-tour-loader')) return;
       const loader = document.createElement('div');
       loader.id = 'driver-tour-loader';
+      // <div style="position:relative;width:100%;height:100%;min-height:500px;">
+      //     ${loaderHTML}
+      //   </div>
       loader.innerHTML = `
       <div style="position:relative;width:100%;height:100%;min-height:500px;display:flex;justify-content:center;align-items:center;>
         <div id="recurpay-loader">
@@ -2818,7 +2928,7 @@
       const loader = document.getElementById('driver-tour-loader');
       if (loader) loader.remove();
     }
-
+  
     // Start the Driver.js tour automatically when page loads
     // Use setInterval to check if content is loaded, show loader while waiting
     function startDriverTourWhenReady() {
@@ -2829,11 +2939,13 @@
       function getHighlightSelector(tabType) {
         switch (tabType) {
           case 'widget':
-            return '.recurpay__widget';
+            return '.recurpay-pdp-widget';
           case 'cart_upsell':
             return 'cart-items .upgrade-subscription-cart';
           case 'portal':
             return '#recurpay-portal-iframe';
+          case 'support_resources':
+            return '.partner-support-section';
           case 'completion':
             return '.completion-cta__buttons';
           default:
@@ -2843,7 +2955,9 @@
   
       const selector = getHighlightSelector(currentTabType);
       if (!selector) return;
-
+  
+      // Show loader immediately
+      showDriverLoader();
   
       let attempts = 0;
       const maxAttempts = 50; // Stop after 5 seconds (50 * 100ms)
@@ -2853,10 +2967,12 @@
         
         // Check if target element exists
         const targetEl = document.querySelector(selector);
+        // console.log("targetEl", targetEl);
   
         if (targetEl) {
           // Element found! Hide loader and start tour
           clearInterval(checkInterval);
+          {% comment %} hideDriverLoader(); {% endcomment %}
           
           // Ensure content matches the current tab so the cloned card has correct text
           if (isOnCompletion) {
@@ -2865,7 +2981,10 @@
             const tabType = tabOrder[currentTabIndex] || 'widget';
             updateDemoGuide(tabType, currentTabIndex);
           }
-           
+          
+          // Hide the inline guide, just in case
+          setGuideVisible(false);
+          
           // Run Driver.js-based guide
           if (currentTabType == 'portal') {
             setTimeout(() => {
@@ -2877,6 +2996,7 @@
         } else if (attempts >= maxAttempts) {
           // Timeout reached, hide loader and give up
           clearInterval(checkInterval);
+          {% comment %} hideDriverLoader(); {% endcomment %}
           console.warn('Target element not found after maximum attempts:', selector);
         }
       }, 3500);
@@ -2895,6 +3015,8 @@
       event.preventDefault();
       window.Intercom('show');
     })
+  
+  
     refreshDriver();
   });
 </script>
