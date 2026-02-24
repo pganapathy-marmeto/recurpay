@@ -116,9 +116,9 @@
   .stat-val.animate {
     animation-play-state: running;
   }
-  .stat-val::after {
+  /* .stat-val::after {
     content: counter(number);
-  }
+  } */
 
   @keyframes counter {
     from {
@@ -180,43 +180,74 @@
 </div>
 
 <script>
-    const initStatsAnimation = () => {
-      const statElements = document.querySelectorAll('.stat-val');
-      const observer = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting && !entry.target.classList.contains('animated')){
-            const target = entry.target;
-            const targetValue = target.getAttribute('data-target');
+  const initStatsAnimation = () => {
+  const statElements = document.querySelectorAll(".stat-val");
 
-            const valueParts = targetValue.match(/^([^0-9]*)(\d+)(.*)$/);
-            if(valueParts){
-              const prefix = valueParts[1] || '';
-              const numericValue = parseInt(valueParts[2], 10);
-              const suffix = valueParts[3] || '';
-              target.style.setProperty('--target', numericValue);
-              target.style.setProperty('counter-reset', `number var(--number)`);
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
-              if(prefix || suffix) {
-                const style = document.createElement('style');
-                style.textContent =`
-                  .stat-val[data-target="${targetValue}"]::after {
-                    content: "${prefix}" counter(number) "${suffix}";
-                  }
-                `;
-                document.head.appendChild(style); 
-              }
-              target.classList.add('animate', 'animated');
-            }
-            observer.unobserve(target);
-          }
-        })
-      }, {
-        threshold: 0.5
-      })
-      statElements.forEach(el=>observer.observe(el))
+  const animateCounter = (el, endValue, { duration = 1400, prefix = "", suffix = "" } = {}) => {
+    const startValue = 0;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(t);
+
+      const current = Math.round(startValue + (endValue - startValue) * eased);
+      el.textContent = `${prefix}${current}${suffix}`;
+
+      if (t < 1) requestAnimationFrame(step);
     };
 
-    initStatsAnimation();
+    requestAnimationFrame(step);
+  };
+
+  const parseTarget = (targetValue) => {
+    // matches: prefix + digits + suffix (same as your regex)
+    const match = String(targetValue).match(/^([^0-9]*)(\d+)(.*)$/);
+    if (!match) return null;
+    return {
+      prefix: match[1] || "",
+      value: parseInt(match[2], 10),
+      suffix: match[3] || "",
+    };
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.classList.contains("animated")) {
+          const target = entry.target;
+          const targetValue = target.getAttribute("data-target");
+          const parsed = parseTarget(targetValue);
+
+          if (parsed && Number.isFinite(parsed.value)) {
+            // Optional: keep your class hooks for CSS transitions if needed
+            target.classList.add("animate", "animated");
+
+            // If you used ::after earlier, ensure we write into the element itself
+            // (you can remove this if you want to keep existing text)
+            target.textContent = `${parsed.prefix}0${parsed.suffix}`;
+
+            animateCounter(target, parsed.value, {
+              duration: 1400,
+              prefix: parsed.prefix,
+              suffix: parsed.suffix,
+            });
+          }
+
+          observer.unobserve(target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  statElements.forEach((el) => observer.observe(el));
+};
+
+initStatsAnimation();
 </script>
 
 {% schema %}
