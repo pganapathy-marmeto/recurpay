@@ -424,7 +424,7 @@ html body .upgrade-subscription-cart .subscribe-text-head {
     grid-column: 1/-1 !important;
   }
   .cart-item .cart-item__totals {
-    justify-content: flex-start !important;
+    display: none;
   }
   .cart-items thead tr {
     margin-bottom: 20px;

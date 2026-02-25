@@ -174,10 +174,10 @@
   .number-animation.animate {
     animation-play-state: running;
   }
-
+/* 
   .number-animation::after {
     content: counter(num);
-  }
+  } */
 
   @keyframes counter {
     from {
@@ -366,54 +366,76 @@
 <script>
   (function() {
     // Counter animation for stats
-    document.addEventListener('DOMContentLoaded', function() {
-      const numberElements = document.querySelectorAll('.number-animation');
-      
-      // Set up Intersection Observer to trigger animation when visible
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-            const target = entry.target;
-            const targetValue = target.getAttribute('data-target');
-            
-            // Extract numeric value and any suffix (like +, %, etc.)
-            const numericMatch = targetValue.match(/(\d+)/);
-            const suffix = targetValue.replace(/\d+/, '');
-            
-            if (numericMatch) {
-              const numericValue = parseInt(numericMatch[1]);
-              
-              // Set CSS variable for the target value
-              target.style.setProperty('--target', numericValue);
-              target.style.setProperty('counter-reset', `num var(--num)`);
-              
-              // Update the content to show number + suffix
-              if (suffix) {
-                target.style.setProperty('--suffix', `"${suffix}"`);
-                const style = document.createElement('style');
-                style.textContent = `
-                  .number-animation[data-target="${targetValue}"]::after {
-                    content: counter(num) "${suffix}";
-                  }
-                `;
-                document.head.appendChild(style);
-              }
-              
-              // Trigger animation
-              target.classList.add('animate', 'animated');
-            }
-            
-            // Stop observing this element
-            observer.unobserve(target);
+    document.addEventListener("DOMContentLoaded", function () {
+  const numberElements = document.querySelectorAll(".number-animation");
+
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+  const animateCounter = (el, endValue, { duration = 1400, prefix = "", suffix = "" } = {}) => {
+    const startValue = 0;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const t = Math.min(elapsed / duration, 1);
+      const eased = easeOutCubic(t);
+
+      const current = Math.round(startValue + (endValue - startValue) * eased);
+      el.textContent = `${prefix}${current}${suffix}`;
+
+      if (t < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  const parseTarget = (targetValue) => {
+    // Handles:
+    // "120+" => value 120, suffix "+"
+    // "50%"  => value 50, suffix "%"
+    // "₹120" => prefix "₹", value 120, suffix ""
+    // "₹120+" => prefix "₹", value 120, suffix "+"
+    const match = String(targetValue).match(/^([^0-9]*)(\d+)(.*)$/);
+    if (!match) return null;
+
+    return {
+      prefix: match[1] || "",
+      value: parseInt(match[2], 10),
+      suffix: match[3] || "",
+    };
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !entry.target.classList.contains("animated")) {
+          const target = entry.target;
+          const targetValue = target.getAttribute("data-target");
+          const parsed = parseTarget(targetValue);
+
+          if (parsed && Number.isFinite(parsed.value)) {
+            // Optional: keep your class hooks for any CSS transition you already have
+            target.classList.add("animate", "animated");
+
+            // Start display (optional)
+            target.textContent = `${parsed.prefix}0${parsed.suffix}`;
+
+            animateCounter(target, parsed.value, {
+              duration: 1400,
+              prefix: parsed.prefix,
+              suffix: parsed.suffix,
+            });
           }
-        });
-      }, {
-        threshold: 0.5 // Trigger when 50% visible
+
+          observer.unobserve(target);
+        }
       });
-      
-      // Observe all number animation elements
-      numberElements.forEach(el => observer.observe(el));
-    });
+    },
+    { threshold: 0.5 }
+  );
+
+  numberElements.forEach((el) => observer.observe(el));
+});
   })();
   (function() {
   // Track CTA card clicks with Mixpanel
