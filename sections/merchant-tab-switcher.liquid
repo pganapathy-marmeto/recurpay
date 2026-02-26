@@ -1239,19 +1239,19 @@
           {% when 'widget' %}
             <div class="stage__container {% if forloop.first %} active_tab{% endif %}">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button class="button_tab" data-tab-type="widget">{{ section.settings.button_one }}</button>
+              <button class="button_tab" data-event-name="Demo store-{{page.handle}}-product page" data-tab-type="widget">{{ section.settings.button_one }}</button>
             </div>
             <div class="button_connector"></div>
           {% when 'cart_upsell' %}
             <div class="stage__container">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+              <button data-event-name="Demo store-{{page.handle}}-cart page" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
             </div>
             <div class="button_connector"></div>
           {% when 'portal' %}
             <div class="stage__container">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+              <button data-event-name="Demo store-{{page.handle}}-customer portal" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
             </div>
             {% if forloop.last == false %}
               <div class="button_connector"></div>
@@ -1260,7 +1260,7 @@
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <button class="live_chat">
+      <button class="live_chat" data-event-name="Demo-store-{{page.handle}}-{{section.settings.live_chat_text}}">
         {% if section.settings.live_chat_icon != blank %}
           {{ section.settings.live_chat_icon }}
         {% else %}
@@ -1280,6 +1280,7 @@
       <a
         target="_blank"
         class="button_demo"
+        data-event-name="Demo store-{{page.handle}}-{{section.settings.demo}}"
         href="{{ section.settings.demo_url }}">
         {% if section.settings.demo_html != blank %}
           {{ section.settings.demo_html }}
@@ -1603,6 +1604,23 @@
 
       function setButtonTextOnly(button, text) {
         if (!button) return;
+        {% comment %} Get the active tab button's text {% endcomment %}
+        const activeTabContainer = document.querySelector('.stage__container.active_tab');
+        let activeTabButtonText = '';
+        if (activeTabContainer) {
+          const activeButton = activeTabContainer.querySelector('button');
+          if (activeButton) {
+            // Get only the button's text content, excluding <svg> or child elements
+            activeTabButtonText = Array.from(activeButton.childNodes)
+              .filter(node => node.nodeType === Node.TEXT_NODE)
+              .map(node => node.textContent.trim())
+              .join(' ')
+              .trim();
+          }
+        }
+        // console.log("active tab text", activeTabButtonText);
+        // Set the data-event-name attribute according to instruction
+        button.setAttribute('data-event-name', `Demo store-{{ page.handle }}-${activeTabButtonText}-${text}`);
 
         const label = text || '';
         const textNode = Array.from(button.childNodes).find((node) => {
@@ -1652,8 +1670,6 @@
           section: 'merchant_tab_switcher'
         });
       }
-      // Also log for debugging
-      // console.log('Mixpanel Event:', eventName, properties);
     }
   
     const tabConfig = {
@@ -2029,6 +2045,9 @@
           '.recurpay-subscribe-btn, [data-recurpay-button="subscribe"], [data-recurpay="subscribe"]'
         );
         if (!cta) return;
+
+        //mixpanel event 
+        trackMixpanelEvent(`Demo store-{{page.handle}}-Subscribe now`)
   
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
@@ -2488,27 +2507,9 @@
       
       if (tabIndex !== -1) {
         // Track tab click event
-        let eventName = '';
-        switch(tabType) {
-          case 'widget':
-            eventName = mixpanelEvents.tabWidget;
-            break;
-          case 'cart_upsell':
-            eventName = mixpanelEvents.tabCartUpsell;
-            break;
-          case 'portal':
-            eventName = mixpanelEvents.tabPortal;
-            break;
-          case 'support_resources':
-            eventName = mixpanelEvents.tabSupportResources;
-            break;
-        }
+        let eventName = clickedButton.getAttribute('data-event-name');
         if (eventName) {
-          trackMixpanelEvent(eventName, {
-            tab_type: tabType,
-            tab_index: tabIndex,
-            tab_name: tabConfig[tabType]?.stepName || tabType
-          });
+          trackMixpanelEvent(eventName);
         }
         switchToTab(tabIndex);
   
@@ -2522,10 +2523,11 @@
     // Previous button handler
     if (previousButton) {
       previousButton.addEventListener('click', () => {
-        trackMixpanelEvent(mixpanelEvents.previousButton, {
-          current_tab_index: currentTabIndex,
-          is_on_completion: isOnCompletion
-        });
+        console.log("currentTabIndex",currentTabIndex);
+
+        // trackMixpanelEvent();
+        trackMixpanelEvent(previousButton.getAttribute('data-event-name'));
+
         
         if (isOnCompletion) {
           // Go back from completion page to last real tab
@@ -2549,11 +2551,8 @@
     // Next button handler
     if (nextButton) {
       nextButton.addEventListener('click', () => {
-        {% comment %} console.log(tabType); {% endcomment %}
+        // console.log("button text", `Demo store-{{ page.handle }}-${nextButton.textContent}`);
         if (nextButton.classList.contains('disabled')) return;
-        {% comment %} if(recurpayScript('.active_tab [data-tab-type]').attr('data-tab-type') == "portal"){
-          isOnCompletion = true;
-        } {% endcomment %}
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
           trackMixpanelEvent(mixpanelEvents.nextButton, {
@@ -2564,10 +2563,7 @@
           return;
         }
   
-        trackMixpanelEvent(mixpanelEvents.nextButton, {
-          current_tab_index: currentTabIndex,
-          total_tabs: tabOrder.length
-        });
+        trackMixpanelEvent(nextButton.getAttribute('data-event-name'));
   
         // debugger
         if (currentTabIndex <= tabOrder.length - 1) {
@@ -3021,17 +3017,22 @@
 
   
     return {
-      switchToTab
+      switchToTab,
+      trackMixpanelEvent
     }
   })();
   document.addEventListener('DOMContentLoaded', () => {
     window.Intercom('update', { "hide_default_launcher": true });
     const live_chat_container = document.querySelector(".live_chat");
+    const bookAdemo = document.querySelector(".button_demo");
     live_chat_container.addEventListener("click",(event)=>{
+      initMerchantTabSwitcher.trackMixpanelEvent(live_chat_container.getAttribute('data-event-name'))
       event.preventDefault();
       window.Intercom('show');
     })
-  
+    bookAdemo.addEventListener("click",()=>{
+      initMerchantTabSwitcher.trackMixpanelEvent(bookAdemo.getAttribute('data-event-name'))
+    })
   
     refreshDriver();
   });

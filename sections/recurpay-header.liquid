@@ -403,12 +403,12 @@
       <!-- Desktop Buttons -->
       <div class="header-buttons">
         {% if section.settings.button_primary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_primary_link }}" class="btn primary">
+          <a target="_blank" href="{{ section.settings.button_primary_link }}" data-event-name="Demo store-home-{{section.settings.button_primary_text}}" class="btn primary">
             {{ section.settings.button_primary_text }}
           </a>
         {% endif %}
         {% if section.settings.button_secondary_text != blank %}
-          <a target="_blank" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
+          <a target="_blank" data-event-name="Demo store-home-{{section.settings.button_secondary_text}}" href="{{ section.settings.button_secondary_link }}" class="btn secondary">
             {{ section.settings.button_secondary_text }}
           </a>
         {% endif %}
@@ -549,11 +549,8 @@
   mixpanelButtons.forEach(btn=>{
     btn.addEventListener("click", (event)=>{
       if(typeof mixpanel !== 'undefined' && mixpanel.track ) {
-        const btnText = event.target.textContent.trim();
-        mixpanel.track(btnText,{
-          section: 'Header Navigation'
-        })
-        console.log("target element", event.target.textContent);
+        const btnEvent = btn.getAttribute('data-event-name');
+        mixpanel.track(btnEvent)
       }
     })
   })

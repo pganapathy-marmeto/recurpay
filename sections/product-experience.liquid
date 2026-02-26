@@ -313,7 +313,7 @@
           <a
             href="{{ block.settings.link }}"
             class="cta-card {% if block.settings.primary %}primary{% endif %}"
-            data-event-name="{{ block.settings.event_name | default: 'CTA Card Clicked' }}"
+            data-event-name="Demo store-home-{{ block.settings.title }}"
             data-card-title="{{ block.settings.title }}"
             data-card-type="{% if block.settings.primary %}primary{% else %}secondary{% endif %}">
             {% if block.settings.icon %}
