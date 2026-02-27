@@ -313,7 +313,8 @@
           <a
             href="{{ block.settings.link }}"
             class="cta-card {% if block.settings.primary %}primary{% endif %}"
-            data-event-name="Demo store-home-{{ block.settings.title }}"
+            data-event-name="Demo store - home - {% if  forloop.first %}merchant journey{% else %}partner journey{% endif %}"
+            data-page-name ="{% if  forloop.first %}merchant journey{% else %}partner journey{% endif %}"
             data-card-title="{{ block.settings.title }}"
             data-card-type="{% if block.settings.primary %}primary{% else %}secondary{% endif %}">
             {% if block.settings.icon %}
@@ -444,27 +445,11 @@
   
   ctaCards.forEach(card => {
   card.addEventListener('click', function(e) {
-  const eventName = this.getAttribute('data-event-name');
-  const cardTitle = this.getAttribute('data-card-title');
-  const cardType = this.getAttribute('data-card-type');
-  const cardLink = this.getAttribute('href');
-  
+  sessionStorage.setItem("demoRecurpayPage", card.getAttribute('data-page-name'))
   // Track event with Mixpanel if available
-  if (typeof mixpanel !== 'undefined' && mixpanel.track) {
-  mixpanel.track(eventName, {
-  card_title: cardTitle,
-  card_type: cardType,
-  card_link: cardLink,
-  section: 'Homepage'
-  });
-  }
-  
-  // Also log for debugging
-  /* console.log('Mixpanel Event:', eventName, {
-  card_title: cardTitle,
-  card_type: cardType,
-  card_link: cardLink
-  }); */
+    if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+    mixpanel.track(card.getAttribute('data-event-name'));
+    }
   });
   });
   });

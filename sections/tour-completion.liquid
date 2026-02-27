@@ -479,7 +479,7 @@
 
 <section class="completion-cta">
   <div class="merchant_tab_switcher_wrapper">
-    <a class="redirect" href="{{ section.settings.redirect_link }}">
+    <a class="redirect" href="{{ section.settings.redirect_link }}" data-event-name="">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -493,7 +493,7 @@
         class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
       {{ section.settings.redirect_text }}</a>
     <div class="redirect_buttons__wrapper">
-      <a href="{{ section.settings.retour_link }}" class="reTour">
+      <a href="{{ section.settings.retour_link }}" class="reTour" data-event-name="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -584,7 +584,7 @@
       target="_blank"
         href="{{ section.settings.primary_button_link }}"
         class="cta-primary"
-        data-event-name="Demo store-{{page.handle}}-{{section.settings.primary_button_text}}">
+        data-event-name="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -696,13 +696,25 @@
       });
     }
 
-    const mixpanelInstall = document.querySelector(".cta-primary");
-    mixpanelInstall.addEventListener("click", function(e) {
-      if (typeof mixpanel !== 'undefined' && mixpanel.track) {
-        mixpanel.track(mixpanelInstall.getAttribute('data-event-name'));
-      }
+    const mixpanelButtons = document.querySelectorAll(".cta-primary, .cta-secondary-group a, .redirect, .reTour");
+    mixpanelButtons.forEach(button => {
+      button.addEventListener("click", function(e) {
+        if (typeof mixpanel !== 'undefined' && mixpanel.track) {
+          mixpanel.track(button.getAttribute('data-event-name'));
+        }
+      })
     })
   });
+  (function(){
+    const exitDemo = document.querySelector(".redirect");
+    const reTour = document.querySelector(".reTour");
+    const ctaPrimary = document.querySelector(".cta-primary");
+    const ctaSecondaryGroup = document.querySelector(".cta-secondary-group a");
+    exitDemo.setAttribute('data-event-name', `Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - exit demo`);
+    reTour.setAttribute('data-event-name', `Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - retour`);
+    ctaPrimary.setAttribute('data-event-name', `Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - install recurpay for free`);
+    ctaSecondaryGroup.setAttribute('data-event-name', `Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - talk to an expert`);
+  })()
 </script>
 
 

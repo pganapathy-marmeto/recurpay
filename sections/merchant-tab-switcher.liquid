@@ -1239,19 +1239,19 @@
           {% when 'widget' %}
             <div class="stage__container {% if forloop.first %} active_tab{% endif %}">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button class="button_tab" data-event-name="Demo store-{{page.handle}}-product page" data-tab-type="widget">{{ section.settings.button_one }}</button>
+              <button class="button_tab" data-event-name="" data-tab-type="widget">{{ section.settings.button_one }}</button>
             </div>
             <div class="button_connector"></div>
           {% when 'cart_upsell' %}
             <div class="stage__container">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button data-event-name="Demo store-{{page.handle}}-cart page" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
+              <button data-event-name="" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="cart_upsell">{{ section.settings.button_two }}</button>
             </div>
             <div class="button_connector"></div>
           {% when 'portal' %}
             <div class="stage__container">
               <div class="stage_number">{{ forloop.index }}</div>
-              <button data-event-name="Demo store-{{page.handle}}-customer portal" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
+              <button data-event-name="" class="button_tab{% if forloop.first %} active_tab{% endif %}" data-tab-type="portal">{{ section.settings.button_three }}</button>
             </div>
             {% if forloop.last == false %}
               <div class="button_connector"></div>
@@ -1260,7 +1260,7 @@
       {% endfor %}
     </div>
     <div class="redirect_buttons__wrapper">
-      <button class="live_chat" data-event-name="Demo-store-{{page.handle}}-{{section.settings.live_chat_text}}">
+      <button class="live_chat" data-event-name="">
         {% if section.settings.live_chat_icon != blank %}
           {{ section.settings.live_chat_icon }}
         {% else %}
@@ -1280,7 +1280,7 @@
       <a
         target="_blank"
         class="button_demo"
-        data-event-name="Demo store-{{page.handle}}-{{section.settings.demo}}"
+        data-event-name=""
         href="{{ section.settings.demo_url }}">
         {% if section.settings.demo_html != blank %}
           {{ section.settings.demo_html }}
@@ -1604,24 +1604,6 @@
 
       function setButtonTextOnly(button, text) {
         if (!button) return;
-        {% comment %} Get the active tab button's text {% endcomment %}
-        const activeTabContainer = document.querySelector('.stage__container.active_tab');
-        let activeTabButtonText = '';
-        if (activeTabContainer) {
-          const activeButton = activeTabContainer.querySelector('button');
-          if (activeButton) {
-            // Get only the button's text content, excluding <svg> or child elements
-            activeTabButtonText = Array.from(activeButton.childNodes)
-              .filter(node => node.nodeType === Node.TEXT_NODE)
-              .map(node => node.textContent.trim())
-              .join(' ')
-              .trim();
-          }
-        }
-        // console.log("active tab text", activeTabButtonText);
-        // Set the data-event-name attribute according to instruction
-        button.setAttribute('data-event-name', `Demo store-{{ page.handle }}-${activeTabButtonText}-${text}`);
-
         const label = text || '';
         const textNode = Array.from(button.childNodes).find((node) => {
           return node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '';
@@ -1644,22 +1626,59 @@
 
       setButtonTextOnly(previousButton, config.previousButtonText);
       setButtonTextOnly(nextButton, config.nextButtonText);
+
+        // Set hardcoded data-event-name for next and previous buttons per step
+      const stepEvents = mixpanelEvents[sessionStorage.getItem('demoRecurpayPage')][tabType];
+      if (stepEvents) {
+        if (nextButton) {
+          nextButton.setAttribute('data-event-name', stepEvents.nextButton);
+        }
+        if (previousButton) {
+          previousButton.setAttribute('data-event-name', stepEvents.previousButton);
+        }
+      }
     }
   
-    // Mixpanel event names from settings
+    // Mixpanel event names — hardcoded per step for .button_tab, .next & .previous
     const mixpanelEvents = {
-      tabWidget: {{ section.settings.event_tab_widget | default: "Tab Clicked - Widget" | json }},
-      tabCartUpsell: {{ section.settings.event_tab_cart_upsell | default: "Tab Clicked - Cart Upsell" | json }},
-      tabPortal: {{ section.settings.event_tab_portal | default: "Tab Clicked - Portal" | json }},
-      tabSupportResources: {{ section.settings.event_tab_support_resources | default: "Tab Clicked - Support & Resources" | json }},
-      previousButton: {{ section.settings.event_previous_button | default: "Previous Button Clicked" | json }},
-      nextButton: {{ section.settings.event_next_button | default: "Next Button Clicked" | json }},
-      showGuide: {{ section.settings.event_show_guide | default: "Show Guide Clicked" | json }},
-      guideBack: {{ section.settings.event_guide_back | default: "Guide Back Button Clicked" | json }},
-      guideFinish: {{ section.settings.event_guide_finish | default: "Guide Finish Button Clicked" | json }},
-      sidebarToggle: {{ section.settings.event_sidebar_toggle | default: "Sidebar Toggle Clicked" | json }},
-      sidebarRestore: {{ section.settings.event_sidebar_restore | default: "Sidebar Restore Clicked" | json }},
-      completionPage: {{ section.settings.event_completion_page | default: "Completion Page Reached" | json }}
+      'merchant journey':{
+        widget: {
+          tabButton: "Demo store - merchant journey - product page",
+          nextButton: "Demo store - merchant journey - continue to cart",
+          previousButton: "Demo store - merchant journey - back from product page"
+        },
+        cart_upsell: {
+          tabButton: "Demo store - merchant journey - cart page",
+          nextButton: "Demo store - merchant journey - continue to customer portal",
+          previousButton: "Demo store - merchant journey - back to product page"
+        },
+        portal: {
+          tabButton: "Demo store - merchant journey - customer portal",
+          nextButton: "Demo store - merchant journey - see what's next",
+          previousButton: "Demo store - merchant journey - back to cart page"
+        },
+        live_chat: "Demo store - merchant journey - need help",
+        button_demo: "Demo store - merchant journey - talk to an expert"
+      },
+      'partner journey':{
+        widget: {
+          tabButton: "Demo store - partner journey - product page",
+          nextButton: "Demo store - partner journey - continue to cart",
+          previousButton: "Demo store - partner journey - back from product page"
+        },
+        cart_upsell: {
+          tabButton: "Demo store - partner journey - cart page",
+          nextButton: "Demo store - partner journey - continue to customer portal",
+          previousButton: "Demo store - partner journey - back to product page"
+        },
+        portal: {
+          tabButton: "Demo store - partner journey - customer portal",
+          nextButton: "Demo store - partner journey - finish tour",
+          previousButton: "Demo store - partner journey - back to cart page"
+        },
+        live_chat: "Demo store - partner journey - live chat",
+        button_demo: "Demo store - partner journey - become a partner"
+      }
     };
   
     // Helper function to track Mixpanel events
@@ -1671,6 +1690,34 @@
         });
       }
     }
+  
+    // Initialize data-event-name on .button_tab, .live_chat, .button_demo from sessionStorage
+    (function initEventNames() {
+      const journeyType = sessionStorage.getItem('demoRecurpayPage');
+      if (!journeyType || !mixpanelEvents[journeyType]) return;
+
+      const journeyEvents = mixpanelEvents[journeyType];
+
+      // Set data-event-name on each .button_tab based on its data-tab-type
+      tabButtons.forEach(btn => {
+        const tabType = btn.getAttribute('data-tab-type');
+        if (journeyEvents[tabType] && journeyEvents[tabType].tabButton) {
+          btn.setAttribute('data-event-name', journeyEvents[tabType].tabButton);
+        }
+      });
+
+      // Set data-event-name on .live_chat
+      const liveChatBtn = document.querySelector('.live_chat');
+      if (liveChatBtn && journeyEvents.live_chat) {
+        liveChatBtn.setAttribute('data-event-name', journeyEvents.live_chat);
+      }
+
+      // Set data-event-name on .button_demo
+      const buttonDemoEl = document.querySelector('.button_demo');
+      if (buttonDemoEl && journeyEvents.button_demo) {
+        buttonDemoEl.setAttribute('data-event-name', journeyEvents.button_demo);
+      }
+    })();
   
     const tabConfig = {
       widget: {
@@ -2047,7 +2094,7 @@
         if (!cta) return;
 
         //mixpanel event 
-        trackMixpanelEvent(`Demo store-{{page.handle}}-Subscribe now`)
+        trackMixpanelEvent(`Demo store-${sessionStorage.getItem('demoRecurpayPage')}-subscribe now`)
   
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
@@ -2091,6 +2138,20 @@
     }
   
     attachWidgetCtaAutoSwitch();
+
+    // Track .subscribe-text-button clicks on cart_upsell tab
+    if (mainContentContainer) {
+      mainContentContainer.addEventListener('click', (event) => {
+        const subscribeBtn = event.target.closest('.subscribe-text-button');
+        if (!subscribeBtn) return;
+
+        const activeTabType = tabOrder[currentTabIndex];
+        console.log("activeTabType", activeTabType)
+        if (activeTabType === 'cart_upsell') {
+          trackMixpanelEvent(`Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - subscribe text button`);
+        }
+      });
+    }
   
     // Function to load content for a specific tab
     function loadTabContent(tabType) {
@@ -2503,14 +2564,11 @@
     function handleTabClick(event) {
       const clickedButton = event.currentTarget;
       const tabType = clickedButton.getAttribute('data-tab-type');
+      // clickedButton.setAttribute('data-event-name', mixpanelEvents[sessionStorage.getItem('demoRecurpayPage')][tabType].tabButton);
       const tabIndex = tabOrder.indexOf(tabType);
       
       if (tabIndex !== -1) {
-        // Track tab click event
-        let eventName = clickedButton.getAttribute('data-event-name');
-        if (eventName) {
-          trackMixpanelEvent(eventName);
-        }
+        trackMixpanelEvent(clickedButton.getAttribute('data-event-name'));
         switchToTab(tabIndex);
   
         // If Driver.js guide is active and we're not on completion, re-run it on the new tab
@@ -2555,7 +2613,7 @@
         if (nextButton.classList.contains('disabled')) return;
         // If on completion page, redirect to homepage
         if (isOnCompletion) {
-          trackMixpanelEvent(mixpanelEvents.nextButton, {
+          trackMixpanelEvent("Demo store-finish tour", {
             current_tab_index: currentTabIndex,
             total_tabs: tabOrder.length,
             action: 'finish_tour'
