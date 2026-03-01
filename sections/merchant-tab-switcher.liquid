@@ -1552,7 +1552,7 @@
   const driver = window.driver.js.driver;
   const driverObj = driver({
     onCloseClick:() => {
-      console.log('Close Button Clicked');
+      {% comment %} console.log('Close Button Clicked'); {% endcomment %}
       // Implement your own functionality here
       driverObj.destroy();
     }
@@ -1907,7 +1907,7 @@
   
       if(sidebarHeaderTitle) {
         sidebarHeaderTitle.textContent = config.sidebarHeader;
-        console.log("sidebarHeaderTitle", sidebarHeaderTitle);
+        {% comment %} console.log("sidebarHeaderTitle", sidebarHeaderTitle); {% endcomment %}
       }
       if (sidebarTitle) sidebarTitle.textContent = config.sidebarTitle;
       if (sidebarDescription) sidebarDescription.textContent = config.sidebarDescription;
@@ -2061,7 +2061,7 @@
           return;
         }
         
-        console.log('Product added to cart successfully');
+        {% comment %} console.log('Product added to cart successfully'); {% endcomment %}
       } catch (error) {
         console.log('Error ensuring cart has items:', error);
       }
@@ -2098,7 +2098,7 @@
   
         // If this CTA is inside a /cart/add form, add to cart via AJAX before switching tab
         const cartForm = cta.closest('form[action*="/cart/add"]');
-        console.log("cartForm", cartForm);
+        {% comment %} console.log("cartForm", cartForm); {% endcomment %}
         if (cartForm) {
           event.preventDefault();
           let formData = new FormData(cartForm);
@@ -2115,7 +2115,7 @@
               if (!response.ok) {
                 throw new Error(`Add to cart failed with status ${response.status}`);
               }
-              console.log(response.json());
+              {% comment %} console.log(response.json()); {% endcomment %}
             })
             .then(() => {
               setTimeout(() => {
@@ -2146,7 +2146,7 @@
         if (!subscribeBtn) return;
 
         const activeTabType = tabOrder[currentTabIndex];
-        console.log("activeTabType", activeTabType)
+        {% comment %} console.log("activeTabType", activeTabType) {% endcomment %}
         if (activeTabType === 'cart_upsell') {
           trackMixpanelEvent(`Demo store - ${sessionStorage.getItem('demoRecurpayPage')} - subscribe text button`);
         }
@@ -2240,7 +2240,7 @@
               // ⭐ VERY IMPORTANT - attach load listener BEFORE setting src
               iframe.addEventListener('load', function () {
   
-                  console.log("iframe fully loaded");
+                  {% comment %} console.log("iframe fully loaded"); {% endcomment %}
   
                   if (loader) {
                       loader.style.transition = "opacity .3s ease";
@@ -2295,7 +2295,7 @@
           // Look for Shopify section IDs first
           const sections = parsed.querySelectorAll('#MainContent');
           if (tabType === 'cart_upsell') {
-            console.log(" sections==>", sections)
+            {% comment %} console.log(" sections==>", sections) {% endcomment %}
           }
           // If no sections found, try to find main content area
           if (sections.length === 0) {
@@ -2444,7 +2444,7 @@
       if (headerContainer) {
         headerContainer.classList.remove('completion-active');
       }
-      console.log("index", currentTabIndex)
+      {% comment %} console.log("index", currentTabIndex) {% endcomment %}
       const tabType = tabOrder[tabIndex];
       if( tabType !== 'portal') {
         showDriverLoader();
@@ -2581,7 +2581,7 @@
     // Previous button handler
     if (previousButton) {
       previousButton.addEventListener('click', () => {
-        console.log("currentTabIndex",currentTabIndex);
+        {% comment %} console.log("currentTabIndex",currentTabIndex); {% endcomment %}
 
         // trackMixpanelEvent();
         trackMixpanelEvent(previousButton.getAttribute('data-event-name'));
@@ -2709,7 +2709,7 @@
     function runDriverShowGuide() {
       // Determine current tab type (use 'completion' when on completion page)
       const currentTabType = isOnCompletion ? 'completion' : (tabOrder[currentTabIndex] || 'widget');
-      console.log("currentTab", currentTabType);
+      {% comment %} console.log("currentTab", currentTabType); {% endcomment %}
   
       // Map tab type to the element selector to highlight
       function getHighlightSelector(tabType) {
@@ -2743,7 +2743,7 @@
         } {% endcomment %}
   
         if (targetEl) {
-          console.log('Target element found:', targetEl);
+          {% comment %} console.log('Target element found:', targetEl); {% endcomment %}
           // Ensure Driver.js is available before initializing
           if (!window.driver || !window.driver.js || typeof window.driver.js.driver !== 'function') {
             console.warn('Driver.js is not available');
@@ -2762,7 +2762,7 @@
           }else {
             targetEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
           }
-          console.log("current tab value",tabConfig[currentTabType].guideTitle)
+          {% comment %} console.log("current tab value",tabConfig[currentTabType].guideTitle) {% endcomment %}
           // Start Driver.js highlight with empty popover so we can replace its content
           driverObj.highlight({
             element: targetEl,
@@ -2828,7 +2828,7 @@
                   }
                   const isLastRealTab = currentTabIndex >= tabOrder.length - 1;
                   if (isLastRealTab) {
-                    console.log("finish button text", finishBtn.textContent);
+                    {% comment %} console.log("finish button text", finishBtn.textContent); {% endcomment %}
                     showCompletionStep();
                     if(finishBtn.textContent.toLowerCase().includes('next')) {
   
