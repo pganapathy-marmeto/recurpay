@@ -41,6 +41,7 @@
     gap: 18px;
     padding: 24px;
     border-radius: 18px;
+    height: fit-content;
     border: 1px solid #e5e5e5;
     text-decoration: none;
     color: #000;
@@ -52,8 +53,12 @@
     color: #fff;
     box-shadow: 0 15px 40px rgba(21, 159, 107, 0.25);
   }
-  .cta-card h3 {
+  .cta-card h2 {
     margin: 0;
+    line-height: normal;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
   }
   .cta-card p {
     margin: 0;
@@ -298,10 +303,10 @@
       </div>
     {% endif %}
 
-    <h2 class="demo-heading">
+    <h1 class="demo-heading">
       {{ section.settings.heading_main }} <br>
       <span>{{ section.settings.heading_highlight }}</span>
-    </h2>
+    </h1>
 
     <p class="demo-description">
       {{ section.settings.description }}
@@ -323,7 +328,7 @@
               </div>
             {% endif %}
             <div>
-              <h3>{{ block.settings.title }}</h3>
+              <h2>{{ block.settings.title }}</h2>
               <p>{{ block.settings.subtitle }}</p>
             </div>
             <span class="arrow">
