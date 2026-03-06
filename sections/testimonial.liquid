@@ -175,7 +175,7 @@
           <div class="testimonial-footer">
             {% if block.settings.avatar %}
               <div class="brand__container">
-                {{ block.settings.avatar | image_url: width: 1000, height: 1000 | image_tag }}
+                {{ block.settings.avatar | image_url: width: 1000 | image_tag: srcset: nil }}
               </div>
             {% endif %}
             <div>

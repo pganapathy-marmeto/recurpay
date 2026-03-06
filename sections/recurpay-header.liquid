@@ -358,7 +358,7 @@
       <!-- Logo -->
       <a href="{{ routes.root_url }}" class="header-logo">
         {% if section.settings.logo %}
-          {{ section.settings.logo |  image_url: height: 60 |  image_tag }}
+          {{ section.settings.logo |  image_url: height: 60 |  image_tag: srcset: nil, preload: true}}
         {% endif %}
         {% if section.settings.brand_text != blank %}
           <span>{{ section.settings.brand_text }}</span>

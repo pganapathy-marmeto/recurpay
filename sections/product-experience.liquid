@@ -294,10 +294,10 @@
     {% if section.settings.badge_text != blank %}
       <div class="demo-badge">
         <div class="hero-avatar-stack">
-          {{ section.settings.image_one | image_url: width: 1000, height: 1000 | image_tag }}
-          {{ section.settings.image_two | image_url: width: 1000, height: 1000 | image_tag }}
-          {{ section.settings.image_three | image_url: width: 1000, height: 1000 | image_tag }}
-          {{ section.settings.image_four | image_url: width: 1000, height: 1000 | image_tag }}
+          {{ section.settings.image_one | image_url: width: 1000, height: 1000 | image_tag: srcset: nil, preload: true}}
+          {{ section.settings.image_two | image_url: width: 1000, height: 1000 | image_tag: srcset: nil, preload: true}}
+          {{ section.settings.image_three | image_url: width: 1000, height: 1000 | image_tag: srcset: nil, preload: true}}
+          {{ section.settings.image_four | image_url: width: 1000, height: 1000 | image_tag: srcset: nil, preload: true}}
         </div>
         <span>{{ section.settings.badge_text }}</span>
       </div>
