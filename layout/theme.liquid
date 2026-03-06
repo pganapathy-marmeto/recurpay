@@ -80,20 +80,24 @@
 
 
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": {{ shop.name | json }},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {{ potential_action_target | json }},
-        "query-input": "required name=search_term_string"
-      },
-      "url": {{ request.origin | append: page.url | json }}
-    }
-  </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "OnlineStore",
+        "name": "Recurpay online store",
+        "url": "https://demo.recurpay.com",
+        "sameAs": [
+          "https://recurpay-subscriptions.myshopify.com"
+        ],
+        "logo": "https://cdn.shopify.com/s/files/1/0747/9122/3459/files/recurpaylogo.svg?v=1771420643",
+        "contactPoint": {
+          "contactType": "Customer Service",
+          "email": "help@recurpay.com"
+        },
+        "email": "help@recurpay.com",
+        "description": "Recurpay is a subscription app for your online store."
+      }
+    </script>
 {%- endif -%}
 
     {{ content_for_header }}
