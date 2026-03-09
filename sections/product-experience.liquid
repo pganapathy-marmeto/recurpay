@@ -53,7 +53,7 @@
     color: #fff;
     box-shadow: 0 15px 40px rgba(21, 159, 107, 0.25);
   }
-  .cta-card h2 {
+  .cta-card p:first-child {
     margin: 0;
     line-height: normal;
     font-size: 18px;
@@ -328,7 +328,7 @@
               </div>
             {% endif %}
             <div>
-              <h2>{{ block.settings.title }}</h2>
+              <p>{{ block.settings.title }}</p>
               <p>{{ block.settings.subtitle }}</p>
             </div>
             <span class="arrow">

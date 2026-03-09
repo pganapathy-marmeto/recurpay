@@ -111,7 +111,8 @@
       <h3 class="render-product-card__title">{{ card_product.title | escape }}</h3>
       <p class="render-product-card__price">
         {%- if card_product.price_varies -%}
-          {{ 'products.product.price.from_price_html' | t: price: card_product.price_min | money }}
+          {%- assign min_price = card_product.price_min | money -%}
+          {{ 'products.product.price.from_price_html' | t: price: min_price }}
         {%- else -%}
           {{ card_product.price | money }}
         {%- endif -%}
