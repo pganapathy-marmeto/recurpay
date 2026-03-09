@@ -69,14 +69,14 @@
 
     {% comment %} drivejs {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
-    <link rel="preload"
+    {% comment %} <link rel="preload"
       href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
+      onload="this.onload=null;this.rel='stylesheet'"> {% endcomment %}
 
-<noscript>
+{% comment %} <noscript> {% endcomment %}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css">
-</noscript>
+{% comment %} </noscript> {% endcomment %}
 
 
 {%- if request.page_type == 'index' -%}
