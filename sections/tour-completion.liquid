@@ -255,7 +255,7 @@
     cursor: pointer;
     text-decoration: none;
   }
-  .redirect_buttons__wrapper {
+  .{{ section.id }}--redirect_buttons__wrapper {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -492,7 +492,7 @@
         stroke-linejoin="round"
         class="lucide lucide-house-icon lucide-house"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
       {{ section.settings.redirect_text }}</a>
-    <div class="redirect_buttons__wrapper">
+    <div class="{{ section.id }}--redirect_buttons__wrapper">
       <a href="{{ section.settings.retour_link }}" class="reTour" data-event-name="">
         <svg
           xmlns="http://www.w3.org/2000/svg"

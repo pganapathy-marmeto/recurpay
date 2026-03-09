@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+    {% if template.name == 'page' %}
+      <meta name="robots" content="noindex">
+    {% endif %}
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -80,19 +83,23 @@
 
 
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": {{ shop.name | json }},
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {{ potential_action_target | json }},
-        "query-input": "required name=search_term_string"
-      },
-      "url": {{ request.origin | append: page.url | json }}
-    }
+        "@context": "https://schema.org",
+        "@type": "OnlineStore",
+        "name": "Recurpay demo store",
+        "url": "https://demo.recurpay.com",
+        "sameAs": [
+          "https://recurpay-subscriptions.myshopify.com"
+        ],
+        "logo": "https://cdn.shopify.com/s/files/1/0747/9122/3459/files/recurpaylogo.svg?v=1771420643",
+        "contactPoint": {
+          "contactType": "Customer Service",
+          "email": "help@recurpay.com"
+        },
+        "email": "help@recurpay.com",
+        "description": "Recurpay is a Shopify subscription app that enables merchants to sell subscriptions, prepaid plans, and recurring products with flexible billing and customer portal management."
+      }
   </script>
 {%- endif -%}
 
