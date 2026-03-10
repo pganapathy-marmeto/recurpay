@@ -322,7 +322,7 @@
       }
   {% endstyle %}
 
-  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'base.css' | asset_url | stylesheet_tag: preload: true}}
 
   {%- unless settings.type_body_font.system? -%}
     <link
