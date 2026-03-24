@@ -89,10 +89,10 @@
       ],
       "name": "Product experience",
       "settings": {
-        "image_one": "shopify://shop_images/6939749cd070ad719f46ce81_zapiet-p-500.jpg",
-        "image_two": "shopify://shop_images/69396ed1cffb10ba6f562371_Steve-p-500.jpg",
-        "image_three": "shopify://shop_images/693bed1b751035a3ab0e0390_2_20_3_-p-500.png",
-        "image_four": "shopify://shop_images/6936d77d1e8e47ca55f7b81f_Ellipse_2024.jpg",
+        "image_one": "shopify://shop_images/69396ed1cffb10ba6f562371_Steve-p-500.jpg",
+        "image_two": "shopify://shop_images/6939749cd070ad719f46ce81_zapiet-p-500.jpg",
+        "image_three": "shopify://shop_images/693bed1b751035a3ab0e0390_2_3_-p-500.png",
+        "image_four": "shopify://shop_images/6936d77d1e8e47ca55f7b81f_Ellipse_24.jpg",
         "badge_text": "Trusted by industry leaders",
         "heading_main": "Try best subscriptions app",
         "heading_highlight": "for Shopify",
@@ -462,7 +462,6 @@
           "settings": {
             "rating": 5,
             "content": "<p>We have over 300 accounts that needed to be transferred over from our previous subscription app.</p><p>We like that they solely focus on subscriptions and are able to give the attention needed.</p><p>We are looking forward to working with RecurPay, and continuing to help each other grow!</p>",
-            "avatar": "shopify://shop_images/663ca6b789a1bd32d4f79f37_trademark-MightyMissouri-Logo-noedges_9c592d7f-9616-4b58-9c5a-d70fab70c1a7_2.png",
             "name": "Mighty Missouri Coffee Co",
             "location": "United States"
           }
