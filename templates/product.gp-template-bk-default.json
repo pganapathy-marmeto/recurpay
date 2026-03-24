@@ -8,14 +8,49 @@
  * ------------------------------------------------------------
  */
 {
-  "order": [
-    "main",
-    "related-products"
-  ],
   "sections": {
+    "recurpay_header_NF7hwD": {
+      "type": "recurpay-header",
+      "disabled": true,
+      "name": "Header navigation",
+      "settings": {
+        "logo": "shopify://shop_images/Recurpay_Logo.png",
+        "brand_text": "Recurpay",
+        "main_menu": "header-new-menu",
+        "button_primary_text": "Install Now",
+        "button_primary_link": "",
+        "button_secondary_text": "Book a Demo",
+        "button_secondary_link": ""
+      }
+    },
     "main": {
       "type": "main-product",
       "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -26,31 +61,6 @@
         "description": {
           "type": "description",
           "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
         }
       },
       "block_order": [
@@ -95,5 +105,10 @@
         "padding_bottom": 28
       }
     }
-  }
+  },
+  "order": [
+    "recurpay_header_NF7hwD",
+    "main",
+    "related-products"
+  ]
 }

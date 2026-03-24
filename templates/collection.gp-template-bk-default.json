@@ -9,6 +9,7 @@
  */
 {
   "order": [
+    "recurpay_header_kbBGcw",
     "banner",
     "product-grid"
   ],
@@ -39,6 +40,19 @@
         "show_vendor": false
       },
       "type": "main-collection-product-grid"
+    },
+    "recurpay_header_kbBGcw": {
+      "name": "Header navigation",
+      "settings": {
+        "brand_text": "Recurpay",
+        "button_primary_link": "",
+        "button_primary_text": "Install Now",
+        "button_secondary_link": "",
+        "button_secondary_text": "Book a Demo",
+        "logo": "shopify://shop_images/Recurpay_Logo.png",
+        "main_menu": "header-new-menu"
+      },
+      "type": "recurpay-header"
     }
   }
 }
