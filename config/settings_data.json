@@ -145,9 +145,9 @@
     "blocks": {
       "10557767768680663964": {
         "type": "shopify://apps/recurpay-subscriptions-app/blocks/recurpay-widget/c600a513-dad8-4030-8697-de47c18881f2",
-        "disabled": true,
+        "disabled": false,
         "settings": {
-          "enable_date_range": true,
+          "enable_date_range": false,
           "start_date": "16-02-2026",
           "end_date": "16-09-2026"
         }
