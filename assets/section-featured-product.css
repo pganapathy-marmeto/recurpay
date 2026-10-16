@@ -122,9 +122,9 @@ span.recurpay-widget-banner_tag-text {
   font-weight: 600 !important;
 }
 
-.recurpay__widget .recurpay__widget_container.recurpay__widget_container--selected {
+/* .recurpay__widget .recurpay__widget_container.recurpay__widget_container--selected {
   border: none !important;
-}
+} */
 
 .recurpay__widget.recurpay__subscription_first {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12) !important;
